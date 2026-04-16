@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.css";
 
-// ─── Intersection hook ───────────────────────────────────────────────────────
-function useReveal(threshold = 0.18) {
+// ── Intersection reveal hook ──────────────────────────────────────────────────
+function useReveal(threshold = 0.28) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -18,191 +18,194 @@ function useReveal(threshold = 0.18) {
   return { ref, visible };
 }
 
-// ─── Typewriter ──────────────────────────────────────────────────────────────
-const ROLES = [
-  "API Documentation",
-  "AI-Optimised Content",
-  "Developer Guides",
-  "DITA / XML Authoring",
-  "Docs-as-Code Workflows",
-];
-
-function Typewriter() {
-  const [text, setText] = useState("");
-  const [roleIdx, setRoleIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const target = ROLES[roleIdx];
-    let timer: ReturnType<typeof setTimeout>;
-
-    if (!deleting && text === target) {
-      timer = setTimeout(() => setDeleting(true), 1800);
-    } else if (deleting && text === "") {
-      setDeleting(false);
-      setRoleIdx((i) => (i + 1) % ROLES.length);
-    } else {
-      timer = setTimeout(() => {
-        setText(deleting ? text.slice(0, -1) : target.slice(0, text.length + 1));
-      }, deleting ? 40 : 70);
-    }
-    return () => clearTimeout(timer);
-  }, [text, deleting, roleIdx]);
-
-  return (
-    <span style={{ color: "#e2e8f0", fontSize: "1.1rem" }}>
-      {text}
-      <span className="typed-cursor" />
-    </span>
-  );
-}
-
-// ─── Animated viz: AI Documentation ─────────────────────────────────────────
-function DocViz({ active }: { active: boolean }) {
+// ── Animated card 1: AI Documentation ─────────────────────────────────────────
+function AiDocViz({ active }: { active: boolean }) {
   const lines = [
-    { w: "85%", color: "#e2e8f0" },
-    { w: "70%", color: "#94a3b8" },
-    { w: "90%", color: "#94a3b8" },
-    { w: "55%", color: "#94a3b8" },
-    { w: "75%", color: "#06b6d4" },
-    { w: "60%", color: "#94a3b8" },
+    { w: 88, label: "# Getting Started with IBM Cloud API", bold: true },
+    { w: 60, label: "Base URL: https://api.cloud.ibm.com" },
+    { w: 78, label: "## Authentication" },
+    { w: 92, label: "POST /v1/iam/token  →  Bearer token" },
+    { w: 55, label: "## Endpoints" },
+    { w: 82, label: "GET  /v2/resource-instances" },
+    { w: 71, label: "POST /v2/resource-instances  →  201 Created" },
   ];
+
   return (
-    <div className="glass p-5 w-full" style={{ minHeight: 160 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
-        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#ef4444" }} />
-        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#eab308" }} />
-        <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#22c55e" }} />
-        <span style={{ marginLeft: 8, fontSize: 11, color: "#64748b" }}>api-reference.md</span>
+    <div className="card" style={{ padding: "1.5rem", width: "100%" }}>
+      {/* Editor chrome */}
+      <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 14 }}>
+        {["#ef4444", "#f59e0b", "#22c55e"].map((c) => (
+          <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
+        ))}
+        <span style={{ marginLeft: 8, fontSize: 11, color: "var(--muted)", fontFamily: "monospace" }}>
+          api-reference.md
+        </span>
       </div>
+
       {lines.map((l, i) => (
         <div
           key={i}
           style={{
-            height: 7,
-            background: l.color === "#06b6d4"
-              ? "linear-gradient(90deg,#06b6d4,#7c3aed)"
-              : l.color,
+            height: l.bold ? 9 : 6,
+            background: l.bold
+              ? "linear-gradient(90deg, hsl(210,88%,52%), hsl(100,40%,44%))"
+              : i % 3 === 0
+              ? "hsl(100,40%,44%)"
+              : "hsl(40,8%,80%)",
             borderRadius: 4,
-            marginBottom: 8,
-            opacity: active ? 0.75 : 0,
-            width: active ? l.w : "0%",
-            transition: `width 0.55s ease ${i * 0.12}s, opacity 0.4s ease ${i * 0.12}s`,
+            marginBottom: 9,
+            width: active ? `${l.w}%` : "0%",
+            opacity: active ? 1 : 0,
+            transition: `width 0.55s ease ${i * 0.11}s, opacity 0.4s ease ${i * 0.11}s`,
           }}
         />
       ))}
-      <div style={{
-        marginTop: 10,
-        fontSize: 10,
-        color: "#7c3aed",
-        opacity: active ? 1 : 0,
-        transition: "opacity 0.5s ease 0.9s",
-        fontFamily: "monospace"
-      }}>
+
+      <div
+        style={{
+          marginTop: 12,
+          fontSize: 11,
+          fontFamily: "monospace",
+          color: "hsl(100,40%,38%)",
+          fontWeight: 600,
+          opacity: active ? 1 : 0,
+          transition: "opacity 0.5s ease 1s",
+        }}
+      >
         ✦ LLM-optimised structure applied
       </div>
     </div>
   );
 }
 
-// ─── Animated viz: DITA / Structured Content ─────────────────────────────────
-function DitaViz({ active }: { active: boolean }) {
-  const tags = [
-    { tag: "<concept>", indent: 0 },
-    { tag: "<title>", indent: 1 },
-    { tag: "<conbody>", indent: 1 },
-    { tag: "<p>", indent: 2 },
-    { tag: "</conbody>", indent: 1 },
-    { tag: "</concept>", indent: 0 },
-  ];
-  return (
-    <div className="glass p-5 w-full" style={{ minHeight: 160, fontFamily: "monospace", fontSize: 12 }}>
-      {tags.map((t, i) => (
-        <div
-          key={i}
-          style={{
-            paddingLeft: t.indent * 18,
-            color: t.tag.startsWith("</") ? "#7c3aed" : "#06b6d4",
-            opacity: active ? 1 : 0,
-            transform: active ? "translateX(0)" : "translateX(-16px)",
-            transition: `opacity 0.35s ease ${i * 0.13}s, transform 0.35s ease ${i * 0.13}s`,
-            lineHeight: "1.9",
-          }}
-        >
-          {t.tag}
-          {(t.tag === "<title>" || t.tag === "<p>") && (
-            <span style={{ color: "#e2e8f0" }}>
-              {t.tag === "<title>" ? " Getting Started" : " Clear, structured content..."}
-            </span>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ─── Animated viz: Automation & Tools ────────────────────────────────────────
+// ── Animated card 2: Docs Automation ──────────────────────────────────────────
 function AutomationViz({ active }: { active: boolean }) {
   const steps = [
-    { label: "Scan docs repo", color: "#06b6d4", icon: "🔍" },
-    { label: "LLM validation", color: "#7c3aed", icon: "✦" },
-    { label: "Auto-remove stale", color: "#22c55e", icon: "✂" },
-    { label: "Publish pipeline", color: "#f59e0b", icon: "🚀" },
+    { icon: "🔍", label: "Scan docs repo", sub: "1,240 topics found", color: "hsl(210,88%,52%)" },
+    { icon: "✦",  label: "LLM validation", sub: "Local model review",  color: "hsl(100,40%,44%)" },
+    { icon: "✂",  label: "Remove stale content", sub: "312 topics flagged", color: "hsl(40,90%,56%)" },
+    { icon: "🚀", label: "Publish pipeline", sub: "Jenkins → live in 4 hr", color: "hsl(100,40%,44%)" },
   ];
+
   return (
-    <div className="glass p-5 w-full" style={{ minHeight: 160 }}>
+    <div className="card" style={{ padding: "1.5rem", width: "100%" }}>
+      <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 14, fontFamily: "monospace" }}>
+        automation.py — running…
+      </div>
+
       {steps.map((s, i) => (
         <div
           key={i}
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 10,
-            marginBottom: 10,
+            gap: 12,
+            marginBottom: 12,
             opacity: active ? 1 : 0,
-            transform: active ? "translateX(0)" : "translateX(20px)",
-            transition: `opacity 0.4s ease ${i * 0.18}s, transform 0.4s ease ${i * 0.18}s`,
+            transform: active ? "translateX(0)" : "translateX(24px)",
+            transition: `opacity 0.45s ease ${i * 0.2}s, transform 0.45s ease ${i * 0.2}s`,
           }}
         >
+          {/* icon bubble */}
           <div style={{
-            width: 28,
-            height: 28,
-            borderRadius: "50%",
-            background: s.color + "22",
-            border: `1.5px solid ${s.color}55`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 12,
-            flexShrink: 0,
+            width: 34, height: 34, borderRadius: "50%", flexShrink: 0,
+            background: s.color + "1a",
+            border: `1.5px solid ${s.color}44`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 14,
           }}>
             {s.icon}
           </div>
-          <div style={{
-            flex: 1,
-            height: 6,
-            background: s.color,
-            borderRadius: 4,
-            opacity: 0.7,
-          }} />
-          <span style={{ fontSize: 10, color: "#94a3b8", whiteSpace: "nowrap" }}>{s.label}</span>
+
+          {/* progress bar */}
+          <div style={{ flex: 1 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+              <span style={{ fontSize: 11, fontWeight: 600, color: "var(--text)" }}>{s.label}</span>
+              <span style={{ fontSize: 10, color: "var(--muted)" }}>{s.sub}</span>
+            </div>
+            <div style={{ height: 5, background: "hsl(40,14%,88%)", borderRadius: 3, overflow: "hidden" }}>
+              <div style={{
+                height: "100%",
+                background: s.color,
+                borderRadius: 3,
+                width: active ? "100%" : "0%",
+                transition: `width 0.6s ease ${i * 0.2 + 0.25}s`,
+              }} />
+            </div>
+          </div>
         </div>
       ))}
+
       <div style={{
-        fontSize: 10, color: "#22c55e", marginTop: 4, fontFamily: "monospace",
-        opacity: active ? 1 : 0, transition: "opacity 0.4s ease 0.9s"
+        marginTop: 6, fontSize: 11, fontWeight: 700,
+        color: "hsl(100,40%,38%)", fontFamily: "monospace",
+        opacity: active ? 1 : 0, transition: "opacity 0.5s ease 1.2s",
       }}>
-        ✓ 3-day process → 4 hours saved
+        ✓  3-day manual process → 4 hours
       </div>
     </div>
   );
 }
 
-// ─── Animated viz: Open-Source & Hackathon ───────────────────────────────────
-function OpenSourceViz({ active }: { active: boolean }) {
-  const projects = ["FletX", "Requestly", "Ansible AMQ", "Terraform", "WatsonX AI"];
-  const [count, setCount] = useState(0);
+// ── Animated card 3: Structured Content (DITA) ────────────────────────────────
+function DitaViz({ active }: { active: boolean }) {
+  const tokens = [
+    { text: "<?xml version=\"1.0\"?>",             color: "hsl(40,8%,60%)",  indent: 0 },
+    { text: "<concept id=\"power-server\">",        color: "hsl(210,88%,52%)", indent: 0 },
+    { text: "  <title>",                            color: "hsl(100,40%,44%)", indent: 1 },
+    { text: "    IBM Power10 Server Guide",         color: "hsl(40,10%,30%)",  indent: 2 },
+    { text: "  </title>",                           color: "hsl(100,40%,44%)", indent: 1 },
+    { text: "  <conbody>",                          color: "hsl(210,88%,52%)", indent: 1 },
+    { text: "    <p audience=\"admin\">…</p>",      color: "hsl(40,10%,30%)",  indent: 2 },
+    { text: "    <p audience=\"dev\">…</p>",        color: "hsl(40,10%,30%)",  indent: 2 },
+    { text: "  </conbody>",                         color: "hsl(210,88%,52%)", indent: 1 },
+    { text: "</concept>",                           color: "hsl(210,88%,52%)", indent: 0 },
+  ];
 
+  return (
+    <div className="card" style={{ padding: "1.5rem", width: "100%" }}>
+      <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 14, fontFamily: "monospace" }}>
+        power-server.dita — DITAVAL profiling active
+      </div>
+      <div style={{ fontFamily: "monospace", fontSize: 11, lineHeight: 1.85 }}>
+        {tokens.map((t, i) => (
+          <div
+            key={i}
+            style={{
+              paddingLeft: t.indent * 14,
+              color: t.color,
+              opacity: active ? 1 : 0,
+              transform: active ? "translateX(0)" : "translateX(-14px)",
+              transition: `opacity 0.32s ease ${i * 0.1}s, transform 0.32s ease ${i * 0.1}s`,
+            }}
+          >
+            {t.text}
+          </div>
+        ))}
+      </div>
+      <div style={{
+        marginTop: 10, fontSize: 10, fontWeight: 600,
+        color: "hsl(210,88%,44%)", fontFamily: "monospace",
+        opacity: active ? 1 : 0, transition: "opacity 0.5s ease 1.2s",
+      }}>
+        ✓ 6 Power Server models · single source
+      </div>
+    </div>
+  );
+}
+
+// ── Animated card 4: Open Source & Hackathon ──────────────────────────────────
+function OpenSourceViz({ active }: { active: boolean }) {
+  const projects = [
+    { name: "FletX",         color: "hsl(210,88%,52%)" },
+    { name: "Requestly",     color: "hsl(100,40%,44%)" },
+    { name: "Ansible AMQ",   color: "hsl(40,90%,52%)"  },
+    { name: "Terraform",     color: "hsl(260,60%,58%)"  },
+    { name: "WatsonX AI",    color: "hsl(100,40%,44%)" },
+    { name: "Link Checker",  color: "hsl(210,88%,52%)" },
+  ];
+
+  const [count, setCount] = useState(0);
   useEffect(() => {
     if (!active) { setCount(0); return; }
     let i = 0;
@@ -210,561 +213,227 @@ function OpenSourceViz({ active }: { active: boolean }) {
       i++;
       setCount(i);
       if (i >= projects.length) clearInterval(t);
-    }, 320);
+    }, 300);
     return () => clearInterval(t);
   }, [active]);
 
   return (
-    <div className="glass p-5 w-full" style={{ minHeight: 160 }}>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
+    <div className="card" style={{ padding: "1.5rem", width: "100%" }}>
+      <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 14 }}>
+        Contributions &amp; Hackathons
+      </div>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
         {projects.map((p, i) => (
           <span
-            key={p}
+            key={p.name}
             style={{
-              background: "rgba(124,58,237,0.15)",
-              border: "1px solid rgba(124,58,237,0.35)",
-              color: "#c4b5fd",
-              fontSize: 11,
+              background: p.color + "18",
+              border: `1.5px solid ${p.color}44`,
+              color: p.color,
+              fontSize: 12,
               fontWeight: 600,
-              padding: "3px 10px",
+              padding: "5px 14px",
               borderRadius: 9999,
               opacity: count > i ? 1 : 0,
-              transform: count > i ? "scale(1)" : "scale(0.7)",
+              transform: count > i ? "scale(1)" : "scale(0.6)",
               transition: "opacity 0.3s ease, transform 0.3s ease",
             }}
           >
-            {p}
+            {p.name}
           </span>
         ))}
       </div>
-      <div style={{
-        fontSize: 10, color: "#94a3b8", lineHeight: 1.6,
-        opacity: active ? 1 : 0, transition: "opacity 0.5s ease 1.6s"
-      }}>
-        🏆 Hacktoberfest contributor<br />
-        ⚡ WatsonX Agentic AI Hackathon
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+          opacity: active && count >= projects.length ? 1 : 0,
+          transition: "opacity 0.5s ease 0.2s",
+        }}
+      >
+        {[
+          { icon: "🏆", text: "Hacktoberfest contributor" },
+          { icon: "⚡", text: "IBM WatsonX Agentic AI Hackathon" },
+        ].map((item) => (
+          <div key={item.text} style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <span style={{ fontSize: 15 }}>{item.icon}</span>
+            <span style={{ fontSize: 12, color: "var(--muted)", fontWeight: 500 }}>{item.text}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-// ─── What I Do section ───────────────────────────────────────────────────────
-const WHAT_I_DO = [
+// ── Section component ─────────────────────────────────────────────────────────
+const SECTIONS = [
   {
     num: "01",
     title: "AI Documentation",
-    desc: "RAG systems, prompt templates, and LLM integration docs structured so that both humans and AI agents can consume them.",
-    Viz: DocViz,
+    desc: "I author API references, CLI guides, and developer docs for IBM Cloud — structuring content so that LLMs and AI agents can consume it as easily as humans can.",
+    Viz: AiDocViz,
   },
   {
     num: "02",
-    title: "Structured Content",
-    desc: "DITA/XML authoring with complex DITAVAL profiling across multi-model server documentation at IBM.",
-    Viz: DitaViz,
+    title: "Docs Automation",
+    desc: "Using Python and a local LLM, I automated obsolete content removal — cutting a 3-day manual review process down to 4 hours. CI/CD pipelines via Jenkins keep docs always in sync with releases.",
+    Viz: AutomationViz,
   },
   {
     num: "03",
-    title: "Docs Automation",
-    desc: "Python + local LLM pipelines that cut a 3-day manual content review process down to 4 hours.",
-    Viz: AutomationViz,
+    title: "Structured Content (DITA)",
+    desc: "DITA/XML authoring with complex DITAVAL profiling to manage content across six IBM Power Server models from a single source — ensuring accuracy across every variant.",
+    Viz: DitaViz,
   },
   {
     num: "04",
     title: "Open Source & Hackathons",
-    desc: "Active contributor to open-source projects and hackathons including Hacktoberfest and IBM WatsonX.",
+    desc: "I contribute to open-source projects including FletX, Requestly, Ansible AMQ, and Terraform, and compete in hackathons like IBM WatsonX Agentic AI to stay at the cutting edge.",
     Viz: OpenSourceViz,
   },
 ];
 
-function WhatIDoCard({ item, delay }: { item: typeof WHAT_I_DO[0]; delay: number }) {
-  const { ref, visible } = useReveal(0.2);
-  const { Viz } = item;
+function Section({ section, index }: { section: typeof SECTIONS[0]; index: number }) {
+  const { ref, visible } = useReveal(0.22);
+  const { Viz } = section;
 
   return (
     <div
       ref={ref}
-      className="glass glass-hover"
       style={{
-        padding: "1.5rem",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.65s ease ${delay}s, transform 0.65s ease ${delay}s`,
+        display: "flex",
+        flexDirection: index % 2 === 0 ? "row" : "row",
+        alignItems: "center",
+        gap: "4rem",
+        padding: "5rem 0",
+        borderBottom: index < SECTIONS.length - 1 ? "1px solid var(--border)" : "none",
       }}
     >
-      <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", color: "#475569", marginBottom: 8 }}>
-        {item.num}
-      </p>
-      <h3 className="neon" style={{ fontSize: "1rem", fontWeight: 700, marginBottom: 8 }}>
-        {item.title}
-      </h3>
-      <p style={{ fontSize: "0.8rem", color: "#94a3b8", lineHeight: 1.6, marginBottom: 16 }}>
-        {item.desc}
-      </p>
-      <Viz active={visible} />
-    </div>
-  );
-}
-
-// ─── Experience timeline ─────────────────────────────────────────────────────
-const EXPERIENCE = [
-  {
-    company: "IBM",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-    period: "Sep 2022 — Present",
-    role: "Information Developer",
-    color: "#06b6d4",
-    highlights: [
-      "Authored API, CLI, and developer guides for IBM Cloud Power Virtual Server",
-      "Collaborated with AI Docs architects to structure content for LLM consumption",
-      "Automated stale content removal with Python + local LLM — 3 days → 4 hours",
-      "Applied DITAVAL profiling across 6 IBM Power Server models (Power10/11)",
-      "Mentored junior writers; led peer reviews and IBM Style Guide governance",
-    ],
-    tags: ["DITA", "XML", "Markdown", "Jenkins", "Git", "Acrolinx", "Python", "Oxygen XML"],
-  },
-  {
-    company: "Xylem",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Xylem_Logo.svg",
-    period: "2020 — 2022",
-    role: "Technical Documentation",
-    color: "#7c3aed",
-    highlights: [
-      "End-to-end IoT solution docs — IoT Cloud, Applications, and Gateways",
-      "Collaborated with developers on Swagger/OpenAPI documentation",
-      "Delivered API docs, SDK guides, UAT guides, and release notes in 2-week sprints",
-    ],
-    tags: ["Swagger", "Confluence", "Astoria CCMS", "JIRA", "Acrolinx"],
-  },
-  {
-    company: "Unisys",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/71/Unisys_logo_2022.svg",
-    period: "2017 — 2020",
-    role: "Information Developer",
-    color: "#a855f7",
-    highlights: [
-      "End-to-end docs for Fabric Computing Manager (Data Centre) and Digistics (Air Cargo)",
-      "Analysed user stories; generated client-specific webhelp using DITAVAL files",
-      "Delivered webhelp, admin guides, release notes, and installation guides",
-    ],
-    tags: ["XML", "DITA", "Webhelp", "Arbortext", "JIRA"],
-  },
-];
-
-function ExperienceCard({ job, delay }: { job: typeof EXPERIENCE[0]; delay: number }) {
-  const { ref, visible } = useReveal(0.15);
-
-  return (
-    <div
-      ref={ref}
-      className="glass glass-hover"
-      style={{
-        padding: "1.75rem",
-        marginBottom: "1.5rem",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(-32px)",
-        transition: `opacity 0.65s ease ${delay}s, transform 0.65s ease ${delay}s`,
-      }}
-    >
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", alignItems: "flex-start" }}>
-        {/* Left: logo + meta */}
-        <div style={{ minWidth: 130 }}>
-          <img src={job.logo} alt={job.company} style={{ height: 22, filter: "brightness(0) invert(1)", opacity: 0.85 }} />
-          <div style={{ marginTop: 8, fontSize: 12, color: "#64748b" }}>{job.period}</div>
-          <div
-            style={{
-              marginTop: 6,
-              display: "inline-block",
-              fontSize: 11,
-              fontWeight: 600,
-              padding: "2px 10px",
-              borderRadius: 9999,
-              background: job.color + "22",
-              border: `1px solid ${job.color}44`,
-              color: job.color,
-            }}
-          >
-            {job.role}
-          </div>
-        </div>
-
-        {/* Right: highlights + tags */}
-        <div style={{ flex: 1, minWidth: 220 }}>
-          <ul style={{ listStyle: "none", padding: 0, marginBottom: 14 }}>
-            {job.highlights.map((h, i) => (
-              <li
-                key={i}
-                style={{
-                  fontSize: "0.8rem",
-                  color: "#94a3b8",
-                  lineHeight: 1.7,
-                  paddingLeft: 14,
-                  position: "relative",
-                  opacity: visible ? 1 : 0,
-                  transition: `opacity 0.4s ease ${delay + 0.1 + i * 0.08}s`,
-                }}
-              >
-                <span style={{ position: "absolute", left: 0, color: job.color }}>›</span>
-                {h}
-              </li>
-            ))}
-          </ul>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-            {job.tags.map((t) => (
-              <span
-                key={t}
-                style={{
-                  background: "rgba(15,23,36,0.9)",
-                  border: "1px solid rgba(6,182,212,0.2)",
-                  color: "#7dd3fc",
-                  fontSize: "0.68rem",
-                  fontWeight: 600,
-                  padding: "2px 9px",
-                  borderRadius: 9999,
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Skills grid ─────────────────────────────────────────────────────────────
-const SKILLS = [
-  {
-    category: "Markup & Formats",
-    color: "#06b6d4",
-    items: ["DITA", "XML", "Markdown", "YAML", "JSON", "reStructuredText"],
-  },
-  {
-    category: "Authoring Tools",
-    color: "#7c3aed",
-    items: ["Oxygen XML", "VS Code", "Acrolinx", "Confluence", "Astoria CCMS"],
-  },
-  {
-    category: "CI/CD & Collab",
-    color: "#22c55e",
-    items: ["Jenkins", "Git", "JIRA", "Swagger / OpenAPI", "Postman"],
-  },
-  {
-    category: "Automation & AI",
-    color: "#f59e0b",
-    items: ["Python", "LangChain", "Local LLMs", "Vibe Coding", "RAG Systems"],
-  },
-  {
-    category: "Media & Visuals",
-    color: "#ec4899",
-    items: ["draw.io", "Camtasia", "PowerPoint GIFs"],
-  },
-  {
-    category: "Certifications",
-    color: "#a855f7",
-    items: ["AI Complete Bootcamp", "Technical Writing", "Docker", "Hybrid Cloud", "Data Centre"],
-  },
-];
-
-function SkillsSection() {
-  const { ref, visible } = useReveal(0.1);
-
-  return (
-    <section ref={ref} style={{ marginTop: "5rem" }}>
-      <h2
-        className="neon"
-        style={{
-          fontSize: "1.75rem",
-          fontWeight: 800,
-          textAlign: "center",
-          marginBottom: "2.5rem",
-          opacity: visible ? 1 : 0,
-          transition: "opacity 0.6s ease",
-        }}
-      >
-        Skills & Tools
-      </h2>
+      {/* ── Left: text ── */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-          gap: "1.25rem",
+          flex: "0 0 340px",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateX(0)" : "translateX(-28px)",
+          transition: "opacity 0.7s ease 0.05s, transform 0.7s ease 0.05s",
         }}
       >
-        {SKILLS.map((group, gi) => (
-          <div
-            key={group.category}
-            className="glass"
-            style={{
-              padding: "1.25rem",
-              opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(20px)",
-              transition: `opacity 0.55s ease ${gi * 0.1}s, transform 0.55s ease ${gi * 0.1}s`,
-            }}
-          >
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: group.color,
-                marginBottom: 12,
-                borderBottom: `1px solid ${group.color}22`,
-                paddingBottom: 6,
-              }}
-            >
-              {group.category}
-            </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-              {group.items.map((item, ii) => (
-                <span
-                  key={item}
-                  style={{
-                    background: group.color + "14",
-                    border: `1px solid ${group.color}33`,
-                    color: group.color,
-                    fontSize: "0.7rem",
-                    fontWeight: 600,
-                    padding: "3px 10px",
-                    borderRadius: 9999,
-                    opacity: visible ? 1 : 0,
-                    transform: visible ? "scale(1)" : "scale(0.75)",
-                    transition: `opacity 0.35s ease ${gi * 0.1 + ii * 0.06}s, transform 0.35s ease ${gi * 0.1 + ii * 0.06}s`,
-                  }}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
+        <p style={{
+          fontSize: 11, fontWeight: 700, letterSpacing: "0.14em",
+          textTransform: "uppercase", color: "var(--muted)", marginBottom: 12,
+        }}>
+          {section.num}
+        </p>
+        <h2 style={{
+          fontSize: "1.55rem", fontWeight: 800, lineHeight: 1.25,
+          color: "var(--text)", marginBottom: 14,
+        }}>
+          {section.title}
+        </h2>
+        <p style={{
+          fontSize: "0.88rem", color: "var(--muted)",
+          lineHeight: 1.78, maxWidth: 320,
+        }}>
+          {section.desc}
+        </p>
       </div>
-    </section>
+
+      {/* ── Right: animated card ── */}
+      <div
+        style={{
+          flex: 1,
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateX(0)" : "translateX(36px)",
+          transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
+        }}
+      >
+        <Viz active={visible} />
+      </div>
+    </div>
   );
 }
 
-// ─── Nav ─────────────────────────────────────────────────────────────────────
-function Nav() {
-  return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        background: "rgba(7,16,38,0.85)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(124,58,237,0.12)",
-        padding: "0 2rem",
-        height: 52,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <span className="neon" style={{ fontWeight: 800, fontSize: "0.95rem" }}>
-        Siddhartha Mani
-      </span>
-      <div style={{ display: "flex", gap: "1.5rem" }}>
-        {["#about", "#what-i-do", "#experience", "#skills", "#contact"].map((href) => (
-          <a
-            key={href}
-            href={href}
-            style={{
-              fontSize: "0.8rem",
-              color: "#94a3b8",
-              textDecoration: "none",
-              transition: "color 0.2s",
-            }}
-            onMouseOver={(e) => ((e.target as HTMLElement).style.color = "#e2e8f0")}
-            onMouseOut={(e) => ((e.target as HTMLElement).style.color = "#94a3b8")}
-          >
-            {href.replace("#", "").replace(/-/g, " ")}
-          </a>
-        ))}
-      </div>
-    </nav>
-  );
-}
-
-// ─── Highlights data ─────────────────────────────────────────────────────────
-const HIGHLIGHTS = [
-  { icon: "🤖", label: "AI Documentation",    sub: "RAG · Prompts · LLM Docs" },
-  { icon: "📄", label: "Structured Content",  sub: "DITA · XML · CCMS" },
-  { icon: "⚙️", label: "Automation",          sub: "Python · LangChain · Jenkins" },
-  { icon: "🏆", label: "Certifications",      sub: "AI · Docker · Hybrid Cloud" },
-  { icon: "⚡", label: "Hackathon",           sub: "WatsonX · Link Checker" },
-  { icon: "🌐", label: "Open Source",         sub: "FletX · Requestly · Terraform" },
-];
-
-// ─── App ─────────────────────────────────────────────────────────────────────
+// ── App ───────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
-    <>
-      <div className="grid-bg" aria-hidden />
-      <Nav />
+    <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
 
-      {/* ── HERO ── */}
-      <section
-        id="about"
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "80px 1.5rem 3rem",
-          position: "relative",
-        }}
-      >
-        {/* Ambient orbs */}
-        <div className="orb" style={{
-          position: "absolute", width: 480, height: 480,
-          background: "rgba(124,58,237,0.09)", top: "10%", left: "5%",
-          animationDelay: "0s",
-        }} />
-        <div className="orb" style={{
-          position: "absolute", width: 360, height: 360,
-          background: "rgba(6,182,212,0.07)", bottom: "12%", right: "8%",
-          animationDelay: "3s",
-        }} />
+      {/* Header */}
+      <div style={{ textAlign: "center", padding: "5rem 1.5rem 1rem" }}>
+        <p style={{
+          fontSize: 11, fontWeight: 700, letterSpacing: "0.16em",
+          textTransform: "uppercase", color: "var(--muted)", marginBottom: 14,
+        }}>
+          Technical Writer · AI &amp; Cloud Documentation
+        </p>
+        <h1 style={{
+          fontSize: "clamp(2rem, 5vw, 3rem)",
+          fontWeight: 900, color: "var(--text)", lineHeight: 1.1,
+        }}>
+          Siddhartha Mani
+        </h1>
+        <p style={{
+          marginTop: 16, fontSize: "0.9rem", color: "var(--muted)",
+          maxWidth: 520, margin: "16px auto 0",
+          lineHeight: 1.7,
+        }}>
+          I turn complex engineering and AI systems into clear, developer-focused
+          documentation — structured so both humans and LLMs can consume it easily.
+        </p>
 
-        <div style={{ maxWidth: 1100, width: "100%", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem", alignItems: "center" }}>
-
-            {/* Left: identity */}
-            <div className="glass" style={{ padding: "2.5rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "2rem" }}>
-                <div style={{
-                  width: 72, height: 72, borderRadius: "50%",
-                  background: "linear-gradient(135deg,#06b6d4,#7c3aed)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 24, fontWeight: 800, color: "white",
-                  boxShadow: "0 0 24px rgba(124,58,237,0.3)",
-                  flexShrink: 0,
-                }}>
-                  SM
-                </div>
-                <div>
-                  <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#f1f5f9", lineHeight: 1.1 }}>
-                    Siddhartha Mani
-                  </h1>
-                  <p style={{ fontSize: "0.82rem", color: "#64748b", marginTop: 4 }}>
-                    Information Developer · AI & Cloud Documentation
-                  </p>
-                </div>
-              </div>
-
-              <h2 className="neon" style={{ fontSize: "1.4rem", fontWeight: 700, marginBottom: 10 }}>
-                Technical Writer
-              </h2>
-              <div style={{ marginBottom: "1.25rem", minHeight: 28 }}>
-                <Typewriter />
-              </div>
-
-              <p style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-                I turn complex engineering and AI systems into clear, developer-focused
-                documentation — structured so both humans and LLMs can consume it easily.
-              </p>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: "1.25rem" }}>
-                <a className="cta-btn" href="mailto:mani.siddhartha@gmail.com">Hire me</a>
-                <a className="cta-btn" href="https://github.com/Siddharthablog/Resume" target="_blank" rel="noopener noreferrer">View résumé</a>
-                <a className="cta-btn" href="https://www.linkedin.com/in/siddhartha-mani-98696073/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              </div>
-              <p style={{ fontSize: "0.75rem", color: "#475569" }}>Open to: Remote &amp; Full-time</p>
-            </div>
-
-            {/* Right: quick highlights */}
-            <div className="glass glass-hover" style={{ padding: "2rem" }}>
-              <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#f1f5f9", marginBottom: "1.25rem" }}>
-                Quick highlights
-              </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                {HIGHLIGHTS.map((h) => (
-                  <div key={h.label} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                    <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>{h.icon}</span>
-                    <div>
-                      <div className="neon" style={{ fontSize: "0.8rem", fontWeight: 700 }}>{h.label}</div>
-                      <div style={{ fontSize: "0.7rem", color: "#64748b", lineHeight: 1.5, marginTop: 2 }}>
-                        {h.sub}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
-
-        {/* ── WHAT I DO ── */}
-        <section id="what-i-do" style={{ marginTop: "4rem" }}>
-          <h2
-            className="neon"
-            style={{ fontSize: "1.75rem", fontWeight: 800, textAlign: "center", marginBottom: "2.5rem" }}
-          >
-            What I do
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
-            {WHAT_I_DO.map((item, i) => (
-              <WhatIDoCard key={item.num} item={item} delay={i * 0.1} />
-            ))}
-          </div>
-        </section>
-
-        {/* ── EXPERIENCE ── */}
-        <section id="experience" style={{ marginTop: "5rem" }}>
-          <h2
-            className="neon"
-            style={{ fontSize: "1.75rem", fontWeight: 800, textAlign: "center", marginBottom: "2.5rem" }}
-          >
-            Professional Experience
-          </h2>
-          {EXPERIENCE.map((job, i) => (
-            <ExperienceCard key={job.company} job={job} delay={i * 0.1} />
+        {/* CTA links */}
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
+          {[
+            { label: "Hire me",       href: "mailto:mani.siddhartha@gmail.com" },
+            { label: "View résumé",   href: "https://github.com/Siddharthablog/Resume" },
+            { label: "LinkedIn",      href: "https://www.linkedin.com/in/siddhartha-mani-98696073/" },
+          ].map((btn) => (
+            <a
+              key={btn.label}
+              href={btn.href}
+              target={btn.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "10px 24px",
+                borderRadius: 9999,
+                background: "var(--text)",
+                color: "var(--bg)",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+              onMouseOver={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.8")}
+              onMouseOut={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+            >
+              {btn.label}
+            </a>
           ))}
-        </section>
-
-        {/* ── SKILLS ── */}
-        <section id="skills">
-          <SkillsSection />
-        </section>
-
-        {/* ── CONTACT ── */}
-        <section
-          id="contact"
-          style={{ marginTop: "5rem", textAlign: "center" }}
-        >
-          <div className="glass" style={{ padding: "3rem 2rem", display: "inline-block", width: "100%", maxWidth: 600, margin: "0 auto" }}>
-            <h2 className="neon" style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "1rem" }}>
-              Let's work together
-            </h2>
-            <p style={{ color: "#94a3b8", fontSize: "0.85rem", marginBottom: "1.5rem", lineHeight: 1.7 }}>
-              Looking for a technical writer who bridges AI, developer docs, and automation?<br />
-              Let's connect.
-            </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-              <a className="cta-btn" href="mailto:mani.siddhartha@gmail.com">
-                mani.siddhartha@gmail.com
-              </a>
-              <a className="cta-btn" href="https://github.com/Siddharthablog/Resume" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-              <a className="cta-btn" href="https://www.linkedin.com/in/siddhartha-mani-98696073/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <footer style={{ textAlign: "center", marginTop: "3rem", color: "#334155", fontSize: "0.75rem" }}>
-          © 2025 Siddhartha Mani · Built with React + Vite
-        </footer>
+        </div>
       </div>
-    </>
+
+      {/* Divider */}
+      <div style={{ maxWidth: 900, margin: "3rem auto 0", height: 1, background: "var(--border)" }} />
+
+      {/* Sections */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
+        {SECTIONS.map((section, i) => (
+          <Section key={section.num} section={section} index={i} />
+        ))}
+      </div>
+
+      {/* Footer */}
+      <div style={{
+        textAlign: "center", padding: "2rem 1.5rem",
+        borderTop: "1px solid var(--border)",
+        fontSize: "0.78rem", color: "var(--muted)",
+      }}>
+        © 2025 Siddhartha Mani · mani.siddhartha@gmail.com
+      </div>
+    </div>
   );
 }
