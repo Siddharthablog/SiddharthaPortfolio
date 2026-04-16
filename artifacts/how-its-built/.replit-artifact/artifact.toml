@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "How It's Built"
+version = "1.0.0"
+id = "artifacts/how-its-built"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19256
+
+[services.development]
+run = "pnpm --filter @workspace/how-its-built run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/how-its-built", "run", "build" ]
+publicDir = "artifacts/how-its-built/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19256"
+BASE_PATH = "/"
