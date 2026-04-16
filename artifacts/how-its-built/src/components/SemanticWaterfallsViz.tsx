@@ -1,56 +1,57 @@
 import { useEffect, useState } from "react";
 
 const SOURCES = ["CRM", "3rd party", "Intent", "Usage"];
-const NODES = [0, 1, 2];
 
-export function SemanticWaterfallsViz({ active }: { active: boolean }) {
+export function SemanticWaterfallsViz({ active, compact }: { active: boolean; compact?: boolean }) {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     if (!active) { setPhase(0); return; }
-    const t1 = setTimeout(() => setPhase(1), 200);
-    const t2 = setTimeout(() => setPhase(2), 800);
-    const t3 = setTimeout(() => setPhase(3), 1400);
-    const reset = setTimeout(() => setPhase(0), 3600);
-    return () => [t1, t2, t3, reset].forEach(clearTimeout);
-  }, [active, phase === 0]);
+    let cancelled = false;
 
-  useEffect(() => {
-    if (active && phase === 0) {
-      const t = setTimeout(() => setPhase(1), 200);
-      return () => clearTimeout(t);
+    function run() {
+      if (cancelled) return;
+      setPhase(0);
+      const t1 = setTimeout(() => { if (!cancelled) setPhase(1); }, 200);
+      const t2 = setTimeout(() => { if (!cancelled) setPhase(2); }, 800);
+      const t3 = setTimeout(() => { if (!cancelled) setPhase(3); }, 1400);
+      const reset = setTimeout(() => { if (!cancelled) run(); }, 3500);
+      return () => [t1, t2, t3, reset].forEach(clearTimeout);
     }
-  }, [active, phase]);
+
+    const init = setTimeout(run, 200);
+    return () => { cancelled = true; clearTimeout(init); };
+  }, [active]);
+
+  const fs = compact ? 10 : 13;
 
   return (
     <div
-      className="rounded-2xl bg-white border border-border/60 shadow-sm p-6 w-full max-w-sm"
-      style={{ minHeight: 220 }}
+      className="rounded-2xl bg-white border border-border/50 shadow-sm w-full"
+      style={{ padding: compact ? "14px 16px" : "22px 24px" }}
     >
-      {/* Orchestration label */}
-      <div className="flex items-start gap-3 mb-2">
+      {/* Row 1: Orchestration + bubbles */}
+      <div className="flex items-center gap-2 mb-2">
         <span
-          className="text-[10px] text-muted-foreground font-medium mt-1 whitespace-nowrap"
-          style={{ minWidth: 80 }}
+          className="text-muted-foreground font-medium flex-shrink-0 leading-tight"
+          style={{ fontSize: compact ? 9 : 11, minWidth: 64 }}
         >
           Orchestration
-          <br />
-          Layer
+          <br />Layer
         </span>
-
-        {/* Source bubbles */}
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-1.5 flex-wrap">
           {SOURCES.map((s, i) => (
             <div
               key={s}
-              className="rounded-full px-3 py-1 text-[11px] font-medium border"
+              className="rounded-full px-2 py-0.5 font-medium border"
               style={{
+                fontSize: compact ? 9 : 11,
                 background: "hsl(210 40% 96%)",
                 borderColor: "hsl(210 30% 82%)",
                 color: "hsl(210 30% 40%)",
                 opacity: phase >= 1 ? 1 : 0,
-                transform: phase >= 1 ? "translateY(0)" : "translateY(-10px)",
-                transition: `opacity 0.35s ease ${i * 0.1}s, transform 0.35s ease ${i * 0.1}s`,
+                transform: phase >= 1 ? "translateY(0)" : "translateY(-8px)",
+                transition: `opacity 0.35s ease ${i * 0.09}s, transform 0.35s ease ${i * 0.09}s`,
               }}
             >
               {s}
@@ -59,64 +60,62 @@ export function SemanticWaterfallsViz({ active }: { active: boolean }) {
         </div>
       </div>
 
-      {/* Connector lines flowing down */}
-      <div className="relative flex justify-center my-1" style={{ height: 32 }}>
-        {phase >= 2 && (
-          <svg width="240" height="32" viewBox="0 0 240 32" fill="none" className="absolute">
-            {[30, 85, 140, 195].map((x, i) => (
-              <line
-                key={i}
-                x1={x} y1={0} x2={120} y2={32}
-                stroke="hsl(100 40% 55%)"
-                strokeWidth="1.5"
-                strokeOpacity="0.5"
-                strokeDasharray="4 3"
-                style={{
-                  opacity: phase >= 2 ? 1 : 0,
-                  transition: `opacity 0.4s ease ${i * 0.08}s`,
-                }}
-              />
-            ))}
-          </svg>
-        )}
+      {/* Connector lines */}
+      <div className="relative flex justify-center" style={{ height: 28, marginLeft: 72 }}>
+        <svg width="180" height="28" viewBox="0 0 180 28" fill="none" className="absolute">
+          {[16, 56, 96, 136].map((x, i) => (
+            <line
+              key={i}
+              x1={x} y1={0} x2={90} y2={28}
+              stroke="hsl(100 40% 55%)"
+              strokeWidth="1.5"
+              strokeOpacity={phase >= 2 ? 0.5 : 0}
+              strokeDasharray="4 3"
+              style={{ transition: `stroke-opacity 0.4s ease ${i * 0.07}s` }}
+            />
+          ))}
+        </svg>
       </div>
 
-      {/* ICP Mapping label + scoring nodes */}
-      <div className="flex items-center gap-3">
+      {/* Row 2: ICP Mapping + nodes */}
+      <div className="flex items-center gap-2">
         <span
-          className="text-[10px] text-muted-foreground font-medium whitespace-nowrap"
-          style={{ minWidth: 80 }}
+          className="text-muted-foreground font-medium flex-shrink-0"
+          style={{ fontSize: compact ? 9 : 11, minWidth: 64 }}
         >
           ICP Mapping
         </span>
-
-        <div className="flex gap-3 flex-1 justify-center">
-          {NODES.map((_, i) => (
+        <div className="flex gap-3">
+          {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className="w-10 h-10 rounded-full flex items-center justify-center"
+              className="rounded-full flex items-center justify-center"
               style={{
-                background: "hsl(100 40% 48% / 0.18)",
-                border: "2px solid hsl(100 40% 48% / 0.4)",
+                width: compact ? 32 : 40,
+                height: compact ? 32 : 40,
+                background: "hsl(100 40% 48% / 0.16)",
+                border: "2px solid hsl(100 40% 48% / 0.38)",
+                fontSize: compact ? 12 : 15,
+                color: "hsl(100 40% 35%)",
                 opacity: phase >= 3 ? 1 : 0,
-                transform: phase >= 3 ? "scale(1)" : "scale(0.6)",
-                transition: `opacity 0.4s ease ${i * 0.13}s, transform 0.4s ease ${i * 0.13}s`,
-                boxShadow: "0 0 10px 2px hsl(100 40% 48% / 0.2)",
+                transform: phase >= 3 ? "scale(1)" : "scale(0.5)",
+                transition: `opacity 0.4s ease ${i * 0.12}s, transform 0.4s ease ${i * 0.12}s`,
+                boxShadow: "0 0 9px 2px hsl(100 40% 48% / 0.18)",
               }}
             >
-              <span style={{ fontSize: 14, color: "hsl(100 40% 35%)" }}>◈</span>
+              ◈
             </div>
           ))}
         </div>
       </div>
 
-      {/* Downward arrow */}
-      <div className="flex justify-start pl-20 mt-3">
+      {/* Arrow down */}
+      <div style={{ marginLeft: 76, marginTop: 6 }}>
         <div
           style={{
             width: 2,
-            height: 20,
-            background: "hsl(var(--muted-foreground) / 0.3)",
+            height: 16,
+            background: "hsl(var(--muted-foreground) / 0.25)",
             borderRadius: 2,
             opacity: phase >= 3 ? 1 : 0,
             transition: "opacity 0.4s ease 0.4s",

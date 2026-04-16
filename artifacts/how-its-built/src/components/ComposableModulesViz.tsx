@@ -1,95 +1,82 @@
 import { useEffect, useState } from "react";
 
 const MODULES = [
-  { label: "Find Company URL", icon: "🔍", delay: 0 },
-  { label: "AI Agent", icon: "✦", delay: 0.35, indent: true },
-  { label: "Get Relevant News", icon: "🔍", delay: 0.7, indent: true },
+  { label: "Find Company URL", icon: "🔍", indent: false },
+  { label: "AI Agent", icon: "✦", indent: true },
+  { label: "Get Relevant News", icon: "🔍", indent: true },
 ];
 
-export function ComposableModulesViz({ active }: { active: boolean }) {
+export function ComposableModulesViz({ active, compact }: { active: boolean; compact?: boolean }) {
   const [step, setStep] = useState(0);
 
   useEffect(() => {
     if (!active) { setStep(0); return; }
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    MODULES.forEach((_, i) => {
-      timers.push(setTimeout(() => setStep(i + 1), 400 + i * 420));
-    });
-    // loop
-    const loop = setTimeout(() => setStep(0), 400 + MODULES.length * 420 + 1200);
-    return () => { timers.forEach(clearTimeout); clearTimeout(loop); };
-  }, [active, step === 0 && active]);
+    let cancelled = false;
 
-  useEffect(() => {
-    if (!active || step !== 0) return;
-    const t = setTimeout(() => setStep(1), 300);
-    return () => clearTimeout(t);
-  }, [active, step]);
+    function run() {
+      if (cancelled) return;
+      setStep(0);
+      const timers: ReturnType<typeof setTimeout>[] = [];
+      MODULES.forEach((_, i) => {
+        timers.push(setTimeout(() => { if (!cancelled) setStep(i + 1); }, 500 + i * 480));
+      });
+      timers.push(setTimeout(() => { if (!cancelled) run(); }, 500 + MODULES.length * 480 + 1400));
+    }
+    const init = setTimeout(run, 200);
+
+    return () => { cancelled = true; clearTimeout(init); };
+  }, [active]);
+
+  const pad = compact ? "p-4" : "p-7";
 
   return (
-    <div
-      className="rounded-2xl bg-white border border-border/60 shadow-sm p-7 w-full max-w-sm"
-      style={{ minHeight: 220 }}
-    >
-      <div className="space-y-3">
-        {MODULES.map((mod, i) => {
-          const visible = step > i;
-          return (
+    <div className={`rounded-2xl bg-white border border-border/50 shadow-sm ${pad} w-full`}>
+      <div className="space-y-2.5">
+        {MODULES.map((mod, i) => (
+          <div
+            key={mod.label}
+            className="flex items-center gap-2"
+            style={{
+              marginLeft: mod.indent ? 20 : 0,
+              opacity: step > i ? 1 : 0,
+              transform: step > i ? "translateX(0)" : "translateX(18px)",
+              transition: "opacity 0.4s ease, transform 0.4s ease",
+            }}
+          >
             <div
-              key={mod.label}
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 rounded-lg border border-border/60 bg-gray-50/80 px-3 py-1.5 flex-1"
               style={{
-                marginLeft: mod.indent ? 28 : 0,
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateX(0)" : "translateX(24px)",
-                transition: "opacity 0.45s ease, transform 0.45s ease",
+                boxShadow:
+                  mod.indent && i === 1 && step > i
+                    ? "0 0 0 2px hsl(100 40% 48% / 0.22)"
+                    : "none",
+                transition: "box-shadow 0.5s ease",
               }}
             >
-              {/* connector line for indented items */}
-              {mod.indent && (
-                <div
-                  className="absolute"
-                  style={{
-                    left: 28,
-                    width: 2,
-                    height: 24,
-                    background: "hsl(100 40% 48% / 0.35)",
-                    borderRadius: 2,
-                    marginTop: -24,
-                  }}
-                />
-              )}
-              <div
-                className="flex items-center gap-2.5 rounded-lg border border-border/70 bg-gray-50 px-3 py-2 flex-1"
+              <span
+                className="flex items-center justify-center rounded-md flex-shrink-0"
                 style={{
-                  boxShadow: mod.indent && i === 1 && visible
-                    ? "0 0 0 2px hsl(100 40% 48% / 0.25)"
-                    : "none",
-                  transition: "box-shadow 0.6s ease",
+                  width: compact ? 22 : 28,
+                  height: compact ? 22 : 28,
+                  fontSize: compact ? 11 : 13,
+                  background: mod.indent
+                    ? "hsl(100 40% 48% / 0.14)"
+                    : "hsl(210 90% 54% / 0.10)",
+                  color: mod.indent ? "hsl(100 40% 35%)" : "hsl(210 90% 40%)",
                 }}
               >
-                <span
-                  className="flex items-center justify-center rounded-md w-7 h-7 text-sm"
-                  style={{
-                    background: mod.indent ? "hsl(100 40% 48% / 0.15)" : "hsl(210 90% 54% / 0.12)",
-                    color: mod.indent ? "hsl(100 40% 35%)" : "hsl(210 90% 40%)",
-                  }}
-                >
-                  {mod.icon}
-                </span>
-                <span className="text-sm font-medium text-foreground">{mod.label}</span>
-              </div>
+                {mod.icon}
+              </span>
+              <span
+                className="font-medium text-foreground"
+                style={{ fontSize: compact ? 11 : 13 }}
+              >
+                {mod.label}
+              </span>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-
-      {/* animated connector lines */}
-      <svg
-        className="absolute pointer-events-none"
-        style={{ top: 0, left: 0, width: "100%", height: "100%" }}
-        aria-hidden
-      />
     </div>
   );
 }
