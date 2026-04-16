@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Siddhartha Mani — Technical Writer • AI & Cloud Documentation</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#071026;
+      --panel:#0f1724;
+      --muted:#94a3b8;
+      --accent1:#7c3aed;
+      --accent2:#06b6d4;
+    }
+    html,body{height:100%}
+    body {
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 15% 10%, rgba(124,58,237,0.12), transparent),
+                  radial-gradient(900px 500px at 85% 90%, rgba(6,182,212,0.08), transparent),
+                  var(--bg);
+      color: #cbd5e1;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Futuristic subtle grid */
+    .futuristic-grid{
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 120px 120px, 120px 120px;
+      mix-blend-mode: overlay;
+      pointer-events:none;
+      opacity:0.6;
+      transform: translateZ(0);
+    }
+
+    /* Hero style */
+    .hero-card{
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(124,58,237,0.12);
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6), inset 0 -1px 0 rgba(255,255,255,0.02);
+      backdrop-filter: blur(6px);
+    }
+
+    .neon {
+      background: linear-gradient(90deg, var(--accent2), var(--accent1));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip:text;
+      color: transparent;
+    }
+
+    /* Typing cursor */
+    .typed-cursor{
+      display:inline-block;
+      width:8px;
+      height:22px;
+      background: linear-gradient(180deg, var(--accent2), var(--accent1));
+      margin-left:6px;
+      border-radius:2px;
+      animation: blink 0.9s infinite;
+      vertical-align:middle;
+    }
+    @keyframes blink { 50%{ opacity:0 } }
+
+    /* Card hover */
+    .glass-card{
+      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+    }
+    .glass-card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(2,6,23,.6), 0 4px 20px rgba(124,58,237,0.06);
+    }
+
+    /* editable region */
+    .editable {
+      border-radius: 8px;
+      padding: 0.75rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+      border: 1px dashed rgba(148,163,184,0.06);
+      min-height:48px;
+    }
+    .editable[contenteditable="true"] {
+      outline: 3px solid rgba(124,58,237,0.08);
+      border-style: solid;
+      border-color: rgba(6,182,212,0.06);
+    }
+
+    /* small screens tweak */
+    @media (max-width:768px){
+      .hero-title { font-size: 1.6rem; }
+    }
+
+    /* subtle pulse on CTA */
+    .pulse {
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse{
+      0%{ box-shadow: 0 0 0 0 rgba(124,58,237,0.08) }
+      70%{ box-shadow: 0 0 40px 6px rgba(124,58,237,0.02) }
+      100%{ box-shadow: 0 0 0 0 rgba(124,58,237,0.00) }
+    }
+
+    /* simple responsive container */
+    .container { max-width:1100px; margin-left:auto; margin-right:auto; padding-left:1.25rem; padding-right:1.25rem; }
+  </style>
+</head>
+
+<body>
+  <div class="futuristic-grid" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <header class="min-h-screen flex items-center justify-center p-8 relative">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="hero-card p-8 rounded-2xl">
+            <div class="flex items-center gap-4">
+              <img src="https://placehold.co/96x96/071026/7c3aed?text=SM" alt="Siddhartha Mani" class="w-20 h-20 rounded-full ring-2 ring-indigo-700/30 shadow-xl">
+              <div>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-100 hero-title">
+                  Siddhartha Mani <span class="ml-2 text-sm text-slate-400">•</span>
+                </h1>
+                <p class="mt-1 text-slate-400">Information Developer specializing in AI, API docs & cloud-native automation</p>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h2 class="text-2xl md:text-3xl font-semibold neon">Technical Writer</h2>
+              <div class="mt-3 flex items-center gap-3">
+                <div id="typed-text" class="text-lg text-slate-200"></div><span class="typed-cursor" aria-hidden="true"></span>
+              </div>
+
+              <p class="mt-5 text-slate-400 max-w-xl leading-relaxed">
+                I turn complex engineering and AI systems into clear, developer-focused documentations. I not only write for users, but also ensure the documentation is structured so that LLMs and AI agents can consume it easily.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="mailto:mani.siddhartha@gmail.com" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-violet-500 text-white py-3 px-5 rounded-full font-semibold shadow-lg hover:opacity-95 transition transform hover:-translate-y-0.5 pulse" aria-label="Email Siddhartha">
+                  Hire me
+                </a>
+                <a href="https://github.com/Siddharthablog/Resume" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-violet-500 text-white py-3 px-5 rounded-full font-semibold shadow-lg hover:opacity-95 transition transform hover:-translate-y-0.5 pulse" aria-label="View resume">
+                  View resume
+                </a>
+                <a href="https://www.linkedin.com/in/siddhartha-mani-98696073/" class="inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-violet-500 text-white py-3 px-5 rounded-full font-semibold shadow-lg hover:opacity-95 transition transform hover:-translate-y-0.5 pulse" aria-label="LinkedIn profile">
+                  LinkedIn
+                </a>
+              </div>
+
+              <div class="mt-6 text-sm text-slate-500">
+                <span class="mr-2">Open to: Remote and Full-time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI-style visual / quick highlights -->
+        <div>
+          <div class="p-6 hero-card rounded-2xl glass-card">
+            <h3 class="text-lg font-bold text-slate-100">Quick highlights</h3>
+            <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-300">
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-sky-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 8v4l3 3"></path></svg>
+                <div>
+                  <div class="text-sm font-semibold neon">AI Documentation</div>
+                  <div class="text-xs text-slate-400">RAG systems <br> Prompts Template <br> LLM integrations Docs</div>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-indigo-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7h18M3 12h12M3 17h18"></path></svg>
+                <div>
+                  <div class="text-sm font-semibold neon">Structured Content</div>
+                  <div class="text-xs text-slate-400">DITA <br> XML <br> Markdown <br> reStructuredText <br> CCMS</div>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-emerald-300 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 4v16M4 12h16"></path></svg>
+                <div>
+                  <div class="text-sm font-semibold neon">Automation + Tools</div>
+                  <div class="text-xs text-slate-400">Python <br> Vibe coding <br> LangChain Framework <br> Jenkins <br> Postman</div>
+                </div>
+              </li>
+
+              <li class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-pink-400 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 2l3 7h7l-5.5 4.1L20 22l-8-5-8 5 1.5-8.9L0 9h7l3-7z"></path></svg>
+                <div>
+                  <div class="text-sm font-semibold neon">Certification</div>
+                  <div class="text-xs text-slate-400">AI Complete BootCamp <br> Technical Writing <br> Data Centre <br> Docker <br> Hybrid Cloud</div>
+                </div>
+              </li>
+              <!-- New: Hackathon -->
+<li class="flex items-start gap-3">
+  <svg
+    class="w-6 h-6 text-yellow-400 mt-[2px] scale-125"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.6"
+      d="M13 10V3L4 14h7v7l9-11h-7z"
+    ></path>
+  </svg>
+  <div>
+    <div class="text-sm font-semibold neon">Hackathon</div>
+    <div class="text-xs text-slate-400">
+      WatsonX Agentic AI <br> Link Checker Extension
+    </div>
+  </div>
+</li>
+
+<!-- New: Open Source Documentation -->
+<li class="flex items-start gap-3">
+  <svg
+    class="w-6 h-6 text-gray-300 mt-[2px] scale-110"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path
+      d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.8 1.02A9.75 9.75 0 0 1 12 6.8c.86.004 1.73.12 2.54.35 1.95-1.29 2.8-1.02 2.8-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .26.18.58.69.48A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10z"
+    />
+  </svg>
+  <div>
+    <div class="text-sm font-semibold neon">Open Source Documentation</div>
+    <div class="text-xs text-slate-400">
+      FletX framework <br> Requestly<br> Ansible amq<br> Terraform <br>
+    </div>
+  </div>
+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container pb-28">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="mt-6">
+      <h2 class="text-3xl font-bold neon text-center">Professional Experience</h2>
+
+      <div class="mt-8 grid gap-6">
+        <!-- Company Card Template - IBM -->
+
+        <!-- IBM -->
+        <article class="glass-card hero-card p-6 rounded-2xl grid md:grid-cols-5 gap-6 items-start">
+          <div class="md:col-span-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM logo" class="h-6">
+            <div class="text-sm text-slate-500">September 2022 — Present</div>
+            <div class="mt-3 text-xs text-slate-400">Role: Information Developer </div>
+          </div>
+
+          <div class="md:col-span-4 space-y-4">
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Responsibilities</label>
+              <div id="ibm-resp" class="editable" contenteditable="false">
+                • Responsible for authoring API documentation, CLI documentation, and developer guides for IBM Cloud.<br>
+                • Collaborate with AI Docs architects and AI platform teams to ensure content is structured<br>
+                <span class="ml-4">and optimized for AI consumption.</span><br>
+                • Automated obsolete content removal using Python and a local LLM, reducing a 3-day manual process<br>
+                <span class="ml-4"> to just 4 hours.</span><br>
+                • Develop and maintain documentation for IBM Power Server components and troubleshooting guides.<br>
+                • Develop and apply complex DITAVAL-based profiling to structure and manage XML content across <br>
+                <span class="ml-4"> six IBM Power Server models.</span><br>
+                • Perform peer reviews and quality checks for documentation across multiple IBM Cloud and Power projects.<br>
+                • Contribute to improving documentation workflows, templates, and publishing processes.<br>
+                • Coordinate with engineering, product management, and UX teams to align documentation with release cycles.<br>
+                • Mentor junior writers and provide guidance on IBM Style Guide and content best practices.<br>
+                • Participate in hackathons, Hacktoberfest, and open-source documentation initiatives.<br>
+                • Work on integrating AI-driven content validation and metadata tagging in documentation workflows.<br>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Project names</label>
+              <div id="ibm-proj" class="editable" contenteditable="false">
+                • <b>Software Project:</b> IBM Cloud: Power Virtual Server 
+                <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  Hybrid Cloud
+                </span><br>
+                • <b>Hardware Project:</b> IBM Server 
+                <span class="inline-block bg-emerald-900 text-emerald-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  Power10
+                </span>
+                <span class="inline-block bg-emerald-900 text-emerald-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  Power11
+                </span><br>
+              </div>
+            </div>
+            <div>
+  <label class="block text-sm text-slate-400 mb-2">Technical Skills</label>
+<div class="mt-6">
+  <table class="w-full text-sm text-slate-300">
+    <tbody class="divide-y divide-slate-700">
+      <!-- Row 1: Data & Markup Formats -->
+      <tr>
+        <td class="pr-4 py-2 whitespace-nowrap align-top">
+          <strong class="text-sky-400 font-semibold">Markup Languages and Formats</strong>
+        </td>
+        <td class="py-2">
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Markdown</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">YAML</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">XML</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JSON</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">DITA</span>
+        </td>
+      </tr>
+      
+      <!-- Row 2: Documentation & Authoring Tools -->
+      <tr>
+        <td class="pr-4 py-2 whitespace-nowrap align-top">
+          <strong class="text-sky-400 font-semibold">Authoring Tools</strong>
+        </td>
+        <td class="py-2">
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Oxygen XML Editor</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Acrolinx</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">VS code</span>
+        </td>
+      </tr>
+      
+      <!-- Row 3: DevOps & CI/CD/Collaboration -->
+      <tr>
+        <td class="pr-4 py-2 whitespace-nowrap align-top">
+          <strong class="text-sky-400 font-semibold">CI/CD and Collaboration</strong>
+        </td>
+        <td class="py-2">
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Jenkins</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Git</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JIRA</span>
+        </td>
+      </tr>
+         <!-- Row 4: Graphic -->
+      <tr>
+        <td class="pr-4 py-2 whitespace-nowrap align-top">
+          <strong class="text-sky-400 font-semibold">Graphics and Video Capturing Tool</strong>
+        </td>
+        <td class="py-2">
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">draw.io</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">PPTs for Gifs</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">camtasia</span>
+        </td>
+      </tr>
+      <!-- Row 5: Infrastructure & API -->
+      <tr>
+        <td class="pr-4 py-2 whitespace-nowrap align-top">
+          <strong class="text-sky-400 font-semibold">Domain: Infrastructure</strong>
+        </td>
+        <td class="py-2">
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Server Hardware</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Hybrid Cloud</span>
+          <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">On-Premise Infrastructure</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+          </div>
+        </article>
+
+        <!-- Xylem -->
+        <article class="glass-card hero-card p-6 rounded-2xl grid md:grid-cols-5 gap-6 items-start">
+          <div class="md:col-span-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Xylem_Logo.svg" alt="Xylem" class="h-6">
+            <div class="text-sm text-slate-500">2020 — 2022</div>
+            <div class="mt-3 text-xs text-slate-400">Role: Technical Documentation</div>
+          </div>
+
+          <div class="md:col-span-4 space-y-4">
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Responsibilities</label>
+              <div id="xylem-resp" class="editable" contenteditable="false">
+                • Responsible for handling end-to-end IoT solution documentation, which includes <br>
+                <span class="ml-4"> IoT Cloud, IoT Applications, and IoT Gateways.</span><br>
+                • Worked with developers in source code to generate well-written Swagger documentation. <br>
+                • Worked on a two-week agile environment. <br>
+                • Range of documentation deliverables includes:<br>
+                  <span class="ml-4">API documentation, Developer Guide, Integration Guide, SDK documentation, Release Notes, UAT Guide.</span><br>
+                
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Project names</label>
+              <div id="ibm-proj" class="editable" contenteditable="false">
+                • <b>Xylem Cloud</b> 
+                <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  IoT Cloud
+                </span><br>
+                • <b>Xylem Visenti</b> 
+                <span class="inline-block bg-emerald-900 text-emerald-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  IoT Software
+                </span><br>
+              </div>
+            </div>
+
+            <div>
+  <label class="block text-sm text-slate-400 mb-2">Technical Skills </label>
+  <div class="mt-6">
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Confluence</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Astoria CCMS</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JIRA</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Swagger</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">IoT Cloud</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Acrolinx</span>
+  </div>
+</div>
+            
+          </div>
+        </article>
+
+         <!-- Unisys -->
+        <article class="glass-card hero-card p-6 rounded-2xl grid md:grid-cols-5 gap-6 items-start">
+          <div class="md:col-span-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Unisys_logo_2022.svg" alt="Unisys" class="h-6">
+            <div class="text-sm text-slate-500">2017 — 2020</div>
+            <div class="mt-3 text-xs text-slate-400">Role: Information Developer</div>
+          </div>
+
+          <div class="md:col-span-4 space-y-4">
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Responsibilities</label>
+              <div id="unisys-resp" class="editable" contenteditable="false">
+                • Worked on end-to-end documentation process, which includes information gathering, planning, content analysis, execution, testing, delivery and project metrics.<br>
+                • Created technical documentation for Fabric Computing Manager (Data Centre Monitoring solution) and Digistics (Transportation solution) software products.<br>
+                • Analyzed user stories and updated the webhelp accordingly.<br>
+                • Created Ditaval files in XML for generating separate client-specific webhelp.<br>
+                • Range of documentation deliverables includes:<br>
+                <span class="ml-4">Webhelp, Administration and Operational Guide, Release Notes, and Installation and Implementation Guide.</span><br>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Project names</label>
+              <div id="ibm-proj" class="editable" contenteditable="false">
+                • <b>ClerPath Forward!</b> 
+                <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  Data Centre Management
+                </span><br>
+                • <b>Digistics</b> 
+                <span class="inline-block bg-emerald-900 text-emerald-300 text-xs font-semibold ml-1 px-2.5 py-0.5 rounded-full">
+                  Air Cargo Management System
+                </span><br>
+              </div>
+            </div>
+
+            <div>
+  <label class="block text-sm text-slate-400 mb-2">Technical Skills </label>
+  <div class="mt-6">
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">XML</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Data Center Docs</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JIRA</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Cloud</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">On Premise</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Acrolinx</span>
+  </div>
+</div>
+            
+          </div>
+        </article>
+        
+        <article class="glass-card hero-card p-6 rounded-2xl grid md:grid-cols-5 gap-6 items-start">
+          <div class="md:col-span-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Kreatio" class="h-6">
+            <div class="text-sm text-slate-500">2015 — 2017</div>
+            <div class="mt-3 text-xs text-slate-400">Role: Technical Writer</div>
+          </div>
+          <!-- Kreatio -->
+          <div class="md:col-span-4 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold text-slate-100">Kreatio — Details</h3>
+            </div>
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Responsibilities</label>
+              <div id="kreatio-resp" class="editable" contenteditable="false" role="textbox" aria-multiline="true">
+                • Created technical documentation for Intelligent Web Content Management System (WCMS) and Content Relationship Management (CRM) software products.<br>
+                • Created website wireframes based on Business Analyst inputs.<br>
+                • Responsible for preparing and maintaining software release notes.<br>
+                • Created Kreatio Enterprise resource planning video tutorials for clients.<br>
+                • Range of documentation deliverables includes: User Manuals, Video tutorials, Release Notes, and Internal Process Documents.<br>
+
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm text-slate-400 mb-2">Project names / highlights</label>
+              <div id="kreatio-proj" class="editable" contenteditable="false">
+                • Project: "API Onboarding" — created developer onboarding docs and examples.
+              </div>
+            </div>
+
+            <div>
+  <label class="block text-sm text-slate-400 mb-2">Technical Skills </label>
+  <div class="mt-6">
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">ERP</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Markdown</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JIRA</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">CMS</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Wireframe</span>
+    <span class="inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Github</span>
+  </div>
+</div>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects quick showcase (kept from the original page) -->
+    <section id="projects" class="mt-12">
+      <h2 class="text-3xl font-bold neon text-center">Selected Projects</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="hero-card p-6 rounded-xl">
+          <h4 class="font-semibold text-slate-100">RAG — AI Document Q&A</h4>
+          <p class="text-slate-400 mt-3">Designed retrieval and embedding workflows to improve developer-facing answers and reduce ambiguity in documentation lookup.</p>
+        </div>
+
+        <div class="hero-card p-6 rounded-xl">
+          <h4 class="font-semibold text-slate-100">Playwright Extractors</h4>
+          <p class="text-slate-400 mt-3">Created reliable extraction modules for JavaScript-heavy pages to feed downstream RAG indexes.</p>
+        </div>
+
+        <div class="hero-card p-6 rounded-xl">
+          <h4 class="font-semibold text-slate-100">Automated QA Tooling</h4>
+          <p class="text-slate-400 mt-3">Built Python-based link validation and reporting, removing repetitive QA steps and accelerating release cycles.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 mt-16">
+    <div class="container py-10 text-center">
+      <div class="text-slate-400">© 2025 Siddhartha Mani — Information Developer. Built for AI & Docs.</div>
+      <div class="mt-4 text-sm">
+        <a href="mailto:mani.siddhartha@gmail.com" class="text-sky-400 hover:underline">mani.siddhartha@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Typing effect (updated phrases)
+    const typingText = [
+      "AI-focused Technical Writer",
+      "Developer & API Documentation",
+      "RAG Systems • Structured Content"
+    ];
+    let typeIndex = 0, charIndex = 0;
+    const textElement = document.getElementById('typed-text');
+
+    function type() {
+      if (!textElement) return;
+      if (charIndex < typingText[typeIndex].length) {
+        textElement.textContent += typingText[typeIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 70);
+      } else {
+        setTimeout(erase, 1800);
+      }
+    }
+    function erase() {
+      if (!textElement) return;
+      if (charIndex > 0) {
+        textElement.textContent = typingText[typeIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 30);
+      } else {
+        typeIndex = (typeIndex + 1) % typingText.length;
+        setTimeout(type, 500);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => setTimeout(type, 600));
+
+    
+    // Reset to defaults
+    function resetCompany(key) {
+      const cfg = companies[key];
+      const respEl = document.getElementById(cfg.respId);
+      const projEl = document.getElementById(cfg.projId);
+      respEl.innerHTML = cfg.default.resp;
+      projEl.innerHTML = cfg.default.proj;
+      localStorage.removeItem('exp-'+key);
+      [respEl,projEl].forEach(el => el.setAttribute('contenteditable','false'));
+    }
+
+    // Toggle edit mode
+    function toggleEdit(key){
+      const cfg = companies[key];
+      const respEl = document.getElementById(cfg.respId);
+      const projEl = document.getElementById(cfg.projId);
+      const isEditing = respEl.getAttribute('contenteditable') === 'true';
+      [respEl,projEl].forEach(el => el.setAttribute('contenteditable', isEditing ? 'false' : 'true'));
+      if (!isEditing) {
+        respEl.focus();
+      }
+    }
+
+    function flashBorder(id){
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.transition = 'box-shadow .28s';
+      el.style.boxShadow = '0 0 0 4px rgba(124,58,237,0.06)';
+      setTimeout(()=> el.style.boxShadow = '', 700);
+    }
+  </script>
+</body>
+</html>
