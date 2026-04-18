@@ -713,6 +713,11 @@ export default function App() {
         {/* Quick Highlights */}
         <QuickHighlights />
 
+        {/* Skills */}
+        <SectionLabel label="Skills & Tools" />
+        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+        {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
+
         {/* What I Deliver */}
         <SectionLabel label="What I Deliver" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
@@ -722,11 +727,6 @@ export default function App() {
         <SectionLabel label="Professional Experience" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
-
-        {/* Skills */}
-        <SectionLabel label="Skills & Tools" />
-        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-        {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
 
       </div>
 
