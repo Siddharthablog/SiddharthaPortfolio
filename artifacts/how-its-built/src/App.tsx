@@ -84,171 +84,196 @@ function SectionLabel({ label }: { label: string }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WHAT I DO — animated viz cards
+// WHAT I DELIVER — 2×2 capability card grid
 // ─────────────────────────────────────────────────────────────────────────────
 
-// 01 AI Documentation
-const DOC_LINES = [
-  { w: 88, accent: true },
-  { w: 62, accent: false },
-  { w: 76, accent: false },
-  { w: 91, accent: true },
-  { w: 54, accent: false },
-  { w: 83, accent: false },
-  { w: 70, accent: true },
-];
-function AiDocViz({ active }: { active: boolean }) {
-  const step = useLoop(DOC_LINES.length + 1, 160, 1200, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <MacBar filename="api-reference.md" />
-      {DOC_LINES.map((l, i) => (
-        <div key={i} style={{
-          height: i === 0 ? 9 : 6,
-          background: l.accent ? "linear-gradient(90deg,hsl(210,88%,52%),hsl(100,40%,44%))" : "hsl(40,8%,82%)",
-          borderRadius: 4, marginBottom: 9,
-          width: step > i ? `${l.w}%` : "0%",
-          opacity: step > i ? 1 : 0,
-          transition: "width 0.4s ease, opacity 0.35s ease",
-        }} />
-      ))}
-      <div style={{
-        fontSize: 11, fontFamily: "monospace", color: "hsl(100,40%,36%)", fontWeight: 600, marginTop: 8,
-        opacity: step > DOC_LINES.length ? 1 : 0, transition: "opacity 0.4s ease",
-      }}>
-        ✦ LLM-optimised structure applied
-      </div>
-    </div>
-  );
+/** Counts up from 0 to `target` over ~800ms once `active` is true */
+function useCounter(target: number, active: boolean) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (!active) { setVal(0); return; }
+    let start = 0;
+    const step = Math.ceil(target / 28);
+    const iv = setInterval(() => {
+      start += step;
+      if (start >= target) { setVal(target); clearInterval(iv); }
+      else setVal(start);
+    }, 28);
+    return () => clearInterval(iv);
+  }, [active, target]);
+  return val;
 }
 
-// 02 Docs Automation
-const AUTO_STEPS = [
-  { icon: "🔍", label: "Scan docs repo",      sub: "1,240 topics",      color: "hsl(210,88%,52%)" },
-  { icon: "✦",  label: "LLM validation",       sub: "Local model",       color: "hsl(100,40%,44%)" },
-  { icon: "✂",  label: "Remove stale content", sub: "312 flagged",        color: "hsl(40,90%,54%)"  },
-  { icon: "🚀", label: "Jenkins publish",       sub: "Live in 4 hr",      color: "hsl(100,40%,44%)" },
+type Capability = {
+  icon: string;
+  color: string;
+  metricNum: number;
+  metricSuffix: string;
+  metricLabel: string;
+  headline: string;
+  desc: string;
+  tags: string[];
+  deliverables: string[];
+};
+
+const CAPABILITIES: Capability[] = [
+  {
+    icon: "📝",
+    color: "hsl(210,88%,52%)",
+    metricNum: 7,
+    metricSuffix: "+",
+    metricLabel: "IBM Cloud products",
+    headline: "Documentation LLMs can actually read",
+    desc: "API references, CLI guides, and developer docs for IBM Cloud — structured so AI agents and human readers get the same high-quality experience.",
+    tags: ["API Docs","CLI Guides","Developer Guides","RAG"],
+    deliverables: ["Getting Started Guide","API Reference","CLI Reference","Troubleshooting Guide"],
+  },
+  {
+    icon: "⚡",
+    color: "hsl(100,40%,44%)",
+    metricNum: 18,
+    metricSuffix: "×",
+    metricLabel: "faster than manual review",
+    headline: "Automation that eliminates the manual grind",
+    desc: "Python + local LLM detects and removes stale content. Jenkins CI/CD keeps docs in perfect sync with every release — no backlog, no drift.",
+    tags: ["Python","LangChain","Jenkins","CI/CD"],
+    deliverables: ["Stale Content Scanner","LLM Validation Script","Jenkins Pipeline","Release Automation"],
+  },
+  {
+    icon: "🗂",
+    color: "hsl(40,90%,52%)",
+    metricNum: 6,
+    metricSuffix: "",
+    metricLabel: "server models, 1 source",
+    headline: "One source. Every audience. Perfect accuracy.",
+    desc: "DITA/XML with DITAVAL profiling across IBM Power10 and Power11 server variants — zero content duplication, six unique deliverables from a single source.",
+    tags: ["DITA","XML","DITAVAL","Oxygen XML"],
+    deliverables: ["Power10 Admin Guide","Power11 Admin Guide","Webhelp","Release Notes"],
+  },
+  {
+    icon: "🏆",
+    color: "hsl(260,60%,55%)",
+    metricNum: 4,
+    metricSuffix: " projects",
+    metricLabel: "+ 2 hackathons",
+    headline: "Always building beyond the day job",
+    desc: "Active contributor to FletX, Requestly, Ansible AMQ, and Terraform. Competed in WatsonX Agentic AI Hackathon and Hacktoberfest to stay at the cutting edge.",
+    tags: ["FletX","Requestly","Ansible AMQ","Terraform"],
+    deliverables: ["OSS Contribution Docs","Hackathon Projects","Link Checker Extension","WatsonX AI Docs"],
+  },
 ];
-function AutomationViz({ active }: { active: boolean }) {
-  const step = useLoop(AUTO_STEPS.length + 1, 480, 1000, active);
+
+function CapabilityCard({ cap, idx, visible }: { cap: Capability; idx: number; visible: boolean }) {
+  const count = useCounter(cap.metricNum, visible);
+  const step = useLoop(cap.deliverables.length, 480, 1400, visible);
+
   return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <MacBar filename="automation.py — running…" />
-      {AUTO_STEPS.map((s, i) => (
-        <div key={i} style={{
-          display: "flex", alignItems: "center", gap: 11, marginBottom: 11,
-          opacity: step > i ? 1 : 0,
-          transform: step > i ? "translateX(0)" : "translateX(20px)",
-          transition: "opacity 0.38s ease, transform 0.38s ease",
-        }}>
+    <div style={{
+      background: "white",
+      border: "1px solid var(--border)",
+      borderRadius: "1rem",
+      overflow: "hidden",
+      display: "flex",
+      flexDirection: "column",
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(24px)",
+      transition: `opacity 0.6s ease ${idx * 0.12}s, transform 0.6s ease ${idx * 0.12}s`,
+      boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
+    }}>
+      {/* Accent bar */}
+      <div style={{ height: 3, background: cap.color, borderRadius: "1rem 1rem 0 0" }} />
+
+      <div style={{ padding: "1.5rem", flex: 1, display: "flex", flexDirection: "column", gap: 14 }}>
+
+        {/* Top row: icon + metric */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
           <div style={{
-            width: 32, height: 32, borderRadius: "50%", flexShrink: 0,
-            background: s.color + "1a", border: `1.5px solid ${s.color}44`,
-            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13,
-          }}>{s.icon}</div>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 11, fontWeight: 600, color: "var(--text)" }}>{s.label}</span>
-              <span style={{ fontSize: 10, color: "var(--muted)" }}>{s.sub}</span>
+            width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+            background: cap.color + "14", border: `1.5px solid ${cap.color}28`,
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20,
+          }}>{cap.icon}</div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{
+              fontSize: "1.9rem", fontWeight: 900, lineHeight: 1,
+              color: cap.color, letterSpacing: "-0.03em",
+            }}>
+              {count}{cap.metricSuffix}
             </div>
-            <div style={{ height: 4, background: "hsl(40,14%,88%)", borderRadius: 3, overflow: "hidden" }}>
-              <div style={{
-                height: "100%", background: s.color, borderRadius: 3,
-                width: step > i ? "100%" : "0%",
-                transition: "width 0.55s ease 0.1s",
-              }} />
+            <div style={{ fontSize: 10, color: "var(--muted)", fontWeight: 600, marginTop: 2 }}>
+              {cap.metricLabel}
             </div>
           </div>
         </div>
-      ))}
-      <div style={{
-        fontSize: 11, fontWeight: 700, color: "hsl(100,40%,36%)", fontFamily: "monospace",
-        opacity: step > AUTO_STEPS.length ? 1 : 0, transition: "opacity 0.4s ease",
-      }}>
-        ✓ 3-day manual process → 4 hours
-      </div>
-    </div>
-  );
-}
 
-// 03 DITA
-const DITA_LINES = [
-  { text: '<?xml version="1.0"?>',          color: "hsl(40,8%,60%)",    indent: 0 },
-  { text: '<concept id="power-server">',     color: "hsl(210,88%,52%)",  indent: 0 },
-  { text: "<title>",                         color: "hsl(100,40%,44%)",  indent: 1 },
-  { text: "  IBM Power10 Server Guide",      color: "hsl(40,10%,30%)",   indent: 2 },
-  { text: "</title>",                        color: "hsl(100,40%,44%)",  indent: 1 },
-  { text: "<conbody>",                       color: "hsl(210,88%,52%)",  indent: 1 },
-  { text: '  <p audience="admin">…</p>',    color: "hsl(40,10%,30%)",   indent: 2 },
-  { text: '  <p audience="dev">…</p>',      color: "hsl(40,10%,30%)",   indent: 2 },
-  { text: "</conbody>",                      color: "hsl(210,88%,52%)",  indent: 1 },
-  { text: "</concept>",                      color: "hsl(210,88%,52%)",  indent: 0 },
-];
-function DitaViz({ active }: { active: boolean }) {
-  const step = useLoop(DITA_LINES.length + 1, 130, 1400, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem", fontFamily: "monospace" }}>
-      <MacBar filename="power-server.dita — DITAVAL active" />
-      <div style={{ fontSize: 11, lineHeight: 1.9 }}>
-        {DITA_LINES.map((t, i) => (
-          <div key={i} style={{
-            paddingLeft: t.indent * 14, color: t.color,
-            opacity: step > i ? 1 : 0,
-            transform: step > i ? "translateX(0)" : "translateX(-12px)",
-            transition: "opacity 0.28s ease, transform 0.28s ease",
-          }}>{t.text}</div>
-        ))}
-      </div>
-      <div style={{
-        marginTop: 10, fontSize: 10, fontWeight: 600, color: "hsl(210,88%,44%)", fontFamily: "sans-serif",
-        opacity: step > DITA_LINES.length ? 1 : 0, transition: "opacity 0.4s ease",
-      }}>
-        ✓ 6 Power Server models · single source
-      </div>
-    </div>
-  );
-}
-
-// 04 Open Source
-const OS_PROJECTS = [
-  { name: "FletX",        color: "hsl(210,88%,52%)" },
-  { name: "Requestly",    color: "hsl(100,40%,44%)" },
-  { name: "Ansible AMQ",  color: "hsl(40,90%,52%)"  },
-  { name: "Terraform",    color: "hsl(260,60%,58%)"  },
-  { name: "WatsonX AI",   color: "hsl(100,40%,44%)" },
-  { name: "Link Checker", color: "hsl(210,88%,52%)" },
-];
-function OpenSourceViz({ active }: { active: boolean }) {
-  const step = useLoop(OS_PROJECTS.length + 2, 300, 1200, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 14 }}>Contributions &amp; Hackathons</div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 14 }}>
-        {OS_PROJECTS.map((p, i) => (
-          <span key={p.name} style={{
-            background: p.color + "18", border: `1.5px solid ${p.color}44`,
-            color: p.color, fontSize: 12, fontWeight: 600,
-            padding: "4px 13px", borderRadius: 9999,
-            opacity: step > i ? 1 : 0,
-            transform: step > i ? "scale(1)" : "scale(0.6)",
-            transition: "opacity 0.26s ease, transform 0.26s ease",
-          }}>{p.name}</span>
-        ))}
-      </div>
-      {[
-        { icon: "🏆", text: "Hacktoberfest contributor" },
-        { icon: "⚡", text: "IBM WatsonX Agentic AI Hackathon" },
-      ].map((item, i) => (
-        <div key={item.text} style={{
-          display: "flex", gap: 7, alignItems: "center", marginBottom: 6,
-          opacity: step > OS_PROJECTS.length + i ? 1 : 0,
-          transform: step > OS_PROJECTS.length + i ? "translateY(0)" : "translateY(8px)",
-          transition: "opacity 0.32s ease, transform 0.32s ease",
-        }}>
-          <span style={{ fontSize: 14 }}>{item.icon}</span>
-          <span style={{ fontSize: 12, color: "var(--muted)", fontWeight: 500 }}>{item.text}</span>
+        {/* Headline */}
+        <div>
+          <h3 style={{
+            fontSize: "1rem", fontWeight: 800, lineHeight: 1.3,
+            color: "var(--text)", marginBottom: 7,
+          }}>{cap.headline}</h3>
+          <p style={{ fontSize: "0.8rem", color: "var(--muted)", lineHeight: 1.75 }}>
+            {cap.desc}
+          </p>
         </div>
-      ))}
+
+        {/* Tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+          {cap.tags.map(t => (
+            <span key={t} style={{
+              background: cap.color + "12",
+              border: `1.5px solid ${cap.color}28`,
+              color: cap.color, fontSize: 10, fontWeight: 700,
+              padding: "2px 9px", borderRadius: 9999,
+            }}>{t}</span>
+          ))}
+        </div>
+
+        {/* Deliverables: animated list */}
+        <div style={{
+          background: "hsl(45,22%,97%)",
+          border: "1px solid var(--border)",
+          borderRadius: 8, padding: "0.75rem 1rem",
+          marginTop: "auto",
+        }}>
+          <div style={{ fontSize: 9.5, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--muted)", marginBottom: 7 }}>
+            Deliverables
+          </div>
+          {cap.deliverables.map((d, i) => (
+            <div key={d} style={{
+              display: "flex", alignItems: "center", gap: 7, marginBottom: 5,
+              opacity: step > i ? 1 : 0,
+              transform: step > i ? "translateX(0)" : "translateX(10px)",
+              transition: "opacity 0.3s ease, transform 0.3s ease",
+            }}>
+              <div style={{
+                width: 5, height: 5, borderRadius: "50%", flexShrink: 0,
+                background: step === i + 1 ? cap.color : cap.color + "55",
+                boxShadow: step === i + 1 ? `0 0 0 3px ${cap.color}22` : "none",
+                transition: "box-shadow 0.3s",
+              }} />
+              <span style={{ fontSize: 11, color: "var(--muted)", fontWeight: 500 }}>{d}</span>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function WhatIDeliver() {
+  const { ref, visible } = useReveal(0.12);
+  return (
+    <div ref={ref} style={{ padding: "4rem 0 0" }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "1.25rem",
+      }}>
+        {CAPABILITIES.map((cap, i) => (
+          <CapabilityCard key={cap.headline} cap={cap} idx={i} visible={visible} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -549,28 +574,6 @@ function QuickHighlights() {
 // App
 // ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
-  const WHAT: RowDef[] = [
-    {
-      num: "01", title: "AI Documentation",
-      desc: "I author API references, CLI guides, and developer docs for IBM Cloud — structuring content so LLMs and AI agents can consume it as easily as humans can.",
-      Viz: AiDocViz,
-    },
-    {
-      num: "02", title: "Docs Automation",
-      desc: "Using Python and a local LLM, I automated obsolete content removal — cutting a 3-day manual review process down to 4 hours. CI/CD pipelines via Jenkins keep docs in sync with releases.",
-      Viz: AutomationViz,
-    },
-    {
-      num: "03", title: "Structured Content (DITA)",
-      desc: "DITA/XML authoring with complex DITAVAL profiling to manage content across six IBM Power Server models from a single source — ensuring accuracy across every variant.",
-      Viz: DitaViz,
-    },
-    {
-      num: "04", title: "Open Source & Hackathons",
-      desc: "Active contributor to FletX, Requestly, Ansible AMQ, and Terraform. Competed in IBM WatsonX Agentic AI Hackathon and Hacktoberfest to stay at the cutting edge.",
-      Viz: OpenSourceViz,
-    },
-  ];
 
   const EXP: RowDef[] = [
     {
@@ -710,10 +713,10 @@ export default function App() {
         {/* Quick Highlights */}
         <QuickHighlights />
 
-        {/* What I do */}
-        <SectionLabel label="What I do" />
+        {/* What I Deliver */}
+        <SectionLabel label="What I Deliver" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-        {WHAT.map((r, i) => <Row key={r.title} r={r} last={i === WHAT.length - 1} />)}
+        <WhatIDeliver />
 
         {/* Experience */}
         <SectionLabel label="Professional Experience" />
