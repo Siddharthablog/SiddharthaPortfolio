@@ -354,48 +354,55 @@ function ResponsibilitiesViz({
 
 // ── Company-specific data ─────────────────────────────────────────────────────
 const IBM_RESP = [
-  "Author API, CLI, and developer guides for IBM Cloud",
-  "Collaborate with AI Docs architects to optimise content for LLM consumption",
-  "Automated stale content removal with Python + local LLM → 3 days to 4 hours",
-  "Develop IBM Power Server component docs and troubleshooting guides",
-  "Apply DITAVAL profiling across 6 IBM Power Server hardware models",
-  "Perform peer reviews and quality checks across multiple cloud & hardware projects",
-  "Coordinate with engineering, product, and UX teams per release cycle",
-  "Mentor junior writers on IBM Style Guide and content best practices",
-  "Participate in Hacktoberfest and open-source documentation initiatives",
-  "Integrate AI-driven content validation and metadata tagging in doc workflows",
+  "Author API, CLI, and developer guides for IBM Cloud Power Virtual Server",
+  "Collaborate with AI documentation architects to restructure content for LLM and chatbot consumption",
+  "Automated obsolete version docs with Python + Ollama — reduced 3-day process to under 4 hours",
+  "Deployed Streamlit + RAG peer-review system, reducing peer-review time by 40%",
+  "Apply DITAVAL profiling across 6 IBM Power Server models — reduced content duplication by 65%",
+  "Use local LLM inference (Ollama) to improve content accuracy, consistency, and end-user experience",
+  "Align IBM Cloud documentation with product roadmap across multiple Engineering and PM teams",
+  "Explore Langflow and n8n to scale DocOps workflows and documentation automation",
+  "Mentor junior writers through knowledge transfer sessions; perform peer reviews for IBM Cloud doc sets",
+  "Participate in hackathons, Hacktoberfest, and open-source AI documentation initiatives",
 ];
 function IbmViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={IBM_RESP} color="hsl(210,88%,52%)" />; }
 
 const XYLEM_RESP = [
-  "End-to-end IoT solution documentation: IoT Cloud, Applications, Gateways",
-  "Worked with developers in source code to produce Swagger/OpenAPI documentation",
-  "Operated in two-week agile sprint cycles",
-  "Delivered API docs, Developer Guide, Integration Guide, SDK docs",
-  "Delivered Release Notes and UAT Guide",
-  "Projects — Xylem Cloud (IoT Cloud) · Xylem Visenti (IoT Software)",
+  "Owned end-to-end IoT documentation for cloud platforms, applications, and gateways",
+  "Collaborated with developers in source code to produce Swagger/OpenAPI documentation",
+  "Provided documentation demos to stakeholders after each two-week sprint",
+  "Operated in an agile environment with sprint planning and review cycles",
+  "Deliverables: API docs, Developer Guide, Integration Guide, Release Notes, UAT Guide",
 ];
 function XylemViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={XYLEM_RESP} color="hsl(200,80%,44%)" />; }
 
 const UNISYS_RESP = [
-  "End-to-end documentation: information gathering, planning, content analysis, execution, testing, delivery",
-  "Created docs for Fabric Computing Manager (Data Centre Monitoring) — ClearPath Forward!",
-  "Created docs for Digistics (Transportation / Air Cargo Management) software",
-  "Analysed user stories and updated webhelp accordingly",
-  "Created DITAVAL files in XML for generating client-specific webhelp variants",
-  "Deliverables: Webhelp, Admin & Operational Guide, Release Notes, Installation Guide",
+  "Delivered end-to-end documentation for Data Center application software and Air Cargo software",
+  "Created DITAVAL files in XML for generating client-specific webhelp outputs",
+  "Analysed user stories and updated webhelp content accordingly",
+  "Deliverables: Webhelp, Administration & Operational Guide, Release Notes, Installation Guide",
+  "Domain: Cloud Computing, Supply Chain Management",
 ];
 function UnisysViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={UNISYS_RESP} color="hsl(260,55%,55%)" />; }
+
+const KREATIO_RESP = [
+  "Authored technical documentation for Kreatio CMS and ERP software products",
+  "Designed website wireframes based on Project Manager inputs",
+  "Produced Kreatio Enterprise Resource Planning (ERP) video tutorials for clients",
+  "Domain: CMS, ERP Systems",
+];
+function KreatioViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={KREATIO_RESP} color="hsl(16,80%,52%)" />; }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SKILLS animated viz
 // ─────────────────────────────────────────────────────────────────────────────
 const SKILL_GROUPS = [
-  { label: "Markup Languages",  color: "hsl(210,88%,52%)", items: ["DITA","XML","Markdown","YAML","JSON","reStructuredText"] },
-  { label: "Authoring Tools",   color: "hsl(100,40%,44%)", items: ["Oxygen XML Editor","VS Code","Acrolinx","Confluence","Astoria CCMS"] },
-  { label: "CI/CD & DevOps",    color: "hsl(40,90%,52%)",  items: ["Jenkins","Git","JIRA","Swagger","Postman"] },
-  { label: "AI & Automation",   color: "hsl(260,60%,55%)", items: ["Python","LangChain","Local LLMs","RAG","Vibe Coding"] },
-  { label: "Graphics & Media",  color: "hsl(0,70%,55%)",   items: ["draw.io","Camtasia","PowerPoint GIFs"] },
+  { label: "Markup & Programming", color: "hsl(210,88%,52%)", items: ["DITA","XML","Markdown","YAML","JSON","HTML","JavaScript","reStructuredText","Python"] },
+  { label: "Authoring Tools",      color: "hsl(100,40%,44%)", items: ["Arbortext Editor","Oxygen XML","Acrolinx","VS Code"] },
+  { label: "AI Frameworks",        color: "hsl(260,60%,55%)", items: ["LangChain","LangGraph","Streamlit","Docling","RAG","MCP","Ollama"] },
+  { label: "CCMS & Content",       color: "hsl(40,90%,52%)",  items: ["Astoria","Contenta","DITAVAL","Single Sourcing","Info Mapping"] },
+  { label: "CI/CD & Collaboration",color: "hsl(200,80%,44%)", items: ["Jenkins","GitHub","JIRA","Confluence","Swagger"] },
+  { label: "Graphics & Media",     color: "hsl(0,70%,55%)",   items: ["draw.io","Clipchamp","TechSmith Camtasia"] },
 ];
 function SkillsViz({ active }: { active: boolean }) {
   const allCount = SKILL_GROUPS.reduce((s, g) => s + g.items.length, 0);
@@ -490,31 +497,31 @@ const HIGHLIGHTS = [
   {
     icon: "🤖",
     title: "AI Documentation",
-    items: ["RAG systems","Prompt templates","LLM integration docs"],
+    items: ["RAG systems · Agentic AI","Prompt templates","LLM integration docs"],
     color: "hsl(210,88%,52%)",
   },
   {
     icon: "📄",
     title: "Structured Content",
-    items: ["DITA · XML","Markdown · YAML","reStructuredText · CCMS"],
+    items: ["DITA · XML · DITAVAL","Markdown · YAML · JSON","reStructuredText · CCMS"],
     color: "hsl(100,40%,44%)",
   },
   {
     icon: "⚙️",
-    title: "Automation & Tools",
-    items: ["Python · LangChain","Jenkins · Postman","Vibe Coding"],
+    title: "AI Automation",
+    items: ["Python · LangChain · LangGraph","Streamlit · Docling · MCP","Ollama · n8n · Langflow"],
     color: "hsl(40,90%,52%)",
   },
   {
     icon: "🎓",
     title: "Certifications",
-    items: ["AI Complete Bootcamp","Technical Writing","Docker · Hybrid Cloud"],
+    items: ["Agentic AI Bootcamp · 2025","Technical Writing (TWB)","Docker · Hybrid Cloud"],
     color: "hsl(260,60%,55%)",
   },
   {
     icon: "⚡",
-    title: "Hackathons",
-    items: ["WatsonX Agentic AI","Link Checker Extension","Hacktoberfest"],
+    title: "Community",
+    items: ["WatsonX Agentic AI Hackathon","Hacktoberfest contributor","Dev.to · Medium blogger"],
     color: "hsl(40,90%,48%)",
   },
   {
@@ -524,6 +531,73 @@ const HIGHLIGHTS = [
     color: "hsl(100,40%,44%)",
   },
 ];
+
+// ── Key Achievements ──────────────────────────────────────────────────────────
+const KEY_ACHIEVEMENTS = [
+  {
+    stat: "3 days → 4 hrs",
+    label: "Automated archival",
+    desc: "Python + Ollama solution for identifying and removing version-specific DITA content",
+    color: "hsl(100,40%,44%)",
+    icon: "⚡",
+  },
+  {
+    stat: "40% faster",
+    label: "Peer-review time",
+    desc: "Streamlit + Python + Ollama + Docling RAG system for style guide enforcement and review automation",
+    color: "hsl(210,88%,52%)",
+    icon: "🤖",
+  },
+  {
+    stat: "65% less",
+    label: "Content duplication",
+    desc: "Managed docs across 6 IBM Power Server models using DITAVAL profiling from a single source",
+    color: "hsl(260,60%,55%)",
+    icon: "🗂",
+  },
+];
+
+function KeyAchievements() {
+  const { ref, visible } = useReveal(0.15);
+  return (
+    <div ref={ref} style={{ marginTop: "2.5rem" }}>
+      <div style={{
+        fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+        letterSpacing: "0.18em", color: "var(--muted)", marginBottom: 14,
+        paddingLeft: 2,
+      }}>Key Achievements</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
+        {KEY_ACHIEVEMENTS.map((a, i) => (
+          <div key={a.label} style={{
+            background: "white",
+            border: `1.5px solid ${a.color}28`,
+            borderTop: `3px solid ${a.color}`,
+            borderRadius: "0.9rem",
+            padding: "1.25rem 1.25rem 1rem",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(18px)",
+            transition: `opacity 0.55s ease ${i * 0.12}s, transform 0.55s ease ${i * 0.12}s`,
+            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+              <div style={{
+                fontSize: "1.55rem", fontWeight: 900, color: a.color,
+                letterSpacing: "-0.02em", lineHeight: 1,
+              }}>{a.stat}</div>
+              <span style={{
+                width: 30, height: 30, borderRadius: 8, flexShrink: 0,
+                background: a.color + "14", display: "flex",
+                alignItems: "center", justifyContent: "center", fontSize: 15,
+              }}>{a.icon}</span>
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)", marginBottom: 5 }}>{a.label}</div>
+            <p style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.65 }}>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function QuickHighlights() {
   const { ref, visible } = useReveal(0.15);
@@ -578,82 +652,89 @@ export default function App() {
 
   const EXP: RowDef[] = [
     {
-      title: "IBM — Information Developer",
+      title: "IBM Labs R&D — Technical Content Professional",
       desc: (
         <>
-          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>Sep 2022 — Present</strong>
-          IBM Cloud Power Virtual Server <em style={{ color: "hsl(210,88%,50%)" }}>(Hybrid Cloud)</em> ·
-          IBM Power10 &amp; Power11 Server hardware
+          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>Sep 2022 — Present · 11+ yrs overall</strong>
+          <em style={{ color: "var(--muted)", fontSize: "0.8rem" }}>Domain: Hybrid Cloud · Data Center Server</em>
           <div style={{ marginTop: 10 }}>
             <strong style={{ color: "var(--text)" }}>Projects:</strong><br />
             • IBM Cloud: Power Virtual Server <Tag label="Hybrid Cloud" color="hsl(210,88%,52%)" /><br />
             • IBM Server <Tag label="Power10" color="hsl(100,40%,44%)" /><Tag label="Power11" color="hsl(100,40%,44%)" />
           </div>
           <div style={{ marginTop: 10 }}>
-            <strong style={{ color: "var(--text)" }}>Skills:</strong><br />
-            <Tag label="DITA" color="hsl(210,88%,52%)" />
-            <Tag label="XML" color="hsl(210,88%,52%)" />
-            <Tag label="Markdown" color="hsl(210,88%,52%)" />
-            <Tag label="YAML" color="hsl(210,88%,52%)" />
-            <Tag label="JSON" color="hsl(210,88%,52%)" />
-            <Tag label="Oxygen XML" color="hsl(100,40%,44%)" />
-            <Tag label="Acrolinx" color="hsl(100,40%,44%)" />
-            <Tag label="VS Code" color="hsl(100,40%,44%)" />
-            <Tag label="Jenkins" color="hsl(40,90%,50%)" />
-            <Tag label="Git" color="hsl(40,90%,50%)" />
-            <Tag label="JIRA" color="hsl(40,90%,50%)" />
-            <Tag label="draw.io" color="hsl(0,65%,52%)" />
-            <Tag label="Camtasia" color="hsl(0,65%,52%)" />
+            <strong style={{ color: "var(--text)" }}>Tools:</strong><br />
+            <Tag label="DITA" color="hsl(210,88%,52%)" /><Tag label="Oxygen XML" color="hsl(210,88%,52%)" />
+            <Tag label="Acrolinx" color="hsl(210,88%,52%)" /><Tag label="Python" color="hsl(100,40%,44%)" />
+            <Tag label="Ollama" color="hsl(100,40%,44%)" /><Tag label="Streamlit" color="hsl(100,40%,44%)" />
+            <Tag label="LangChain" color="hsl(260,60%,55%)" /><Tag label="Jenkins" color="hsl(40,90%,50%)" />
+            <Tag label="GitHub" color="hsl(40,90%,50%)" /><Tag label="JIRA" color="hsl(40,90%,50%)" />
           </div>
         </>
       ),
       Viz: IbmViz,
     },
     {
-      title: "Xylem — Technical Documentation",
+      title: "Xylem India R&D — Lead Technical Writer",
       desc: (
         <>
-          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>2020 — 2022</strong>
-          End-to-end IoT documentation for IoT Cloud, Applications, and Gateways in two-week agile sprints.
+          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>Jun 2020 — Sep 2022</strong>
+          <em style={{ color: "var(--muted)", fontSize: "0.8rem" }}>Domain: IoT Cloud · IoT Application</em>
           <div style={{ marginTop: 10 }}>
             <strong style={{ color: "var(--text)" }}>Projects:</strong><br />
             • Xylem Cloud <Tag label="IoT Cloud" color="hsl(200,80%,44%)" /><br />
             • Xylem Visenti <Tag label="IoT Software" color="hsl(200,80%,44%)" />
           </div>
           <div style={{ marginTop: 10 }}>
-            <strong style={{ color: "var(--text)" }}>Skills:</strong><br />
-            <Tag label="Confluence" color="hsl(200,80%,44%)" />
-            <Tag label="Astoria CCMS" color="hsl(200,80%,44%)" />
-            <Tag label="Swagger" color="hsl(200,80%,44%)" />
-            <Tag label="JIRA" color="hsl(200,80%,44%)" />
+            <strong style={{ color: "var(--text)" }}>Tools:</strong><br />
+            <Tag label="Astoria CCMS" color="hsl(200,80%,44%)" /><Tag label="Swagger" color="hsl(200,80%,44%)" />
+            <Tag label="Confluence" color="hsl(200,80%,44%)" /><Tag label="JIRA" color="hsl(200,80%,44%)" />
             <Tag label="Acrolinx" color="hsl(200,80%,44%)" />
-            <Tag label="IoT Cloud" color="hsl(200,80%,44%)" />
           </div>
         </>
       ),
       Viz: XylemViz,
     },
     {
-      title: "Unisys — Information Developer",
+      title: "Unisys India R&D — Product Information Specialist",
       desc: (
         <>
-          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>2017 — 2020</strong>
-          Full lifecycle documentation for data centre and logistics software products.
+          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>Apr 2017 — May 2020</strong>
+          <em style={{ color: "var(--muted)", fontSize: "0.8rem" }}>Domain: Cloud Computing · Supply Chain Management</em>
           <div style={{ marginTop: 10 }}>
             <strong style={{ color: "var(--text)" }}>Projects:</strong><br />
-            • ClearPath Forward! <Tag label="Data Centre Management" color="hsl(260,55%,55%)" /><br />
-            • Digistics <Tag label="Air Cargo Management" color="hsl(260,55%,55%)" />
+            • ClearPath Forward! <Tag label="Data Centre Mgmt" color="hsl(260,55%,55%)" /><br />
+            • Digistics <Tag label="Air Cargo Mgmt" color="hsl(260,55%,55%)" />
           </div>
           <div style={{ marginTop: 10 }}>
-            <strong style={{ color: "var(--text)" }}>Skills:</strong><br />
-            <Tag label="XML" color="hsl(260,55%,55%)" />
-            <Tag label="DITA" color="hsl(260,55%,55%)" />
-            <Tag label="Oxygen XML" color="hsl(260,55%,55%)" />
-            <Tag label="DITAVAL" color="hsl(260,55%,55%)" />
+            <strong style={{ color: "var(--text)" }}>Tools:</strong><br />
+            <Tag label="XML" color="hsl(260,55%,55%)" /><Tag label="DITA" color="hsl(260,55%,55%)" />
+            <Tag label="Oxygen XML" color="hsl(260,55%,55%)" /><Tag label="DITAVAL" color="hsl(260,55%,55%)" />
           </div>
         </>
       ),
       Viz: UnisysViz,
+    },
+    {
+      title: "Kreatio — Technical Writer",
+      desc: (
+        <>
+          <strong style={{ color: "var(--text)", display: "block", marginBottom: 4 }}>Jan 2015 — Mar 2017</strong>
+          <em style={{ color: "var(--muted)", fontSize: "0.8rem" }}>Domain: CMS · ERP Systems</em>
+          <div style={{ marginTop: 10 }}>
+            <strong style={{ color: "var(--text)" }}>Products:</strong><br />
+            • Kreatio CMS <Tag label="Content Management" color="hsl(16,80%,52%)" /><br />
+            • Kreatio ERP <Tag label="Enterprise Resource Planning" color="hsl(16,80%,52%)" />
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <strong style={{ color: "var(--text)" }}>Delivered:</strong><br />
+            <Tag label="Technical Docs" color="hsl(16,80%,52%)" />
+            <Tag label="Website Wireframes" color="hsl(16,80%,52%)" />
+            <Tag label="Video Tutorials" color="hsl(16,80%,52%)" />
+          </div>
+        </>
+      ),
+      Viz: KreatioViz,
     },
   ];
 
@@ -670,19 +751,27 @@ export default function App() {
 
       {/* ── Hero ── */}
       <div style={{ textAlign: "center", padding: "5rem 1.5rem 0" }}>
-        <p style={{
-          fontSize: 10.5, fontWeight: 800, letterSpacing: "0.2em",
-          textTransform: "uppercase", color: "var(--muted)", marginBottom: 12,
-        }}>Technical Writer · AI &amp; Cloud Documentation</p>
+        <div style={{ display: "flex", justifyContent: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
+          <span style={{
+            fontSize: 10, fontWeight: 700, letterSpacing: "0.16em",
+            textTransform: "uppercase", color: "var(--muted)",
+          }}>Technical Content Professional · IBM Labs</span>
+          <span style={{
+            fontSize: 10, fontWeight: 800, padding: "2px 10px", borderRadius: 9999,
+            background: "hsl(100,40%,44%,0.12)", border: "1.5px solid hsl(100,40%,44%,0.3)",
+            color: "hsl(100,40%,38%)",
+          }}>11+ years experience</span>
+        </div>
         <h1 style={{ fontSize: "clamp(2.2rem,5vw,3.2rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.1 }}>
           Siddhartha Mani
         </h1>
         <p style={{
           marginTop: 14, fontSize: "0.88rem", color: "var(--muted)",
-          maxWidth: 500, margin: "14px auto 0", lineHeight: 1.8,
+          maxWidth: 560, margin: "14px auto 0", lineHeight: 1.8,
         }}>
-          I turn complex engineering and AI systems into clear, developer-focused documentation —
-          structured so both humans and LLMs can consume it easily.
+          Seasoned Technical Writer and AI Documentation Specialist seeking a leadership role to design
+          AI-driven documentation strategies, leverage RAG systems and agentic AI for intelligent content
+          delivery, and mentor teams in modern DocOps automation practices.
           <span style={{ display: "block", marginTop: 6, fontSize: "0.8rem" }}>
             Open to: Remote &amp; Full-time
           </span>
@@ -714,6 +803,9 @@ export default function App() {
         {/* Quick Highlights */}
         <QuickHighlights />
 
+        {/* Key Achievements */}
+        <KeyAchievements />
+
         {/* Skills */}
         <SectionLabel label="Skills & Tools" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
@@ -724,10 +816,37 @@ export default function App() {
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
 
-        {/* What I Deliver — at end */}
+        {/* What I Deliver */}
         <SectionLabel label="What I Deliver" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         <WhatIDeliver />
+
+        {/* Education & Certifications */}
+        <SectionLabel label="Education & Certifications" />
+        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))",
+          gap: "0.85rem", padding: "1.5rem 0 2rem",
+        }}>
+          {[
+            { icon: "🎓", title: "BE Computer Science", sub: "Dayananda Sagar College, Bangalore · 2014", color: "hsl(210,88%,52%)" },
+            { icon: "✍️", title: "Technical Writing Cert", sub: "The Writers Block (TWB) · 2015", color: "hsl(100,40%,44%)" },
+            { icon: "🤖", title: "Agentic AI Bootcamp", sub: "LangGraph & LangChain · 2025", color: "hsl(260,60%,55%)" },
+            { icon: "🐳", title: "Docker Essentials", sub: "Containerisation fundamentals", color: "hsl(200,80%,44%)" },
+            { icon: "☁️", title: "Hybrid Cloud Essentials", sub: "Data Center & Cloud Infrastructure", color: "hsl(40,90%,52%)" },
+          ].map(e => (
+            <div key={e.title} style={{
+              background: "white", borderRadius: "0.85rem",
+              borderTop: `3px solid ${e.color}`,
+              padding: "1rem 1rem 0.85rem",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
+            }}>
+              <div style={{ fontSize: 22, marginBottom: 6 }}>{e.icon}</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>{e.title}</div>
+              <div style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.6 }}>{e.sub}</div>
+            </div>
+          ))}
+        </div>
 
       </div>
 
@@ -737,7 +856,7 @@ export default function App() {
         borderTop: "1px solid var(--border)",
         fontSize: "0.78rem", color: "var(--muted)",
       }}>
-        © 2025 Siddhartha Mani · mani.siddhartha@gmail.com
+        © 2026 Siddhartha Mani · mani.siddhartha@gmail.com
       </div>
     </div>
   );
