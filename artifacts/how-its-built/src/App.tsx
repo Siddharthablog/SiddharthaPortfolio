@@ -282,6 +282,77 @@ function WhatIDeliver() {
 // EXPERIENCE — company cards with responsibilities animation
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ── Reusable responsibilities card with play/pause ───────────────────────────
+function ResponsibilitiesViz({
+  items, color,
+}: { items: string[]; color: string }) {
+  const [paused, setPaused] = useState(false);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (paused) return;
+    const iv = setInterval(() => {
+      setActive(a => (a + 1) % items.length);
+    }, 1800);
+    return () => clearInterval(iv);
+  }, [paused, items.length]);
+
+  return (
+    <div className="card" style={{ padding: "1.5rem" }}>
+      {/* Header */}
+      <div style={{
+        display: "flex", justifyContent: "space-between",
+        alignItems: "center", marginBottom: 16,
+      }}>
+        <span style={{
+          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+          letterSpacing: "0.14em", color: "var(--muted)",
+        }}>Responsibilities</span>
+        <button
+          onClick={() => setPaused(p => !p)}
+          title={paused ? "Resume" : "Pause"}
+          style={{
+            display: "flex", alignItems: "center", gap: 5,
+            background: paused ? color + "15" : "hsl(40,14%,92%)",
+            border: `1.5px solid ${paused ? color + "44" : "var(--border)"}`,
+            borderRadius: 9999, padding: "4px 12px",
+            fontSize: 11, fontWeight: 700,
+            color: paused ? color : "var(--muted)",
+            cursor: "pointer", transition: "all 0.2s ease",
+          }}
+        >
+          {paused ? "▶ Resume" : "⏸ Pause"}
+        </button>
+      </div>
+
+      {/* All bullets — always visible, active one highlighted */}
+      {items.map((b, i) => (
+        <div key={i} style={{
+          display: "flex", gap: 10, alignItems: "flex-start",
+          padding: "6px 8px", borderRadius: 8,
+          background: active === i ? color + "0d" : "transparent",
+          transition: "background 0.45s ease",
+          marginBottom: 2,
+        }}>
+          <div style={{
+            width: 7, height: 7, borderRadius: "50%", flexShrink: 0, marginTop: 5,
+            background: active === i ? color : color + "38",
+            boxShadow: active === i ? `0 0 0 3px ${color}22` : "none",
+            transition: "background 0.4s ease, box-shadow 0.4s ease",
+          }} />
+          <span style={{
+            fontSize: 12, lineHeight: 1.65,
+            color: active === i ? "var(--text)" : "var(--muted)",
+            fontWeight: active === i ? 600 : 400,
+            transition: "color 0.4s ease, font-weight 0.3s ease",
+          }}>{b}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── Company-specific data ─────────────────────────────────────────────────────
 const IBM_RESP = [
   "Author API, CLI, and developer guides for IBM Cloud",
   "Collaborate with AI Docs architects to optimise content for LLM consumption",
@@ -294,64 +365,17 @@ const IBM_RESP = [
   "Participate in Hacktoberfest and open-source documentation initiatives",
   "Integrate AI-driven content validation and metadata tagging in doc workflows",
 ];
-
-function IbmViz({ active }: { active: boolean }) {
-  const step = useLoop(IBM_RESP.length, 400, 1400, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <MacBar filename="ibm-responsibilities.md" />
-      {IBM_RESP.map((b, i) => (
-        <div key={i} style={{
-          display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 8,
-          opacity: step > i ? 1 : 0,
-          transform: step > i ? "translateX(0)" : "translateX(16px)",
-          transition: "opacity 0.32s ease, transform 0.32s ease",
-        }}>
-          <div style={{
-            width: 6, height: 6, borderRadius: "50%", flexShrink: 0, marginTop: 6,
-            background: step === i + 1 ? "hsl(100,40%,44%)" : "hsl(100,40%,44%,0.4)",
-            boxShadow: step === i + 1 ? "0 0 0 3px hsl(100,40%,44%,0.2)" : "none",
-            transition: "box-shadow 0.3s",
-          }} />
-          <span style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.55 }}>{b}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+function IbmViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={IBM_RESP} color="hsl(210,88%,52%)" />; }
 
 const XYLEM_RESP = [
   "End-to-end IoT solution documentation: IoT Cloud, Applications, Gateways",
   "Worked with developers in source code to produce Swagger/OpenAPI documentation",
   "Operated in two-week agile sprint cycles",
-  "Delivered: API docs, Developer Guide, Integration Guide, SDK docs",
-  "Delivered: Release Notes and UAT Guide",
+  "Delivered API docs, Developer Guide, Integration Guide, SDK docs",
+  "Delivered Release Notes and UAT Guide",
   "Projects — Xylem Cloud (IoT Cloud) · Xylem Visenti (IoT Software)",
 ];
-function XylemViz({ active }: { active: boolean }) {
-  const step = useLoop(XYLEM_RESP.length, 450, 1200, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <MacBar filename="xylem-responsibilities.md" />
-      {XYLEM_RESP.map((b, i) => (
-        <div key={i} style={{
-          display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 8,
-          opacity: step > i ? 1 : 0,
-          transform: step > i ? "translateX(0)" : "translateX(16px)",
-          transition: "opacity 0.32s ease, transform 0.32s ease",
-        }}>
-          <div style={{
-            width: 6, height: 6, borderRadius: "50%", flexShrink: 0, marginTop: 6,
-            background: step === i + 1 ? "hsl(200,80%,44%)" : "hsl(200,80%,44%,0.38)",
-            boxShadow: step === i + 1 ? "0 0 0 3px hsl(200,80%,44%,0.18)" : "none",
-            transition: "box-shadow 0.3s",
-          }} />
-          <span style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.55 }}>{b}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+function XylemViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={XYLEM_RESP} color="hsl(200,80%,44%)" />; }
 
 const UNISYS_RESP = [
   "End-to-end documentation: information gathering, planning, content analysis, execution, testing, delivery",
@@ -361,30 +385,7 @@ const UNISYS_RESP = [
   "Created DITAVAL files in XML for generating client-specific webhelp variants",
   "Deliverables: Webhelp, Admin & Operational Guide, Release Notes, Installation Guide",
 ];
-function UnisysViz({ active }: { active: boolean }) {
-  const step = useLoop(UNISYS_RESP.length, 450, 1200, active);
-  return (
-    <div className="card" style={{ padding: "1.5rem" }}>
-      <MacBar filename="unisys-responsibilities.md" />
-      {UNISYS_RESP.map((b, i) => (
-        <div key={i} style={{
-          display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 8,
-          opacity: step > i ? 1 : 0,
-          transform: step > i ? "translateX(0)" : "translateX(16px)",
-          transition: "opacity 0.32s ease, transform 0.32s ease",
-        }}>
-          <div style={{
-            width: 6, height: 6, borderRadius: "50%", flexShrink: 0, marginTop: 6,
-            background: step === i + 1 ? "hsl(260,55%,55%)" : "hsl(260,55%,55%,0.38)",
-            boxShadow: step === i + 1 ? "0 0 0 3px hsl(260,55%,55%,0.18)" : "none",
-            transition: "box-shadow 0.3s",
-          }} />
-          <span style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.55 }}>{b}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+function UnisysViz(_?: { active?: boolean }) { return <ResponsibilitiesViz items={UNISYS_RESP} color="hsl(260,55%,55%)" />; }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SKILLS animated viz
@@ -718,15 +719,15 @@ export default function App() {
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
 
-        {/* What I Deliver */}
-        <SectionLabel label="What I Deliver" />
-        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-        <WhatIDeliver />
-
         {/* Experience */}
         <SectionLabel label="Professional Experience" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
+
+        {/* What I Deliver — at end */}
+        <SectionLabel label="What I Deliver" />
+        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+        <WhatIDeliver />
 
       </div>
 
