@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "buildCommand": "cd artifacts/how-its-built && pnpm install && pnpm run build",
+  "outputDirectory": "artifacts/how-its-built/dist/public",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "framework": null,
+  "env": {
+    "PORT": "5173",
+    "BASE_PATH": "/"
+  },
+  "build": {
+    "env": {
+      "PORT": "5173",
+      "BASE_PATH": "/"
+    }
+  }
+}
