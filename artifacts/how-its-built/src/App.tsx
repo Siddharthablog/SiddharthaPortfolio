@@ -645,6 +645,37 @@ function QuickHighlights() {
   );
 }
 
+function VideoShowcase() {
+  const { ref, visible } = useReveal(0.15);
+  return (
+    <div ref={ref} style={{ 
+      marginTop: "1.5rem", 
+      marginBottom: "3rem",
+      borderRadius: "1.2rem", 
+      overflow: "hidden",
+      border: "1px solid var(--border)",
+      boxShadow: "0 4px 30px rgba(0,0,0,0.08)",
+      background: "black",
+      opacity: visible ? 1 : 0,
+      transform: visible ? "translateY(0)" : "translateY(16px)",
+      transition: "opacity 0.6s ease, transform 0.6s ease"
+    }}>
+      <video 
+        width="100%" 
+        controls 
+        autoPlay 
+        muted 
+        loop
+        playsInline
+        style={{ display: "block", outline: "none" }}
+      >
+        <source src="/showcase.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // App
 // ─────────────────────────────────────────────────────────────────────────────
@@ -799,6 +830,9 @@ export default function App() {
       </div>
 
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
+
+        {/* Video Portfolio */}
+        <VideoShowcase />
 
         {/* Quick Highlights */}
         <QuickHighlights />
