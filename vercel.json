@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "cd artifacts/how-its-built && pnpm install && pnpm run build",
-  "outputDirectory": "artifacts/how-its-built/dist/public",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "framework": null,
+  "framework": "vite",
   "env": {
     "PORT": "5173",
     "BASE_PATH": "/"
