@@ -314,6 +314,107 @@ function CapabilityCard({ cap, idx, visible }: { cap: Capability; idx: number; v
   );
 }
 
+const WRITING_SAMPLES = [
+  { icon: "📘", type: "API Reference Documentation", audience: "Developers & Integration Engineers", tags: ["OpenAPI", "Swagger", "Developer Guide"], color: "hsl(210,88%,52%)", link: "#", desc: "Comprehensive endpoint documentation with request/response examples and authentication details." },
+  { icon: "🤖", type: "AI Deployment Guide", audience: "DevOps & AI Engineers", tags: ["Hybrid Cloud", "IBM Power", "LLM"], color: "hsl(260,60%,55%)", link: "#", desc: "Step-by-step instructions for deploying enterprise AI models on hybrid cloud infrastructure." },
+  { icon: "📖", type: "User Guide", audience: "End Users & Administrators", tags: ["Task-based", "DITA", "Webhelp"], color: "hsl(100,40%,44%)", link: "#", desc: "Task-oriented instructions and interface breakdowns for end-users and system administrators." },
+  { icon: "🧠", type: "RAG System Documentation", audience: "AI Practitioners & Architects", tags: ["RAG", "LangChain", "Docling"], color: "hsl(16,80%,52%)", link: "#", desc: "Architecture deep-dives and implementation guides for Retrieval-Augmented Generation workflows." },
+  { icon: "🔧", type: "Fine-Tuning Documentation", audience: "ML Engineers & Researchers", tags: ["LLM", "Fine-tuning", "Python"], color: "hsl(200,80%,44%)", link: "#", desc: "Technical reference for fine-tuning Large Language Models on domain-specific datasets." }
+];
+
+function WritingSamples() {
+  const { ref, visible } = useReveal(0.15);
+  return (
+    <div ref={ref} style={{ padding: "4rem 0 0" }}>
+      <SectionLabel label="Writing Samples" />
+      <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+      <p style={{ marginTop: "1.5rem", marginBottom: "2rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.8 }}>
+        A selection of documentation styles across domains — from developer-focused API references to AI deployment guides. Links will be added soon.
+      </p>
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", 
+        gap: "1rem" 
+      }}>
+        {WRITING_SAMPLES.map((sample, i) => (
+          <div key={sample.type} style={{
+            background: "white",
+            borderRadius: "0.9rem",
+            borderTop: `3px solid ${sample.color}`,
+            borderLeft: "1px solid var(--border)",
+            borderRight: "1px solid var(--border)",
+            borderBottom: "1px solid var(--border)",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+            padding: "1.25rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            opacity: 0,
+            animation: visible ? `fadeUp 0.5s ease ${i * 0.08}s forwards` : "none",
+          }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: "1.5rem" }}>{sample.icon}</span>
+              <span style={{ 
+                fontSize: "9px", 
+                fontWeight: 700, 
+                color: sample.color, 
+                background: `${sample.color}12`, 
+                border: `1px solid ${sample.color}25`,
+                padding: "3px 8px", 
+                borderRadius: "9999px",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em"
+              }}>
+                Coming soon
+              </span>
+            </div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>
+              {sample.type}
+            </div>
+            <div style={{ fontSize: 10.5, color: sample.color, fontWeight: 600 }}>
+              For: {sample.audience}
+            </div>
+            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: "4px 0" }}>
+              {sample.desc}
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: "auto", paddingTop: "0.5rem" }}>
+              {sample.tags.map(tag => (
+                <span key={tag} style={{
+                  fontSize: 9.5,
+                  background: `${sample.color}1E`,
+                  color: sample.color,
+                  padding: "2px 8px",
+                  borderRadius: "9999px",
+                  fontWeight: 600
+                }}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div style={{ marginTop: "10px", paddingTop: "10px", borderTop: "1px solid var(--border)" }}>
+              <a 
+                href={sample.link}
+                onClick={(e) => { if (sample.link === "#") e.preventDefault(); }}
+                style={{
+                  fontSize: 11,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  color: sample.link === "#" ? "var(--muted)" : sample.color,
+                  opacity: sample.link === "#" ? 0.5 : 1,
+                  cursor: sample.link === "#" ? "default" : "pointer",
+                  display: "inline-block"
+                }}
+              >
+                {sample.link === "#" ? "Link coming soon" : "Read sample →"}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function WhatIDeliver() {
   const { ref, visible } = useReveal(0.12);
   return (
@@ -903,6 +1004,8 @@ export default function App() {
         <SectionLabel label="Professional Experience" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
+        {/* Writing Samples */}
+        <WritingSamples />
 
         {/* What I Deliver */}
         <SectionLabel label="What I Deliver" />
