@@ -54,6 +54,106 @@ function FullPagePathAnimation() {
   );
 }
 
+const NAV_LINKS = [
+  { label: "Experience",      id: "experience" },
+  { label: "Skills",          id: "skills" },
+  { label: "Writing Samples", id: "writing" },
+];
+
+function StickyNav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    NAV_LINKS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                setActive(id);
+              }
+            });
+          },
+          { rootMargin: "-30% 0px -60% 0px" }
+        );
+        obs.observe(el);
+        observers.push(obs);
+      }
+    });
+    return () => observers.forEach(obs => obs.disconnect());
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <nav style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 54,
+      zIndex: 10000,
+      padding: "0 2rem",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      background: scrolled ? "hsla(45,22%,92%,0.85)" : "transparent",
+      backdropFilter: scrolled ? "blur(14px)" : "none",
+      WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+      borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+      transition: "background 0.35s ease, border-color 0.35s ease"
+    }}>
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        style={{
+          background: "none",
+          border: "none",
+          fontSize: 14,
+          fontWeight: 900,
+          padding: 0,
+          cursor: "pointer",
+          color: "var(--text)"
+        }}
+      >
+        SM
+      </button>
+      <div style={{ display: "flex", gap: 6 }}>
+        {NAV_LINKS.map(({ label, id }) => (
+          <button
+            key={id}
+            onClick={() => scrollTo(id)}
+            style={{
+              borderRadius: 9999,
+              padding: "5px 16px",
+              fontSize: 12,
+              fontWeight: 600,
+              background: active === id ? "hsl(100,40%,38%)" : "white",
+              border: active === id ? "1.5px solid hsl(100,40%,38%)" : "1.5px solid hsl(40,14%,76%)",
+              color: active === id ? "white" : "var(--text)",
+              boxShadow: active === id ? "0 2px 8px hsl(100,40%,44%,0.25)" : "0 1px 4px rgba(0,0,0,0.07)",
+              transition: "all 0.2s ease",
+              cursor: "pointer"
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 // ── Reveal hook ───────────────────────────────────────────────────────────────
 function useReveal(threshold = 0.18) {
   const ref = useRef<HTMLDivElement>(null);
@@ -325,7 +425,7 @@ const WRITING_SAMPLES = [
 function WritingSamples() {
   const { ref, visible } = useReveal(0.15);
   return (
-    <div ref={ref} style={{ padding: "4rem 0 0" }}>
+    <div id="writing" ref={ref} style={{ padding: "4rem 0 0", scrollMarginTop: 80 }}>
       <SectionLabel label="Writing Samples" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
       <p style={{ marginTop: "1.5rem", marginBottom: "2rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.8 }}>
@@ -934,6 +1034,7 @@ export default function App() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <FullPagePathAnimation />
+      <StickyNav />
 
       {/* ── Hero ── */}
       <div style={{ textAlign: "center", padding: "5rem 1.5rem 0" }}>
@@ -996,14 +1097,18 @@ export default function App() {
         <VideoShowcase />
 
         {/* Skills */}
-        <SectionLabel label="Skills & Tools" />
-        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-        {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
+        <div id="skills" style={{ scrollMarginTop: 80 }}>
+          <SectionLabel label="Skills & Tools" />
+          <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+          {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
+        </div>
 
         {/* Experience */}
-        <SectionLabel label="Professional Experience" />
-        <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-        {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
+        <div id="experience" style={{ scrollMarginTop: 80 }}>
+          <SectionLabel label="Professional Experience" />
+          <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+          {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
+        </div>
         {/* Writing Samples */}
         <WritingSamples />
 
