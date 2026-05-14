@@ -1,6 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.css";
 
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint);
+  useEffect(() => {
+    const h = () => setIsMobile(window.innerWidth < breakpoint);
+    window.addEventListener("resize", h, { passive: true });
+    return () => window.removeEventListener("resize", h);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 // ── Background Path Animation ─────────────────────────────────────────────────
 function FullPagePathAnimation() {
   const [size, setSize] = useState({ w: window.innerWidth, h: window.innerHeight });
@@ -63,12 +73,19 @@ const NAV_LINKS = [
 function StickyNav() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
+    const handler = () => {
+      setScrolled(window.scrollY > 40);
+      if (window.scrollY > 40) setMenuOpen(false);
+    };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  useEffect(() => { if (!isMobile) setMenuOpen(false); }, [isMobile]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -93,64 +110,108 @@ function StickyNav() {
   }, []);
 
   const scrollTo = (id: string) => {
+    setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <nav style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      height: 54,
-      zIndex: 10000,
-      padding: "0 2rem",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      background: scrolled ? "hsla(45,22%,92%,0.85)" : "transparent",
-      backdropFilter: scrolled ? "blur(14px)" : "none",
-      WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
-      borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
-      transition: "background 0.35s ease, border-color 0.35s ease"
-    }}>
-      <button 
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        style={{
-          background: "none",
-          border: "none",
-          fontSize: 14,
-          fontWeight: 900,
-          padding: 0,
-          cursor: "pointer",
-          color: "var(--text)"
-        }}
-      >
-        SM
-      </button>
-      <div style={{ display: "flex", gap: 6 }}>
-        {NAV_LINKS.map(({ label, id }) => (
-          <button
-            key={id}
-            onClick={() => scrollTo(id)}
-            style={{
-              borderRadius: 9999,
-              padding: "5px 16px",
-              fontSize: 12,
-              fontWeight: 600,
-              background: active === id ? "hsl(100,40%,38%)" : "white",
-              border: active === id ? "1.5px solid hsl(100,40%,38%)" : "1.5px solid hsl(40,14%,76%)",
-              color: active === id ? "white" : "var(--text)",
-              boxShadow: active === id ? "0 2px 8px hsl(100,40%,44%,0.25)" : "0 1px 4px rgba(0,0,0,0.07)",
-              transition: "all 0.2s ease",
-              cursor: "pointer"
-            }}
-          >
-            {label}
+    <>
+      <nav style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 54,
+        zIndex: 10000,
+        padding: "0 2rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        background: scrolled ? "hsla(45,22%,92%,0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+        borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+        transition: "background 0.35s ease, border-color 0.35s ease"
+      }}>
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: 14,
+            fontWeight: 900,
+            padding: 0,
+            cursor: "pointer",
+            color: "var(--text)"
+          }}
+        >
+          SM
+        </button>
+        {isMobile ? (
+          <button onClick={() => setMenuOpen(!menuOpen)} style={{
+            background: menuOpen ? "hsl(40,14%,88%)" : "white",
+            border: "1.5px solid hsl(40,14%,76%)",
+            color: "var(--text)",
+            borderRadius: 9999,
+            padding: "5px 16px",
+            fontSize: 14,
+            fontWeight: 800,
+            cursor: "pointer",
+            boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
+            transition: "all 0.2s ease",
+          }}>
+            {menuOpen ? "✕" : "☰"}
           </button>
-        ))}
-      </div>
-    </nav>
+        ) : (
+          <div style={{ display: "flex", gap: 6 }}>
+            {NAV_LINKS.map(({ label, id }) => (
+              <button
+                key={id}
+                onClick={() => scrollTo(id)}
+                style={{
+                  borderRadius: 9999,
+                  padding: "5px 16px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: active === id ? "hsl(100,40%,38%)" : "white",
+                  border: active === id ? "1.5px solid hsl(100,40%,38%)" : "1.5px solid hsl(40,14%,76%)",
+                  color: active === id ? "white" : "var(--text)",
+                  boxShadow: active === id ? "0 2px 8px hsl(100,40%,44%,0.25)" : "0 1px 4px rgba(0,0,0,0.07)",
+                  transition: "all 0.2s ease",
+                  cursor: "pointer"
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+      </nav>
+      {isMobile && (
+        <div style={{
+          position: "fixed", top: 54, left: 0, right: 0, zIndex: 9999,
+          background: "hsla(45,22%,92%,0.97)",
+          backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
+          borderBottom: "1px solid var(--border)",
+          padding: menuOpen ? "1rem 1.25rem 1.25rem" : "0 1.25rem",
+          display: "flex", flexDirection: "column", gap: 8,
+          maxHeight: menuOpen ? 300 : 0,
+          overflow: "hidden",
+          transition: "max-height 0.3s ease, padding 0.3s ease",
+        }}>
+          {NAV_LINKS.map(({ label, id }) => (
+            <button key={id} onClick={() => scrollTo(id)} style={{
+              background: active === id ? "hsl(100,40%,38%)" : "white",
+              border: `1.5px solid ${active === id ? "hsl(100,40%,38%)" : "hsl(40,14%,76%)"}`,
+              cursor: "pointer", padding: "10px 16px", borderRadius: 9999,
+              fontSize: 13, fontWeight: 600, textAlign: "left",
+              color: active === id ? "white" : "var(--text)",
+              transition: "all 0.2s ease",
+            }}>{label}</button>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 
@@ -517,11 +578,12 @@ function WritingSamples() {
 
 function WhatIDeliver() {
   const { ref, visible } = useReveal(0.12);
+  const isMobile = useIsMobile();
   return (
     <div ref={ref} style={{ padding: "4rem 0 0" }}>
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
         gap: "1.25rem",
       }}>
         {CAPABILITIES.map((cap, i) => (
@@ -703,18 +765,22 @@ type RowDef = { num?: string; title: string; desc: React.ReactNode; Viz: React.F
 
 function Row({ r, last }: { r: RowDef; last: boolean }) {
   const { ref, visible } = useReveal(0.16);
+  const isMobile = useIsMobile();
   const { Viz } = r;
   return (
     <div ref={ref} style={{
-      display: "flex", alignItems: "flex-start", gap: "3.5rem",
-      padding: "4.5rem 0",
+      display: "flex", alignItems: "flex-start", 
+      flexDirection: isMobile ? "column" : "row",
+      gap: isMobile ? "1.5rem" : "3.5rem",
+      padding: isMobile ? "2.5rem 0" : "4.5rem 0",
       borderBottom: last ? "none" : "1px solid var(--border)",
     }}>
       {/* Left */}
       <div style={{
-        flex: "0 0 290px",
+        flex: isMobile ? "none" : "0 0 290px",
+        width: isMobile ? "100%" : undefined,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(-26px)",
+        transform: visible ? "translateX(0)" : isMobile ? "translateY(-12px)" : "translateX(-26px)",
         transition: "opacity 0.65s ease 0.05s, transform 0.65s ease 0.05s",
       }}>
         {r.num && (
@@ -734,8 +800,9 @@ function Row({ r, last }: { r: RowDef; last: boolean }) {
       {/* Right */}
       <div style={{
         flex: 1,
+        width: isMobile ? "100%" : undefined,
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : "translateX(30px)",
+        transform: visible ? "translateX(0)" : isMobile ? "translateY(12px)" : "translateX(30px)",
         transition: "opacity 0.65s ease 0.18s, transform 0.65s ease 0.18s",
       }}>
         <Viz active={visible} />
@@ -813,6 +880,7 @@ const KEY_ACHIEVEMENTS = [
 
 function KeyAchievements() {
   const { ref, visible } = useReveal(0.15);
+  const isMobile = useIsMobile();
   return (
     <div ref={ref} style={{ marginTop: "2.5rem" }}>
       <div style={{
@@ -820,7 +888,7 @@ function KeyAchievements() {
         letterSpacing: "0.18em", color: "var(--muted)", marginBottom: 14,
         paddingLeft: 2,
       }}>Key Achievements</div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem" }}>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(3,1fr)", gap: "1rem" }}>
         {KEY_ACHIEVEMENTS.map((a, i) => (
           <div key={a.label} style={{
             background: "white",
@@ -855,12 +923,13 @@ function KeyAchievements() {
 
 function QuickHighlights() {
   const { ref, visible } = useReveal(0.15);
+  const isMobile = useIsMobile();
   return (
     <div ref={ref} style={{
       background: "white",
       border: "1px solid var(--border)",
       borderRadius: "1.2rem",
-      padding: "2rem 2rem 1.5rem",
+      padding: isMobile ? "1.25rem 1.25rem 1rem" : "2rem 2rem 1.5rem",
       marginTop: "3rem",
       boxShadow: "0 2px 20px rgba(0,0,0,0.05)",
     }}>
@@ -870,7 +939,7 @@ function QuickHighlights() {
       }}>Quick Highlights</h3>
       <div style={{
         display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
+        gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(3, 1fr)",
         gap: "1.25rem",
       }}>
         {HIGHLIGHTS.map((h, i) => (
