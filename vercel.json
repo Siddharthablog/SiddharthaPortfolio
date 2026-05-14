@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist/public",
+  "buildCommand": "pnpm --filter @workspace/how-its-built run build",
+  "outputDirectory": "artifacts/how-its-built/dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": "vite",
   "env": {
