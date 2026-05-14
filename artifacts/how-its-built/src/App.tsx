@@ -831,14 +831,14 @@ export default function App() {
 
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
 
-        {/* Video Portfolio */}
-        <VideoShowcase />
-
         {/* Quick Highlights */}
         <QuickHighlights />
 
         {/* Key Achievements */}
         <KeyAchievements />
+
+        {/* Video Portfolio */}
+        <VideoShowcase />
 
         {/* Skills */}
         <SectionLabel label="Skills & Tools" />
