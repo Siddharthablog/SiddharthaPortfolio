@@ -1,6 +1,59 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.css";
 
+// ── Background Path Animation ─────────────────────────────────────────────────
+function FullPagePathAnimation() {
+  const [size, setSize] = useState({ w: window.innerWidth, h: window.innerHeight });
+
+  useEffect(() => {
+    const handleResize = () => setSize({ w: window.innerWidth, h: window.innerHeight });
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const { w, h } = size;
+  const m = 18;
+  const r = 18;
+  const x1 = m + r;
+  const x2 = w - m - r;
+  const y1 = m + r;
+  const y2 = h - m - r;
+
+  const path = `M ${x1},${m} L ${x2},${m} Q ${w-m},${m} ${w-m},${y1} L ${w-m},${y2} Q ${w-m},${h-m} ${x2},${h-m} L ${x1},${h-m} Q ${m},${h-m} ${m},${y2} L ${m},${y1} Q ${m},${m} ${x1},${m} Z`;
+
+  return (
+    <svg 
+      style={{
+        position: "fixed",
+        inset: 0,
+        width: "100vw",
+        height: "100vh",
+        pointerEvents: "none",
+        overflow: "visible",
+        zIndex: 9997
+      }}
+      aria-hidden="true"
+    >
+      <path 
+        fill="none" 
+        stroke="hsl(100,40%,38%)" 
+        strokeWidth="1.5" 
+        strokeDasharray="5 8" 
+        opacity="0.32" 
+        d={path} 
+      />
+      <g opacity="0.82">
+        <animateMotion dur="24s" repeatCount="indefinite" rotate="auto" path={path} />
+        <text fontSize="16" textAnchor="middle" dominantBaseline="central" fill="hsl(100,40%,32%)">✦</text>
+      </g>
+      <g opacity="0.65">
+        <animateMotion dur="24s" repeatCount="indefinite" rotate="auto" path={path} begin="-12s" />
+        <text fontSize="11" textAnchor="middle" dominantBaseline="central" fill="hsl(210,88%,42%)">◆</text>
+      </g>
+    </svg>
+  );
+}
+
 // ── Reveal hook ───────────────────────────────────────────────────────────────
 function useReveal(threshold = 0.18) {
   const ref = useRef<HTMLDivElement>(null);
@@ -779,6 +832,7 @@ export default function App() {
 
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <FullPagePathAnimation />
 
       {/* ── Hero ── */}
       <div style={{ textAlign: "center", padding: "5rem 1.5rem 0" }}>
