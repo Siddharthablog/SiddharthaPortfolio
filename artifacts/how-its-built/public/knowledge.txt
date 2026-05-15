@@ -1,0 +1,96 @@
+## PERSONAL INFORMATION
+Name: Siddhartha Mani
+Email: mani.siddhartha@gmail.com
+LinkedIn: https://www.linkedin.com/in/siddhartha-mani-98696073/
+GitHub: https://github.com/Siddharthablog
+Location: Bangalore, India
+Availability: Open to Remote & Full-time
+Total Experience: 11+ years in Technical Writing, AI Documentation, and DocOps Automation
+
+## PROFESSIONAL SUMMARY
+Siddhartha Mani is a seasoned Technical Writer and AI Documentation Specialist with 11+ years of experience creating developer-grade documentation for enterprise products at IBM, Xylem, Unisys, and Kreatio. He specialises in structuring content for LLM and RAG consumption, automating documentation workflows with Python and local LLMs, and single-sourcing large content sets using DITA and DITAVAL profiling. He is actively seeking a leadership role to design AI-driven documentation strategies and mentor teams in modern DocOps automation practices.
+
+## CURRENT ROLE — IBM Labs R&D
+Job Title: Technical Content Professional
+Company: IBM Labs R&D
+Duration: September 2022 to Present
+Domain: Hybrid Cloud, Data Center Server
+Key Responsibilities:
+- Author API references, CLI guides, and developer guides for IBM Cloud Power Virtual Server
+- Collaborate with AI documentation architects to restructure content for LLM and chatbot consumption
+- Automated obsolete version docs using Python + Ollama, reducing a 3-day manual process to under 4 hours
+- Deployed Streamlit + RAG peer-review system, cutting peer-review time by 40%
+- Apply DITAVAL profiling across 6 IBM Power Server models (Power10 and Power11), reducing content duplication by 65%
+- Use local LLM inference via Ollama to improve content accuracy, consistency, and end-user experience
+- Align IBM Cloud documentation with product roadmap across Engineering and Product Management teams
+- Explore Langflow and n8n to scale DocOps workflows and documentation automation pipelines
+- Mentor junior writers through knowledge-transfer sessions and perform peer reviews across IBM Cloud doc sets
+- Participate in hackathons, Hacktoberfest, and open-source AI documentation initiatives
+
+## PREVIOUS ROLE — Xylem India R&D
+Job Title: Lead Technical Writer
+Company: Xylem India R&D
+Duration: June 2020 to September 2022
+Domain: IoT Cloud, IoT Application
+Key Responsibilities:
+- Owned end-to-end IoT documentation for cloud platforms, IoT applications, and gateways
+- Collaborated with developers in source code to produce Swagger and OpenAPI documentation
+- Provided documentation demos to stakeholders after each two-week sprint
+- Operated in an agile environment with sprint planning and review cycles
+- Deliverables: API docs, Developer Guide, Integration Guide, Release Notes, UAT Guide
+
+## PREVIOUS ROLE — Unisys India R&D
+Job Title: Product Information Specialist
+Company: Unisys India R&D
+Duration: April 2017 to May 2020
+Domain: Cloud Computing, Supply Chain Management
+Key Responsibilities:
+- Delivered end-to-end documentation for Data Center application software and Air Cargo software
+- Created DITAVAL files in XML for generating client-specific webhelp outputs
+- Analysed user stories and updated webhelp content accordingly
+- Deliverables: Webhelp, Administration and Operational Guide, Release Notes, Installation Guide
+
+## PREVIOUS ROLE — Kreatio
+Job Title: Technical Writer
+Company: Kreatio
+Duration: January 2015 to March 2017
+Domain: CMS, ERP Systems
+Key Responsibilities:
+- Authored technical documentation for Kreatio CMS and ERP software products
+- Designed website wireframes based on Project Manager inputs
+- Produced Kreatio Enterprise Resource Planning ERP video tutorials for clients
+
+## TECHNICAL SKILLS
+Markup and Programming Languages: DITA, XML, Markdown, YAML, JSON, HTML, JavaScript, reStructuredText, Python
+Authoring Tools: Arbortext Editor, Oxygen XML, Acrolinx, VS Code
+AI and Automation Frameworks: LangChain, LangGraph, Streamlit, Docling, RAG, MCP, Ollama, n8n, Langflow
+CCMS and Content Management: Astoria, Contenta, DITAVAL, Single Sourcing, Information Mapping
+CI and CD and Collaboration Tools: Jenkins, GitHub, JIRA, Confluence, Swagger
+Graphics and Media Tools: draw.io, Clipchamp, TechSmith Camtasia
+
+## KEY ACHIEVEMENTS
+Achievement 1: Reduced 3-day doc archival process to under 4 hours using Python and Ollama to automate identification and removal of version-specific DITA content
+Achievement 2: Cut peer-review time by 40% by deploying a Streamlit, Python, Ollama, and Docling RAG system for automated style-guide enforcement
+Achievement 3: Reduced content duplication by 65% by managing documentation across 6 IBM Power Server models using DITAVAL profiling from a single DITA source
+Achievement 4: Documented 7+ IBM Cloud products including IBM Cloud Power Virtual Server and IBM Power10 and Power11 server families
+Achievement 5: Participated in WatsonX Agentic AI Hackathon and Hacktoberfest as an active open-source contributor
+
+## EDUCATION AND CERTIFICATIONS
+BE Computer Science, Dayananda Sagar College, Bangalore, 2014
+Technical Writing Certification, The Writers Block TWB, 2015
+Agentic AI Bootcamp — LangGraph and LangChain, 2025
+Docker Essentials — Containerisation fundamentals
+Hybrid Cloud Essentials — Data Center and Cloud Infrastructure
+
+## OPEN SOURCE CONTRIBUTIONS
+Contributed documentation to FletX, a Python-based UI framework
+Contributed to Requestly open-source browser extension documentation
+Authored Ansible AMQ integration documentation
+Authored Terraform provider documentation
+Contributed to WatsonX AI documentation initiatives
+
+## CONTACT
+Email: mani.siddhartha@gmail.com
+LinkedIn: https://www.linkedin.com/in/siddhartha-mani-98696073/
+GitHub: https://github.com/Siddharthablog
+Portfolio Website: The portfolio site you are on right now

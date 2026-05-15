@@ -50,6 +50,13 @@ export default defineConfig({
     port,
     host: "0.0.0.0",
     allowedHosts: true,
+    proxy: {
+      // Forward /api/* to the Express API server during local development
+      "/api": {
+        target: process.env.API_SERVER_URL || "http://localhost:3001",
+        changeOrigin: true,
+      },
+    },
     fs: {
       strict: true,
       deny: ["**/.*"],

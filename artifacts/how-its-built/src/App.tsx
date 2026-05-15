@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./index.css";
+import ChatWidget from "./components/ChatWidget";
 
 function useIsMobile(breakpoint = 640) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint);
@@ -1223,6 +1224,9 @@ export default function App() {
       }}>
         © 2026 Siddhartha Mani · mani.siddhartha@gmail.com
       </div>
+
+      {/* AI Chat Widget — always floats on top */}
+      <ChatWidget />
     </div>
   );
 }
