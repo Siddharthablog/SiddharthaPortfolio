@@ -51,10 +51,22 @@ function getChunks(filePath: string): string[] {
 const router = Router();
 
 router.post("/chat", async (req, res) => {
-  const { message } = req.body as { message?: string };
+  // Handle both single message (legacy) and messages array
+  const { message, messages } = req.body as { message?: string, messages?: any[] };
 
-  if (!message?.trim()) {
-    res.status(400).json({ error: "message required" });
+  let history: any[] = [];
+  let latestMessage = "";
+
+  if (messages && Array.isArray(messages)) {
+    history = messages;
+    latestMessage = messages[messages.length - 1]?.content || "";
+  } else if (message) {
+    history = [{ role: "user", content: message }];
+    latestMessage = message;
+  }
+
+  if (!latestMessage?.trim()) {
+    res.status(400).json({ error: "message(s) required" });
     return;
   }
 
@@ -70,7 +82,9 @@ router.post("/chat", async (req, res) => {
     join(process.cwd(), "..", "how-its-built", "public", "knowledge.txt");
 
   try {
-    const context = retrieveChunks(message, getChunks(knowledgePath));
+    // Combine the last 3 messages into a single query to give RAG better context (e.g. resolving "there" to "Kreatio")
+    const queryForRag = history.slice(-3).map(m => m.content).join(" ");
+    const context = retrieveChunks(queryForRag, getChunks(knowledgePath));
 
     const groqRes = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -89,7 +103,7 @@ router.post("/chat", async (req, res) => {
               role: "system",
               content: `You are Siddhartha Mani's personal AI assistant on their portfolio website. Answer questions using ONLY the context below. Be friendly, concise, and professional. If you cannot answer from the context say: "I don't have that detail, but you can reach Siddhartha at mani.siddhartha@gmail.com"\n\nCONTEXT:\n${context}`,
             },
-            { role: "user", content: message },
+            ...history
           ],
         }),
       },

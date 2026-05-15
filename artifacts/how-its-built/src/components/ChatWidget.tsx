@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 interface Message {
@@ -18,11 +19,16 @@ const SUGGESTED_QUESTIONS = [
 ];
 
 // ── API helper ─────────────────────────────────────────────────────────────────
-async function fetchAnswer(message: string): Promise<string> {
+async function fetchAnswer(messages: Message[]): Promise<string> {
+  const formattedMessages = messages.map((m) => ({
+    role: m.role,
+    content: m.text,
+  }));
+
   const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message }),
+    body: JSON.stringify({ messages: formattedMessages }),
   });
   
   let data;
@@ -68,10 +74,14 @@ export default function ChatWidget() {
     const msg = (text ?? input).trim();
     if (!msg || loading) return;
     setInput("");
-    setMessages((prev) => [...prev, { role: "user", text: msg }]);
+    
+    const newMessages: Message[] = [...messages, { role: "user", text: msg }];
+    setMessages(newMessages);
     setLoading(true);
+    
     try {
-      const answer = await fetchAnswer(msg);
+      // Send the history (excluding the welcome message)
+      const answer = await fetchAnswer(newMessages.slice(1));
       setMessages((prev) => [...prev, { role: "assistant", text: answer }]);
     } catch (err: any) {
       console.error("Chat fetch error:", err);
@@ -285,7 +295,19 @@ export default function ChatWidget() {
                       : "0 1px 4px rgba(0,0,0,0.06)",
                 }}
               >
-                {m.text}
+                {m.role === "assistant" ? (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ node, ...props }) => <p style={{ margin: "0 0 0.5em 0", lastChild: { margin: 0 } }} {...props} />,
+                      ul: ({ node, ...props }) => <ul style={{ margin: "0.5em 0", paddingLeft: "1.5em" }} {...props} />,
+                      li: ({ node, ...props }) => <li style={{ marginBottom: "0.25em" }} {...props} />
+                    }}
+                  >
+                    {m.text}
+                  </ReactMarkdown>
+                ) : (
+                  m.text
+                )}
               </div>
             </div>
           ))}

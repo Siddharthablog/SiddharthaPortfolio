@@ -85,10 +85,22 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  const { message } = req.body ?? {};
+  // Handle both single message (legacy) and messages array
+  const { message, messages } = req.body ?? {};
+  
+  let history: any[] = [];
+  let latestMessage = "";
 
-  if (!message?.trim()) {
-    res.status(400).json({ error: "message required" });
+  if (messages && Array.isArray(messages)) {
+    history = messages;
+    latestMessage = messages[messages.length - 1]?.content || "";
+  } else if (message) {
+    history = [{ role: "user", content: message }];
+    latestMessage = message;
+  }
+
+  if (!latestMessage.trim()) {
+    res.status(400).json({ error: "message(s) required" });
     return;
   }
 
@@ -99,7 +111,9 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const context = retrieveChunks(message, getChunks());
+    // Combine the last 3 messages into a single query to give RAG better context (e.g. resolving "there" to "Kreatio")
+    const queryForRag = history.slice(-3).map(m => m.content).join(" ");
+    const context = retrieveChunks(queryForRag, getChunks());
 
     const groqRes = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -118,7 +132,7 @@ export default async function handler(req: any, res: any) {
               role: "system",
               content: `You are Siddhartha Mani's personal AI assistant on their portfolio website. Answer questions using ONLY the context below. Be friendly, concise, and professional. If you cannot answer from the context say: "I don't have that detail, but you can reach Siddhartha at mani.siddhartha@gmail.com"\n\nCONTEXT:\n${context}`,
             },
-            { role: "user", content: message },
+            ...history
           ],
         }),
       },
