@@ -24,8 +24,18 @@ async function fetchAnswer(message: string): Promise<string> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message }),
   });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data = await res.json();
+  
+  let data;
+  try {
+    data = await res.json();
+  } catch (e) {
+    throw new Error(`Failed to parse response. HTTP ${res.status}`);
+  }
+
+  if (!res.ok) {
+    throw new Error(data.error || `HTTP ${res.status}`);
+  }
+  
   return data.answer ?? "No response.";
 }
 
@@ -63,12 +73,13 @@ export default function ChatWidget() {
     try {
       const answer = await fetchAnswer(msg);
       setMessages((prev) => [...prev, { role: "assistant", text: answer }]);
-    } catch {
+    } catch (err: any) {
+      console.error("Chat fetch error:", err);
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          text: "Sorry, I couldn't reach the AI service. Please try again or email mani.siddhartha@gmail.com",
+          text: `Sorry, I couldn't reach the AI service (${err.message || "Unknown error"}). Please try again or email mani.siddhartha@gmail.com`,
         },
       ]);
     } finally {
