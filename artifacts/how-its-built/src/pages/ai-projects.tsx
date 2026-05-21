@@ -162,7 +162,6 @@ function StickyNav() {
         <Link href="/">
           <a style={{
             background: "none",
-            border: "none",
             fontSize: 12,
             fontWeight: 700,
             padding: "5px 14px",
@@ -699,7 +698,9 @@ function MstpFinetune() {
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messages.length > 1) {
+      chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
   }, [messages]);
 
   const handleSend = () => {
