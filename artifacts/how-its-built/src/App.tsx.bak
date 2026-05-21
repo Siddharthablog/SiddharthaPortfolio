@@ -1002,10 +1002,379 @@ function VideoShowcase() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+  id: string;
+  title: string;
+  summary: string;
+  source: string;
+  url: string;
+  tag: string;
+  date: string;
+};
+
+const TAG_COLORS: Record<string, string> = {
+  "AI Docs":                  "hsl(210,88%,52%)",
+  "API Standards":            "hsl(260,60%,55%)",
+  "DevOps & CI/CD":           "hsl(100,40%,44%)",
+  "DITA & Structured Content":"hsl(40,90%,52%)",
+  "Dev Tools":                "hsl(16,80%,52%)",
+};
+
+const TAG_ICONS: Record<string, string> = {
+  "AI Docs":                  "🤖",
+  "API Standards":            "📄",
+  "DevOps & CI/CD":           "⚡",
+  "DITA & Structured Content":"🗂",
+  "Dev Tools":                "🔧",
+};
+
+  const [hovered, setHovered] = useState(false);
+  const color = TAG_COLORS[insight.tag] || "hsl(210,88%,52%)";
+  const icon = TAG_ICONS[insight.tag] || "📰";
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "white",
+        borderRadius: "1rem",
+        border: `1px solid ${hovered ? color + '44' : 'var(--border)'}`,
+        borderLeft: `4px solid ${color}`,
+        padding: "1.25rem 1.25rem 1rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+        boxShadow: hovered
+          ? `0 8px 30px ${color}18, 0 2px 8px rgba(0,0,0,0.06)`
+          : "0 2px 12px rgba(0,0,0,0.04)",
+        transform: hovered ? "translateY(-3px)" : "translateY(0)",
+        transition: "all 0.3s cubic-bezier(0.25,0.46,0.45,0.94)",
+        opacity: 0,
+        animation: `insightCardIn 0.5s ease ${index * 0.08}s forwards`,
+      }}
+    >
+      {/* Tag + Date row */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{
+          display: "inline-flex", alignItems: "center", gap: 5,
+          fontSize: 10, fontWeight: 700,
+          background: color + "14", border: `1.5px solid ${color}30`,
+          color: color, padding: "3px 10px", borderRadius: 9999,
+          textTransform: "uppercase", letterSpacing: "0.04em",
+        }}>
+          <span>{icon}</span>{insight.tag}
+        </span>
+        <span style={{
+          fontSize: 10, color: "var(--muted)", fontWeight: 500,
+          fontFamily: "monospace",
+        }}>
+          {insight.date}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h4 style={{
+        fontSize: 13, fontWeight: 750, color: "var(--text)",
+        lineHeight: 1.4, margin: 0,
+      }}>
+        {insight.title}
+      </h4>
+
+      {/* Summary */}
+      <p style={{
+        fontSize: 11.5, color: "var(--muted)",
+        lineHeight: 1.75, margin: 0, flex: 1,
+      }}>
+        {insight.summary}
+      </p>
+
+      {/* Footer: source + link */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        paddingTop: 8, borderTop: "1px solid var(--border)",
+        marginTop: "auto",
+      }}>
+        <span style={{
+          fontSize: 10, color: "var(--muted)", fontWeight: 600,
+          display: "flex", alignItems: "center", gap: 4,
+        }}>
+          <span style={{
+            width: 6, height: 6, borderRadius: "50%",
+            background: color, display: "inline-block", flexShrink: 0,
+          }} />
+          {insight.source}
+        </span>
+        <a
+          href={insight.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: 11, fontWeight: 700, color: color,
+            textDecoration: "none",
+            transition: "opacity 0.2s",
+            opacity: hovered ? 1 : 0.7,
+          }}
+        >
+          Read →
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function SkeletonCard() {
+  const shimmerBg = "linear-gradient(90deg, hsl(40,14%,90%) 25%, hsl(40,14%,95%) 50%, hsl(40,14%,90%) 75%)";
+  return (
+    <div style={{
+      background: "white",
+      borderRadius: "1rem",
+      border: "1px solid var(--border)",
+      borderLeft: "4px solid hsl(40,14%,80%)",
+      padding: "1.25rem",
+      display: "flex",
+      flexDirection: "column",
+      gap: 12,
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{
+          width: 80, height: 18, borderRadius: 9999,
+          background: shimmerBg, backgroundSize: "800px 100%",
+          animation: "shimmer 1.5s infinite linear",
+        }} />
+        <div style={{
+          width: 60, height: 14, borderRadius: 4,
+          background: shimmerBg, backgroundSize: "800px 100%",
+          animation: "shimmer 1.5s infinite linear",
+        }} />
+      </div>
+      <div style={{
+        width: "85%", height: 14, borderRadius: 4,
+        background: shimmerBg, backgroundSize: "800px 100%",
+        animation: "shimmer 1.5s infinite linear 0.1s",
+      }} />
+      <div style={{
+        width: "100%", height: 10, borderRadius: 4,
+        background: shimmerBg, backgroundSize: "800px 100%",
+        animation: "shimmer 1.5s infinite linear 0.2s",
+      }} />
+      <div style={{
+        width: "70%", height: 10, borderRadius: 4,
+        background: shimmerBg, backgroundSize: "800px 100%",
+        animation: "shimmer 1.5s infinite linear 0.3s",
+      }} />
+    </div>
+  );
+}
+
+function TechPulse() {
+  const { ref, visible } = useReveal(0.1);
+  const isMobile = useIsMobile();
+  const [insights, setInsights] = useState<Insight[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeTag, setActiveTag] = useState("All");
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    fetch("/insights.json")
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to fetch");
+        return res.json();
+      })
+      .then((data: Insight[]) => {
+        setInsights(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
+
+  const allTags = ["All", ...Object.keys(TAG_COLORS)];
+  const filtered = activeTag === "All"
+    ? insights
+    : insights.filter(i => i.tag === activeTag);
+
+  return (
+    <div id="tech-pulse" ref={ref} style={{ padding: "4rem 0 0", scrollMarginTop: 80 }}>
+      <SectionLabel label="Tech Pulse" />
+      <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+
+      {/* Header with live indicator */}
+      <div style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        flexWrap: "wrap", gap: 12,
+        marginTop: "1.5rem", marginBottom: "1.25rem",
+      }}>
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+            <span style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: "hsl(100,60%,45%)",
+              display: "inline-block",
+              animation: "pulseGlow 2s infinite ease-in-out",
+            }} />
+            <span style={{
+              fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+              letterSpacing: "0.14em", color: "hsl(100,40%,38%)",
+            }}>Refreshed daily · Curated by AI · Powered by Groq</span>
+          </div>
+          <p style={{ fontSize: 12.5, color: "var(--muted)", lineHeight: 1.7 }}>
+            Autonomous pipeline scours tech news, summarises with LLM, and deploys — zero human intervention.
+          </p>
+        </div>
+        {insights.length > 0 && (
+          <span style={{
+            fontSize: 10, fontWeight: 700, color: "var(--muted)",
+            background: "white", border: "1px solid var(--border)",
+            borderRadius: 9999, padding: "5px 14px",
+            whiteSpace: "nowrap",
+          }}>
+            {insights.length} insights · {new Set(insights.map(i => i.source)).size} sources
+          </span>
+        )}
+      </div>
+
+      {/* Tag filter pills */}
+      <div style={{
+        display: "flex", flexWrap: "wrap", gap: 6,
+        marginBottom: "1.5rem",
+      }}>
+        {allTags.map(tag => {
+          const isActive = activeTag === tag;
+          const color = tag === "All" ? "hsl(40,10%,30%)" : (TAG_COLORS[tag] || "hsl(40,10%,30%)");
+          return (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(tag)}
+              style={{
+                padding: "5px 14px", borderRadius: 9999,
+                fontSize: 11, fontWeight: 700,
+                background: isActive ? color : "white",
+                color: isActive ? "white" : color,
+                border: `1.5px solid ${isActive ? color : color + '35'}`,
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                boxShadow: isActive ? `0 2px 8px ${color}30` : "0 1px 3px rgba(0,0,0,0.05)",
+              }}
+            >
+              {tag !== "All" && <span style={{ marginRight: 4 }}>{TAG_ICONS[tag]}</span>}
+              {tag}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Loading state */}
+      {loading && (
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))",
+          gap: "1rem",
+        }}>
+          {[0,1,2,3,4,5].map(i => <SkeletonCard key={i} />)}
+        </div>
+      )}
+
+      {/* Error state */}
+      {error && !loading && (
+        <div style={{
+          textAlign: "center", padding: "3rem 1rem",
+          background: "white", borderRadius: "1rem",
+          border: "1px solid var(--border)",
+        }}>
+          <div style={{ fontSize: 32, marginBottom: 12 }}>📡</div>
+          <p style={{ fontSize: 13, color: "var(--muted)", fontWeight: 600 }}>
+            Insights are loading... Check back soon.
+          </p>
+        </div>
+      )}
+
+      {/* Insight cards */}
+      {!loading && !error && (
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))",
+          gap: "1rem",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(16px)",
+          transition: "opacity 0.6s ease, transform 0.6s ease",
+        }}>
+          {filtered.length > 0 ? (
+            filtered.map((insight, i) => (
+              <InsightCard key={insight.id} insight={insight} index={i} />
+            ))
+          ) : (
+            <div style={{
+              gridColumn: "1 / -1", textAlign: "center",
+              padding: "2.5rem 1rem",
+              background: "white", borderRadius: "1rem",
+              border: "1px solid var(--border)",
+            }}>
+              <p style={{ fontSize: 13, color: "var(--muted)", fontWeight: 600 }}>
+                No insights found for "{activeTag}" yet. Try another category.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Pipeline architecture explainer */}
+      <div style={{
+        marginTop: "2rem",
+        background: "white",
+        border: "1px solid var(--border)",
+        borderRadius: "1rem",
+        padding: isMobile ? "1rem" : "1.25rem 1.5rem",
+        display: "flex",
+        alignItems: isMobile ? "flex-start" : "center",
+        flexDirection: isMobile ? "column" : "row",
+        gap: isMobile ? 12 : 20,
+        boxShadow: "0 2px 12px rgba(0,0,0,0.03)",
+      }}>
+        <div style={{
+          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+          letterSpacing: "0.12em", color: "var(--muted)",
+          whiteSpace: "nowrap", flexShrink: 0,
+        }}>HOW THIS WORKS</div>
+        <div style={{
+          display: "flex", flexWrap: "wrap", gap: 6,
+          alignItems: "center",
+        }}>
+          {[
+            { emoji: "⏰", label: "GitHub Actions CRON", color: "hsl(40,10%,30%)" },
+            { emoji: "🔍", label: "Tavily Search", color: "hsl(210,88%,52%)" },
+            { emoji: "🤖", label: "Groq LLM Synthesis", color: "hsl(260,60%,55%)" },
+            { emoji: "📄", label: "JSON Commit", color: "hsl(100,40%,44%)" },
+            { emoji: "▲", label: "Vercel Deploy", color: "hsl(0,0%,20%)" },
+          ].map((step, i, arr) => (
+            <span key={step.label} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+              <span style={{
+                fontSize: 10, fontWeight: 700,
+                background: step.color + "12",
+                border: `1px solid ${step.color}25`,
+                color: step.color,
+                padding: "3px 9px", borderRadius: 9999,
+                display: "inline-flex", alignItems: "center", gap: 4,
+              }}>
+                <span>{step.emoji}</span> {step.label}
+              </span>
+              {i < arr.length - 1 && (
+                <span style={{ color: "var(--border)", fontSize: 11, fontWeight: 700, margin: "0 2px" }}>→</span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // App
 // ─────────────────────────────────────────────────────────────────────────────
-
 export default function App() {
+
   const EXP: RowDef[] = [
     {
       title: "IBM Labs R&D — Technical Content Professional",
@@ -1135,19 +1504,6 @@ export default function App() {
           </span>
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", marginTop: 24, flexWrap: "wrap" }}>
-          <Link href="/ai-projects">
-            <a style={{
-              padding: "10px 22px", borderRadius: 9999,
-              background: "linear-gradient(135deg, hsl(210,88%,52%) 0%, hsl(260,60%,55%) 100%)",
-              color: "white",
-              fontSize: "0.82rem", fontWeight: 700, textDecoration: "none",
-              transition: "all 0.2s", cursor: "pointer",
-              boxShadow: "0 4px 12px hsl(210,88%,52%,0.3)",
-              display: "inline-block",
-            }}>
-              🤖 My AI Projects
-            </a>
-          </Link>
           {[
             { label: "Hire me",  href: "mailto:mani.siddhartha@gmail.com" },
             { label: "Résumé",   href: "https://github.com/Siddharthablog/Resume" },
