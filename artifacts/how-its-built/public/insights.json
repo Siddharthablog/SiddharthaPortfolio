@@ -1,5 +1,50 @@
 [
   {
+    "id": "9d60f0aa",
+    "title": "Best technical documentation software in 2026",
+    "summary": "Mintlify was released as a top technical documentation software in 2026. It matters for technical writers as it offers docs-as-code and AI-ready documentation.",
+    "source": "Mintlify",
+    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
+    "tag": "AI Docs",
+    "date": "2026-05-23"
+  },
+  {
+    "id": "6d6a856e",
+    "title": "AI in technical writing: complete guide for 2026",
+    "summary": "AI accelerates multilingual documentation with human review. It matters for technical writers as it transforms inputs into structured drafts.",
+    "source": "Instrktiv",
+    "url": "https://instrktiv.com/en/ai-in-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-05-23"
+  },
+  {
+    "id": "b231f766",
+    "title": "Mastering DITA Writing: A Guide for Technical Writers in 2024",
+    "summary": "DITA XML provides a structured approach to technical documentation. It matters for technical writers as it enables clear and concise documentation.",
+    "source": "Sciencepod",
+    "url": "https://sciencepod.net/dita-technical-writing",
+    "tag": "DITA & Structured Content",
+    "date": "2026-05-23"
+  },
+  {
+    "id": "0dee9e6c",
+    "title": "What is DITA XML? Technical Writing & Content Management Guide",
+    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and simplifies documentation tasks.",
+    "source": "Instinctools",
+    "url": "https://www.instinctools.com/blog/dita-xml",
+    "tag": "DITA & Structured Content",
+    "date": "2026-05-23"
+  },
+  {
+    "id": "850d0e68",
+    "title": "Docs-as-Code explained: Benefits, tools and best practices",
+    "summary": "Docs-as-Code streamlines development by creating docs with code. It matters for technical writers as it integrates docs into DevOps workflows.",
+    "source": "Techtarget",
+    "url": "https://www.techtarget.com/searchapparchitecture/tip/Docs-as-Code-explained-Benefits-tools-and-best-practices",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-05-23"
+  },
+  {
     "id": "73653fce",
     "title": "Top 12 ai tools for technical writing for developers in 2026 | DocuWriter.ai",
     "summary": "DocuWriter.ai released a list of top 12 AI tools for technical writing in 2026. It matters for technical writers as it automates code documentation and streamlines workflows.",
@@ -87,51 +132,6 @@
     "source": "Medium",
     "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
     "tag": "DevOps & CI/CD",
-    "date": "2026-05-21"
-  },
-  {
-    "id": "9629b240",
-    "title": "The 10 best software documentation tools in 2026 – GitBook Blog",
-    "summary": "GitBook is the top documentation tool in 2026, offering hybrid collaboration. It matters for technical writers as it supports both Git-based workflows and visual editing interfaces.",
-    "source": "Gitbook",
-    "url": "https://www.gitbook.com/blog/best-software-documentation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-05-21"
-  },
-  {
-    "id": "385493c2",
-    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
-    "summary": "AI-powered documentation generators transform the present. They matter for technical writers as they increase efficiency and reduce human errors.",
-    "source": "Kodesage",
-    "url": "https://kodesage.ai/blog/7-documentation-generators",
-    "tag": "Dev Tools",
-    "date": "2026-05-21"
-  },
-  {
-    "id": "6b15acac",
-    "title": "Best Software Documentation Tools in 2026 - Ferndesk",
-    "summary": "Ferndesk released a 2026 ranking of software documentation tools. It matters for technical writers as it evaluates tools based on maintaining documentation accuracy over time.",
-    "source": "Ferndesk",
-    "url": "https://ferndesk.com/blog/best-software-documentation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-05-21"
-  },
-  {
-    "id": "b8b523fb",
-    "title": "Best AI Documentation Tools in 2026 - Mintlify",
-    "summary": "Mintlify released an AI-native documentation platform. It matters for technical writers as it streamlines doc publishing and maintenance.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/best-ai-documentation-tools",
-    "tag": "AI Docs",
-    "date": "2026-05-21"
-  },
-  {
-    "id": "61c39ff5",
-    "title": "API documentation best practices guide Feb 2026 - Fern",
-    "summary": "Fern released an API documentation tool generating SDKs in 9 languages. It matters for technical writers as it keeps code examples and schemas synchronized.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
-    "tag": "API Standards",
     "date": "2026-05-21"
   }
 ]
