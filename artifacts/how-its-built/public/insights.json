@@ -1,5 +1,68 @@
 [
   {
+    "id": "e197e89e",
+    "title": "Best AI Tools for Technical Writing in 2026",
+    "summary": "Eight AI tools for technical writing were ranked across creation, governance, and maintenance. Drift detection is the highest-leverage AI capability for technical writers.",
+    "source": "Happysupport",
+    "url": "https://happysupport.ai/blog/ai-tools-for-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "e4d2d6eb",
+    "title": "From Zero to Hero in DITA XML Content Writing - Componize",
+    "summary": "Componize released a guide on DITA XML content writing. It matters for technical writers to improve documentation quality and user experience.",
+    "source": "Componize",
+    "url": "https://componize.com/blog/zero-to-hero-dita-xml-content-writing",
+    "tag": "DITA & Structured Content",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "a2993ea3",
+    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines - DEV Community",
+    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it simplifies documentation deployment using automation.",
+    "source": "Dev.to",
+    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "84601b9b",
+    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
+    "summary": "Docs as Code emerged, bringing dev principles to documentation. It matters for technical writers as it streamlines collaboration and ensures accuracy.",
+    "source": "Konghq",
+    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "c8b00c64",
+    "title": "[PDF] Automation of Non-code Documentation in a DevOps Environment",
+    "summary": "A prototype system automates non-code documentation using Bash scripts, pandoc, Docker, and LaTeX. This matters for technical writers as it streamlines documentation workflows.",
+    "source": "Diva-portal",
+    "url": "https://www.diva-portal.org/smash/get/diva2:1670611/FULLTEXT01.pdf",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "404b65f7",
+    "title": "12 Best AI Code Documentation Tools 2026 - TechieHub Blog",
+    "summary": "GitHub Copilot and Mintlify released AI code documentation tools. They matter for automating API documentation and code explanation.",
+    "source": "Techiehub",
+    "url": "https://techiehub.blog/12-best-ai-code-documentation-tools-2026",
+    "tag": "Dev Tools",
+    "date": "2026-05-25"
+  },
+  {
+    "id": "385493c2",
+    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
+    "summary": "AI-powered documentation generators transform the present. They matter for technical writers as they increase efficiency and reduce human errors.",
+    "source": "Kodesage",
+    "url": "https://kodesage.ai/blog/7-documentation-generators",
+    "tag": "Dev Tools",
+    "date": "2026-05-25"
+  },
+  {
     "id": "2b2510c1",
     "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
     "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
@@ -70,68 +133,5 @@
     "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
     "tag": "Dev Tools",
     "date": "2026-05-24"
-  },
-  {
-    "id": "0104d5e7",
-    "title": "7 best software documentation tools in 2026",
-    "summary": "Seven software documentation tools were evaluated for features like collaboration and automation. It matters for technical writers who need efficient tools for maintaining docs at scale.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/7-best-software-documentation-tools-in-2026",
-    "tag": "Dev Tools",
-    "date": "2026-05-24"
-  },
-  {
-    "id": "9629b240",
-    "title": "The 10 best software documentation tools in 2026 – GitBook Blog",
-    "summary": "GitBook is the top documentation tool in 2026, offering hybrid collaboration and AI-ready output. It matters for technical writers as it supports both developers and non-technical contributors.",
-    "source": "Gitbook",
-    "url": "https://www.gitbook.com/blog/best-software-documentation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-05-24"
-  },
-  {
-    "id": "9d60f0aa",
-    "title": "Best technical documentation software in 2026",
-    "summary": "Mintlify was released as a top technical documentation software in 2026. It matters for technical writers as it offers docs-as-code and AI-ready documentation.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
-    "tag": "AI Docs",
-    "date": "2026-05-23"
-  },
-  {
-    "id": "6d6a856e",
-    "title": "AI in technical writing: complete guide for 2026",
-    "summary": "AI accelerates multilingual documentation with human review. It matters for technical writers as it transforms inputs into structured drafts.",
-    "source": "Instrktiv",
-    "url": "https://instrktiv.com/en/ai-in-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-05-23"
-  },
-  {
-    "id": "b231f766",
-    "title": "Mastering DITA Writing: A Guide for Technical Writers in 2024",
-    "summary": "DITA XML provides a structured approach to technical documentation. It matters for technical writers as it enables clear and concise documentation.",
-    "source": "Sciencepod",
-    "url": "https://sciencepod.net/dita-technical-writing",
-    "tag": "DITA & Structured Content",
-    "date": "2026-05-23"
-  },
-  {
-    "id": "0dee9e6c",
-    "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and simplifies documentation tasks.",
-    "source": "Instinctools",
-    "url": "https://www.instinctools.com/blog/dita-xml",
-    "tag": "DITA & Structured Content",
-    "date": "2026-05-23"
-  },
-  {
-    "id": "850d0e68",
-    "title": "Docs-as-Code explained: Benefits, tools and best practices",
-    "summary": "Docs-as-Code streamlines development by creating docs with code. It matters for technical writers as it integrates docs into DevOps workflows.",
-    "source": "Techtarget",
-    "url": "https://www.techtarget.com/searchapparchitecture/tip/Docs-as-Code-explained-Benefits-tools-and-best-practices",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-05-23"
   }
 ]
