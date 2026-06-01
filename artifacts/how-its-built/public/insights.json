@@ -1,5 +1,68 @@
 [
   {
+    "id": "73653fce",
+    "title": "Top 12 ai tools for technical writing for developers in 2026 | DocuWriter.ai",
+    "summary": "DocuWriter.ai released a guide to the top 12 AI tools for technical writing in 2026. It matters for technical writers as it automates code documentation and streamlines workflows.",
+    "source": "Docuwriter",
+    "url": "https://www.docuwriter.ai/posts/ai-tools-for-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "e197e89e",
+    "title": "Best AI Tools for Technical Writing in 2026",
+    "summary": "Eight AI tools for technical writing were ranked across creation, governance, and maintenance. Drift detection is the highest-leverage AI capability for technical writers.",
+    "source": "Happysupport",
+    "url": "https://happysupport.ai/blog/ai-tools-for-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "c5c0a32c",
+    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
+    "summary": "AsyncAPI Initiative sets 2026 goals for event-driven APIs. It matters for technical writers documenting API workflows.",
+    "source": "Asyncapi",
+    "url": "https://www.asyncapi.com/roadmap",
+    "tag": "API Standards",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "41cee5e9",
+    "title": "DITA XML Structured Content and its benefits for your ...",
+    "summary": "DITA XML structured content improves documentation quality. It matters for technical writers seeking consistency.",
+    "source": "Componize",
+    "url": "https://componize.com/blog/dita-xml-structured-content-and-its-benefits-for-your-business",
+    "tag": "DITA & Structured Content",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "12b87cec",
+    "title": "A Beginner's Introduction To Structured Content & DITA XML",
+    "summary": "A video course introduces structured content and DITA XML. It matters for technical writers needing reusable content workflows.",
+    "source": "Udemy",
+    "url": "https://www.udemy.com/course/introduction-to-structured-content-dita-xml",
+    "tag": "DITA & Structured Content",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "23d4ff69",
+    "title": "Best of 2023: Documentation as Code: A Game Changer for DevOps ...",
+    "summary": "Documentation-as-code improves collaboration and consistency. It matters for technical writers as it facilitates version control.",
+    "source": "Devops",
+    "url": "https://devops.com/documentation-as-code-a-game-changer-for-devops-teams",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-01"
+  },
+  {
+    "id": "e2ad8aee",
+    "title": "Best Code Documentation Tools to Simplify Development",
+    "summary": "Top code documentation tools were released for developers. They simplify development for technical writers and teams.",
+    "source": "Proprofskb",
+    "url": "https://www.proprofskb.com/blog/code-documentation-tools",
+    "tag": "Dev Tools",
+    "date": "2026-06-01"
+  },
+  {
     "id": "2b2510c1",
     "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
     "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
@@ -69,69 +132,6 @@
     "source": "Buildmvpfast",
     "url": "https://www.buildmvpfast.com/articles/best-llms-2026-guide/technical-docs-ai",
     "tag": "AI Docs",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "e29f22ac",
-    "title": "What Is AsyncAPI? The Spec for Event-Driven APIs in 2026 | Docsio",
-    "summary": "AsyncAPI 3.0 was released in 2023, describing event-driven APIs. It matters for technical writers as it standardizes documentation for asynchronous systems.",
-    "source": "Docsio",
-    "url": "https://docsio.co/blog/asyncapi",
-    "tag": "API Standards",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "202fab4e",
-    "title": "AsyncAPI: Bringing OpenAPI to Event-Driven Systems",
-    "summary": "AsyncAPI brings OpenAPI to event-driven systems. It matters for technical writers as it simplifies documenting event-driven architectures.",
-    "source": "James-carr",
-    "url": "https://james-carr.org/posts/2026-01-16-asyncapi-event-driven-documentation",
-    "tag": "API Standards",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "4af93ce2",
-    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
-    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers managing structured content.",
-    "source": "Adobe",
-    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
-    "tag": "DITA & Structured Content",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "c202d02c",
-    "title": "Introduction to DITA",
-    "summary": "DITA introduces a structured authoring methodology using XML standards. It matters for technical writers as it requires a new approach to writing with standardized labelling and topic-based architecture.",
-    "source": "Oxygenxml",
-    "url": "https://www.oxygenxml.com/dita/styleguide/Authoring_Concepts/c_Introduction_to_DITA.html",
-    "tag": "DITA & Structured Content",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "a0dc245f",
-    "title": "Automate your documentation with your CI/CD pipeline ... - Medium",
-    "summary": "CI/CD pipelines now build and deploy documentation. This matters for technical writers as it streamlines DocOps workflows.",
-    "source": "Medium",
-    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "b85723bf",
-    "title": "The 7 Best Documentation Tools for Developers in 2026 | AutomaDocs",
-    "summary": "AutomaDocs released AI-powered code documentation tools. It matters for technical writers as it automates documentation generation from code analysis.",
-    "source": "Automadocs",
-    "url": "https://automadocs.com/blog/best-documentation-tools-2026",
-    "tag": "Dev Tools",
-    "date": "2026-05-30"
-  },
-  {
-    "id": "6da39df0",
-    "title": "Best AI Tools for Automatic Code Documentation Generation (2026)",
-    "summary": "AI tools generate code documentation automatically. They enhance developer productivity for technical writers.",
-    "source": "Everdone",
-    "url": "https://everdone.ai/whats-new/guides-resources/Best-AI-Tools-for-Automatic-Code-Documentation-Generation-2026",
-    "tag": "Dev Tools",
     "date": "2026-05-30"
   }
 ]
