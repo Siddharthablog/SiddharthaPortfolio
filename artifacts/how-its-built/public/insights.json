@@ -1,5 +1,86 @@
 [
   {
+    "id": "2b2510c1",
+    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
+    "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
+    "tag": "AI Docs",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "6c24a2f7",
+    "title": "Technical writer in 2026: not replaced by AI, but writing for it | by Angela Ni | Artificial Intelligence in Plain English",
+    "summary": "Technical writers now write for humans and machines. This changes documentation workflows to support AI consumption.",
+    "source": "Plainenglish",
+    "url": "https://ai.plainenglish.io/technical-writer-in-2026-not-replaced-by-ai-but-writing-for-it-e7b01ef41ae3",
+    "tag": "AI Docs",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "61c39ff5",
+    "title": "API documentation best practices guide Feb 2026 | Fern",
+    "summary": "Fern released an API documentation tool generating SDKs in 9 languages. It matters for technical writers as it keeps code examples and schemas synchronized.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
+    "tag": "API Standards",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "90e30ee2",
+    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
+    "summary": "OpenAPI Specification 3.1 defines RESTful APIs in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
+    "source": "Api7",
+    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
+    "tag": "API Standards",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "a2993ea3",
+    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines - DEV Community",
+    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it simplifies documentation deployment.",
+    "source": "Dev.to",
+    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "84601b9b",
+    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
+    "summary": "Docs as Code emerged as an approach to documentation. It matters for streamlining collaboration and accuracy in technical writing workflows.",
+    "source": "Konghq",
+    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "a0dc245f",
+    "title": "Automate your documentation with your CI/CD pipeline ... - Medium",
+    "summary": "CI/CD pipelines now build and deploy documentation alongside code. This matters for technical writers as it streamlines DocOps workflows.",
+    "source": "Medium",
+    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "1b5a8d5c",
+    "title": "12 best tools for technical documentation to use in 2026 | DocuWriter.ai",
+    "summary": "DocuWriter.ai released 12 best tools for technical documentation in 2026. It matters for automating documentation suites and syncing with code.",
+    "source": "Docuwriter",
+    "url": "https://www.docuwriter.ai/posts/best-tools-for-technical-documentation",
+    "tag": "Dev Tools",
+    "date": "2026-06-08"
+  },
+  {
+    "id": "6da39df0",
+    "title": "Best AI Tools for Automatic Code Documentation Generation (2026)",
+    "summary": "AI tools generate code documentation automatically. They enhance developer productivity for technical writers.",
+    "source": "Everdone",
+    "url": "https://everdone.ai/whats-new/guides-resources/Best-AI-Tools-for-Automatic-Code-Documentation-Generation-2026",
+    "tag": "Dev Tools",
+    "date": "2026-06-08"
+  },
+  {
     "id": "73653fce",
     "title": "Top 12 ai tools for technical writing for developers in 2026 | DocuWriter.ai",
     "summary": "DocuWriter.ai released a list of top 12 AI tools for technical writing in 2026. It matters for technical writers as it automates code documentation and streamlines workflows.",
@@ -52,86 +133,5 @@
     "url": "https://www.mintlify.com/library/7-best-software-documentation-tools-in-2026",
     "tag": "Dev Tools",
     "date": "2026-06-07"
-  },
-  {
-    "id": "9629b240",
-    "title": "The 10 best software documentation tools in 2026 – GitBook Blog",
-    "summary": "GitBook is the best documentation tool for technical teams in 2026. It matters for technical writers as it combines Git-based workflows with a visual editor.",
-    "source": "Gitbook",
-    "url": "https://www.gitbook.com/blog/best-software-documentation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-06-07"
-  },
-  {
-    "id": "9d60f0aa",
-    "title": "Best technical documentation software in 2026",
-    "summary": "Mintlify was released as a top technical documentation software in 2026. It matters for technical writers as it offers docs-as-code and AI-ready features.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
-    "tag": "AI Docs",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "6d6a856e",
-    "title": "AI in technical writing: complete guide for 2026",
-    "summary": "AI accelerates multilingual documentation with human review. It matters for technical writers as it transforms inputs into structured drafts.",
-    "source": "Instrktiv",
-    "url": "https://instrktiv.com/en/ai-in-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "6ff1c133",
-    "title": "AI-Adapt or Exit: Future-Proofing Technical Writing in 2026 - YouTube",
-    "summary": "AI tools boost output. They matter for technical writers' salary growth.",
-    "source": "Youtube",
-    "url": "https://www.youtube.com/watch?v=q6GsJ5tJqn8",
-    "tag": "AI Docs",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "c5c0a32c",
-    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
-    "summary": "AsyncAPI Initiative released a roadmap for event-driven APIs. It matters for technical writers as it simplifies API documentation.",
-    "source": "Asyncapi",
-    "url": "https://www.asyncapi.com/roadmap",
-    "tag": "API Standards",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "4af93ce2",
-    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
-    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it simplifies structured content management.",
-    "source": "Adobe",
-    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "23d4ff69",
-    "title": "Best of 2023: Documentation as Code: A Game Changer for DevOps ...",
-    "summary": "Documentation-as-code improves DevOps collaboration and consistency. It matters for technical writers as it facilitates version control and accuracy.",
-    "source": "Devops",
-    "url": "https://devops.com/documentation-as-code-a-game-changer-for-devops-teams",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "404b65f7",
-    "title": "12 Best AI Code Documentation Tools 2026 [Complete Guide]",
-    "summary": "GitHub Copilot and Mintlify are top AI code documentation tools. They matter for automating API documentation and code explanation.",
-    "source": "Techiehub",
-    "url": "https://techiehub.blog/12-best-ai-code-documentation-tools-2026",
-    "tag": "Dev Tools",
-    "date": "2026-06-06"
-  },
-  {
-    "id": "0bdc9371",
-    "title": "API Docs & SDK Generation Tools (May 2026) | Fern | Fern",
-    "summary": "Fern released API docs and SDK generation tools in May 2026. It matters for technical writers as it automates documentation and improves developer experience.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-06-06"
   }
 ]
