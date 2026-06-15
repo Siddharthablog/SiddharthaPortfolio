@@ -1,5 +1,50 @@
 [
   {
+    "id": "42d9118b",
+    "title": "13 Best OpenAPI Documentation Tools for 2026",
+    "summary": "OpenAPI documentation tools transform API specs into interactive web pages. They matter for technical writers as they enhance developer experience through accessible documentation.",
+    "source": "Treblle",
+    "url": "https://treblle.com/blog/best-openapi-documentation-tools",
+    "tag": "API Standards",
+    "date": "2026-06-15"
+  },
+  {
+    "id": "18b1ce20",
+    "title": "Docs-as-Code and DevOps Success",
+    "summary": "Docs-as-Code integrates documentation into development workflows. It matters for technical writers as it streamlines documentation management.",
+    "source": "Medium",
+    "url": "https://medium.com/@michaeljamesryan/docs-as-code-and-devops-success-871bb174631d",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-15"
+  },
+  {
+    "id": "a2993ea3",
+    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines - DEV Community",
+    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it simplifies documentation deployment.",
+    "source": "Dev.to",
+    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-15"
+  },
+  {
+    "id": "84601b9b",
+    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
+    "summary": "Docs as Code emerged as a solution to outdated documentation workflows. It matters for technical writers as it streamlines collaboration and ensures accuracy.",
+    "source": "Konghq",
+    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-15"
+  },
+  {
+    "id": "0bdc9371",
+    "title": "API Docs & SDK Generation Tools (May 2026) | Fern",
+    "summary": "Fern released an all-in-one developer experience platform. It matters for technical writers as it streamlines SDK generation and API documentation.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
+    "tag": "Dev Tools",
+    "date": "2026-06-15"
+  },
+  {
     "id": "e197e89e",
     "title": "Best AI Tools for Technical Writing in 2026",
     "summary": "Eight AI tools for technical writing were ranked across creation, governance, and maintenance. These tools matter for streamlining technical writing workflows and reducing maintenance workloads.",
@@ -88,50 +133,5 @@
     "url": "https://automadocs.com/blog/best-documentation-tools-2026",
     "tag": "Dev Tools",
     "date": "2026-06-13"
-  },
-  {
-    "id": "0104d5e7",
-    "title": "7 best software documentation tools in 2026",
-    "summary": "Seven software documentation tools were evaluated for features like collaboration and automation. This matters for technical writers who need efficient tools for maintaining docs at scale.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/7-best-software-documentation-tools-in-2026",
-    "tag": "Dev Tools",
-    "date": "2026-06-13"
-  },
-  {
-    "id": "2b2510c1",
-    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
-    "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
-    "tag": "AI Docs",
-    "date": "2026-06-12"
-  },
-  {
-    "id": "61c39ff5",
-    "title": "API documentation best practices guide Feb 2026 | Fern",
-    "summary": "Fern released an API documentation tool generating SDKs in 9 languages. It matters for technical writers as it keeps code examples and schemas synchronized.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
-    "tag": "API Standards",
-    "date": "2026-06-12"
-  },
-  {
-    "id": "90e30ee2",
-    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
-    "summary": "OpenAPI Specification 3.1 defines RESTful APIs in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
-    "source": "Api7",
-    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
-    "tag": "API Standards",
-    "date": "2026-06-12"
-  },
-  {
-    "id": "c5c0a32c",
-    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
-    "summary": "AsyncAPI Initiative released a roadmap for event-driven APIs. It matters for technical writers as it simplifies API documentation.",
-    "source": "Asyncapi",
-    "url": "https://www.asyncapi.com/roadmap",
-    "tag": "API Standards",
-    "date": "2026-06-12"
   }
 ]
