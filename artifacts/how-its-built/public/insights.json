@@ -1,5 +1,41 @@
 [
   {
+    "id": "312d6272",
+    "title": "AsyncAPI vs. OpenAPI: Which Specification Is Right for Your App? · Bump.sh",
+    "summary": "OpenAPI and AsyncAPI specifications are available for API documentation. They matter for technical writers to effectively communicate API interactions.",
+    "source": "Bump",
+    "url": "https://bump.sh/blog/asyncapi-vs-openapi",
+    "tag": "API Standards",
+    "date": "2026-06-19"
+  },
+  {
+    "id": "28baf83e",
+    "title": "swagger - How to document a mixture of synchronous and asynchronous APIs? Do we use AsyncAPI or OpenAPI or both? - Stack Overflow",
+    "summary": "OpenAPI and AsyncAPI are used for synchronous and asynchronous APIs. This matters for technical writers as it affects documentation workflows.",
+    "source": "Stack Overflow",
+    "url": "https://stackoverflow.com/questions/67055564/how-to-document-a-mixture-of-synchronous-and-asynchronous-apis-do-we-use-asynca",
+    "tag": "API Standards",
+    "date": "2026-06-19"
+  },
+  {
+    "id": "4af93ce2",
+    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
+    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it simplifies structured content management.",
+    "source": "Adobe",
+    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
+    "tag": "DITA & Structured Content",
+    "date": "2026-06-19"
+  },
+  {
+    "id": "0104d5e7",
+    "title": "7 best software documentation tools in 2026",
+    "summary": "Seven software documentation tools were evaluated for features like collaboration and automation. It matters for technical writers to choose the right tool for their workflow and documentation needs.",
+    "source": "Mintlify",
+    "url": "https://www.mintlify.com/library/7-best-software-documentation-tools-in-2026",
+    "tag": "Dev Tools",
+    "date": "2026-06-19"
+  },
+  {
     "id": "73653fce",
     "title": "Top 12 ai tools for technical writing for developers in 2026 | DocuWriter.ai",
     "summary": "DocuWriter.ai released a list of top 12 AI tools for technical writing in 2026. It matters for technical writers as it automates code documentation and streamlines workflows.",
@@ -97,41 +133,5 @@
     "url": "https://www.heretto.com/blog/content-organization",
     "tag": "DITA & Structured Content",
     "date": "2026-06-17"
-  },
-  {
-    "id": "b85723bf",
-    "title": "The 7 Best Documentation Tools for Developers in 2026 | AutomaDocs",
-    "summary": "AutomaDocs released AI-powered code documentation tools. This matters for technical writers needing automated documentation workflows.",
-    "source": "Automadocs",
-    "url": "https://automadocs.com/blog/best-documentation-tools-2026",
-    "tag": "Dev Tools",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "385493c2",
-    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
-    "summary": "AI-powered documentation generators streamline documentation creation. They improve efficiency and collaboration for technical writers and teams.",
-    "source": "Kodesage",
-    "url": "https://kodesage.ai/blog/7-documentation-generators",
-    "tag": "Dev Tools",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "2b2510c1",
-    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
-    "summary": "AI tools for technical writers were released in 2026. They improve speed, clarity, and consistency for documentation teams.",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
-    "tag": "AI Docs",
-    "date": "2026-06-16"
-  },
-  {
-    "id": "61c39ff5",
-    "title": "API documentation best practices guide Feb 2026 | Fern",
-    "summary": "Fern generates SDKs and publishes interactive documentation from a single API specification. It matters for technical writers as it keeps code examples and schemas synchronized.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
-    "tag": "API Standards",
-    "date": "2026-06-16"
   }
 ]
