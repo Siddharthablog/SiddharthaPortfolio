@@ -1,5 +1,41 @@
 [
   {
+    "id": "61c39ff5",
+    "title": "API documentation best practices guide Feb 2026 | Fern",
+    "summary": "Fern released an API documentation tool generating SDKs in 9 languages. It matters for technical writers as it keeps code examples and schemas synchronized.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
+    "tag": "API Standards",
+    "date": "2026-06-20"
+  },
+  {
+    "id": "c5c0a32c",
+    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
+    "summary": "AsyncAPI Initiative sets 2026 goals for event-driven APIs. It matters for technical writers documenting API workflows.",
+    "source": "Asyncapi",
+    "url": "https://www.asyncapi.com/roadmap",
+    "tag": "API Standards",
+    "date": "2026-06-20"
+  },
+  {
+    "id": "b85723bf",
+    "title": "The 7 Best Documentation Tools for Developers in 2026 | AutomaDocs",
+    "summary": "AutomaDocs released AI-powered code documentation tools. It matters for technical writers as it automates documentation generation from code analysis.",
+    "source": "Automadocs",
+    "url": "https://automadocs.com/blog/best-documentation-tools-2026",
+    "tag": "Dev Tools",
+    "date": "2026-06-20"
+  },
+  {
+    "id": "385493c2",
+    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
+    "summary": "Top 7 documentation generator tools are released for 2026. They matter for streamlining documentation creation and maintenance.",
+    "source": "Kodesage",
+    "url": "https://kodesage.ai/blog/7-documentation-generators",
+    "tag": "Dev Tools",
+    "date": "2026-06-20"
+  },
+  {
     "id": "312d6272",
     "title": "AsyncAPI vs. OpenAPI: Which Specification Is Right for Your App? · Bump.sh",
     "summary": "OpenAPI and AsyncAPI specifications are available for API documentation. They matter for technical writers to effectively communicate API interactions.",
@@ -96,42 +132,6 @@
     "source": "Mintlify",
     "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
     "tag": "AI Docs",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "9a2aa901",
-    "title": "Best AI Tools for Technical Writing [2026 Tested] | QWE AI Academy",
-    "summary": "QWE AI Academy released a list of 5 specialized AI tools for technical writing. It matters for technical writers as it provides practical guidance on effective AI tools for technical content.",
-    "source": "Edu",
-    "url": "https://www.qwe.edu.pl/tutorial/best-ai-tools-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "5f0f3760",
-    "title": "AsyncAPI vs OpenAPI: What's The Difference? | Nordic APIs |",
-    "summary": "OpenAPI and AsyncAPI generate machine-readable documentation for different API types. This matters for technical writers as it affects API documentation consumption and utilization.",
-    "source": "Nordicapis",
-    "url": "https://nordicapis.com/asyncapi-vs-openapi-whats-the-difference",
-    "tag": "API Standards",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "b231f766",
-    "title": "Mastering DITA Writing: A Guide for Technical Writers in 2024",
-    "summary": "DITA writing guides were released for technical writers in 2024. It matters for technical writers as DITA provides a structured approach to creating and managing technical documentation.",
-    "source": "Sciencepod",
-    "url": "https://sciencepod.net/dita-technical-writing",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-17"
-  },
-  {
-    "id": "a6e7cb15",
-    "title": "What is DITA XML? A Guide to Structured Content",
-    "summary": "DITA XML is a standard for structured content creation. It matters for technical writers as it enables reusable content components.",
-    "source": "Heretto",
-    "url": "https://www.heretto.com/blog/content-organization",
-    "tag": "DITA & Structured Content",
     "date": "2026-06-17"
   }
 ]
