@@ -1,5 +1,59 @@
 [
   {
+    "id": "2b2510c1",
+    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
+    "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
+    "source": "Linkedin",
+    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
+    "tag": "AI Docs",
+    "date": "2026-06-24"
+  },
+  {
+    "id": "90e30ee2",
+    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
+    "summary": "OpenAPI Specification 3.1 standardizes API descriptions in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
+    "source": "Api7",
+    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
+    "tag": "API Standards",
+    "date": "2026-06-24"
+  },
+  {
+    "id": "c5c0a32c",
+    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
+    "summary": "AsyncAPI Initiative released a roadmap for event-driven APIs. It matters for technical writers as it guides API documentation standards.",
+    "source": "Asyncapi",
+    "url": "https://www.asyncapi.com/roadmap",
+    "tag": "API Standards",
+    "date": "2026-06-24"
+  },
+  {
+    "id": "b231f766",
+    "title": "Mastering DITA Writing: A Guide for Technical Writers in 2024",
+    "summary": "A guide for mastering DITA writing was released. It matters for technical writers as it provides a structured approach to creating and managing technical documentation.",
+    "source": "Sciencepod",
+    "url": "https://sciencepod.net/dita-technical-writing",
+    "tag": "DITA & Structured Content",
+    "date": "2026-06-24"
+  },
+  {
+    "id": "23d4ff69",
+    "title": "Best of 2023: Documentation as Code: A Game Changer for DevOps ...",
+    "summary": "Documentation-as-code improves collaboration and consistency. It matters for technical writers as it facilitates version control.",
+    "source": "Devops",
+    "url": "https://devops.com/documentation-as-code-a-game-changer-for-devops-teams",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-24"
+  },
+  {
+    "id": "0bdc9371",
+    "title": "API Docs & SDK Generation Tools (May 2026) | Fern",
+    "summary": "Fern released an all-in-one developer experience platform. It matters for technical writers as it generates SDKs and documentation from one spec.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
+    "tag": "Dev Tools",
+    "date": "2026-06-24"
+  },
+  {
     "id": "e197e89e",
     "title": "Best AI Tools for Technical Writing in 2026",
     "summary": "Eight AI tools for technical writing were ranked across creation, governance, and maintenance. Drift detection is the highest-leverage AI capability for technical writers.",
@@ -78,60 +132,6 @@
     "source": "Nordicapis",
     "url": "https://nordicapis.com/asyncapi-vs-openapi-whats-the-difference",
     "tag": "API Standards",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "0dee9e6c",
-    "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and multiformat publishing.",
-    "source": "Instinctools",
-    "url": "https://www.instinctools.com/blog/dita-xml",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "a6e7cb15",
-    "title": "What is DITA XML? A Guide to Structured Content",
-    "summary": "DITA XML is a standard for creating structured content. It matters for technical writers as it simplifies content creation and deployment.",
-    "source": "Heretto",
-    "url": "https://www.heretto.com/blog/content-organization",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "e4d2d6eb",
-    "title": "From Zero to Hero in DITA XML Content Writing - Componize",
-    "summary": "Componize released a guide on DITA XML content writing. It matters for technical writers to improve documentation quality and user experience.",
-    "source": "Componize",
-    "url": "https://componize.com/blog/zero-to-hero-dita-xml-content-writing",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "18b1ce20",
-    "title": "Docs-as-Code and DevOps Success",
-    "summary": "Docs-as-Code integrates documentation into development workflows. It matters for technical writers as it streamlines documentation management.",
-    "source": "Medium",
-    "url": "https://medium.com/@michaeljamesryan/docs-as-code-and-devops-success-871bb174631d",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "a2993ea3",
-    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines",
-    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it streamlines documentation workflows.",
-    "source": "Dev.to",
-    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-22"
-  },
-  {
-    "id": "84601b9b",
-    "title": "What is Docs as Code? Guide to Modern Technical Documentation",
-    "summary": "Docs as Code emerged, bringing dev principles to documentation. It matters for technical writers as it streamlines collaboration and ensures accuracy.",
-    "source": "Konghq",
-    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
-    "tag": "DevOps & CI/CD",
     "date": "2026-06-22"
   }
 ]
