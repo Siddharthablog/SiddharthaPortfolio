@@ -1,5 +1,59 @@
 [
   {
+    "id": "9d60f0aa",
+    "title": "Best technical documentation software in 2026",
+    "summary": "Mintlify released documentation software with API reference and AI readiness. It matters for technical writers needing modern, maintainable developer docs.",
+    "source": "Mintlify",
+    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
+    "tag": "AI Docs",
+    "date": "2026-06-26"
+  },
+  {
+    "id": "6ff1c133",
+    "title": "AI-Adapt or Exit: Future-Proofing Technical Writing in 2026",
+    "summary": "AI-adaptation is transforming technical writing from content production to strategic asset creation. It matters for technical writers as it impacts career growth and salary justification through AI-augmented leadership.",
+    "source": "Youtube",
+    "url": "https://www.youtube.com/watch?v=q6GsJ5tJqn8",
+    "tag": "AI Docs",
+    "date": "2026-06-26"
+  },
+  {
+    "id": "5f0f3760",
+    "title": "AsyncAPI vs OpenAPI: What's The Difference? | Nordic APIs |",
+    "summary": "OpenAPI and AsyncAPI generate machine-readable documentation for different API types. This matters for technical writers as it affects documentation solutions and consumption.",
+    "source": "Nordicapis",
+    "url": "https://nordicapis.com/asyncapi-vs-openapi-whats-the-difference",
+    "tag": "API Standards",
+    "date": "2026-06-26"
+  },
+  {
+    "id": "4af93ce2",
+    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
+    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it simplifies structured content management.",
+    "source": "Adobe",
+    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
+    "tag": "DITA & Structured Content",
+    "date": "2026-06-26"
+  },
+  {
+    "id": "385493c2",
+    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
+    "summary": "Top 7 documentation generator tools are released for 2026. They matter for streamlining documentation creation and maintenance, improving efficiency and collaboration for technical writers.",
+    "source": "Kodesage",
+    "url": "https://kodesage.ai/blog/7-documentation-generators",
+    "tag": "Dev Tools",
+    "date": "2026-06-26"
+  },
+  {
+    "id": "6b15acac",
+    "title": "8 Best Software Documentation Tools in 2026, by Use Case - Ferndesk",
+    "summary": "Ferndesk released a comparison of 8 software documentation tools. It matters for technical writers as it highlights tools that maintain accuracy after launch.",
+    "source": "Ferndesk",
+    "url": "https://ferndesk.com/blog/best-software-documentation-tools",
+    "tag": "Dev Tools",
+    "date": "2026-06-26"
+  },
+  {
     "id": "6d6a856e",
     "title": "AI in technical writing: complete guide for 2026",
     "summary": "AI accelerates multilingual documentation with human review. It matters for technical writers as it transforms inputs into structured drafts.",
@@ -79,59 +133,5 @@
     "url": "https://www.asyncapi.com/roadmap",
     "tag": "API Standards",
     "date": "2026-06-24"
-  },
-  {
-    "id": "b231f766",
-    "title": "Mastering DITA Writing: A Guide for Technical Writers in 2024",
-    "summary": "A guide for mastering DITA writing was released. It matters for technical writers as it provides a structured approach to creating and managing technical documentation.",
-    "source": "Sciencepod",
-    "url": "https://sciencepod.net/dita-technical-writing",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-24"
-  },
-  {
-    "id": "23d4ff69",
-    "title": "Best of 2023: Documentation as Code: A Game Changer for DevOps ...",
-    "summary": "Documentation-as-code improves collaboration and consistency. It matters for technical writers as it facilitates version control.",
-    "source": "Devops",
-    "url": "https://devops.com/documentation-as-code-a-game-changer-for-devops-teams",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-24"
-  },
-  {
-    "id": "0bdc9371",
-    "title": "API Docs & SDK Generation Tools (May 2026) | Fern",
-    "summary": "Fern released an all-in-one developer experience platform. It matters for technical writers as it generates SDKs and documentation from one spec.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
-    "tag": "Dev Tools",
-    "date": "2026-06-24"
-  },
-  {
-    "id": "e197e89e",
-    "title": "Best AI Tools for Technical Writing in 2026",
-    "summary": "Eight AI tools for technical writing were ranked across creation, governance, and maintenance. Drift detection is the highest-leverage AI capability for technical writers.",
-    "source": "Happysupport",
-    "url": "https://happysupport.ai/blog/ai-tools-for-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-06-23"
-  },
-  {
-    "id": "200344cf",
-    "title": "Best Technical Writing Tools in 2026: Top 20 Picks",
-    "summary": "Twenty technical writing tools were released for 2026. They matter for streamlining documentation workflows and creating clear user docs.",
-    "source": "Proprofskb",
-    "url": "https://www.proprofskb.com/blog/best-technical-writing-tools",
-    "tag": "AI Docs",
-    "date": "2026-06-23"
-  },
-  {
-    "id": "8d44be32",
-    "title": "3.1.0 | AsyncAPI Initiative for event-driven APIs",
-    "summary": "AsyncAPI 3.1.0 was released for event-driven APIs. It matters for technical writers as it standardizes machine-readable API descriptions.",
-    "source": "Asyncapi",
-    "url": "https://www.asyncapi.com/docs/reference/specification/latest",
-    "tag": "API Standards",
-    "date": "2026-06-23"
   }
 ]
