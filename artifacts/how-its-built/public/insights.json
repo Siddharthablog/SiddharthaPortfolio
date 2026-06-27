@@ -1,5 +1,32 @@
 [
   {
+    "id": "c8b00c64",
+    "title": "[PDF] Automation of Non-code Documentation in a DevOps Environment",
+    "summary": "A prototype system automates non-code documentation using Bash scripts, pandoc, Docker, and LaTeX. It matters for technical writers as it streamlines documentation workflows.",
+    "source": "Diva-portal",
+    "url": "https://www.diva-portal.org/smash/get/diva2:1670611/FULLTEXT01.pdf",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-27"
+  },
+  {
+    "id": "0bdc9371",
+    "title": "API Docs & SDK Generation Tools (May 2026) | Fern",
+    "summary": "Fern released API documentation platforms generating SDKs and docs from the same spec. This matters for technical writers as it guarantees consistency and reduces manual work.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-documentation-sdk-generation-tools",
+    "tag": "Dev Tools",
+    "date": "2026-06-27"
+  },
+  {
+    "id": "c2926b94",
+    "title": "Best API Documentation Tools for Developers (2026) - Beginners",
+    "summary": "Apidog combines API documentation and testing in a single workflow. It matters for technical writers as it simplifies API documentation and testing workflows.",
+    "source": "Hugging Face",
+    "url": "https://discuss.huggingface.co/t/best-api-documentation-tools-for-developers-2026/175108",
+    "tag": "Dev Tools",
+    "date": "2026-06-27"
+  },
+  {
     "id": "9d60f0aa",
     "title": "Best technical documentation software in 2026",
     "summary": "Mintlify released documentation software with API reference and AI readiness. It matters for technical writers needing modern, maintainable developer docs.",
@@ -106,32 +133,5 @@
     "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
     "tag": "DevOps & CI/CD",
     "date": "2026-06-25"
-  },
-  {
-    "id": "2b2510c1",
-    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
-    "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
-    "tag": "AI Docs",
-    "date": "2026-06-24"
-  },
-  {
-    "id": "90e30ee2",
-    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
-    "summary": "OpenAPI Specification 3.1 standardizes API descriptions in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
-    "source": "Api7",
-    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
-    "tag": "API Standards",
-    "date": "2026-06-24"
-  },
-  {
-    "id": "c5c0a32c",
-    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
-    "summary": "AsyncAPI Initiative released a roadmap for event-driven APIs. It matters for technical writers as it guides API documentation standards.",
-    "source": "Asyncapi",
-    "url": "https://www.asyncapi.com/roadmap",
-    "tag": "API Standards",
-    "date": "2026-06-24"
   }
 ]
