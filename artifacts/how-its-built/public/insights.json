@@ -1,5 +1,50 @@
 [
   {
+    "id": "9a2aa901",
+    "title": "Best AI Tools for Technical Writing [2026 Tested] | QWE AI Academy",
+    "summary": "QWE AI Academy released 5 specialized AI tools for technical writing. These tools matter for technical writers as they address ChatGPT's limitations in drafting accurate technical documentation.",
+    "source": "Edu",
+    "url": "https://www.qwe.edu.pl/tutorial/best-ai-tools-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-06-28"
+  },
+  {
+    "id": "2eebee4f",
+    "title": "Best AI Documentation Tools in 2026 (Honest Ranking)",
+    "summary": "Eight AI documentation tools were ranked in 2026. Maintenance-focused tools matter for technical writers as they offer 10x more value for weekly shipping SaaS teams.",
+    "source": "Happysupport",
+    "url": "https://happysupport.ai/blog/best-ai-documentation-tools",
+    "tag": "AI Docs",
+    "date": "2026-06-28"
+  },
+  {
+    "id": "c8445a39",
+    "title": "The 2026 State of AI in Technical Documentation",
+    "summary": "The 2026 State of AI in Technical Documentation survey gathered insights from 400 professionals. It matters for technical writers as AI transforms documentation workflows, improving productivity.",
+    "source": "Promptitude",
+    "url": "https://www.promptitude.io/the-2026-state-of-ai-in-technical-documentation",
+    "tag": "AI Docs",
+    "date": "2026-06-28"
+  },
+  {
+    "id": "90e30ee2",
+    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
+    "summary": "OpenAPI Specification 3.1 standardizes API descriptions in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
+    "source": "Api7",
+    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
+    "tag": "API Standards",
+    "date": "2026-06-28"
+  },
+  {
+    "id": "23d4ff69",
+    "title": "Best of 2023: Documentation as Code: A Game Changer for DevOps ...",
+    "summary": "Documentation-as-code improves collaboration and consistency. It matters for technical writers as it facilitates version control.",
+    "source": "Devops",
+    "url": "https://devops.com/documentation-as-code-a-game-changer-for-devops-teams",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-28"
+  },
+  {
     "id": "c8b00c64",
     "title": "[PDF] Automation of Non-code Documentation in a DevOps Environment",
     "summary": "A prototype system automates non-code documentation using Bash scripts, pandoc, Docker, and LaTeX. It matters for technical writers as it streamlines documentation workflows.",
@@ -87,51 +132,6 @@
     "source": "Instrktiv",
     "url": "https://instrktiv.com/en/ai-in-technical-writing",
     "tag": "AI Docs",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "61c39ff5",
-    "title": "API documentation best practices guide Feb 2026 - Fern",
-    "summary": "Fern released an API documentation guide in Feb 2026. It matters for technical writers as it automates workflows and generates synchronized documentation.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
-    "tag": "API Standards",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "0dee9e6c",
-    "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and multiple output formats.",
-    "source": "Instinctools",
-    "url": "https://www.instinctools.com/blog/dita-xml",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "a6e7cb15",
-    "title": "What is DITA XML? A Guide to Structured Content",
-    "summary": "DITA XML is a standard for structured content creation. It matters for technical writers as it enables reusable content components and easier documentation management.",
-    "source": "Heretto",
-    "url": "https://www.heretto.com/blog/content-organization",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "a2993ea3",
-    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines",
-    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it streamlines documentation workflows.",
-    "source": "Dev.to",
-    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-25"
-  },
-  {
-    "id": "84601b9b",
-    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
-    "summary": "Docs as Code emerged, bringing development principles to documentation. It matters for technical writers as it streamlines collaboration and ensures accuracy.",
-    "source": "Konghq",
-    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
-    "tag": "DevOps & CI/CD",
     "date": "2026-06-25"
   }
 ]
