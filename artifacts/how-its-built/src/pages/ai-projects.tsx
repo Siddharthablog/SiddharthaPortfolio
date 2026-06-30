@@ -505,8 +505,8 @@ function TechPulseProject() {
         </div>
         <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
           A fully automated pipeline that scours tech news daily using <strong style={{ color: "var(--text)" }}>Tavily Search</strong>, 
-          synthesises insights with <strong style={{ color: "var(--text)" }}>Groq Llama 3.1 70B</strong>, 
-          commits structured JSON back to GitHub, and auto-deploys via Vercel — demonstrating autonomous DocOps at scale.
+          synthesises insights with <strong style={{ color: "var(--text)" }}>GPT-OSS 20B</strong>,
+          commits structured JSON back to GitHub, and auto-deploys via <strong style={{ color: "var(--text)" }}>Vercel</strong> demonstrating autonomous DocOps at scale.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
           {["GitHub Actions", "Tavily API", "Groq LLM", "Python", "JSON Schema", "Vercel CI/CD"].map(t => (
