@@ -691,7 +691,7 @@ function MstpFinetune() {
   const { ref, visible } = useReveal(0.1);
   const isMobile = useIsMobile();
   const [messages, setMessages] = useState<{role: string; text: string}[]>([
-    { role: "assistant", text: "Hi! I'm MSTP Bot — a fine-tuned Llama model trained on Microsoft Technical Publications data using Unsloth. Ask me anything about technical writing best practices, MSTP guidelines, or documentation standards." },
+    { role: "assistant", text: "Hi! I'm MSTP Bot — fine-tuned on Microsoft Technical Publications (MSTP) guidelines. Ask me anything about technical writing or documentation standards.\n\n⏳ Hosted on HF Spaces (free tier) — first response may take ~30s to warm up." },
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -776,23 +776,47 @@ function MstpFinetune() {
             }}>
               Fine-Tuned LLM for Technical Writing Standards
             </h2>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-              <span style={{
-                fontSize: 10, fontWeight: 800, padding: "2px 10px", borderRadius: 9999,
-                background: "hsl(40,90%,52%,0.12)", border: "1.5px solid hsl(40,90%,52%,0.3)",
-                color: "hsl(40,90%,42%)", textTransform: "uppercase", letterSpacing: "0.1em",
-              }}>Coming Soon</span>
-            </div>
           </div>
         </div>
         <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          A Llama model fine-tuned on <strong style={{ color: "var(--text)" }}>Microsoft Technical Publications (MSTP)</strong> style 
-          guide data using <strong style={{ color: "var(--text)" }}>Unsloth</strong> for efficient QLoRA training. 
-          Hosted on <strong style={{ color: "var(--text)" }}>Hugging Face</strong> and served as an interactive chatbot — 
-          demonstrating that a Technical Writer can train, deploy, and integrate custom LLMs.
+          A <strong style={{ color: "var(--text)" }}>Llama 3.2 3B</strong> model fine-tuned on{" "}
+          <strong style={{ color: "var(--text)" }}>Microsoft Technical Publications (MSTP)</strong> style
+          guide data using <strong style={{ color: "var(--text)" }}>Unsloth QLoRA</strong> — trained on a single free Colab GPU
+          and deployed as an interactive chatbot on <strong style={{ color: "var(--text)" }}>Hugging Face Spaces</strong>
+          {" "}— demonstrating that a Technical Writer can train, deploy, and integrate custom LLMs.
         </p>
+        <div style={{ fontSize: "0.8rem", color: "var(--muted)", lineHeight: 2, marginBottom: 14, display: "flex", flexDirection: "column", gap: 2 }}>
+          <span>
+            🤖 <strong style={{ color: "var(--text)" }}>Try the chatbot:</strong>{" "}
+            <a href="https://huggingface.co/spaces/Siddhartha03/mstp-finetune-bot" target="_blank" rel="noopener noreferrer"
+              style={{ color: "hsl(260,60%,55%)", textDecoration: "underline" }}>
+              huggingface.co/spaces/Siddhartha03/mstp-finetune-bot
+            </a>
+          </span>
+          <span>
+            🦙 <strong style={{ color: "var(--text)" }}>Run locally with Ollama</strong> — download the GGUF model:{" "}
+            <a href="https://huggingface.co/Siddhartha03/unsloth_Llama-3.2-3B-Instruct_1779362309" target="_blank" rel="noopener noreferrer"
+              style={{ color: "hsl(260,60%,55%)", textDecoration: "underline" }}>
+              unsloth_Llama-3.2-3B-Instruct
+            </a>
+          </span>
+          <span>
+            ☁️ <strong style={{ color: "var(--text)" }}>Host on any AI inference platform</strong> — full model weights:{" "}
+            <a href="https://huggingface.co/Siddhartha03/mstp-Llama-3.2-3B-Instruct" target="_blank" rel="noopener noreferrer"
+              style={{ color: "hsl(260,60%,55%)", textDecoration: "underline" }}>
+              mstp-Llama-3.2-3B-Instruct
+            </a>
+          </span>
+          <span>
+            🏠 <strong style={{ color: "var(--text)" }}>All models & spaces:</strong>{" "}
+            <a href="https://huggingface.co/Siddhartha03" target="_blank" rel="noopener noreferrer"
+              style={{ color: "hsl(260,60%,55%)", textDecoration: "underline" }}>
+              huggingface.co/Siddhartha03
+            </a>
+          </span>
+        </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-          {["Unsloth", "QLoRA", "Llama 3.1", "Hugging Face", "MSTP Style Guide", "Python"].map(t => (
+          {["Unsloth", "QLoRA", "Llama 3.2 3B", "Hugging Face", "MSTP Style Guide", "Python", "Ollama"].map(t => (
             <span key={t} style={{
               background: "hsl(260,60%,55%,0.1)",
               border: "1.5px solid hsl(260,60%,55%,0.2)",
@@ -862,13 +886,14 @@ function MstpFinetune() {
                 maxWidth: "80%",
                 padding: "10px 14px",
                 borderRadius: msg.role === "user" ? "14px 14px 4px 14px" : "14px 14px 14px 4px",
-                background: msg.role === "user" 
-                  ? "hsl(210,88%,52%)" 
+                background: msg.role === "user"
+                  ? "hsl(210,88%,52%)"
                   : "hsl(45,22%,95%)",
                 color: msg.role === "user" ? "white" : "var(--text)",
                 fontSize: 12.5,
                 lineHeight: 1.7,
                 fontWeight: 500,
+                whiteSpace: "pre-wrap",
                 border: msg.role === "user" ? "none" : "1px solid var(--border)",
               }}>
                 {msg.text}
