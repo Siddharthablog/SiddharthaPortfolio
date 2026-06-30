@@ -95,7 +95,7 @@ router.post("/chat", async (req, res) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant",
+          model: "openai/gpt-oss-20b",
           temperature: 0.3,
           max_tokens: 512,
           messages: [

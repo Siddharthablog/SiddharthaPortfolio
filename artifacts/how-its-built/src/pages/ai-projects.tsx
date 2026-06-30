@@ -703,21 +703,50 @@ function MstpFinetune() {
     }
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim() || isTyping) return;
     const userMsg = input.trim();
     setMessages(prev => [...prev, { role: "user", text: userMsg }]);
     setInput("");
     setIsTyping(true);
 
-    // Simulated response — will be replaced with actual Hugging Face Inference API
-    setTimeout(() => {
-      const responses: Record<string, string> = {
-        "default": "That's a great question! Based on MSTP guidelines, I'd recommend following the principles of clarity, consistency, and user-focus. Technical documentation should be task-oriented, use active voice, and include concrete examples wherever possible. Would you like me to elaborate on any specific aspect?",
-      };
-      setMessages(prev => [...prev, { role: "assistant", text: responses["default"] }]);
-      setIsTyping(false);
-    }, 1500);
+    // Call the HF-powered serverless function with retry for cold starts
+    const maxRetries = 2;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        const res = await fetch("/api/mstp-chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: [{ role: "user", content: userMsg }],
+          }),
+        });
+
+        const data = await res.json();
+
+        // Model is loading (cold start) — wait and retry
+        if (res.status === 503 && data.retryAfter && attempt < maxRetries) {
+          await new Promise(r => setTimeout(r, (data.retryAfter || 15) * 1000));
+          continue;
+        }
+
+        if (!res.ok) {
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+
+        setMessages(prev => [...prev, { role: "assistant", text: data.answer }]);
+        setIsTyping(false);
+        return; // success — exit
+      } catch (err: any) {
+        if (attempt === maxRetries) {
+          setMessages(prev => [...prev, {
+            role: "assistant",
+            text: `Sorry, I couldn't reach the model right now (${err.message || "Unknown error"}). Please try again in a moment.`,
+          }]);
+          setIsTyping(false);
+        }
+      }
+    }
   };
 
   return (

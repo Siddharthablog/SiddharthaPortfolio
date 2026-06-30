@@ -298,7 +298,7 @@ export default function ChatWidget() {
                 {m.role === "assistant" ? (
                   <ReactMarkdown
                     components={{
-                      p: ({ node, ...props }) => <p style={{ margin: "0 0 0.5em 0", lastChild: { margin: 0 } }} {...props} />,
+                      p: ({ node, ...props }) => <p style={{ margin: "0 0 0.5em 0" }} {...props} />,
                       ul: ({ node, ...props }) => <ul style={{ margin: "0.5em 0", paddingLeft: "1.5em" }} {...props} />,
                       li: ({ node, ...props }) => <li style={{ marginBottom: "0.25em" }} {...props} />
                     }}
