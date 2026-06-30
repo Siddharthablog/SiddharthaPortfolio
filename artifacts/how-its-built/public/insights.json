@@ -1,102 +1,66 @@
 [
   {
-    "id": "4f18ea01",
-    "title": "Best AI for Technical Documentation June 2026: Top 10 Tools",
-    "summary": "Mintlify and Fern are top AI tools for technical documentation in 2026. They matter for technical writers as they generate API references and synchronize docs with code.",
-    "source": "Buildmvpfast",
-    "url": "https://www.buildmvpfast.com/articles/best-llms-2026-guide/technical-docs-ai",
-    "tag": "AI Docs",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "73653fce",
-    "title": "Top 12 ai tools for technical writing for developers in 2026 | DocuWriter.ai",
-    "summary": "DocuWriter.ai released a list of top 12 AI tools for technical writing in 2026. It matters for streamlining documentation workflows and automating code documentation tasks.",
-    "source": "Docuwriter",
-    "url": "https://www.docuwriter.ai/posts/ai-tools-for-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "5f0f3760",
-    "title": "AsyncAPI vs OpenAPI: What's The Difference? | Nordic APIs |",
-    "summary": "OpenAPI and AsyncAPI generate machine-readable documentation for different API types. This matters for technical writers as it affects documentation solutions and consumption.",
-    "source": "Nordicapis",
-    "url": "https://nordicapis.com/asyncapi-vs-openapi-whats-the-difference",
-    "tag": "API Standards",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "4af93ce2",
-    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
-    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it boosts consistency and content reuse.",
-    "source": "Adobe",
-    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "385493c2",
-    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
-    "summary": "AI-powered documentation generators simplify documentation creation and maintenance. They improve efficiency and collaboration for technical writers and teams.",
-    "source": "Kodesage",
-    "url": "https://kodesage.ai/blog/7-documentation-generators",
-    "tag": "Dev Tools",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "c2926b94",
-    "title": "Best API Documentation Tools for Developers (2026) - Beginners",
-    "summary": "Apidog combines API documentation and testing in a single workflow. It matters for technical writers as it simplifies API documentation and testing workflows.",
-    "source": "Hugging Face",
-    "url": "https://discuss.huggingface.co/t/best-api-documentation-tools-for-developers-2026/175108",
-    "tag": "Dev Tools",
-    "date": "2026-06-30"
-  },
-  {
     "id": "2b2510c1",
     "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
     "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
     "source": "Linkedin",
     "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
     "tag": "AI Docs",
-    "date": "2026-06-29"
+    "date": "2026-06-30"
   },
   {
-    "id": "c5c0a32c",
-    "title": "Vision & Roadmap | AsyncAPI Initiative for event-driven APIs",
-    "summary": "AsyncAPI Initiative released a roadmap for event-driven APIs. It matters for technical writers as it guides API documentation standards.",
-    "source": "Asyncapi",
-    "url": "https://www.asyncapi.com/roadmap",
-    "tag": "API Standards",
-    "date": "2026-06-29"
+    "id": "9d60f0aa",
+    "title": "Best technical documentation software in 2026",
+    "summary": "Mintlify was released as a top technical documentation software in 2026. It matters for technical writers as it offers docs-as-code workflows and AI-ready documentation.",
+    "source": "Mintlify",
+    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
+    "tag": "AI Docs",
+    "date": "2026-06-30"
   },
   {
-    "id": "02a9ed58",
-    "title": "AsyncAPI — A standard for documenting Event-Driven Applications",
-    "summary": "AsyncAPI standardizes event-driven application documentation. It matters for technical writers defining asynchronous APIs.",
-    "source": "Medium",
-    "url": "https://raphaeldelio.medium.com/asyncapi-a-standard-for-documenting-event-driven-applications-8ff657119036",
+    "id": "90e30ee2",
+    "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
+    "summary": "OpenAPI Specification 3.1 defines RESTful APIs in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
+    "source": "Api7",
+    "url": "https://api7.ai/learning-center/api-101/openapi-specification",
     "tag": "API Standards",
-    "date": "2026-06-29"
+    "date": "2026-06-30"
+  },
+  {
+    "id": "70bbd563",
+    "title": "API design best practices guide (March 2026) - Fern",
+    "summary": "Fern released an API design best practices guide in March 2026. It matters for technical writers as it streamlines API documentation and SDK generation.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-design-best-practices-guide",
+    "tag": "API Standards",
+    "date": "2026-06-30"
   },
   {
     "id": "0dee9e6c",
     "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "DITA XML is an open-source standard for structured authoring. It matters for technical writers as it enables efficient content management.",
+    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and enables production of multiple output formats from a single source.",
     "source": "Instinctools",
     "url": "https://www.instinctools.com/blog/dita-xml",
     "tag": "DITA & Structured Content",
-    "date": "2026-06-29"
+    "date": "2026-06-30"
   },
   {
-    "id": "a6e7cb15",
-    "title": "What is DITA XML? A Guide to Structured Content",
-    "summary": "DITA XML is a standard for structured content creation. It matters for technical writers as it enables reusable content components.",
-    "source": "Heretto",
-    "url": "https://www.heretto.com/blog/content-organization",
+    "id": "4af93ce2",
+    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
+    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it simplifies structured content management.",
+    "source": "Adobe",
+    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
     "tag": "DITA & Structured Content",
-    "date": "2026-06-29"
+    "date": "2026-06-30"
+  },
+  {
+    "id": "a0dc245f",
+    "title": "Automate your documentation with your CI/CD pipeline (Documentation As Code)",
+    "summary": "Documentation is built and deployed via CI/CD pipelines using tools like MkDocs and Docker. This automation matters for technical writers as it streamlines DocOps workflows.",
+    "source": "Medium",
+    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-06-30"
   },
   {
     "id": "a2993ea3",
@@ -105,33 +69,15 @@
     "source": "Dev.to",
     "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
     "tag": "DevOps & CI/CD",
-    "date": "2026-06-29"
+    "date": "2026-06-30"
   },
   {
-    "id": "84601b9b",
-    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
-    "summary": "Docs as Code emerged as an approach to modern technical documentation. It matters for technical writers as it streamlines collaboration and ensures accuracy.",
-    "source": "Konghq",
-    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-29"
-  },
-  {
-    "id": "9629b240",
-    "title": "The 10 best software documentation tools in 2026 – GitBook Blog",
-    "summary": "GitBook released its top 10 software documentation tools for 2026. Automated API documentation and AI-assisted tools matter for technical writers and DocOps workflows.",
-    "source": "Gitbook",
-    "url": "https://www.gitbook.com/blog/best-software-documentation-tools",
+    "id": "385493c2",
+    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
+    "summary": "Top 7 documentation generator tools were released in 2026. They matter for streamlining documentation creation and maintenance.",
+    "source": "Kodesage",
+    "url": "https://kodesage.ai/blog/7-documentation-generators",
     "tag": "Dev Tools",
-    "date": "2026-06-29"
-  },
-  {
-    "id": "9a2aa901",
-    "title": "Best AI Tools for Technical Writing [2026 Tested] | QWE AI Academy",
-    "summary": "QWE AI Academy released 5 specialized AI tools for technical writing. These tools matter for technical writers as they address ChatGPT's limitations in drafting accurate technical documentation.",
-    "source": "Edu",
-    "url": "https://www.qwe.edu.pl/tutorial/best-ai-tools-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-06-28"
+    "date": "2026-06-30"
   }
 ]

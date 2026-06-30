@@ -27,9 +27,9 @@ from pathlib import Path
 # Configuration
 # ---------------------------------------------------------------------------
 
-MAX_INSIGHTS = 15          # keep only the most recent N insights
-TAVILY_MAX_RESULTS = 3     # results per search query
-GROQ_MODEL = "llama-3.3-70b-versatile"
+MAX_INSIGHTS = 9           # keep only the most recent N insights
+TAVILY_MAX_RESULTS = 2     # results per search query (2 × 5 queries = 10 → trimmed to 9)
+GROQ_MODEL = "openai/gpt-oss-20b"
 
 # Search queries — each maps to a tag category
 SEARCH_QUERIES = [
