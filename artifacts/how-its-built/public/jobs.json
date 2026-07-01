@@ -1,5 +1,19 @@
 [
   {
+    "id": "268e747b",
+    "job_title": "Technical Writer",
+    "company": "UL Solutions",
+    "location": "Bangalore",
+    "experience": "2-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ul-solutions-4428241732",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-01",
+    "verified_at": "2026-07-01T13:23:50Z"
+  },
+  {
     "id": "45ef89ea",
     "job_title": "Senior Technical Writer",
     "company": "Okta",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "f8faebc5",
@@ -25,21 +39,21 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "542c633c",
     "job_title": "Documentation Specialist / Technical Writer",
     "company": "Infineon Technologies",
     "location": "Bengaluru East, Karnataka",
-    "experience": null,
+    "experience": "Mid-Senior Level",
     "skills": [],
     "summary": "Infineon Technologies seeks a Documentation Specialist / Technical Writer with expertise in technical writing.",
     "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-writer-at-infineon-technologies-4421826525",
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "c52d533b",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "ee804331",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "0b1f0016",
@@ -81,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "219ba41d",
@@ -95,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "ec17d839",
@@ -109,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "37ddca84",
@@ -123,21 +137,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
-  },
-  {
-    "id": "fcc8bd85",
-    "job_title": "Specialist Technical Writer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "1-5 Yrs",
-    "skills": [],
-    "summary": "Infineon Technologies seeks a Specialist Technical Writer to create documentation for semiconductor products, requiring strong technical writing expertise.",
-    "apply_url": "https://in.linkedin.com/jobs/view/specialist-technical-writer-at-infineon-technologies-4429942282",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   },
   {
     "id": "b6cb0fdc",
@@ -147,13 +147,15 @@
     "experience": "5-10 Yrs",
     "skills": [
       "DITA",
-      "API Documentation"
+      "API Documentation",
+      "Technical Writing",
+      "Structured Authoring"
     ],
-    "summary": "IBU Consulting seeks a Senior Technical Writer with 5-10 years' experience in DITA and API documentation creation.",
+    "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-ibu-consulting-bengaluru-5-to-10-years-170626501575",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-ibu-consulting-bengaluru-5-to-10-years-170626501575",
     "source": "Naukri",
     "date": "2026-07-01",
-    "verified_at": "2026-07-01T11:34:20Z"
+    "verified_at": "2026-07-01T13:23:50Z"
   }
 ]
