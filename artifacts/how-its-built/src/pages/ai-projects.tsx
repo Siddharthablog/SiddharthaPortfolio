@@ -96,6 +96,7 @@ function FullPagePathAnimation() {
 const PAGE_SECTIONS = [
   { label: "Tech Pulse",    id: "tech-pulse" },
   { label: "MSTP Finetune", id: "mstp-finetune" },
+  { label: "Job Radar",     id: "job-radar" },
 ];
 
 function StickyNav() {
@@ -276,6 +277,293 @@ type Insight = {
   tag: string;
   date: string;
 };
+
+type Job = {
+  id: string;
+  job_title: string;
+  company: string;
+  location: string;
+  experience: string | null;
+  skills: string[];
+  summary: string;
+  apply_url: string;
+  naukri_url: string | null;
+  source: string;
+  date: string;
+};
+
+const SOURCE_COLORS: Record<string, string> = {
+  "LinkedIn":          "hsl(210,88%,52%)",
+  "LinkedIn + Naukri": "hsl(260,60%,55%)",
+  "Naukri":            "hsl(100,40%,44%)",
+};
+
+function JobCard({ job, index, visible }: { job: Job; index: number; visible: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  const color = SOURCE_COLORS[job.source] || "hsl(210,88%,52%)";
+  const expColor = job.experience ? "hsl(100,40%,44%)" : "hsl(40,10%,60%)";
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "white",
+        border: `1.5px solid ${hovered ? color : "var(--border)"}`,
+        borderTop: `3px solid ${color}`,
+        borderRadius: "0.9rem",
+        padding: "1rem 1.1rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(18px)",
+        transition: `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s, border-color 0.2s ease`,
+        cursor: "default",
+        boxShadow: hovered ? `0 4px 18px ${color}20` : "0 1px 6px rgba(0,0,0,0.04)",
+      }}
+    >
+      {/* Title + company */}
+      <div>
+        <div style={{ fontSize: 12.5, fontWeight: 800, color: "var(--text)", lineHeight: 1.3, marginBottom: 2 }}>
+          {job.job_title}
+        </div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: color }}>
+          {job.company}
+        </div>
+      </div>
+
+      {/* Meta row */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }}>
+        <span style={{
+          fontSize: 9.5, fontWeight: 700, padding: "2px 8px", borderRadius: 9999,
+          background: `${expColor}15`, border: `1px solid ${expColor}40`, color: expColor,
+        }}>
+          🕐 {job.experience || "Exp not listed"}
+        </span>
+        <span style={{
+          fontSize: 9.5, fontWeight: 700, padding: "2px 8px", borderRadius: 9999,
+          background: `${color}12`, border: `1px solid ${color}30`, color: color,
+        }}>
+          📍 {job.location}
+        </span>
+        <span style={{
+          fontSize: 9.5, fontWeight: 600, color: "var(--muted)",
+        }}>
+          via {job.source} · {job.date}
+        </span>
+      </div>
+
+      {/* Skills */}
+      {job.skills.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+          {job.skills.slice(0, 4).map(s => (
+            <span key={s} style={{
+              fontSize: 9, fontWeight: 700, padding: "1px 7px", borderRadius: 9999,
+              background: "hsl(45,22%,95%)", border: "1px solid var(--border)", color: "var(--muted)",
+            }}>{s}</span>
+          ))}
+        </div>
+      )}
+
+      {/* Summary */}
+      <p style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.65, margin: 0 }}>
+        {job.summary}
+      </p>
+
+      {/* Apply button */}
+      <a
+        href={job.apply_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          marginTop: 2,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 5,
+          fontSize: 10.5,
+          fontWeight: 800,
+          color: "white",
+          background: color,
+          padding: "5px 14px",
+          borderRadius: 9999,
+          textDecoration: "none",
+          alignSelf: "flex-start",
+          transition: "opacity 0.15s",
+          opacity: hovered ? 0.9 : 1,
+        }}
+      >
+        Apply →
+      </a>
+    </div>
+  );
+}
+
+function JobRadarProject() {
+  const { ref, visible } = useReveal(0.1);
+  const isMobile = useIsMobile();
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [activeSource, setActiveSource] = useState("All");
+
+  useEffect(() => {
+    fetch("/jobs.json")
+      .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+      .then((data: Job[]) => { setJobs(data); setLoading(false); })
+      .catch(() => { setError(true); setLoading(false); });
+  }, []);
+
+  const sources = ["All", "LinkedIn + Naukri", "LinkedIn", "Naukri"];
+  const filtered = activeSource === "All" ? jobs : jobs.filter(j => j.source === activeSource);
+
+  return (
+    <div id="job-radar" ref={ref} style={{ scrollMarginTop: 80, marginTop: "4rem" }}>
+      <SectionLabel label="Project 03 · Job Radar" />
+      <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+
+      {/* Intro card */}
+      <div style={{
+        background: "white", border: "1px solid var(--border)", borderRadius: "1.2rem",
+        padding: isMobile ? "1.25rem" : "2rem", marginTop: "1.5rem",
+        boxShadow: "0 2px 20px rgba(0,0,0,0.05)",
+      }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
+          <div style={{
+            width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+            background: "hsl(260,60%,55%,0.12)", border: "1.5px solid hsl(260,60%,55%,0.25)",
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20,
+          }}>💼</div>
+          <div>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--text)", lineHeight: 1.25, marginBottom: 6 }}>
+              Autonomous Job Radar
+            </h2>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              <span style={{
+                width: 8, height: 8, borderRadius: "50%", background: "hsl(100,60%,45%)",
+                display: "inline-block", animation: "pulseGlow 2s infinite ease-in-out",
+              }} />
+              <span style={{
+                fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+                letterSpacing: "0.14em", color: "hsl(100,40%,38%)",
+              }}>Live · Refreshed daily · Senior TW · Bangalore · 10+ yrs</span>
+            </div>
+          </div>
+        </div>
+        <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
+          A daily job curation pipeline that searches <strong style={{ color: "var(--text)" }}>Naukri</strong> for experience &amp; skills
+          and <strong style={{ color: "var(--text)" }}>LinkedIn</strong> for direct apply links — merges them by company,
+          summarises each role with <strong style={{ color: "var(--text)" }}>Groq LLM</strong>, and auto-deploys via{" "}
+          <strong style={{ color: "var(--text)" }}>GitHub Actions + Vercel</strong>.
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+          {["GitHub Actions", "Tavily API", "Groq LLM", "Naukri", "LinkedIn", "Python", "Vercel CI/CD"].map(t => (
+            <span key={t} style={{
+              background: "hsl(260,60%,55%,0.1)", border: "1.5px solid hsl(260,60%,55%,0.2)",
+              color: "hsl(260,60%,55%)", fontSize: 10, fontWeight: 700,
+              padding: "2px 10px", borderRadius: 9999,
+            }}>{t}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Source filter + stats */}
+      {jobs.length > 0 && (
+        <>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "1.5rem", marginBottom: "1rem" }}>
+            {sources.map(s => {
+              const isActive = activeSource === s;
+              const color = SOURCE_COLORS[s] || "hsl(40,10%,30%)";
+              return (
+                <button key={s} onClick={() => setActiveSource(s)} style={{
+                  padding: "5px 14px", borderRadius: 9999, fontSize: 11, fontWeight: 700,
+                  background: isActive ? color : "white",
+                  color: isActive ? "white" : color,
+                  border: `1.5px solid ${isActive ? color : color + "35"}`,
+                  cursor: "pointer", transition: "all 0.2s ease",
+                  boxShadow: isActive ? `0 2px 8px ${color}30` : "0 1px 3px rgba(0,0,0,0.05)",
+                }}>
+                  {s}
+                  {s !== "All" && (
+                    <span style={{ marginLeft: 5, fontSize: 9, opacity: 0.7 }}>
+                      ({jobs.filter(j => j.source === s).length})
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+          <div style={{ display: "flex", gap: isMobile ? 12 : 24, flexWrap: "wrap", marginBottom: "1.25rem" }}>
+            {[
+              { label: "Jobs Found",  value: `${jobs.length}`,                                          color: "hsl(260,60%,55%)" },
+              { label: "Companies",   value: `${new Set(jobs.map(j => j.company)).size}`,               color: "hsl(210,88%,52%)" },
+              { label: "With Exp",    value: `${jobs.filter(j => j.experience).length}`,                color: "hsl(100,40%,44%)" },
+              { label: "With Links",  value: `${jobs.filter(j => j.apply_url?.includes("linkedin")).length}`, color: "hsl(16,80%,52%)" },
+            ].map(s => (
+              <div key={s.label} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: "1.4rem", fontWeight: 900, color: s.color, letterSpacing: "-0.02em" }}>{s.value}</span>
+                <span style={{ fontSize: 10, color: "var(--muted)", fontWeight: 600 }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Job cards grid */}
+      {loading && (
+        <div style={{ textAlign: "center", padding: "3rem", color: "var(--muted)", fontSize: 13 }}>
+          Loading jobs…
+        </div>
+      )}
+      {error && (
+        <div style={{ textAlign: "center", padding: "3rem", color: "var(--muted)", fontSize: 13 }}>
+          Could not load jobs. Check back soon.
+        </div>
+      )}
+      {!loading && !error && (
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))",
+          gap: "1rem",
+        }}>
+          {filtered.map((job, i) => (
+            <JobCard key={job.id} job={job} index={i} visible={visible} />
+          ))}
+          {filtered.length === 0 && (
+            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "2rem", color: "var(--muted)", fontSize: 13 }}>
+              No jobs found for "{activeSource}".
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* How it works */}
+      <div style={{
+        marginTop: "1.5rem", display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "1rem",
+      }}>
+        {[
+          { icon: "🔍", title: "Naukri Search",    color: "hsl(100,40%,44%)", desc: "Tavily searches Naukri daily for Senior TW roles in Bangalore — extracting experience range and required skills." },
+          { icon: "🔗", title: "LinkedIn Links",   color: "hsl(210,88%,52%)", desc: "Separate LinkedIn queries fetch direct /jobs/view/ apply URLs for each company — no login needed to click through." },
+          { icon: "🔀", title: "Smart Merge",      color: "hsl(260,60%,55%)", desc: "Groq LLM fuzzy-matches company names across both sources, merges data, and writes a one-line summary per role." },
+        ].map((card, i) => (
+          <div key={card.title} style={{
+            background: "white", border: "1px solid var(--border)",
+            borderTop: `3px solid ${card.color}`, borderRadius: "0.9rem",
+            padding: "1.25rem", boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(16px)",
+            transition: `opacity 0.55s ease ${i * 0.12}s, transform 0.55s ease ${i * 0.12}s`,
+          }}>
+            <div style={{ fontSize: 22, marginBottom: 10 }}>{card.icon}</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{card.title}</div>
+            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const TAG_COLORS: Record<string, string> = {
   "AI Docs":                  "hsl(210,88%,52%)",
@@ -1038,7 +1326,7 @@ export default function AIProjectsPage() {
             fontSize: 10, fontWeight: 800, padding: "2px 10px", borderRadius: 9999,
             background: "hsl(260,60%,55%,0.12)", border: "1.5px solid hsl(260,60%,55%,0.3)",
             color: "hsl(260,60%,50%)",
-          }}>2 Projects</span>
+          }}>3 Projects</span>
         </div>
         <h1 style={{ fontSize: isMobile ? "2rem" : "clamp(2.2rem,5vw,3.2rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.1 }}>
           My AI Projects
@@ -1056,6 +1344,7 @@ export default function AIProjectsPage() {
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
         <TechPulseProject />
         <MstpFinetune />
+        <JobRadarProject />
       </div>
 
       {/* ── Footer ── */}
