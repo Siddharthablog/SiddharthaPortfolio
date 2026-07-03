@@ -1,17 +1,22 @@
 [
   {
-    "id": "d54a4f29",
-    "job_title": "Technical Documentation Specialist",
-    "company": "Crossing Hurdles",
-    "location": "Remote",
-    "experience": "Mid-Senior Level",
-    "skills": [],
+    "id": "965347ff",
+    "job_title": "Technical Documentation Engineer",
+    "company": "Harness",
+    "location": "Bangalore",
+    "experience": "2-4 Yrs",
+    "skills": [
+      "Technical Writing",
+      "Documentation",
+      "Product Knowledge",
+      "Collaboration"
+    ],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-%2450-hr-remote-at-crossing-hurdles-4433456029",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-02",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-harness-4374297141",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-documentation-engineer-harness-bengaluru-2-to-4-years-240226503362",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-07-03",
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "268e747b",
@@ -24,8 +29,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ul-solutions-4428241732",
     "naukri_url": null,
     "source": "LinkedIn",
+    "date": "2026-07-03",
+    "verified_at": "2026-07-03T12:57:29Z"
+  },
+  {
+    "id": "d54a4f29",
+    "job_title": "Technical Documentation Specialist",
+    "company": "Crossing Hurdles",
+    "location": "Remote",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-%2450-hr-remote-at-crossing-hurdles-4433456029",
+    "naukri_url": null,
+    "source": "LinkedIn",
     "date": "2026-07-02",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "d393d2f0",
@@ -39,7 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-02",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "45ef89ea",
@@ -53,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "f8faebc5",
@@ -67,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "542c633c",
@@ -81,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "c52d533b",
@@ -95,7 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "ee804331",
@@ -109,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "0b1f0016",
@@ -123,7 +142,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "219ba41d",
@@ -137,7 +156,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "ec17d839",
@@ -151,7 +170,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "37ddca84",
@@ -165,7 +184,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "verified_at": "2026-07-03T12:57:29Z"
   },
   {
     "id": "b6cb0fdc",
@@ -183,7 +202,7 @@
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-ibu-consulting-bengaluru-5-to-10-years-170626501575",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-ibu-consulting-bengaluru-5-to-10-years-170626501575",
     "source": "Naukri",
-    "date": "2026-07-02",
-    "verified_at": "2026-07-02T12:58:57Z"
+    "date": "2026-07-03",
+    "verified_at": "2026-07-03T12:57:29Z"
   }
 ]
