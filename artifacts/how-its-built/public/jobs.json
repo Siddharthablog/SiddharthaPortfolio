@@ -5,32 +5,13 @@
     "company": "Harness",
     "location": "Bangalore",
     "experience": "2-4 years",
-    "skills": [
-      "Documentation",
-      "Technical Writing",
-      "Product Management",
-      "Engineering"
-    ],
+    "skills": [],
     "summary": "",
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-harness-4374297141",
     "naukri_url": "https://www.naukri.com/job-listings-technical-documentation-engineer-harness-bengaluru-2-to-4-years-240226503362",
     "source": "LinkedIn + Naukri",
-    "date": "2026-07-04",
-    "verified_at": "2026-07-06T14:25:46Z"
-  },
-  {
-    "id": "d393d2f0",
-    "job_title": "Technical Writer",
-    "company": "Liminal Custody",
-    "location": "Bangalore",
-    "experience": "4+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4431254063?position=47&pageNum=0&refId=U%2F6ufCC526KXCK3tszz%2Fjg%3D%3D&trackingId=BuceHWnOtRQyzOGGC0hvgA%3D%3D",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-02",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "date": "2026-07-07",
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "45ef89ea",
@@ -44,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "f8faebc5",
@@ -58,21 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
-  },
-  {
-    "id": "542c633c",
-    "job_title": "Documentation Specialist / Technical Writer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "Mid-Senior Level",
-    "skills": [],
-    "summary": "Infineon Technologies seeks a Documentation Specialist / Technical Writer with expertise in technical writing.",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-writer-at-infineon-technologies-4421826525",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "c52d533b",
@@ -86,21 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
-  },
-  {
-    "id": "ee804331",
-    "job_title": "Specialist Technical Writer",
-    "company": "Hitachi Vantara",
-    "location": "Bangalore",
-    "experience": "10-15 Yrs",
-    "skills": [],
-    "summary": "Hitachi Vantara seeks a Specialist Technical Writer to create documentation for its data storage and AI solutions.",
-    "apply_url": "https://in.linkedin.com/jobs/view/specialist-technical-writer-at-hitachi-vantara-4413086350",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "0b1f0016",
@@ -114,21 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
-  },
-  {
-    "id": "219ba41d",
-    "job_title": "Manager, Technical Writing",
-    "company": "Walmart Global Tech India",
-    "location": "Bangalore",
-    "experience": "6+ Yrs",
-    "skills": [],
-    "summary": "Walmart Global Tech India seeks Manager, Technical Writing to lead global documentation efforts in e-commerce and digital transformation.",
-    "apply_url": "https://in.linkedin.com/jobs/view/ind-manager-technical-writing-at-walmart-global-tech-india-4419249824",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "ec17d839",
@@ -142,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   },
   {
     "id": "37ddca84",
@@ -156,6 +95,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-06T14:25:46Z"
+    "verified_at": "2026-07-07T13:19:05Z"
   }
 ]
