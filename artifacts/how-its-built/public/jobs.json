@@ -10,8 +10,50 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-harness-4374297141",
     "naukri_url": "https://www.naukri.com/job-listings-technical-documentation-engineer-harness-bengaluru-2-to-4-years-240226503362",
     "source": "LinkedIn + Naukri",
-    "date": "2026-07-07",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "date": "2026-07-09",
+    "verified_at": "2026-07-09T13:49:59Z"
+  },
+  {
+    "id": "476d2a2b",
+    "job_title": "DevOps and Technical Documentation Specialist",
+    "company": "Synopsys Inc",
+    "location": "Bangalore",
+    "experience": "5+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/devops-and-technical-documentation-specialist-at-synopsys-inc-4423344892",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-09",
+    "verified_at": "2026-07-09T13:49:59Z"
+  },
+  {
+    "id": "48d1ce39",
+    "job_title": "Associate Technical Writer",
+    "company": "GEA Group",
+    "location": "Bangalore",
+    "experience": "5+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-gea-group-4424176176",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-09",
+    "verified_at": "2026-07-09T13:49:59Z"
+  },
+  {
+    "id": "137ba162",
+    "job_title": "Senior Technical Writer",
+    "company": "Okta",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4426496501",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-09",
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "f8faebc5",
@@ -25,21 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-08",
-    "verified_at": "2026-07-08T12:20:54Z"
-  },
-  {
-    "id": "137ba162",
-    "job_title": "Senior Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4426496501",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-08",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "45ef89ea",
@@ -53,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "c52d533b",
@@ -67,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "0b1f0016",
@@ -81,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "ec17d839",
@@ -95,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "37ddca84",
@@ -109,7 +137,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   },
   {
     "id": "1797c30a",
@@ -128,6 +156,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-hewlett-packard-enterprise-bengaluru-5-to-10-years-300626501974",
     "source": "Naukri",
     "date": "2026-07-08",
-    "verified_at": "2026-07-08T12:20:54Z"
+    "verified_at": "2026-07-09T13:49:59Z"
   }
 ]
