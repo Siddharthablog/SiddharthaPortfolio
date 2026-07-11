@@ -1,17 +1,36 @@
 [
   {
     "id": "965347ff",
-    "job_title": "Technical Documentation Engineer - Bengaluru - Harness - 2 to 4 years of experience",
+    "job_title": "Technical Documentation Engineer",
     "company": "Harness",
     "location": "Bangalore",
-    "experience": "2-4 years",
-    "skills": [],
+    "experience": "2 - 4 years",
+    "skills": [
+      "Technical Writing",
+      "Documentation",
+      "Product Knowledge",
+      "Customer Focus"
+    ],
     "summary": "",
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-harness-4374297141",
     "naukri_url": "https://www.naukri.com/job-listings-technical-documentation-engineer-harness-bengaluru-2-to-4-years-240226503362",
     "source": "LinkedIn + Naukri",
-    "date": "2026-07-10",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "date": "2026-07-11",
+    "verified_at": "2026-07-11T11:52:40Z"
+  },
+  {
+    "id": "f8faebc5",
+    "job_title": "Tech Content Writer",
+    "company": "SAP",
+    "location": "Bangalore",
+    "experience": "2-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/tech-content-writer-at-sap-4415774617",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-11",
+    "verified_at": "2026-07-11T11:52:40Z"
   },
   {
     "id": "137ba162",
@@ -25,35 +44,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-10",
-    "verified_at": "2026-07-10T13:12:21Z"
-  },
-  {
-    "id": "48d1ce39",
-    "job_title": "Associate Technical Writer",
-    "company": "GEA Group",
-    "location": "Bangalore",
-    "experience": "5+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-gea-group-4424176176",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-09",
-    "verified_at": "2026-07-10T13:12:21Z"
-  },
-  {
-    "id": "f8faebc5",
-    "job_title": "Tech Content Writer",
-    "company": "SAP",
-    "location": "Bangalore",
-    "experience": "2-4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/tech-content-writer-at-sap-4415774617",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-08",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "verified_at": "2026-07-11T11:52:40Z"
   },
   {
     "id": "45ef89ea",
@@ -67,7 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "verified_at": "2026-07-11T11:52:40Z"
   },
   {
     "id": "c52d533b",
@@ -81,21 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-10T13:12:21Z"
-  },
-  {
-    "id": "0b1f0016",
-    "job_title": "Technical Writer",
-    "company": "Cohesity",
-    "location": "Bangalore Rural, Karnataka",
-    "experience": "2-9 Yrs",
-    "skills": [],
-    "summary": "Cohesity seeks Technical Writer to create user documentation for its cloud-based data management and cybersecurity solutions.",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-cohesity-4414692035",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "verified_at": "2026-07-11T11:52:40Z"
   },
   {
     "id": "37ddca84",
@@ -109,7 +86,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "verified_at": "2026-07-11T11:52:40Z"
+  },
+  {
+    "id": "5f74103b",
+    "job_title": "Technical Writer - Supply Chain Management Domain | Documentation |BLR",
+    "company": "Inspiration Manpower Consultancy",
+    "location": "Bangalore",
+    "experience": "5-10 Yrs",
+    "skills": [
+      "B2B SaaS",
+      "Documentation",
+      "Onboarding",
+      "Training"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-technical-writer-supply-chain-management-domain-documentation-blr-inspiration-manpower-consultancy-bengaluru-5-to-10-years-060726027312",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-supply-chain-management-domain-documentation-blr-inspiration-manpower-consultancy-bengaluru-5-to-10-years-060726027312",
+    "source": "Naukri",
+    "date": "2026-07-11",
+    "verified_at": "2026-07-11T11:52:40Z"
   },
   {
     "id": "1797c30a",
@@ -128,6 +124,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-hewlett-packard-enterprise-bengaluru-5-to-10-years-300626501974",
     "source": "Naukri",
     "date": "2026-07-08",
-    "verified_at": "2026-07-10T13:12:21Z"
+    "verified_at": "2026-07-11T11:52:40Z"
   }
 ]
