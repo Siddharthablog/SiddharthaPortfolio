@@ -1,22 +1,31 @@
 [
   {
     "id": "965347ff",
-    "job_title": "Technical Documentation Engineer",
+    "job_title": "Technical Documentation Engineer - Bengaluru - Harness - 2 to 4 years of experience",
     "company": "Harness",
     "location": "Bangalore",
-    "experience": "2 - 4 years",
-    "skills": [
-      "Technical Writing",
-      "Documentation",
-      "Product Knowledge",
-      "Customer Focus"
-    ],
+    "experience": "2-4 years",
+    "skills": [],
     "summary": "",
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-harness-4374297141",
     "naukri_url": "https://www.naukri.com/job-listings-technical-documentation-engineer-harness-bengaluru-2-to-4-years-240226503362",
     "source": "LinkedIn + Naukri",
-    "date": "2026-07-11",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "date": "2026-07-13",
+    "verified_at": "2026-07-13T13:21:38Z"
+  },
+  {
+    "id": "5c4b633f",
+    "job_title": "Knowledge Management Specialist",
+    "company": "Aon",
+    "location": "Gurgaon/Bangalore",
+    "experience": "7+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/manager-knowledge-management-specialist-at-aon-4439054426",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-13",
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "f8faebc5",
@@ -30,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-11",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "137ba162",
@@ -44,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-10",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "45ef89ea",
@@ -58,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "c52d533b",
@@ -72,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "37ddca84",
@@ -86,7 +95,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
+  },
+  {
+    "id": "4cbc8d1e",
+    "job_title": "Technical Writer - Bengaluru - UST - 3 to 5 years of experience",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "3-5 years",
+    "skills": [
+      "Technical Writing",
+      "Documentation",
+      "Content Development",
+      "Communication"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-technical-writer-ust-bengaluru-3-to-5-years-080726503687",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-ust-bengaluru-3-to-5-years-080726503687",
+    "source": "Naukri",
+    "date": "2026-07-13",
+    "verified_at": "2026-07-13T13:21:38Z"
   },
   {
     "id": "1797c30a",
@@ -105,6 +133,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-hewlett-packard-enterprise-bengaluru-5-to-10-years-300626501974",
     "source": "Naukri",
     "date": "2026-07-08",
-    "verified_at": "2026-07-12T11:58:46Z"
+    "verified_at": "2026-07-13T13:21:38Z"
   }
 ]
