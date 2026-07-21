@@ -491,58 +491,38 @@ function WritingSamples() {
     <div id="writing" ref={ref} style={{ padding: "4rem 0 0", scrollMarginTop: 80 }}>
       <SectionLabel label="Writing Samples" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
-      <p style={{ marginTop: "1.5rem", marginBottom: "2rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.8 }}>
-        A selection of documentation styles across domains — from developer-focused API references to AI deployment guides. Links will be added soon.
+      <p style={{ marginTop: "1.5rem", marginBottom: "1.25rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.8 }}>
+        A selection of documentation styles across domains — from developer-focused API references to AI deployment guides.
       </p>
-      <div style={{ 
-        display: "grid", 
-        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", 
-        gap: "1rem" 
-      }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
         {WRITING_SAMPLES.map((sample, i) => (
           <div key={sample.type} style={{
-            background: "white",
-            borderRadius: "0.9rem",
-            borderTop: `3px solid ${sample.color}`,
-            borderLeft: "1px solid var(--border)",
-            borderRight: "1px solid var(--border)",
-            borderBottom: "1px solid var(--border)",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-            padding: "1.25rem",
             display: "flex",
-            flexDirection: "column",
-            gap: "10px",
+            alignItems: "center",
+            gap: 14,
+            padding: "0.75rem 1rem",
+            borderBottom: "1px solid var(--border)",
+            borderLeft: `3px solid ${sample.color}`,
+            background: "white",
+            borderRadius: i === 0 ? "0.7rem 0.7rem 0 0" : i === WRITING_SAMPLES.length - 1 ? "0 0 0.7rem 0.7rem" : "0",
             opacity: 0,
-            animation: visible ? `fadeUp 0.5s ease ${i * 0.08}s forwards` : "none",
+            animation: visible ? `fadeUp 0.4s ease ${i * 0.06}s forwards` : "none",
           }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontSize: "1.5rem" }}>{sample.icon}</span>
-              {sample.link === "#" && (
-                <span style={{
-                  fontSize: "9px",
-                  fontWeight: 700,
-                  color: sample.color,
-                  background: `${sample.color}12`,
-                  border: `1px solid ${sample.color}25`,
-                  padding: "3px 8px",
-                  borderRadius: "9999px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em"
-                }}>
-                  Coming soon
-                </span>
-              )}
+            {/* Icon */}
+            <span style={{ fontSize: "1.2rem", flexShrink: 0, width: 28, textAlign: "center" }}>{sample.icon}</span>
+
+            {/* Title + audience */}
+            <div style={{ flex: "0 0 220px", minWidth: 0 }}>
+              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--text)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                {sample.type}
+              </div>
+              <div style={{ fontSize: 10, color: sample.color, fontWeight: 600, marginTop: 1 }}>
+                For: {sample.audience}
+              </div>
             </div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>
-              {sample.type}
-            </div>
-            <div style={{ fontSize: 10.5, color: sample.color, fontWeight: 600 }}>
-              For: {sample.audience}
-            </div>
-            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: "4px 0" }}>
-              {sample.desc}
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: "auto", paddingTop: "0.5rem" }}>
+
+            {/* Tags */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 4, flex: 1 }}>
               {sample.tags.map(tag => (
                 <span key={tag} style={{
                   fontSize: 9.5,
@@ -550,28 +530,35 @@ function WritingSamples() {
                   color: sample.color,
                   padding: "2px 8px",
                   borderRadius: "9999px",
-                  fontWeight: 600
+                  fontWeight: 600,
+                  whiteSpace: "nowrap",
                 }}>
                   {tag}
                 </span>
               ))}
             </div>
-            <div style={{ marginTop: "10px", paddingTop: "10px", borderTop: "1px solid var(--border)" }}>
-              <a 
-                href={sample.link}
-                onClick={(e) => { if (sample.link === "#") e.preventDefault(); }}
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  color: sample.link === "#" ? "var(--muted)" : sample.color,
-                  opacity: sample.link === "#" ? 0.5 : 1,
-                  cursor: sample.link === "#" ? "default" : "pointer",
-                  display: "inline-block"
-                }}
-              >
-                {sample.link === "#" ? "Link coming soon" : "Read sample →"}
-              </a>
+
+            {/* Link / Coming soon */}
+            <div style={{ flexShrink: 0, marginLeft: "auto" }}>
+              {sample.link === "#" ? (
+                <span style={{
+                  fontSize: 10, fontWeight: 700, color: "var(--muted)",
+                  opacity: 0.5, whiteSpace: "nowrap",
+                }}>
+                  Coming soon
+                </span>
+              ) : (
+                <a
+                  href={sample.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="read-sample-link"
+                  style={{ color: sample.color }}
+                >
+                  Read sample
+                  <span className="read-sample-arrow">→</span>
+                </a>
+              )}
             </div>
           </div>
         ))}

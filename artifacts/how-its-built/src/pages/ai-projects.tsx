@@ -426,8 +426,17 @@ function JobRadarProject() {
       <div style={{
         background: "white", border: "1px solid var(--border)", borderRadius: "1.2rem",
         padding: isMobile ? "1.25rem" : "2rem", marginTop: "1.5rem",
-        boxShadow: "0 2px 20px rgba(0,0,0,0.05)",
+        boxShadow: "0 2px 20px rgba(0,0,0,0.05)", position: "relative",
       }}>
+        <span style={{
+          position: "absolute", top: 14, right: 14,
+          fontSize: 9, fontWeight: 800, letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          background: "linear-gradient(135deg, hsl(260,60%,55%), hsl(210,88%,52%))",
+          color: "white",
+          padding: "3px 10px", borderRadius: 9999,
+          boxShadow: "0 2px 8px hsl(260,60%,55%,0.35)",
+        }}>⚡ Agentic</span>
         <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
           <div style={{
             width: 42, height: 42, borderRadius: 10, flexShrink: 0,
@@ -537,29 +546,166 @@ function JobRadarProject() {
         </div>
       )}
 
-      {/* How it works */}
+      {/* Architecture diagram */}
       <div style={{
-        marginTop: "1.5rem", display: "grid",
-        gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)", gap: "1rem",
+        marginTop: "1.5rem",
+        background: "white",
+        border: "1px solid var(--border)",
+        borderRadius: "1rem",
+        padding: isMobile ? "1rem" : "1.25rem 1.5rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(16px)",
+        transition: "opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s",
       }}>
-        {[
-          { icon: "🔍", title: "Naukri Search",    color: "hsl(100,40%,44%)", desc: "Tavily searches Naukri daily for Senior TW roles in Bangalore — extracting experience range and required skills." },
-          { icon: "🔗", title: "LinkedIn Links",   color: "hsl(210,88%,52%)", desc: "Separate LinkedIn queries fetch direct /jobs/view/ apply URLs for each company — no login needed to click through." },
-          { icon: "🔀", title: "Smart Merge",      color: "hsl(260,60%,55%)", desc: "Groq LLM fuzzy-matches company names across both sources, merges data, and writes a one-line summary per role." },
-        ].map((card, i) => (
-          <div key={card.title} style={{
-            background: "white", border: "1px solid var(--border)",
-            borderTop: `3px solid ${card.color}`, borderRadius: "0.9rem",
-            padding: "1.25rem", boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(16px)",
-            transition: `opacity 0.55s ease ${i * 0.12}s, transform 0.55s ease ${i * 0.12}s`,
-          }}>
-            <div style={{ fontSize: 22, marginBottom: 10 }}>{card.icon}</div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{card.title}</div>
-            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
+        {/* Header */}
+        <div style={{
+          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+          letterSpacing: "0.12em", color: "var(--muted)", marginBottom: "1rem",
+        }}>How It Works</div>
+
+        {/* Two parallel input sources → merge → output */}
+        {isMobile ? (
+          /* ── Mobile: single column ── */
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {[
+              { icon: "🔍", title: "Naukri Search", color: "hsl(100,40%,44%)", badge: "Source 1",
+                steps: ["Tavily queries Naukri daily", "Targets Senior TW · Bangalore", "Extracts experience range", "Pulls required skills list"] },
+              { icon: "🔗", title: "LinkedIn Links", color: "hsl(210,88%,52%)", badge: "Source 2",
+                steps: ["Parallel LinkedIn search", "Fetches /jobs/view/ URLs", "Matches same companies", "No login required"] },
+              { icon: "🔀", title: "Smart Merge", color: "hsl(260,60%,55%)", badge: "Output",
+                steps: ["Groq LLM fuzzy-matches names", "Merges Naukri + LinkedIn data", "Writes one-line AI summary", "Commits JSON → Vercel deploy"] },
+            ].map((node, i, arr) => (
+              <div key={node.title}>
+                <div style={{
+                  borderRadius: "0.7rem", border: `1.5px solid ${node.color}30`,
+                  borderTop: `3px solid ${node.color}`, padding: "0.85rem 1rem",
+                  background: `${node.color}06`,
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
+                    <span style={{ fontSize: 16 }}>{node.icon}</span>
+                    <span style={{ fontSize: 11.5, fontWeight: 800, color: node.color }}>{node.title}</span>
+                    <span style={{
+                      marginLeft: "auto", fontSize: 9, fontWeight: 700,
+                      background: `${node.color}18`, color: node.color,
+                      border: `1px solid ${node.color}30`, borderRadius: 9999,
+                      padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
+                    }}>{node.badge}</span>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    {node.steps.map((s, si) => (
+                      <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                        <span style={{
+                          flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
+                          background: `${node.color}18`, border: `1px solid ${node.color}35`,
+                          color: node.color, fontSize: 8, fontWeight: 800,
+                          display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
+                        }}>{si + 1}</span>
+                        <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="pipeline-arrow" style={{
+                    textAlign: "center", fontSize: 18, fontWeight: 900,
+                    color: "var(--muted)", padding: "2px 0",
+                  }}>↓</div>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
+        ) : (
+          /* ── Desktop: two sources feed into merge ── */
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+
+            {/* Row 1: Source 1 + arrow + Merge (rowspan visual) + arrow + Source 2 */}
+            <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
+
+              {/* Left column: two input sources stacked */}
+              <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  { icon: "🔍", title: "Naukri Search", color: "hsl(100,40%,44%)", badge: "Source 1",
+                    steps: ["Tavily queries Naukri daily", "Targets Senior TW · Bangalore", "Extracts experience range", "Pulls required skills list"] },
+                  { icon: "🔗", title: "LinkedIn Links", color: "hsl(210,88%,52%)", badge: "Source 2",
+                    steps: ["Parallel LinkedIn search", "Fetches /jobs/view/ apply URLs", "Matches same companies", "No login required"] },
+                ].map(node => (
+                  <div key={node.title} style={{
+                    flex: 1, borderRadius: "0.7rem",
+                    border: `1.5px solid ${node.color}30`,
+                    borderTop: `3px solid ${node.color}`,
+                    padding: "0.85rem 1rem", background: `${node.color}06`,
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
+                      <span style={{ fontSize: 16 }}>{node.icon}</span>
+                      <span style={{ fontSize: 11.5, fontWeight: 800, color: node.color }}>{node.title}</span>
+                      <span style={{
+                        marginLeft: "auto", fontSize: 9, fontWeight: 700,
+                        background: `${node.color}18`, color: node.color,
+                        border: `1px solid ${node.color}30`, borderRadius: 9999,
+                        padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
+                      }}>{node.badge}</span>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                      {node.steps.map((s, si) => (
+                        <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                          <span style={{
+                            flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
+                            background: `${node.color}18`, border: `1px solid ${node.color}35`,
+                            color: node.color, fontSize: 8, fontWeight: 800,
+                            display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
+                          }}>{si + 1}</span>
+                          <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Centre arrow */}
+              <div className="pipeline-arrow" style={{
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0, width: 36,
+                fontSize: 20, fontWeight: 900, color: "var(--muted)",
+              }}>›</div>
+
+              {/* Right: Smart Merge */}
+              <div style={{
+                flex: 1, borderRadius: "0.7rem",
+                border: "1.5px solid hsl(260,60%,55%,0.3)",
+                borderTop: "3px solid hsl(260,60%,55%)",
+                padding: "0.85rem 1rem",
+                background: "hsl(260,60%,55%,0.06)",
+                display: "flex", flexDirection: "column", justifyContent: "center",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
+                  <span style={{ fontSize: 16 }}>🔀</span>
+                  <span style={{ fontSize: 11.5, fontWeight: 800, color: "hsl(260,60%,55%)" }}>Smart Merge</span>
+                  <span style={{
+                    marginLeft: "auto", fontSize: 9, fontWeight: 700,
+                    background: "hsl(260,60%,55%,0.18)", color: "hsl(260,60%,55%)",
+                    border: "1px solid hsl(260,60%,55%,0.3)", borderRadius: 9999,
+                    padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
+                  }}>Output</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  {["Groq LLM fuzzy-matches names", "Merges Naukri + LinkedIn data", "Writes one-line AI summary", "Commits JSON → Vercel deploy"].map((s, si) => (
+                    <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                      <span style={{
+                        flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
+                        background: "hsl(260,60%,55%,0.18)", border: "1px solid hsl(260,60%,55%,0.35)",
+                        color: "hsl(260,60%,55%)", fontSize: 8, fontWeight: 800,
+                        display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
+                      }}>{si + 1}</span>
+                      <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -763,7 +909,17 @@ function TechPulseProject() {
         padding: isMobile ? "1.25rem" : "2rem",
         marginTop: "1.5rem",
         boxShadow: "0 2px 20px rgba(0,0,0,0.05)",
+        position: "relative",
       }}>
+        <span style={{
+          position: "absolute", top: 14, right: 14,
+          fontSize: 9, fontWeight: 800, letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          background: "linear-gradient(135deg, hsl(260,60%,55%), hsl(210,88%,52%))",
+          color: "white",
+          padding: "3px 10px", borderRadius: 9999,
+          boxShadow: "0 2px 8px hsl(260,60%,55%,0.35)",
+        }}>⚡ Agentic</span>
         <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
           <div style={{
             width: 42, height: 42, borderRadius: 10, flexShrink: 0,
@@ -1258,46 +1414,119 @@ function MstpFinetune() {
         </div>
       </div>
 
-      {/* Training architecture */}
+      {/* Fine-tuning pipeline flow diagram */}
       <div style={{
         marginTop: "1.5rem",
-        display: "grid",
-        gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-        gap: "1rem",
+        background: "white",
+        border: "1px solid var(--border)",
+        borderRadius: "1rem",
+        padding: isMobile ? "1rem" : "1.25rem 1.5rem",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(16px)",
+        transition: "opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s",
       }}>
-        {[
-          {
-            icon: "📚", title: "Training Data",
-            desc: "MSTP style guide extracted, cleaned, and converted to instruction-tuning format (prompt → completion pairs).",
-            color: "hsl(210,88%,52%)",
-          },
-          {
-            icon: "⚡", title: "Efficient Fine-Tuning",
-            desc: "QLoRA via Unsloth — 4-bit quantisation, 2× faster training, fits on a single free Colab GPU.",
-            color: "hsl(100,40%,44%)",
-          },
-          {
-            icon: "🚀", title: "Deployment",
-            desc: "Model pushed to Hugging Face Hub. Inference via HF API — zero infrastructure cost.",
-            color: "hsl(260,60%,55%)",
-          },
-        ].map((card, i) => (
-          <div key={card.title} style={{
-            background: "white",
-            border: "1px solid var(--border)",
-            borderTop: `3px solid ${card.color}`,
-            borderRadius: "0.9rem",
-            padding: "1.25rem",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(16px)",
-            transition: `opacity 0.55s ease ${i * 0.12}s, transform 0.55s ease ${i * 0.12}s`,
-          }}>
-            <div style={{ fontSize: 22, marginBottom: 10 }}>{card.icon}</div>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 6 }}>{card.title}</div>
-            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: 0 }}>{card.desc}</p>
-          </div>
-        ))}
+        {/* Header */}
+        <div style={{
+          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
+          letterSpacing: "0.12em", color: "var(--muted)", marginBottom: "1rem",
+        }}>Fine-Tuning Pipeline</div>
+
+        {/* Flow */}
+        <div style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: isMobile ? "stretch" : "flex-start",
+          gap: 0,
+        }}>
+          {[
+            {
+              icon: "📚", title: "Training Data", color: "hsl(210,88%,52%)",
+              steps: ["Extract MSTP style guide", "Clean & normalise text", "Format as prompt → completion pairs", "Split train / eval sets"],
+            },
+            {
+              icon: "⚡", title: "Fine-Tuning", color: "hsl(100,40%,44%)",
+              steps: ["Load Llama 3.2 3B base", "Apply 4-bit QLoRA via Unsloth", "Train on free Colab GPU", "Evaluate on held-out set"],
+            },
+            {
+              icon: "🚀", title: "Deployment", color: "hsl(260,60%,55%)",
+              steps: ["Merge LoRA adapters", "Push weights to HF Hub", "Expose via HF Inference API", "Embed in portfolio chatbot"],
+            },
+          ].map((stage, i, arr) => (
+            <div key={stage.title} style={{
+              display: "flex",
+              flexDirection: isMobile ? "column" : "row",
+              alignItems: isMobile ? "stretch" : "flex-start",
+              flex: 1,
+            }}>
+              {/* Stage card */}
+              <div style={{
+                flex: 1,
+                borderRadius: "0.7rem",
+                border: `1.5px solid ${stage.color}30`,
+                borderTop: `3px solid ${stage.color}`,
+                padding: "0.85rem 1rem",
+                background: `${stage.color}06`,
+              }}>
+                {/* Stage header */}
+                <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
+                  <span style={{ fontSize: 16 }}>{stage.icon}</span>
+                  <span style={{
+                    fontSize: 11.5, fontWeight: 800, color: stage.color,
+                  }}>{stage.title}</span>
+                  <span style={{
+                    marginLeft: "auto",
+                    fontSize: 9, fontWeight: 700,
+                    background: `${stage.color}18`,
+                    color: stage.color,
+                    border: `1px solid ${stage.color}30`,
+                    borderRadius: 9999,
+                    padding: "1px 7px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                  }}>Step {i + 1}</span>
+                </div>
+                {/* Sub-steps */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  {stage.steps.map((step, si) => (
+                    <div key={step} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+                      <span style={{
+                        flexShrink: 0, width: 16, height: 16,
+                        borderRadius: "50%",
+                        background: `${stage.color}18`,
+                        border: `1px solid ${stage.color}35`,
+                        color: stage.color,
+                        fontSize: 8, fontWeight: 800,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        marginTop: 1,
+                      }}>{si + 1}</span>
+                      <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{step}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Arrow connector between stages */}
+              {i < arr.length - 1 && (
+                <div
+                  className="pipeline-arrow"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                    width: isMobile ? "auto" : 32,
+                    height: isMobile ? 24 : "auto",
+                    fontSize: isMobile ? 16 : 20,
+                    fontWeight: 900,
+                    color: "var(--muted)",
+                    transform: isMobile ? "rotate(90deg)" : "none",
+                  }}
+                >›</div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
