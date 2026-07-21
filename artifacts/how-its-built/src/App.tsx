@@ -478,11 +478,11 @@ function CapabilityCard({ cap, idx, visible }: { cap: Capability; idx: number; v
 }
 
 const WRITING_SAMPLES = [
-  { icon: "📘", type: "API Reference Documentation", audience: "Developers & Integration Engineers", tags: ["OpenAPI", "Swagger", "Developer Guide"], color: "hsl(210,88%,52%)", link: "#", desc: "Comprehensive endpoint documentation with request/response examples and authentication details." },
-  { icon: "🤖", type: "AI Deployment Guide", audience: "DevOps & AI Engineers", tags: ["Hybrid Cloud", "IBM Power", "LLM"], color: "hsl(260,60%,55%)", link: "#", desc: "Step-by-step instructions for deploying enterprise AI models on hybrid cloud infrastructure." },
+  { icon: "📘", type: "API Reference Documentation", audience: "Developers & Integration Engineers", tags: ["OpenAPI", "Swagger", "Developer Guide"], color: "hsl(210,88%,52%)", link: "https://student-e0a8b063.mintlify.site/api-reference/introduction", desc: "Comprehensive endpoint documentation with request/response examples and authentication details." },
+  { icon: "🤖", type: "AI Deployment Guide", audience: "DevOps & AI Engineers", tags: ["Docker", "Google Cloud", "K8"], color: "hsl(260,60%,55%)", link: "https://student-e0a8b063.mintlify.site/essentials/gcaideploymet", desc: "Deploying a Streamlit ML App on Google Cloud with Kubernetes and Grafana." },
   { icon: "📖", type: "User Guide", audience: "End Users & Administrators", tags: ["Task-based", "DITA", "Webhelp"], color: "hsl(100,40%,44%)", link: "#", desc: "Task-oriented instructions and interface breakdowns for end-users and system administrators." },
-  { icon: "🧠", type: "RAG System Documentation", audience: "AI Practitioners & Architects", tags: ["RAG", "LangChain", "Docling"], color: "hsl(16,80%,52%)", link: "#", desc: "Architecture deep-dives and implementation guides for Retrieval-Augmented Generation workflows." },
-  { icon: "🔧", type: "Fine-Tuning Documentation", audience: "ML Engineers & Researchers", tags: ["LLM", "Fine-tuning", "Python"], color: "hsl(200,80%,44%)", link: "#", desc: "Technical reference for fine-tuning Large Language Models on domain-specific datasets." }
+  { icon: "🧠", type: "RAG System Documentation", audience: "AI Practitioners & Architects", tags: ["RAG", "LangChain", "Docling"], color: "hsl(16,80%,52%)", link: "https://student-e0a8b063.mintlify.site/essentials/mcp-rag", desc: "Architecture deep-dives and implementation guides for Retrieval-Augmented Generation workflows." },
+  { icon: "🔧", type: "Fine-Tuning Documentation", audience: "ML Engineers & Researchers", tags: ["LLM", "Fine-tuning", "Python"], color: "hsl(200,80%,44%)", link: "https://student-e0a8b063.mintlify.site/ai-tools/cursor", desc: "Technical reference for fine-tuning Large Language Models on domain-specific datasets." }
 ];
 
 function WritingSamples() {
@@ -517,19 +517,21 @@ function WritingSamples() {
           }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <span style={{ fontSize: "1.5rem" }}>{sample.icon}</span>
-              <span style={{ 
-                fontSize: "9px", 
-                fontWeight: 700, 
-                color: sample.color, 
-                background: `${sample.color}12`, 
-                border: `1px solid ${sample.color}25`,
-                padding: "3px 8px", 
-                borderRadius: "9999px",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em"
-              }}>
-                Coming soon
-              </span>
+              {sample.link === "#" && (
+                <span style={{
+                  fontSize: "9px",
+                  fontWeight: 700,
+                  color: sample.color,
+                  background: `${sample.color}12`,
+                  border: `1px solid ${sample.color}25`,
+                  padding: "3px 8px",
+                  borderRadius: "9999px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em"
+                }}>
+                  Coming soon
+                </span>
+              )}
             </div>
             <div style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>
               {sample.type}
