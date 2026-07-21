@@ -1,5 +1,33 @@
 [
   {
+    "id": "e367133b",
+    "job_title": "Technical Writer",
+    "company": "Deloitte",
+    "location": "Bangalore",
+    "experience": "2-3 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-deloitte-4417919810",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-21",
+    "verified_at": "2026-07-21T16:31:07Z"
+  },
+  {
+    "id": "530429bf",
+    "job_title": "Technical Writer - 3",
+    "company": "Nutanix University",
+    "location": "Bangalore",
+    "experience": "2-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-3-at-nutanix-university-4442748322",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-21",
+    "verified_at": "2026-07-21T16:31:07Z"
+  },
+  {
     "id": "5c4b633f",
     "job_title": "Knowledge Management Specialist",
     "company": "Aon",
@@ -11,21 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-13",
-    "verified_at": "2026-07-21T12:21:05Z"
-  },
-  {
-    "id": "137ba162",
-    "job_title": "Senior Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4426496501",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-10",
-    "verified_at": "2026-07-21T12:21:05Z"
+    "verified_at": "2026-07-21T16:31:07Z"
   },
   {
     "id": "c52d533b",
@@ -39,6 +53,39 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-21T12:21:05Z"
+    "verified_at": "2026-07-21T16:31:07Z"
+  },
+  {
+    "id": "175d4473",
+    "job_title": "Senior Technical Writer",
+    "company": "Wenger & Watson Business Systems Private Limited",
+    "location": "Surat",
+    "experience": "5-7 Yrs",
+    "skills": [
+      "Technical Writing",
+      "Documentation",
+      "Communication",
+      "Content Development"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
+    "source": "Naukri",
+    "date": "2026-07-21",
+    "verified_at": "2026-07-21T16:31:07Z"
+  },
+  {
+    "id": "b6369020",
+    "job_title": "Technical Documentation Engineer",
+    "company": "Sanlayan",
+    "location": "Bangalore",
+    "experience": "3-5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
+    "naukri_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
+    "source": "Naukri",
+    "date": "2026-07-21",
+    "verified_at": "2026-07-21T16:31:07Z"
   }
 ]
