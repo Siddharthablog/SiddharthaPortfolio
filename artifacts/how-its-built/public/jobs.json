@@ -1,5 +1,19 @@
 [
   {
+    "id": "530429bf",
+    "job_title": "Technical Writer - 3",
+    "company": "Nutanix University",
+    "location": "Bangalore",
+    "experience": "2-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-3-at-nutanix-university-4442748322",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-22",
+    "verified_at": "2026-07-22T12:27:04Z"
+  },
+  {
     "id": "e367133b",
     "job_title": "Technical Writer",
     "company": "Deloitte",
@@ -11,21 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-21",
-    "verified_at": "2026-07-21T16:31:07Z"
-  },
-  {
-    "id": "530429bf",
-    "job_title": "Technical Writer - 3",
-    "company": "Nutanix University",
-    "location": "Bangalore",
-    "experience": "2-4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-3-at-nutanix-university-4442748322",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-21",
-    "verified_at": "2026-07-21T16:31:07Z"
+    "verified_at": "2026-07-22T12:27:04Z"
   },
   {
     "id": "5c4b633f",
@@ -39,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-13",
-    "verified_at": "2026-07-21T16:31:07Z"
+    "verified_at": "2026-07-22T12:27:04Z"
   },
   {
     "id": "c52d533b",
@@ -53,7 +53,21 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-21T16:31:07Z"
+    "verified_at": "2026-07-22T12:27:04Z"
+  },
+  {
+    "id": "98983fd4",
+    "job_title": "Senior Technical Writer - Bengaluru - Wenger & Watson - 5 to 7 years of experience",
+    "company": "Wenger & Watson",
+    "location": "Bangalore",
+    "experience": "5-7 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
+    "source": "Naukri",
+    "date": "2026-07-22",
+    "verified_at": "2026-07-22T12:27:04Z"
   },
   {
     "id": "175d4473",
@@ -72,7 +86,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
     "source": "Naukri",
     "date": "2026-07-21",
-    "verified_at": "2026-07-21T16:31:07Z"
+    "verified_at": "2026-07-22T12:27:04Z"
   },
   {
     "id": "b6369020",
@@ -86,6 +100,6 @@
     "naukri_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-07-21",
-    "verified_at": "2026-07-21T16:31:07Z"
+    "verified_at": "2026-07-22T12:27:04Z"
   }
 ]
