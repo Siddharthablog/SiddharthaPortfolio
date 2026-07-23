@@ -4,8 +4,24 @@ import "../index.css";
 import ChatWidget from "../components/ChatWidget";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SHARED HOOKS (same as portfolio)
+// HOOKS
 // ─────────────────────────────────────────────────────────────────────────────
+
+function useTypewriter(text: string, speed = 55) {
+  const [displayed, setDisplayed] = useState("");
+  useEffect(() => {
+    setDisplayed("");
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, [text, speed]);
+  return displayed;
+}
+
 
 function useIsMobile(breakpoint = 640) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint);
@@ -162,18 +178,19 @@ function StickyNav() {
       }}>
         <Link href="/">
           <a style={{
-            background: "none",
+            background: "white",
             fontSize: 12,
             fontWeight: 700,
-            padding: "5px 14px",
+            padding: "5px 16px",
             cursor: "pointer",
-            color: "var(--muted)",
+            color: "var(--text)",
             textDecoration: "none",
             borderRadius: 9999,
-            border: "1.5px solid var(--border)",
+            border: "1.5px solid hsl(40,14%,76%)",
             display: "inline-flex",
             alignItems: "center",
             gap: 6,
+            boxShadow: "0 1px 4px rgba(0,0,0,0.07)",
             transition: "all 0.2s ease",
           }}>
             ← Portfolio
@@ -406,6 +423,7 @@ function JobRadarProject() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [activeSource, setActiveSource] = useState("All");
+  const [showDocs, setShowDocs] = useState(false);
 
   useEffect(() => {
     fetch("/jobs.json")
@@ -418,8 +436,8 @@ function JobRadarProject() {
   const filtered = activeSource === "All" ? jobs : jobs.filter(j => j.source === activeSource);
 
   return (
-    <div id="job-radar" ref={ref} style={{ scrollMarginTop: 80, marginTop: "4rem" }}>
-      <SectionLabel label="Project 03 · Job Radar" />
+    <div id="job-radar" ref={ref} style={{ scrollMarginTop: 80 }}>
+      <SectionLabel label="Project 01 · Job Radar" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
 
       {/* Intro card */}
@@ -455,26 +473,208 @@ function JobRadarProject() {
               <span style={{
                 fontSize: 10, fontWeight: 800, textTransform: "uppercase",
                 letterSpacing: "0.14em", color: "hsl(100,40%,38%)",
-              }}>Live · Refreshed daily · Senior TW · Bangalore · 10+ yrs</span>
+              }}>Live · Refreshed daily · Senior TW · Bangalore </span>
             </div>
           </div>
         </div>
         <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          A daily job curation pipeline that searches <strong style={{ color: "var(--text)" }}>Naukri</strong> for experience &amp; skills
-          and <strong style={{ color: "var(--text)" }}>LinkedIn</strong> for direct apply links — merges them by company,
-          summarises each role with <strong style={{ color: "var(--text)" }}>Groq LLM</strong>, and auto-deploys via{" "}
-          <strong style={{ color: "var(--text)" }}>GitHub Actions + Vercel</strong>.
+          A daily job curation pipeline that searches <strong style={{ color: "var(--text)" }}>Naukri</strong> for experience and skills,
+          and <strong style={{ color: "var(--text)" }}>LinkedIn</strong> for direct apply links. It merges results by company,
+          summarizes each role with <strong style={{ color: "var(--text)" }}>Groq LLM</strong>, and deploys updates automatically via{" "}
+          <strong style={{ color: "var(--text)" }}>GitHub Actions and Vercel</strong>.
         </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
-          {["GitHub Actions", "Tavily API", "Groq LLM", "Naukri", "LinkedIn", "Python", "Vercel CI/CD"].map(t => (
-            <span key={t} style={{
-              background: "hsl(260,60%,55%,0.1)", border: "1.5px solid hsl(260,60%,55%,0.2)",
-              color: "hsl(260,60%,55%)", fontSize: 10, fontWeight: 700,
-              padding: "2px 10px", borderRadius: 9999,
-            }}>{t}</span>
-          ))}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
+            {["GitHub Actions", "Tavily API", "Groq LLM", "Naukri", "LinkedIn", "Python", "Vercel CI/CD"].map(t => (
+              <span key={t} style={{
+                background: "hsl(260,60%,55%,0.1)", border: "1.5px solid hsl(260,60%,55%,0.2)",
+                color: "hsl(260,60%,55%)", fontSize: 10, fontWeight: 700,
+                padding: "2px 10px", borderRadius: 9999,
+              }}>{t}</span>
+            ))}
+          </div>
+          <style>{`
+            @keyframes docsPulse {
+              0%, 100% { box-shadow: 0 0 0 0 hsl(260,60%,55%,0.45); }
+              50%       { box-shadow: 0 0 0 6px hsl(260,60%,55%,0); }
+            }
+            @keyframes docsShimmer {
+              0%   { background-position: -200% center; }
+              100% { background-position: 200% center; }
+            }
+            .docs-btn {
+              flex-shrink: 0;
+              font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+              padding: 4px 14px; border-radius: 9999px; cursor: pointer;
+              border: 1.5px solid hsl(260,60%,55%,0.35);
+              color: hsl(260,60%,55%);
+              background: linear-gradient(90deg,
+                white 0%, hsl(260,60%,55%,0.12) 40%,
+                hsl(210,88%,52%,0.12) 60%, white 100%);
+              background-size: 200% auto;
+              animation: docsPulse 1.8s ease-in-out infinite, docsShimmer 2.4s linear infinite;
+              transition: all 0.2s ease;
+            }
+            .docs-btn:hover {
+              background: hsl(260,60%,55%);
+              color: white;
+              animation: none;
+              box-shadow: 0 2px 12px hsl(260,60%,55%,0.45);
+            }
+            .docs-btn.open {
+              background: hsl(260,60%,55%);
+              color: white;
+              animation: none;
+              box-shadow: 0 2px 8px hsl(260,60%,55%,0.3);
+            }
+          `}</style>
+          <button
+            onClick={() => setShowDocs(d => !d)}
+            className={`docs-btn${showDocs ? " open" : ""}`}
+          >
+            {showDocs ? "✕ Close" : "📖 Documentation"}
+          </button>
         </div>
       </div>
+
+      {/* ── Architecture Deep-Dive ── */}
+      {showDocs && <div style={{
+        marginTop: "1.25rem",
+        display: "flex", flexDirection: "column", gap: "0.85rem",
+        animation: "fadeUp 0.35s ease forwards",
+      }}>
+
+        {/* Why it's agentic callout */}
+        <div style={{
+          background: "linear-gradient(135deg, hsl(260,60%,55%,0.07) 0%, hsl(210,88%,52%,0.06) 100%)",
+          border: "1.5px solid hsl(260,60%,55%,0.22)",
+          borderRadius: "1rem", padding: "1rem 1.25rem",
+          display: "flex", gap: 12, alignItems: "flex-start",
+        }}>
+          <span style={{ fontSize: 20, flexShrink: 0, marginTop: 2 }}>🧠</span>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "hsl(260,60%,50%)", marginBottom: 5, letterSpacing: "0.04em", textTransform: "uppercase" }}>
+              Why it's agentic
+            </div>
+            <p style={{ fontSize: 11.5, color: "var(--muted)", lineHeight: 1.75, margin: 0 }}>
+              This pipeline runs on a <strong style={{ color: "var(--text)" }}>daily cron schedule</strong> with no human intervention.
+              Each run selects queries, validates results, resolves company-name conflicts using an LLM, generates role summaries, and deploys the output automatically.
+              All stages produce <strong style={{ color: "var(--text)" }}>structured logs in GitHub Actions</strong> for full observability.
+            </p>
+          </div>
+        </div>
+
+        {/* 5-stage pipeline */}
+        <div style={{
+          background: "white", border: "1px solid var(--border)",
+          borderRadius: "1rem", padding: isMobile ? "1rem" : "1.25rem 1.5rem",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--muted)", marginBottom: "1rem" }}>
+            Pipeline · 5 Stages
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {[
+              {
+                step: "01", icon: "⏰", color: "hsl(40,90%,52%)", title: "GitHub Actions Cron",
+                detail: "Triggers daily at 06:00 UTC. Spins up a Python environment, installs dependencies, and starts the orchestrator script.",
+                tags: ["cron: '0 6 * * *'", "ubuntu-latest", "pip install"],
+              },
+              {
+                step: "02", icon: "🔍", color: "hsl(100,40%,44%)", title: "Naukri Scrape via Tavily",
+                detail: "The Tavily Search API sends structured queries to Naukri.com, filtered by role (Senior Technical Writer) and location (Bangalore). Each result returns the job title, company, experience range, required skills, and posting date.",
+                tags: ["Tavily API", "site:naukri.com", "experience filter", "skills extraction"],
+              },
+              {
+                step: "03", icon: "🔗", color: "hsl(210,88%,52%)", title: "LinkedIn Direct-Apply Links",
+                detail: "A second Tavily query runs simultaneously, targeting LinkedIn Jobs for the same role and location. It retrieves direct /jobs/view/ apply URLs and completes in parallel with Stage 2 to minimize total run time.",
+                tags: ["site:linkedin.com/jobs", "concurrent fetch", "apply URL extraction"],
+              },
+              {
+                step: "04", icon: "🤖", color: "hsl(260,60%,55%)", title: "Groq LLM · Merge & Summarise",
+                detail: "Groq (Llama 3 70B) processes both result sets and matches Naukri listings to LinkedIn links using fuzzy company-name logic, accounting for abbreviations and punctuation variants. It then generates a one-sentence summary per role, highlighting the key responsibilities and technology stack.",
+                tags: ["Groq API", "Llama 3 70B", "fuzzy match", "one-line summary"],
+              },
+              {
+                step: "05", icon: "🚀", color: "hsl(16,80%,52%)", title: "Commit JSON → Vercel Deploy",
+                detail: "The pipeline serializes merged results to jobs.json and commits the file to the repository using the GitHub API. Vercel detects the push event, triggers a rebuild, and publishes the updated site automatically, typically within 90 seconds of the scheduled run.",
+                tags: ["jobs.json", "git commit --author bot", "Vercel webhook", "~90s TTD"],
+              },
+            ].map((stage, i, arr) => (
+              <div key={stage.step} style={{ display: "flex", gap: 0 }}>
+                {/* Left: step line */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, width: 36 }}>
+                  <div style={{
+                    width: 28, height: 28, borderRadius: "50%", flexShrink: 0,
+                    background: `${stage.color}18`, border: `2px solid ${stage.color}40`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 13,
+                  }}>{stage.icon}</div>
+                  {i < arr.length - 1 && (
+                    <div style={{ width: 2, flex: 1, background: "var(--border)", margin: "4px 0" }} />
+                  )}
+                </div>
+                {/* Right: content */}
+                <div style={{ flex: 1, paddingLeft: 10, paddingBottom: i < arr.length - 1 ? "1rem" : 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                    <span style={{ fontSize: 8, fontWeight: 900, color: stage.color, letterSpacing: "0.08em",
+                      background: `${stage.color}14`, border: `1px solid ${stage.color}30`,
+                      padding: "1px 6px", borderRadius: 4 }}>STEP {stage.step}</span>
+                    <span style={{ fontSize: 12, fontWeight: 800, color: "var(--text)" }}>{stage.title}</span>
+                  </div>
+                  <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.7, margin: "0 0 6px" }}>{stage.detail}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                    {stage.tags.map(t => (
+                      <span key={t} style={{
+                        fontSize: 9.5, fontFamily: "monospace",
+                        background: `${stage.color}0e`, border: `1px solid ${stage.color}25`,
+                        color: stage.color, padding: "1px 7px", borderRadius: 4, fontWeight: 700,
+                      }}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tech stack grid */}
+        <div style={{
+          background: "white", border: "1px solid var(--border)",
+          borderRadius: "1rem", padding: isMobile ? "1rem" : "1.25rem 1.5rem",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        }}>
+          <div style={{ fontSize: 10, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--muted)", marginBottom: "0.85rem" }}>
+            Tech Stack
+          </div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(4, 1fr)",
+            gap: "0.65rem",
+          }}>
+            {[
+              { layer: "Orchestration", tools: "GitHub Actions", icon: "⚙️", color: "hsl(40,90%,52%)" },
+              { layer: "Search / Retrieval", tools: "Tavily Search API", icon: "🔍", color: "hsl(100,40%,44%)" },
+              { layer: "LLM Inference", tools: "Groq · Llama 3 70B", icon: "🤖", color: "hsl(260,60%,55%)" },
+              { layer: "Language", tools: "Python 3.11", icon: "🐍", color: "hsl(210,88%,52%)" },
+              { layer: "Data Format", tools: "JSON Schema", icon: "📄", color: "hsl(200,80%,44%)" },
+              { layer: "Hosting", tools: "Vercel (static)", icon: "🚀", color: "hsl(16,80%,52%)" },
+              { layer: "Source 1", tools: "Naukri.com", icon: "🏢", color: "hsl(100,40%,44%)" },
+              { layer: "Source 2", tools: "LinkedIn Jobs", icon: "🔗", color: "hsl(210,88%,52%)" },
+            ].map(item => (
+              <div key={item.layer} style={{
+                borderRadius: "0.65rem", padding: "0.65rem 0.85rem",
+                background: `${item.color}08`, border: `1px solid ${item.color}22`,
+              }}>
+                <div style={{ fontSize: 14, marginBottom: 4 }}>{item.icon}</div>
+                <div style={{ fontSize: 9, fontWeight: 700, color: item.color, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 2 }}>{item.layer}</div>
+                <div style={{ fontSize: 10.5, fontWeight: 600, color: "var(--text)" }}>{item.tools}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>}
 
       {/* Source filter + stats */}
       {jobs.length > 0 && (
@@ -546,167 +746,6 @@ function JobRadarProject() {
         </div>
       )}
 
-      {/* Architecture diagram */}
-      <div style={{
-        marginTop: "1.5rem",
-        background: "white",
-        border: "1px solid var(--border)",
-        borderRadius: "1rem",
-        padding: isMobile ? "1rem" : "1.25rem 1.5rem",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: "opacity 0.55s ease 0.1s, transform 0.55s ease 0.1s",
-      }}>
-        {/* Header */}
-        <div style={{
-          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
-          letterSpacing: "0.12em", color: "var(--muted)", marginBottom: "1rem",
-        }}>How It Works</div>
-
-        {/* Two parallel input sources → merge → output */}
-        {isMobile ? (
-          /* ── Mobile: single column ── */
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {[
-              { icon: "🔍", title: "Naukri Search", color: "hsl(100,40%,44%)", badge: "Source 1",
-                steps: ["Tavily queries Naukri daily", "Targets Senior TW · Bangalore", "Extracts experience range", "Pulls required skills list"] },
-              { icon: "🔗", title: "LinkedIn Links", color: "hsl(210,88%,52%)", badge: "Source 2",
-                steps: ["Parallel LinkedIn search", "Fetches /jobs/view/ URLs", "Matches same companies", "No login required"] },
-              { icon: "🔀", title: "Smart Merge", color: "hsl(260,60%,55%)", badge: "Output",
-                steps: ["Groq LLM fuzzy-matches names", "Merges Naukri + LinkedIn data", "Writes one-line AI summary", "Commits JSON → Vercel deploy"] },
-            ].map((node, i, arr) => (
-              <div key={node.title}>
-                <div style={{
-                  borderRadius: "0.7rem", border: `1.5px solid ${node.color}30`,
-                  borderTop: `3px solid ${node.color}`, padding: "0.85rem 1rem",
-                  background: `${node.color}06`,
-                }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
-                    <span style={{ fontSize: 16 }}>{node.icon}</span>
-                    <span style={{ fontSize: 11.5, fontWeight: 800, color: node.color }}>{node.title}</span>
-                    <span style={{
-                      marginLeft: "auto", fontSize: 9, fontWeight: 700,
-                      background: `${node.color}18`, color: node.color,
-                      border: `1px solid ${node.color}30`, borderRadius: 9999,
-                      padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
-                    }}>{node.badge}</span>
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                    {node.steps.map((s, si) => (
-                      <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                        <span style={{
-                          flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
-                          background: `${node.color}18`, border: `1px solid ${node.color}35`,
-                          color: node.color, fontSize: 8, fontWeight: 800,
-                          display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
-                        }}>{si + 1}</span>
-                        <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                {i < arr.length - 1 && (
-                  <div className="pipeline-arrow" style={{
-                    textAlign: "center", fontSize: 18, fontWeight: 900,
-                    color: "var(--muted)", padding: "2px 0",
-                  }}>↓</div>
-                )}
-              </div>
-            ))}
-          </div>
-        ) : (
-          /* ── Desktop: two sources feed into merge ── */
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-
-            {/* Row 1: Source 1 + arrow + Merge (rowspan visual) + arrow + Source 2 */}
-            <div style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
-
-              {/* Left column: two input sources stacked */}
-              <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
-                {[
-                  { icon: "🔍", title: "Naukri Search", color: "hsl(100,40%,44%)", badge: "Source 1",
-                    steps: ["Tavily queries Naukri daily", "Targets Senior TW · Bangalore", "Extracts experience range", "Pulls required skills list"] },
-                  { icon: "🔗", title: "LinkedIn Links", color: "hsl(210,88%,52%)", badge: "Source 2",
-                    steps: ["Parallel LinkedIn search", "Fetches /jobs/view/ apply URLs", "Matches same companies", "No login required"] },
-                ].map(node => (
-                  <div key={node.title} style={{
-                    flex: 1, borderRadius: "0.7rem",
-                    border: `1.5px solid ${node.color}30`,
-                    borderTop: `3px solid ${node.color}`,
-                    padding: "0.85rem 1rem", background: `${node.color}06`,
-                  }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
-                      <span style={{ fontSize: 16 }}>{node.icon}</span>
-                      <span style={{ fontSize: 11.5, fontWeight: 800, color: node.color }}>{node.title}</span>
-                      <span style={{
-                        marginLeft: "auto", fontSize: 9, fontWeight: 700,
-                        background: `${node.color}18`, color: node.color,
-                        border: `1px solid ${node.color}30`, borderRadius: 9999,
-                        padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
-                      }}>{node.badge}</span>
-                    </div>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                      {node.steps.map((s, si) => (
-                        <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                          <span style={{
-                            flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
-                            background: `${node.color}18`, border: `1px solid ${node.color}35`,
-                            color: node.color, fontSize: 8, fontWeight: 800,
-                            display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
-                          }}>{si + 1}</span>
-                          <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Centre arrow */}
-              <div className="pipeline-arrow" style={{
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0, width: 36,
-                fontSize: 20, fontWeight: 900, color: "var(--muted)",
-              }}>›</div>
-
-              {/* Right: Smart Merge */}
-              <div style={{
-                flex: 1, borderRadius: "0.7rem",
-                border: "1.5px solid hsl(260,60%,55%,0.3)",
-                borderTop: "3px solid hsl(260,60%,55%)",
-                padding: "0.85rem 1rem",
-                background: "hsl(260,60%,55%,0.06)",
-                display: "flex", flexDirection: "column", justifyContent: "center",
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: "0.6rem" }}>
-                  <span style={{ fontSize: 16 }}>🔀</span>
-                  <span style={{ fontSize: 11.5, fontWeight: 800, color: "hsl(260,60%,55%)" }}>Smart Merge</span>
-                  <span style={{
-                    marginLeft: "auto", fontSize: 9, fontWeight: 700,
-                    background: "hsl(260,60%,55%,0.18)", color: "hsl(260,60%,55%)",
-                    border: "1px solid hsl(260,60%,55%,0.3)", borderRadius: 9999,
-                    padding: "1px 7px", textTransform: "uppercase", letterSpacing: "0.06em",
-                  }}>Output</span>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  {["Groq LLM fuzzy-matches names", "Merges Naukri + LinkedIn data", "Writes one-line AI summary", "Commits JSON → Vercel deploy"].map((s, si) => (
-                    <div key={s} style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
-                      <span style={{
-                        flexShrink: 0, width: 16, height: 16, borderRadius: "50%",
-                        background: "hsl(260,60%,55%,0.18)", border: "1px solid hsl(260,60%,55%,0.35)",
-                        color: "hsl(260,60%,55%)", fontSize: 8, fontWeight: 800,
-                        display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1,
-                      }}>{si + 1}</span>
-                      <span style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.5 }}>{s}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 }
@@ -897,8 +936,8 @@ function TechPulseProject() {
     : insights.filter(i => i.tag === activeTag);
 
   return (
-    <div id="tech-pulse" ref={ref} style={{ scrollMarginTop: 80 }}>
-      <SectionLabel label="Project 01 · Tech Pulse" />
+    <div id="tech-pulse" ref={ref} style={{ scrollMarginTop: 80, marginTop: "4rem" }}>
+      <SectionLabel label="Project 03 · Tech Pulse" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
 
       {/* Project intro card */}
@@ -1007,11 +1046,14 @@ function TechPulseProject() {
           display: "flex", gap: isMobile ? 12 : 24, flexWrap: "wrap",
           marginBottom: "1.25rem",
         }}>
-          {[
-            { label: "Total Insights", value: `${insights.length}`, color: "hsl(210,88%,52%)" },
-            { label: "Sources", value: `${new Set(insights.map(i => i.source)).size}`, color: "hsl(100,40%,44%)" },
-            { label: "Categories", value: `${new Set(insights.map(i => i.tag)).size}`, color: "hsl(260,60%,55%)" },
-          ].map(s => (
+          {(() => {
+            const displayed = filtered.slice(0, 6);
+            return [
+              { label: "Total Insights", value: `${displayed.length}`,                                    color: "hsl(210,88%,52%)" },
+              { label: "Sources",        value: `${new Set(displayed.map(i => i.source)).size}`,           color: "hsl(100,40%,44%)" },
+              { label: "Categories",     value: `${new Set(displayed.map(i => i.tag)).size}`,              color: "hsl(260,60%,55%)" },
+            ];
+          })().map(s => (
             <div key={s.label} style={{
               display: "flex", alignItems: "center", gap: 8,
             }}>
@@ -1058,7 +1100,7 @@ function TechPulseProject() {
           gap: "1rem",
         }}>
           {filtered.length > 0 ? (
-            filtered.map((insight, i) => (
+            filtered.slice(0, 6).map((insight, i) => (
               <InsightCard key={insight.id} insight={insight} index={i} visible={visible} />
             ))
           ) : (
@@ -1536,6 +1578,56 @@ function MstpFinetune() {
 // MAIN PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 
+
+function TypewriterHeading() {
+  const full = "Welcome to my AI project page";
+  const AI_START = full.indexOf("AI");
+  const AI_END = AI_START + 2;
+  const displayed = useTypewriter(full, 55);
+
+  const before = displayed.slice(0, AI_START);
+  const aiPart = displayed.slice(AI_START, Math.min(displayed.length, AI_END));
+  const after  = displayed.slice(AI_END);
+  const aiDone = displayed.length >= AI_END;
+
+  return (
+    <>
+      <style>{`
+        @keyframes twBlink   { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes aiFloat   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+        @keyframes aiColors  {
+          0%   { color: hsl(260,60%,55%); }
+          25%  { color: hsl(210,88%,52%); }
+          50%  { color: hsl(340,80%,55%); }
+          75%  { color: hsl(160,60%,42%); }
+          100% { color: hsl(260,60%,55%); }
+        }
+      `}</style>
+      {before}
+      {aiPart && (
+        <span style={{
+          display: "inline-block",
+          fontStyle: "italic",
+          animation: aiDone
+            ? "aiFloat 1.6s ease-in-out infinite, aiColors 2.4s linear infinite"
+            : "none",
+        }}>{aiPart}</span>
+      )}
+      {after}
+      <span style={{
+        display: "inline-block",
+        width: "2px",
+        height: "0.75em",
+        background: "var(--text)",
+        marginLeft: 3,
+        verticalAlign: "middle",
+        animation: "twBlink 0.8s step-end infinite",
+      }} />
+    </>
+  );
+}
+
+
 export default function AIProjectsPage() {
   const isMobile = useIsMobile();
 
@@ -1557,8 +1649,8 @@ export default function AIProjectsPage() {
             color: "hsl(260,60%,50%)",
           }}>3 Projects</span>
         </div>
-        <h1 style={{ fontSize: isMobile ? "2rem" : "clamp(2.2rem,5vw,3.2rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.1 }}>
-          My AI Projects
+        <h1 style={{ fontSize: isMobile ? "1.5rem" : "clamp(1.6rem,3.5vw,2.2rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.2, minHeight: "1.3em" }}>
+          <TypewriterHeading />
         </h1>
         <p style={{
           marginTop: 14, fontSize: "0.88rem", color: "var(--muted)",
@@ -1571,9 +1663,9 @@ export default function AIProjectsPage() {
 
       {/* ── Content ── */}
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
-        <TechPulseProject />
-        <MstpFinetune />
         <JobRadarProject />
+        <MstpFinetune />
+        <TechPulseProject />
       </div>
 
       {/* ── Footer ── */}

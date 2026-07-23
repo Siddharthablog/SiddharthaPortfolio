@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import "./index.css";
 import ChatWidget from "./components/ChatWidget";
 
-const TOOLTIP_MSG = "👆 Click to see My AI Projects";
+const TOOLTIP_MSG = "👆 Click to view my AI projects";
 
 function useTypewriterTooltip() {
   const [text, setText] = useState("");
@@ -605,7 +605,7 @@ function WritingSamples() {
   const { ref, visible } = useReveal(0.15);
   const isMobile = useIsMobile();
   return (
-    <div id="writing" ref={ref} style={{ padding: "4rem 0 0", scrollMarginTop: 80 }}>
+    <div id="writing" ref={ref} style={{ padding: "1.5rem 0 0", scrollMarginTop: 80 }}>
       <SectionLabel label="Writing Samples" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
       <p style={{ marginTop: "1.5rem", marginBottom: "1.25rem", fontSize: "0.88rem", color: "var(--muted)", lineHeight: 1.8 }}>
@@ -1108,9 +1108,9 @@ function QuickHighlights() {
 function VideoShowcase() {
   const { ref, visible } = useReveal(0.15);
   return (
-    <div ref={ref} style={{ 
-      marginTop: "1.5rem", 
-      marginBottom: "3rem",
+    <div ref={ref} style={{
+      marginTop: "1.5rem",
+      marginBottom: "1rem",
       borderRadius: "1.2rem", 
       overflow: "hidden",
       border: "1px solid var(--border)",
@@ -1141,6 +1141,7 @@ function VideoShowcase() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const isMobile = useIsMobile();
   const EXP: RowDef[] = [
     {
       title: "IBM Labs R&D — Technical Content Professional",
@@ -1194,7 +1195,7 @@ export default function App() {
           <em style={{ color: "var(--muted)", fontSize: "0.8rem" }}>Domain: Cloud Computing · Supply Chain Management</em>
           <div style={{ marginTop: 10 }}>
             <strong style={{ color: "var(--text)" }}>Projects:</strong><br />
-            • ClearPath Forward! <Tag label="Data Centre Mgmt" color="hsl(260,55%,55%)" /><br />
+            • ClearPath Forward! <Tag label="Data Center Mgmt" color="hsl(260,55%,55%)" /><br />
             • Digistics <Tag label="Air Cargo Mgmt" color="hsl(260,55%,55%)" />
           </div>
           <div style={{ marginTop: 10 }}>
@@ -1303,12 +1304,6 @@ export default function App() {
         {/* Quick Highlights */}
         <QuickHighlights />
 
-        {/* Key Achievements */}
-        <KeyAchievements />
-
-        {/* Video Portfolio */}
-        <VideoShowcase />
-
         {/* Skills */}
         <div id="skills" style={{ scrollMarginTop: 80 }}>
           <SectionLabel label="Skills & Tools" />
@@ -1316,12 +1311,18 @@ export default function App() {
           {SKILLS.map((r, i) => <Row key={r.title} r={r} last={i === SKILLS.length - 1} />)}
         </div>
 
+        {/* Key Achievements */}
+        <KeyAchievements />
+
         {/* Experience */}
         <div id="experience" style={{ scrollMarginTop: 80 }}>
           <SectionLabel label="Professional Experience" />
           <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
           {EXP.map((r, i) => <Row key={r.title} r={r} last={i === EXP.length - 1} />)}
         </div>
+        {/* Video Portfolio */}
+        <VideoShowcase />
+
         {/* Writing Samples */}
         <WritingSamples />
 
@@ -1334,27 +1335,90 @@ export default function App() {
         <SectionLabel label="Education & Certifications" />
         <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
         <div style={{
-          display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))",
-          gap: "0.85rem", padding: "1.5rem 0 2rem",
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gap: "1.25rem",
+          padding: "1.25rem 0 2rem",
         }}>
-          {[
-            { icon: "🎓", title: "BE Computer Science", sub: "Dayananda Sagar College, Bangalore · 2014", color: "hsl(210,88%,52%)" },
-            { icon: "✍️", title: "Technical Writing Cert", sub: "The Writers Block (TWB) · 2015", color: "hsl(100,40%,44%)" },
-            { icon: "🤖", title: "Agentic AI Bootcamp", sub: "LangGraph & LangChain · 2025", color: "hsl(260,60%,55%)" },
-            { icon: "🐳", title: "Docker Essentials", sub: "Containerisation fundamentals", color: "hsl(200,80%,44%)" },
-            { icon: "☁️", title: "Hybrid Cloud Essentials", sub: "Data Center & Cloud Infrastructure", color: "hsl(40,90%,52%)" },
-          ].map(e => (
-            <div key={e.title} style={{
-              background: "white", borderRadius: "0.85rem",
-              borderTop: `3px solid ${e.color}`,
-              padding: "1rem 1rem 0.85rem",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
-            }}>
-              <div style={{ fontSize: 22, marginBottom: 6 }}>{e.icon}</div>
-              <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 4 }}>{e.title}</div>
-              <div style={{ fontSize: 10.5, color: "var(--muted)", lineHeight: 1.6 }}>{e.sub}</div>
-            </div>
-          ))}
+          {/* Left: Education */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <div style={{
+              fontSize: 9, fontWeight: 800, textTransform: "uppercase",
+              letterSpacing: "0.14em", color: "var(--muted)", marginBottom: 2, paddingLeft: 2,
+            }}>Education</div>
+            {[
+              { icon: "🎓", type: "DEGREE", title: "BE Computer Science", sub: "Dayananda Sagar College, Bangalore · 2014", color: "hsl(210,88%,52%)" },
+              { icon: "📜", type: "CERT", title: "Technical Writing", sub: "The Writers Block (TWB) · 2015", color: "hsl(100,40%,44%)" },
+              { icon: "🤖", type: "CERT", title: "Agentic AI Bootcamp", sub: "LangGraph & LangChain · 2025", color: "hsl(260,60%,55%)" },
+              { icon: "🔄", type: "CERT", title: "EXIN Agile Scrum Master", sub: "Agile & Scrum · 2022", color: "hsl(16,80%,52%)" },
+            ].map(e => (
+              <div key={e.title} style={{
+                display: "flex", alignItems: "center", gap: 12,
+                background: "white", borderRadius: "0.75rem",
+                borderLeft: `3px solid ${e.color}`,
+                padding: "0.6rem 1rem",
+                boxShadow: "0 1px 6px rgba(0,0,0,0.04)",
+              }}>
+                <div style={{
+                  width: 32, height: 32, borderRadius: 8, flexShrink: 0,
+                  background: `${e.color}14`, border: `1px solid ${e.color}28`,
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15,
+                }}>{e.icon}</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>{e.title}</span>
+                    <span style={{
+                      fontSize: 8.5, fontWeight: 800, letterSpacing: "0.08em",
+                      textTransform: "uppercase", padding: "1px 6px", borderRadius: 4,
+                      background: `${e.color}14`, border: `1px solid ${e.color}28`,
+                      color: e.color, flexShrink: 0,
+                    }}>{e.type}</span>
+                  </div>
+                  <div style={{ fontSize: 10.5, color: "var(--muted)", marginTop: 1 }}>{e.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right: Certifications & Achievements */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <div style={{
+              fontSize: 9, fontWeight: 800, textTransform: "uppercase",
+              letterSpacing: "0.14em", color: "var(--muted)", marginBottom: 2, paddingLeft: 2,
+            }}>Certifications & Achievements</div>
+            {[
+              { icon: "🐳", type: "CERT", title: "Docker Essentials", sub: "Containerization fundamentals", color: "hsl(200,80%,44%)" },
+              { icon: "☁️", type: "CERT", title: "Hybrid Cloud Essentials", sub: "Data Center & Cloud Infrastructure", color: "hsl(40,90%,52%)" },
+              { icon: "📡", type: "CERT", title: "APIs with JSON", sub: "API and CLI Documentation · 2017", color: "hsl(16,80%,52%)" },
+              { icon: "🏆", type: "HACKATHON", title: "IBMer watsonx Challenge", sub: "Runner-up · 2025", color: "hsl(260,60%,55%)" },
+            ].map(e => (
+              <div key={e.title} style={{
+                display: "flex", alignItems: "center", gap: 12,
+                background: "white", borderRadius: "0.75rem",
+                borderLeft: `3px solid ${e.color}`,
+                padding: "0.6rem 1rem",
+                boxShadow: "0 1px 6px rgba(0,0,0,0.04)",
+              }}>
+                <div style={{
+                  width: 32, height: 32, borderRadius: 8, flexShrink: 0,
+                  background: `${e.color}14`, border: `1px solid ${e.color}28`,
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15,
+                }}>{e.icon}</div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>{e.title}</span>
+                    <span style={{
+                      fontSize: 8.5, fontWeight: 800, letterSpacing: "0.08em",
+                      textTransform: "uppercase", padding: "1px 6px", borderRadius: 4,
+                      background: `${e.color}14`, border: `1px solid ${e.color}28`,
+                      color: e.color, flexShrink: 0,
+                    }}>{e.type}</span>
+                  </div>
+                  <div style={{ fontSize: 10.5, color: "var(--muted)", marginTop: 1 }}>{e.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
