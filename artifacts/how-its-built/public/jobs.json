@@ -1,5 +1,47 @@
 [
   {
+    "id": "b278a3bf",
+    "job_title": "Technical Writer",
+    "company": "DevRev",
+    "location": "Bangalore Urban, Karnataka",
+    "experience": "3-6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-devrev-4440636231",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-23",
+    "verified_at": "2026-07-23T12:25:39Z"
+  },
+  {
+    "id": "125fa472",
+    "job_title": "Documentation Engineer",
+    "company": "Infineon Technologies",
+    "location": "Bengaluru East, Karnataka",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4421826525",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-23",
+    "verified_at": "2026-07-23T12:25:39Z"
+  },
+  {
+    "id": "e9f8a14d",
+    "job_title": "Technical Writer",
+    "company": "The Blue Venture Fund",
+    "location": "Bangalore",
+    "experience": "1-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-the-blue-venture-fund-4443434797",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-23",
+    "verified_at": "2026-07-23T12:25:39Z"
+  },
+  {
     "id": "530429bf",
     "job_title": "Technical Writer - 3",
     "company": "Nutanix University",
@@ -11,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-22",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "e367133b",
@@ -25,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-21",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "5c4b633f",
@@ -39,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-13",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "c52d533b",
@@ -53,21 +95,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "98983fd4",
-    "job_title": "Senior Technical Writer - Bengaluru - Wenger & Watson - 5 to 7 years of experience",
+    "job_title": "Senior Technical Writer",
     "company": "Wenger & Watson",
     "location": "Bangalore",
-    "experience": "5-7 Yrs",
-    "skills": [],
+    "experience": "5-7 years",
+    "skills": [
+      "Technical Documentation",
+      "Collaboration",
+      "Research",
+      "Editing"
+    ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
     "source": "Naukri",
-    "date": "2026-07-22",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "date": "2026-07-23",
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "175d4473",
@@ -86,7 +133,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
     "source": "Naukri",
     "date": "2026-07-21",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   },
   {
     "id": "b6369020",
@@ -100,6 +147,6 @@
     "naukri_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-07-21",
-    "verified_at": "2026-07-22T12:27:04Z"
+    "verified_at": "2026-07-23T12:25:39Z"
   }
 ]
