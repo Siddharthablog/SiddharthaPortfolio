@@ -3,6 +3,51 @@ import { Link } from "wouter";
 import "./index.css";
 import ChatWidget from "./components/ChatWidget";
 
+const TOOLTIP_MSG = "👆 Click to see My AI Projects";
+
+function useTypewriterTooltip() {
+  const [text, setText] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let charIndex = 0;
+    let typingTimer: ReturnType<typeof setTimeout>;
+    let cycleTimer: ReturnType<typeof setTimeout>;
+
+    function type() {
+      if (charIndex <= TOOLTIP_MSG.length) {
+        setText(TOOLTIP_MSG.slice(0, charIndex));
+        charIndex++;
+        typingTimer = setTimeout(type, 55);
+      } else {
+        // hold then fade out
+        cycleTimer = setTimeout(() => {
+          setVisible(false);
+          // restart after pause
+          cycleTimer = setTimeout(startCycle, 2500);
+        }, 2000);
+      }
+    }
+
+    function startCycle() {
+      charIndex = 0;
+      setText("");
+      setVisible(true);
+      typingTimer = setTimeout(type, 300);
+    }
+
+    // first appearance after 1.5s
+    cycleTimer = setTimeout(startCycle, 1500);
+
+    return () => {
+      clearTimeout(typingTimer);
+      clearTimeout(cycleTimer);
+    };
+  }, []);
+
+  return { text, visible };
+}
+
 function useIsMobile(breakpoint = 640) {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < breakpoint);
   useEffect(() => {
@@ -72,6 +117,66 @@ const NAV_LINKS = [
   { label: "Writing Samples", id: "writing" },
 ];
 
+function TooltipBadge() {
+  const { text, visible } = useTypewriterTooltip();
+  return (
+    <div style={{
+      position: "absolute",
+      top: "calc(100% + 10px)",
+      left: "50%",
+      transform: "translateX(-50%)",
+      background: "white",
+      border: "1.5px solid var(--border)",
+      borderRadius: 8,
+      padding: "5px 11px",
+      fontSize: 11,
+      fontWeight: 600,
+      color: "var(--text)",
+      whiteSpace: "nowrap",
+      pointerEvents: "none",
+      boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
+      zIndex: 99999,
+      minWidth: "10ch",
+      opacity: visible ? 1 : 0,
+      transition: "opacity 0.3s ease",
+    }}>
+      {/* upward arrow */}
+      <span style={{
+        position: "absolute",
+        bottom: "100%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 0, height: 0,
+        borderLeft: "6px solid transparent",
+        borderRight: "6px solid transparent",
+        borderBottom: "7px solid var(--border)",
+        display: "block",
+      }} />
+      <span style={{
+        position: "absolute",
+        bottom: "calc(100% - 1px)",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 0, height: 0,
+        borderLeft: "5px solid transparent",
+        borderRight: "5px solid transparent",
+        borderBottom: "6px solid white",
+        display: "block",
+      }} />
+      {text}<span style={{
+        display: "inline-block",
+        width: 1.5,
+        height: "1em",
+        background: "hsl(260,60%,55%)",
+        marginLeft: 2,
+        verticalAlign: "text-bottom",
+        animation: "caretBlink 0.6s step-end infinite",
+        opacity: visible ? 1 : 0,
+      }} />
+    </div>
+  );
+}
+
 function StickyNav() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
@@ -135,20 +240,31 @@ function StickyNav() {
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
         transition: "background 0.35s ease, border-color 0.35s ease"
       }}>
-        <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{
-            background: "none",
-            border: "none",
-            fontSize: 14,
-            fontWeight: 900,
-            padding: 0,
-            cursor: "pointer",
-            color: "var(--text)"
-          }}
-        >
-          SM
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: 14,
+              fontWeight: 900,
+              padding: 0,
+              cursor: "pointer",
+              color: "var(--text)"
+            }}
+          >
+            SM
+          </button>
+          <div className="ai-btn-wrapper">
+            <TooltipBadge />
+            <Link href="/ai-projects">
+              <a className="ai-projects-btn">
+                <span className="btn-robot">🤖</span>
+                My AI Projects
+              </a>
+            </Link>
+          </div>
+        </div>
         {isMobile ? (
           <button onClick={() => setMenuOpen(!menuOpen)} style={{
             background: menuOpen ? "hsl(40,14%,88%)" : "white",
@@ -487,6 +603,7 @@ const WRITING_SAMPLES = [
 
 function WritingSamples() {
   const { ref, visible } = useReveal(0.15);
+  const isMobile = useIsMobile();
   return (
     <div id="writing" ref={ref} style={{ padding: "4rem 0 0", scrollMarginTop: 80 }}>
       <SectionLabel label="Writing Samples" />
@@ -498,9 +615,10 @@ function WritingSamples() {
         {WRITING_SAMPLES.map((sample, i) => (
           <div key={sample.type} style={{
             display: "flex",
-            alignItems: "center",
-            gap: 14,
-            padding: "0.75rem 1rem",
+            alignItems: isMobile ? "flex-start" : "center",
+            flexDirection: isMobile ? "column" : "row",
+            gap: isMobile ? 6 : 14,
+            padding: isMobile ? "0.85rem 0.9rem" : "0.75rem 1rem",
             borderBottom: "1px solid var(--border)",
             borderLeft: `3px solid ${sample.color}`,
             background: "white",
@@ -508,58 +626,86 @@ function WritingSamples() {
             opacity: 0,
             animation: visible ? `fadeUp 0.4s ease ${i * 0.06}s forwards` : "none",
           }}>
-            {/* Icon */}
-            <span style={{ fontSize: "1.2rem", flexShrink: 0, width: 28, textAlign: "center" }}>{sample.icon}</span>
 
-            {/* Title + audience */}
-            <div style={{ flex: "0 0 220px", minWidth: 0 }}>
-              <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--text)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                {sample.type}
-              </div>
-              <div style={{ fontSize: 10, color: sample.color, fontWeight: 600, marginTop: 1 }}>
-                For: {sample.audience}
-              </div>
-            </div>
+            {isMobile ? (
+              /* ── Mobile layout ── */
+              <>
+                {/* Row 1: icon + title + link */}
+                <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%" }}>
+                  <span style={{ fontSize: "1.1rem", flexShrink: 0 }}>{sample.icon}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      {sample.type}
+                    </div>
+                    <div style={{ fontSize: 10, color: sample.color, fontWeight: 600, marginTop: 1 }}>
+                      For: {sample.audience}
+                    </div>
+                  </div>
+                  <div style={{ flexShrink: 0 }}>
+                    {sample.link === "#" ? (
+                      <span style={{ fontSize: 9.5, fontWeight: 700, color: "var(--muted)", opacity: 0.5 }}>
+                        Coming soon
+                      </span>
+                    ) : (
+                      <a href={sample.link} target="_blank" rel="noopener noreferrer"
+                        className="read-sample-link" style={{ color: sample.color, fontSize: 10, padding: "3px 8px" }}>
+                        Read →
+                      </a>
+                    )}
+                  </div>
+                </div>
+                {/* Row 2: tags */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 4, paddingLeft: 30 }}>
+                  {sample.tags.map(tag => (
+                    <span key={tag} style={{
+                      fontSize: 9, background: `${sample.color}1E`, color: sample.color,
+                      padding: "2px 7px", borderRadius: 9999, fontWeight: 600, whiteSpace: "nowrap",
+                    }}>{tag}</span>
+                  ))}
+                </div>
+              </>
+            ) : (
+              /* ── Desktop layout ── */
+              <>
+                {/* Icon */}
+                <span style={{ fontSize: "1.2rem", flexShrink: 0, width: 28, textAlign: "center" }}>{sample.icon}</span>
 
-            {/* Tags */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 4, flex: 1 }}>
-              {sample.tags.map(tag => (
-                <span key={tag} style={{
-                  fontSize: 9.5,
-                  background: `${sample.color}1E`,
-                  color: sample.color,
-                  padding: "2px 8px",
-                  borderRadius: "9999px",
-                  fontWeight: 600,
-                  whiteSpace: "nowrap",
-                }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
+                {/* Title + audience */}
+                <div style={{ flex: "0 0 220px", minWidth: 0 }}>
+                  <div style={{ fontSize: 12.5, fontWeight: 700, color: "var(--text)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {sample.type}
+                  </div>
+                  <div style={{ fontSize: 10, color: sample.color, fontWeight: 600, marginTop: 1 }}>
+                    For: {sample.audience}
+                  </div>
+                </div>
 
-            {/* Link / Coming soon */}
-            <div style={{ flexShrink: 0, marginLeft: "auto" }}>
-              {sample.link === "#" ? (
-                <span style={{
-                  fontSize: 10, fontWeight: 700, color: "var(--muted)",
-                  opacity: 0.5, whiteSpace: "nowrap",
-                }}>
-                  Coming soon
-                </span>
-              ) : (
-                <a
-                  href={sample.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="read-sample-link"
-                  style={{ color: sample.color }}
-                >
-                  Read sample
-                  <span className="read-sample-arrow">→</span>
-                </a>
-              )}
-            </div>
+                {/* Tags */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 4, flex: 1 }}>
+                  {sample.tags.map(tag => (
+                    <span key={tag} style={{
+                      fontSize: 9.5, background: `${sample.color}1E`, color: sample.color,
+                      padding: "2px 8px", borderRadius: 9999, fontWeight: 600, whiteSpace: "nowrap",
+                    }}>{tag}</span>
+                  ))}
+                </div>
+
+                {/* Link */}
+                <div style={{ flexShrink: 0, marginLeft: "auto" }}>
+                  {sample.link === "#" ? (
+                    <span style={{ fontSize: 10, fontWeight: 700, color: "var(--muted)", opacity: 0.5, whiteSpace: "nowrap" }}>
+                      Coming soon
+                    </span>
+                  ) : (
+                    <a href={sample.link} target="_blank" rel="noopener noreferrer"
+                      className="read-sample-link" style={{ color: sample.color }}>
+                      Read sample
+                      <span className="read-sample-arrow">→</span>
+                    </a>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -1116,30 +1262,24 @@ export default function App() {
           marginTop: 14, fontSize: "0.88rem", color: "var(--muted)",
           maxWidth: 560, margin: "14px auto 0", lineHeight: 1.8,
         }}>
-          Seasoned Technical Writer and AI Documentation Specialist seeking a leadership role to design
-          AI-driven documentation strategies, leverage RAG systems and agentic AI for intelligent content
-          delivery, and mentor teams in modern DocOps automation practices.
+          Technical Writer and AI Documentation Specialist with expertise in RAG systems, Agentic AI, and DocOps automation. Seeking a leadership role to design AI-driven documentation strategies and mentor teams in modern documentation practices.
           <span style={{ display: "block", marginTop: 6, fontSize: "0.8rem" }}>
             Open to: Remote &amp; Full-time
           </span>
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", marginTop: 24, flexWrap: "wrap" }}>
-          <Link href="/ai-projects">
-            <a style={{
-              padding: "10px 22px", borderRadius: 9999,
-              background: "linear-gradient(135deg, hsl(210,88%,52%) 0%, hsl(260,60%,55%) 100%)",
-              color: "white",
-              fontSize: "0.82rem", fontWeight: 700, textDecoration: "none",
-              transition: "all 0.2s", cursor: "pointer",
-              boxShadow: "0 4px 12px hsl(210,88%,52%,0.3)",
-              display: "inline-block",
-            }}>
-              🤖 My AI Projects
-            </a>
-          </Link>
+          <div className="ai-btn-wrapper">
+            <TooltipBadge />
+            <Link href="/ai-projects">
+              <a className="ai-projects-btn" style={{ fontSize: "0.82rem", padding: "10px 22px" }}>
+                <span className="btn-robot">🤖</span>
+                My AI Projects
+              </a>
+            </Link>
+          </div>
           {[
             { label: "Hire me",  href: "mailto:mani.siddhartha@gmail.com" },
-            { label: "Résumé",   href: "https://github.com/Siddharthablog/Resume" },
+            { label: "Résumé",   href: "/resume.pdf" },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/siddhartha-mani-98696073/" },
           ].map(btn => (
             <a key={btn.label} href={btn.href}

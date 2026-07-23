@@ -103,3 +103,56 @@ body {
   display: inline-block;
   transition: transform 0.2s ease;
 }
+
+/* ── AI Projects nav button ─────────────────────────────── */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes navBtnPulse {
+  0%, 100% { box-shadow: 0 2px 12px hsl(210,88%,52%,0.4); }
+  50%       { box-shadow: 0 6px 22px hsl(260,60%,55%,0.65), 0 0 0 4px hsl(210,88%,52%,0.18); }
+}
+
+@keyframes robotWave {
+  0%, 100% { transform: rotate(-12deg); }
+  50%       { transform: rotate(12deg); }
+}
+
+.ai-projects-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  color: white;
+  white-space: nowrap;
+  background: linear-gradient(135deg, hsl(210,88%,52%), hsl(260,60%,55%), hsl(210,88%,52%));
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite, navBtnPulse 3s ease infinite;
+  transition: transform 0.2s ease;
+}
+
+.ai-projects-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.ai-projects-btn .btn-robot {
+  display: inline-block;
+  animation: robotWave 1.4s ease-in-out infinite;
+}
+
+/* ── Typewriter tooltip ──────────────────────────────────── */
+@keyframes caretBlink {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+.ai-btn-wrapper {
+  position: relative;
+  display: inline-flex;
+}
