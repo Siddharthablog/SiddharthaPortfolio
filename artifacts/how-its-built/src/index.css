@@ -156,3 +156,47 @@ body {
   position: relative;
   display: inline-flex;
 }
+
+/* ── Chat widget button ──────────────────────────────────── */
+@keyframes chatBtnGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes chatBtnGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(232,96,122,0.45), 0 0 0 0 rgba(168,85,247,0); }
+  50%       { box-shadow: 0 6px 28px rgba(168,85,247,0.6), 0 0 0 5px rgba(232,96,122,0.15); }
+}
+
+@keyframes chatBtnFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+@keyframes sparkleRotate {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(20deg) scale(1.2); }
+  50%  { transform: rotate(0deg) scale(1); }
+  75%  { transform: rotate(-20deg) scale(1.2); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.chat-widget-btn {
+  background: linear-gradient(135deg, #e8607a, #a855f7, #e8607a) !important;
+  background-size: 200% 200% !important;
+  animation: chatBtnGradient 3s ease infinite,
+             chatBtnGlow 2.5s ease-in-out infinite,
+             chatBtnFloat 3s ease-in-out infinite !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.chat-widget-btn:hover {
+  animation: chatBtnGradient 1.5s ease infinite !important;
+  transform: translateY(-3px) scale(1.04) !important;
+  box-shadow: 0 10px 32px rgba(168,85,247,0.55) !important;
+}
+
+.chat-widget-btn .sparkle-icon {
+  animation: sparkleRotate 2.5s ease-in-out infinite;
+  transform-origin: center;
+}

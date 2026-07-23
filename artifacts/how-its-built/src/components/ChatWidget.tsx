@@ -115,37 +115,47 @@ export default function ChatWidget() {
         id="chat-widget-toggle"
         aria-label={open ? "Close chat" : "Open chat"}
         onClick={() => setOpen((o) => !o)}
+        className={open ? "" : "chat-widget-btn"}
         style={{
           position: "fixed",
           bottom: 24,
           right: 24,
           zIndex: 10010,
-          width: 52,
-          height: 52,
-          borderRadius: "50%",
+          height: 46,
+          padding: open ? "0 20px" : "0 22px 0 16px",
+          borderRadius: 9999,
           border: "none",
           cursor: "pointer",
-          background: open
-            ? "hsl(100,40%,32%)"
-            : "linear-gradient(135deg, hsl(100,40%,44%), hsl(100,40%,36%))",
+          background: open ? "linear-gradient(135deg, #7c5cd8, #9b59b6)" : undefined,
           color: "white",
-          fontSize: open ? 20 : 24,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          boxShadow: open
-            ? "0 4px 20px hsl(100,40%,30%,0.4)"
-            : "0 4px 24px hsl(100,40%,44%,0.45)",
-          transition: "background 0.22s ease, box-shadow 0.22s ease, transform 0.18s ease",
-        }}
-        onMouseOver={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1.08)";
-        }}
-        onMouseOut={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.transform = "scale(1)";
+          gap: 9,
+          boxShadow: open ? "0 4px 20px rgba(124,92,216,0.45)" : undefined,
+          transition: "all 0.22s ease",
+          whiteSpace: "nowrap",
         }}
       >
-        {open ? "✕" : "💬"}
+        {open ? (
+          <>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.01em" }}>Close</span>
+          </>
+        ) : (
+          <>
+            <svg className="sparkle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                fill="rgba(255,255,255,0.25)" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 8v1m0 2v1m-3-1.5 1 1m4-1 1 1m-5 0 1-1m4 1 1-1"
+                stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+              <path d="M17.5 3.5 L18.2 5 L19.7 5.5 L18.2 6 L17.5 7.5 L16.8 6 L15.3 5.5 L16.8 5 Z"
+                fill="white" opacity="0.9"/>
+            </svg>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.01em" }}>Ask AI Assistant</span>
+          </>
+        )}
       </button>
 
       {/* ── Chat panel ─────────────────────────────────────────────────────── */}
@@ -176,7 +186,7 @@ export default function ChatWidget() {
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <div
           style={{
-            background: "linear-gradient(135deg, hsl(100,40%,40%), hsl(100,40%,32%))",
+            background: "linear-gradient(135deg, #e8607a 0%, #a855f7 100%)",
             padding: "0.9rem 1rem",
             display: "flex",
             alignItems: "center",
@@ -283,7 +293,7 @@ export default function ChatWidget() {
                       : "14px 14px 14px 4px",
                   background:
                     m.role === "user"
-                      ? "hsl(100,40%,40%)"
+                      ? "#a855f7"
                       : "hsl(45,30%,95%)",
                   color: m.role === "user" ? "white" : "hsl(40,10%,20%)",
                   fontSize: 13,
@@ -291,7 +301,7 @@ export default function ChatWidget() {
                   wordBreak: "break-word",
                   boxShadow:
                     m.role === "user"
-                      ? "0 2px 8px hsl(100,40%,40%,0.25)"
+                      ? "0 2px 8px rgba(168,85,247,0.3)"
                       : "0 1px 4px rgba(0,0,0,0.06)",
                 }}
               >
@@ -328,28 +338,28 @@ export default function ChatWidget() {
                   id={`chat-suggest-${q.slice(0, 20).replace(/\s/g, "-").toLowerCase()}`}
                   onClick={() => send(q)}
                   style={{
-                    background: "hsl(100,40%,44%,0.08)",
-                    border: "1.5px solid hsl(100,40%,44%,0.25)",
+                    background: "rgba(168,85,247,0.08)",
+                    border: "1.5px solid rgba(168,85,247,0.25)",
                     borderRadius: 9999,
                     padding: "6px 14px",
                     fontSize: 11.5,
                     fontWeight: 600,
-                    color: "hsl(100,40%,34%)",
+                    color: "#8b3fc8",
                     cursor: "pointer",
                     textAlign: "left",
                     transition: "background 0.15s, border-color 0.15s",
                   }}
                   onMouseOver={(e) => {
                     (e.currentTarget as HTMLButtonElement).style.background =
-                      "hsl(100,40%,44%,0.16)";
+                      "rgba(168,85,247,0.16)";
                     (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      "hsl(100,40%,44%,0.45)";
+                      "rgba(168,85,247,0.45)";
                   }}
                   onMouseOut={(e) => {
                     (e.currentTarget as HTMLButtonElement).style.background =
-                      "hsl(100,40%,44%,0.08)";
+                      "rgba(168,85,247,0.08)";
                     (e.currentTarget as HTMLButtonElement).style.borderColor =
-                      "hsl(100,40%,44%,0.25)";
+                      "rgba(168,85,247,0.25)";
                   }}
                 >
                   {q}
@@ -380,7 +390,7 @@ export default function ChatWidget() {
                       width: 7,
                       height: 7,
                       borderRadius: "50%",
-                      background: "hsl(100,40%,44%)",
+                      background: "#a855f7",
                       animation: `chatPulse 1.2s ease-in-out ${n * 0.2}s infinite`,
                     }}
                   />
@@ -426,7 +436,7 @@ export default function ChatWidget() {
             }}
             onFocus={(e) => {
               (e.currentTarget as HTMLInputElement).style.borderColor =
-                "hsl(100,40%,44%)";
+                "#a855f7";
             }}
             onBlur={(e) => {
               (e.currentTarget as HTMLInputElement).style.borderColor =
@@ -446,7 +456,7 @@ export default function ChatWidget() {
               background:
                 !input.trim() || loading
                   ? "hsl(40,14%,88%)"
-                  : "hsl(100,40%,40%)",
+                  : "#a855f7",
               color: !input.trim() || loading ? "hsl(40,8%,60%)" : "white",
               fontSize: 16,
               cursor: !input.trim() || loading ? "not-allowed" : "pointer",
