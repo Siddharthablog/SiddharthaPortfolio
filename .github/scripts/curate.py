@@ -159,12 +159,13 @@ def run_pipeline(output_path: Path) -> None:
         print("❌  GROQ_API_KEY not set. Exiting.")
         sys.exit(1)
 
-    # 2. Load existing insights for deduplication
+    # 2. Load existing insights (kept as fallback only)
     existing = load_existing(output_path)
-    seen_ids = {item["id"] for item in existing}
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-    new_insights: list[dict] = []
+    # seen_ids only deduplicates within the current run, not against existing
+    seen_ids: set = set()
+    new_insights: list = []
     total_searched = 0
     total_summarised = 0
 
@@ -183,10 +184,10 @@ def run_pipeline(output_path: Path) -> None:
             content = result.get("content", "")
             source = _extract_source(url)
 
-            # Skip if already seen
+            # Skip duplicates within this run only
             uid = url_hash(url)
             if uid in seen_ids:
-                print(f"   ⏭  Skipping (duplicate): {title[:60]}...")
+                print(f"   ⏭  Skipping (duplicate in run): {title[:60]}...")
                 continue
 
             # Summarise with Groq
@@ -207,9 +208,12 @@ def run_pipeline(output_path: Path) -> None:
                 "date": today,
             })
 
-    # 4. Merge: new insights first, then existing, cap at MAX_INSIGHTS
-    merged = new_insights + existing
-    merged = merged[:MAX_INSIGHTS]
+    # 4. Fresh insights replace old ones; fall back to existing if nothing new
+    if new_insights:
+        merged = new_insights[:MAX_INSIGHTS]
+    else:
+        print("⚠️  No new insights fetched — keeping existing insights unchanged.")
+        merged = existing[:MAX_INSIGHTS]
 
     # 5. Save
     save_insights(output_path, merged)
