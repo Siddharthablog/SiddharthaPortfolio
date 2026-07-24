@@ -135,7 +135,12 @@ def summarise_with_groq(title: str, content: str, api_key: str) -> Optional[str]
             temperature=0.3,
             max_tokens=120,
         )
-        return response.choices[0].message.content.strip()
+        result = response.choices[0].message.content
+        if result:
+            return result.strip()
+        # Log empty response so it's visible in CI logs
+        print(f"⚠️  Groq returned empty content for '{title[:60]}' — finish_reason: {response.choices[0].finish_reason}")
+        return None
     except Exception as e:
         print(f"❌  Groq summarisation FAILED — {type(e).__name__}: {e}")
         return None
