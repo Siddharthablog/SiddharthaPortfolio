@@ -137,8 +137,25 @@ def summarise_with_groq(title: str, content: str, api_key: str) -> Optional[str]
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
-        print(f"⚠️  Groq summarisation failed for '{title}': {e}")
+        print(f"❌  Groq summarisation FAILED — {type(e).__name__}: {e}")
         return None
+
+
+def validate_groq(api_key: str) -> bool:
+    """Quick smoke-test to verify the Groq key and model work before processing."""
+    try:
+        from groq import Groq
+        client = Groq(api_key=api_key)
+        client.chat.completions.create(
+            model=GROQ_MODEL,
+            messages=[{"role": "user", "content": "say ok"}],
+            max_tokens=3,
+        )
+        print(f"✅  Groq key valid, model '{GROQ_MODEL}' reachable.")
+        return True
+    except Exception as e:
+        print(f"❌  Groq validation FAILED — {type(e).__name__}: {e}")
+        return False
 
 
 # ---------------------------------------------------------------------------
@@ -157,6 +174,11 @@ def run_pipeline(output_path: Path) -> None:
         sys.exit(1)
     if not groq_key:
         print("❌  GROQ_API_KEY not set. Exiting.")
+        sys.exit(1)
+
+    # 1b. Smoke-test Groq before doing any Tavily searches
+    if not validate_groq(groq_key):
+        print("❌  Groq unreachable — aborting pipeline.")
         sys.exit(1)
 
     # 2. Load existing insights (kept as fallback only)
