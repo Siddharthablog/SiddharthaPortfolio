@@ -56,16 +56,7 @@ SEARCH_QUERIES = [
     },
 ]
 
-GROQ_SYSTEM_PROMPT = """You are a senior technical writer summarising articles for a documentation professionals audience.
-Given an article title and content snippet, write exactly 2 sentences:
-- Sentence 1: What happened or what was released (factual, specific).
-- Sentence 2: Why it matters for technical writers, documentation teams, or DocOps workflows.
-
-Rules:
-- Be punchy and developer-friendly. No filler words.
-- Never start with "This article..." or "The article...".
-- Do NOT use markdown formatting.
-- Keep the total under 60 words."""
+GROQ_SYSTEM_PROMPT = "Summarise the article in 2 sentences for technical writers. Sentence 1: what happened. Sentence 2: why it matters for docs teams. No markdown. Under 60 words."
 
 
 # ---------------------------------------------------------------------------
@@ -133,7 +124,7 @@ def summarise_with_groq(title: str, content: str, api_key: str) -> Optional[str]
                 {"role": "user", "content": f"Title: {title}\n\nContent: {content[:1500]}"},
             ],
             temperature=0.3,
-            max_tokens=120,
+            max_tokens=512,
         )
         result = response.choices[0].message.content
         if result:
