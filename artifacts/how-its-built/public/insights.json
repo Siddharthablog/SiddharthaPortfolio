@@ -1,83 +1,65 @@
 [
   {
-    "id": "2b2510c1",
-    "title": "AI Tools for Technical Writers in 2026 | d quick learn posted on the topic | LinkedIn",
-    "summary": "AI tools for technical writers were released in 2026. They matter for improving speed, clarity, and consistency in documentation workflows.",
-    "source": "Linkedin",
-    "url": "https://www.linkedin.com/posts/d-quick-learn_technicalwriting-aifortechnicalwriters-documentation-activity-7413134517911343105-kyqb",
+    "id": "4c73255b",
+    "title": "What Is Artificial Intelligence (AI)?",
+    "summary": "The article outlines core AI concepts—machine learning, semi‑supervised learning, autonomous AI agents—and highlights risks such as biased data and the transformative impact of large language models. Docs teams must translate these technical details into clear, unbiased guidance and embed security and lifecycle considerations to help users adopt AI responsibly.",
+    "source": "Ibm",
+    "url": "https://www.ibm.com/think/topics/artificial-intelligence",
     "tag": "AI Docs",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "9d60f0aa",
-    "title": "Best technical documentation software in 2026",
-    "summary": "Mintlify was released as a top technical documentation software in 2026. It matters for technical writers as it offers docs-as-code workflows and AI-ready documentation.",
-    "source": "Mintlify",
-    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
-    "tag": "AI Docs",
-    "date": "2026-06-30"
+    "date": "2026-07-24"
   },
   {
     "id": "90e30ee2",
     "title": "What Is the OpenAPI Specification? OAS 3.1 Guide with Examples (2026) - API7.ai",
-    "summary": "OpenAPI Specification 3.1 defines RESTful APIs in YAML or JSON. It matters for technical writers as it enables automatic code generation and interactive documentation.",
+    "summary": "The OpenAPI Specification (OAS) 3.1, a language‑agnostic YAML/JSON format for describing RESTful APIs, has become the industry standard, evolving from Swagger and now fully compatible with JSON Schema. This matters because it gives docs teams a single source of truth that can be auto‑generated into interactive docs, code stubs, and contract tests, streamlining maintenance and cross‑functional collaboration.",
     "source": "Api7",
     "url": "https://api7.ai/learning-center/api-101/openapi-specification",
     "tag": "API Standards",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "70bbd563",
-    "title": "API design best practices guide (March 2026) - Fern",
-    "summary": "Fern released an API design best practices guide in March 2026. It matters for technical writers as it streamlines API documentation and SDK generation.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-design-best-practices-guide",
-    "tag": "API Standards",
-    "date": "2026-06-30"
-  },
-  {
-    "id": "0dee9e6c",
-    "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "DITA XML is an open-source XML-based content standard for structured authoring. It matters for technical writers as it facilitates content reuse and enables production of multiple output formats from a single source.",
-    "source": "Instinctools",
-    "url": "https://www.instinctools.com/blog/dita-xml",
-    "tag": "DITA & Structured Content",
-    "date": "2026-06-30"
+    "date": "2026-07-24"
   },
   {
     "id": "4af93ce2",
-    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
-    "summary": "Adobe released a cloud-native DITA CCMS. It matters for technical writers as it simplifies structured content management.",
+    "title": "Cloud-Native DITA CCMS | Structured Content ...",
+    "summary": "Adobe released a cloud‑native, AI‑enhanced DITA CCMS called Adobe Experience Manager Guides, a single‑source repository that lets teams create, version, and publish structured DITA content. It matters because it gives documentation teams a centralized, standards‑driven platform to ensure consistency, streamline reviews, and reuse content across multiple products, versions, and outputs.",
     "source": "Adobe",
     "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
     "tag": "DITA & Structured Content",
-    "date": "2026-06-30"
+    "date": "2026-07-24"
   },
   {
-    "id": "a0dc245f",
-    "title": "Automate your documentation with your CI/CD pipeline (Documentation As Code)",
-    "summary": "Documentation is built and deployed via CI/CD pipelines using tools like MkDocs and Docker. This automation matters for technical writers as it streamlines DocOps workflows.",
-    "source": "Medium",
-    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-06-30"
+    "id": "0dee9e6c",
+    "title": "What is DITA XML? Technical Writing & Content ...",
+    "summary": "The article introduces DITA XML, an open‑source, XML‑based standard that organizes content into reusable, topic‑oriented modules for technical documentation. This matters to docs teams because it provides a single source of structured content that streamlines authoring, editing, translation, and multi‑format publishing, reducing effort and improving consistency across products and languages.",
+    "source": "Instinctools",
+    "url": "https://www.instinctools.com/blog/dita-xml",
+    "tag": "DITA & Structured Content",
+    "date": "2026-07-24"
   },
   {
     "id": "a2993ea3",
-    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines",
-    "summary": "A beginner's guide to Docs as Code and CI/CD pipelines was released. It matters for technical writers as it streamlines documentation workflows.",
+    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines - DEV Community",
+    "summary": "The article walks readers through setting up a Docs-as-Code workflow using a static site generator and GitHub Actions to automatically build and deploy documentation on each push to the main branch. This matters for docs teams because it integrates documentation into the development pipeline, ensuring version control, consistency, and rapid, reliable publishing without manual steps.",
     "source": "Dev.to",
     "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
     "tag": "DevOps & CI/CD",
-    "date": "2026-06-30"
+    "date": "2026-07-24"
   },
   {
-    "id": "385493c2",
-    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
-    "summary": "Top 7 documentation generator tools were released in 2026. They matter for streamlining documentation creation and maintenance.",
-    "source": "Kodesage",
-    "url": "https://kodesage.ai/blog/7-documentation-generators",
+    "id": "125a0467",
+    "title": "Microsoft Developer",
+    "summary": "Microsoft announced Build 2026, showcasing new announcements, sessions, and demos across its developer ecosystem, including Azure, Teams, Power Platform, and AI services. Docs teams must quickly refresh and expand documentation to cover these updates, ensuring developers have accurate, up‑to‑date guidance.",
+    "source": "Microsoft",
+    "url": "https://developer.microsoft.com/en-us",
     "tag": "Dev Tools",
-    "date": "2026-06-30"
+    "date": "2026-07-24"
+  },
+  {
+    "id": "82c29db0",
+    "title": "Apple Developer",
+    "summary": "Apple announced WWDC26 updates, introducing Xcode 27, tvOS 27, Apple Vision Pro support, and personalized video, event, and forum resources for developers. Documentation teams must quickly update guides, add new platform references, and align content with these tools to ensure developers can adopt the latest features efficiently.",
+    "source": "Apple",
+    "url": "https://developer.apple.com",
+    "tag": "Dev Tools",
+    "date": "2026-07-24"
   }
 ]
