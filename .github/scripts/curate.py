@@ -22,6 +22,7 @@ import sys
 import argparse
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -120,7 +121,7 @@ def search_tavily(query: str, api_key: str) -> list[dict]:
 # Groq Summarisation
 # ---------------------------------------------------------------------------
 
-def summarise_with_groq(title: str, content: str, api_key: str) -> str | None:
+def summarise_with_groq(title: str, content: str, api_key: str) -> Optional[str]:
     """Send title + content to Groq and get a 2-sentence summary."""
     try:
         from groq import Groq
