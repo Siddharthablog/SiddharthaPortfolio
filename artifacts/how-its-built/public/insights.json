@@ -1,83 +1,74 @@
 [
   {
-    "id": "14556b39",
-    "title": "Best AI Tools for Writing Technical Documentation in 2026 | StackExpertise | StackExpertise",
-    "summary": "The article reviews and compares AI tools like Claude, Notion AI, Mintlify, Swimm, and GitHub Copilot that a CS student used to generate and keep up‑to‑date technical documentation in 2026. Docs teams can leverage these tools to automate long‑form specs, inline docstrings, and sync changes, cutting manual effort and improving accuracy across rapidly evolving codebases.",
-    "source": "Stackexpertise",
-    "url": "https://www.stackexpertise.com/ai-tools/best-ai-tools-for-technical-documentation-2026",
+    "id": "258908f1",
+    "title": "AI for Technical Documentation in 2026 Guide",
+    "summary": "In 2026 AI tools began automating drafting, consistency checks, and content organization for technical documentation, while still relying on human expertise for accuracy and compliance. This matters because docs teams can now use AI insights on readability, tone, and structure to quickly spot dense sections, confusing terminology, and gaps, enabling faster, higher‑quality, user‑focused documentation.",
+    "source": "Designspartans",
+    "url": "https://designspartans.com/ai-for-technical-documentation-2026",
     "tag": "AI Docs",
-    "date": "2026-07-25"
-  },
-  {
-    "id": "202fab4e",
-    "title": "AsyncAPI: Bringing OpenAPI to Event-Driven Systems",
-    "summary": "The article introduces AsyncAPI, a YAML/JSON specification that lets developers document event‑driven systems—topics, messages, and schemas—similar to how OpenAPI describes REST APIs, using examples with Kafka, SQS, and Avro. For documentation teams, AsyncAPI provides a single source of truth for event contracts, enabling automated docs, client generation, and contract testing, which streamlines maintenance and improves cross‑team communication.",
-    "source": "James-carr",
-    "url": "https://james-carr.org/posts/2026-01-16-asyncapi-event-driven-documentation",
-    "tag": "API Standards",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   },
   {
     "id": "61c39ff5",
     "title": "API documentation best practices guide Feb 2026 - Fern: Docs",
-    "summary": "Fern released an API documentation best‑practice guide showing how a single source of truth specification can auto‑generate SDKs and interactive docs, cutting developers’ onboarding time. This matters because keeping specs, code examples, and authentication details in sync reduces support tickets and lets docs teams maintain accurate, up‑to‑date resources with minimal manual effort.",
+    "summary": "Fern added support for multiple API specifications—including OpenAPI, AsyncAPI, OpenRPC, and gRPC/Protobuf—and automatically generates token‑efficient llms.txt documentation files. This enables docs teams to deliver machine‑readable, AI‑friendly docs that reduce support tickets and accelerate SDK generation.",
     "source": "Buildwithfern",
     "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
     "tag": "API Standards",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
+  },
+  {
+    "id": "cdff1e7c",
+    "title": "API Documentation Standards: OpenAPI, AsyncAPI & Structured Specifications | SchemaForAI.dev",
+    "summary": "The guide released in April 2026 outlines the three leading API documentation standards—OpenAPI, AsyncAPI, and JSON Schema—offering examples and showing how they enable discoverability in search and AI. Docs teams can adopt these structured specs to create consistent, machine‑readable docs that streamline maintenance, improve developer onboarding, and boost visibility across tooling ecosystems.",
+    "source": "Schemaforai",
+    "url": "https://schemaforai.dev/guides/api-documentation-standards.html",
+    "tag": "API Standards",
+    "date": "2026-07-26"
   },
   {
     "id": "0dee9e6c",
     "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "The article introduces DITA XML, explaining its XML‑based, topic‑oriented structure and how it enables content reuse across authoring, editing, translation, and multi‑format publishing. For documentation teams, adopting DITA provides a single source of truth that streamlines workflows, reduces duplication, and scales documentation across products, languages, and output types.",
+    "summary": "The article introduces DITA XML, an open‑source, XML‑based standard that structures content into reusable, topic‑oriented modules for authoring, translation, and multi‑format publishing. For documentation teams, DITA’s single‑source approach streamlines content reuse, reduces maintenance overhead, and enables consistent output across products, languages, and channels.",
     "source": "Instinctools",
     "url": "https://www.instinctools.com/blog/dita-xml",
     "tag": "DITA & Structured Content",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   },
   {
-    "id": "09dca856",
-    "title": "DITA",
-    "summary": "Heretto CCMS introduced built‑in analytics and positioned DITA as the XML‑based framework for reusable, topic‑based content. This lets documentation teams manage, scale, and publish structured content more efficiently, improving consistency and component reuse across channels.",
-    "source": "Heretto",
-    "url": "https://www.heretto.com/dita",
+    "id": "4af93ce2",
+    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
+    "summary": "Adobe launched a cloud‑native, AI‑enhanced DITA Component Content Management System called Adobe Experience Manager Guides, designed to centralize and streamline structured content creation. This gives documentation teams a single source of truth, automated consistency checks, versioning, and reuse capabilities, reducing manual effort and improving quality across multiple outputs.",
+    "source": "Adobe",
+    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
     "tag": "DITA & Structured Content",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   },
   {
-    "id": "198045e0",
-    "title": "What Is DevOps? | IBM",
-    "summary": "The article explains that DevOps merges development and operations into a single, automated workflow centered on continuous integration and delivery. For documentation teams, this requires modular, continuously updated content that can be version‑controlled and published automatically within CI/CD pipelines.",
-    "source": "Ibm",
-    "url": "https://www.ibm.com/think/topics/devops",
+    "id": "a0dc245f",
+    "title": "Medium",
+    "summary": "The author demonstrated how to generate a static documentation site from markdown using MkDocs, Docker, and Travis CI, then tag and push the Docker image to Docker Hub for deployment via Kubernetes or OpenShift. This shows docs teams can treat documentation as code, automating builds, testing, and releases within the CI/CD pipeline to ensure consistency and faster delivery.",
+    "source": "Medium",
+    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
     "tag": "DevOps & CI/CD",
-    "date": "2026-07-25"
-  },
-  {
-    "id": "c3931710",
-    "title": "What is DevOps?",
-    "summary": "The article explains that DevOps combines development and operations into a collaborative, automated lifecycle, using continuous integration, delivery, and shared tooling, often merging the two groups into a single multidisciplinary team. For documentation teams, this means creating living, modular docs that reflect continuous updates, cross‑team terminology, and integrated security practices.",
-    "source": "Atlassian",
-    "url": "https://www.atlassian.com/devops",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   },
   {
     "id": "235ecd35",
     "title": "AI-Powered Documentation Generation and Code-to-Docs Automation 2026 | Zylos Research",
-    "summary": "In 2026 AI‑powered documentation tools have moved from experimental to production‑ready, automatically scanning codebases, generating and synchronizing docs and test suites, with 75% of developers using MCP servers. This reduces documentation debt, frees developer time, and lets docs teams concentrate on quality, consistency, and strategic content.",
+    "summary": "In 2026 AI‑driven documentation tools have become production‑ready, automatically analyzing codebases, generating comprehensive docs, and keeping them synchronized with code changes through Model Context Protocol (MCP) servers. This enables docs teams to embed generation in CI pipelines, dramatically reducing the 30% of developer time spent on documentation maintenance and ensuring consistently up‑to‑date manuals.",
     "source": "Zylos",
     "url": "https://zylos.ai/research/2026-01-28-ai-documentation-generation",
     "tag": "Dev Tools",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   },
   {
-    "id": "b85723bf",
-    "title": "The 7 Best Documentation Tools for Developers in 2026 | AutomaDocs",
-    "summary": "The article reviewed and ranked the top seven documentation tools for developers in 2026, highlighting features like AI‑generated docs and MDX‑based sites. This helps documentation teams quickly identify solutions that keep docs up‑to‑date, searchable, and aligned with development workflows, reducing manual maintenance.",
-    "source": "Automadocs",
-    "url": "https://automadocs.com/blog/best-documentation-tools-2026",
+    "id": "385493c2",
+    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
+    "summary": "The article outlines the seven leading documentation generator tools for 2026, describing features such as Doxygen’s code‑comment extraction and GitBook’s collaborative markdown platform. This helps docs teams select automation and collaboration solutions that keep documentation in sync with code and streamline teamwork.",
+    "source": "Kodesage",
+    "url": "https://kodesage.ai/blog/7-documentation-generators",
     "tag": "Dev Tools",
-    "date": "2026-07-25"
+    "date": "2026-07-26"
   }
 ]
