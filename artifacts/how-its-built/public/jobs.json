@@ -1,17 +1,17 @@
 [
   {
-    "id": "b278a3bf",
+    "id": "e367133b",
     "job_title": "Technical Writer",
-    "company": "DevRev",
-    "location": "Bangalore Urban, Karnataka",
-    "experience": "3-6 Yrs",
+    "company": "Deloitte",
+    "location": "Bangalore",
+    "experience": "2-3 Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-devrev-4440636231",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-deloitte-4417919810",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-07-25",
-    "verified_at": "2026-07-25T12:03:20Z"
+    "date": "2026-07-26",
+    "verified_at": "2026-07-26T12:02:30Z"
   },
   {
     "id": "125fa472",
@@ -24,8 +24,50 @@
     "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4421826525",
     "naukri_url": null,
     "source": "LinkedIn",
+    "date": "2026-07-26",
+    "verified_at": "2026-07-26T12:02:30Z"
+  },
+  {
+    "id": "ec17d839",
+    "job_title": "Technical Writer (Healthcare Products)",
+    "company": "Gainwell Technologies",
+    "location": "Bangalore",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-healthcare-products-at-gainwell-technologies-4425791897",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-26",
+    "verified_at": "2026-07-26T12:02:30Z"
+  },
+  {
+    "id": "ca570860",
+    "job_title": "Technical Writer",
+    "company": "P360",
+    "location": "India",
+    "experience": "4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-p360-4439211938",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-26",
+    "verified_at": "2026-07-26T12:02:30Z"
+  },
+  {
+    "id": "b278a3bf",
+    "job_title": "Technical Writer",
+    "company": "DevRev",
+    "location": "Bangalore Urban, Karnataka",
+    "experience": "3-6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-devrev-4440636231",
+    "naukri_url": null,
+    "source": "LinkedIn",
     "date": "2026-07-25",
-    "verified_at": "2026-07-25T12:03:20Z"
+    "verified_at": "2026-07-26T12:02:30Z"
   },
   {
     "id": "e9f8a14d",
@@ -39,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-25",
-    "verified_at": "2026-07-25T12:03:20Z"
+    "verified_at": "2026-07-26T12:02:30Z"
   },
   {
     "id": "530429bf",
@@ -53,21 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-22",
-    "verified_at": "2026-07-25T12:03:20Z"
-  },
-  {
-    "id": "e367133b",
-    "job_title": "Technical Writer",
-    "company": "Deloitte",
-    "location": "Bangalore",
-    "experience": "2-3 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-deloitte-4417919810",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-21",
-    "verified_at": "2026-07-25T12:03:20Z"
+    "verified_at": "2026-07-26T12:02:30Z"
   },
   {
     "id": "c52d533b",
@@ -81,58 +109,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-01",
-    "verified_at": "2026-07-25T12:03:20Z"
-  },
-  {
-    "id": "98983fd4",
-    "job_title": "Senior Technical Writer",
-    "company": "Wenger & Watson",
-    "location": "Bangalore",
-    "experience": "5-7 Yrs",
-    "skills": [
-      "Technical Documentation",
-      "User Manuals",
-      "Editing",
-      "Research"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
-    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-bengaluru-5-to-7-years-070726934092",
-    "source": "Naukri",
-    "date": "2026-07-24",
-    "verified_at": "2026-07-25T12:03:20Z"
-  },
-  {
-    "id": "175d4473",
-    "job_title": "Senior Technical Writer",
-    "company": "Wenger & Watson Business Systems Private Limited",
-    "location": "Surat",
-    "experience": "5-7 Yrs",
-    "skills": [
-      "Technical Writing",
-      "Documentation",
-      "Communication",
-      "Content Development"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
-    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-wenger-watson-business-systems-private-limited-surat-5-to-7-years-080726918849",
-    "source": "Naukri",
-    "date": "2026-07-21",
-    "verified_at": "2026-07-25T12:03:20Z"
-  },
-  {
-    "id": "b6369020",
-    "job_title": "Technical Documentation Engineer",
-    "company": "Sanlayan",
-    "location": "Bangalore",
-    "experience": "3-5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
-    "naukri_url": "https://www.naukri.com/documentation-engineer-jobs-in-bengaluru",
-    "source": "Naukri",
-    "date": "2026-07-21",
-    "verified_at": "2026-07-25T12:03:20Z"
+    "verified_at": "2026-07-26T12:02:30Z"
   }
 ]
