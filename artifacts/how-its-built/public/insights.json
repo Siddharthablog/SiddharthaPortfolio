@@ -1,74 +1,83 @@
 [
   {
-    "id": "258908f1",
-    "title": "AI for Technical Documentation in 2026 Guide",
-    "summary": "In 2026 AI tools began automating drafting, consistency checks, and content organization for technical documentation, while still relying on human expertise for accuracy and compliance. This matters because docs teams can now use AI insights on readability, tone, and structure to quickly spot dense sections, confusing terminology, and gaps, enabling faster, higher‑quality, user‑focused documentation.",
-    "source": "Designspartans",
-    "url": "https://designspartans.com/ai-for-technical-documentation-2026",
+    "id": "9d60f0aa",
+    "title": "Best technical documentation software in 2026",
+    "summary": "The guide evaluated seven technical documentation platforms and concluded that Mintlify is the strongest option for engineering teams needing docs‑as‑code, built‑in API reference generation, and AI‑ready capabilities. This matters for docs teams because AI‑enhanced, high‑quality documentation improves developer support, streamlines maintenance, and ensures the content can power accurate LLM‑driven assistance.",
+    "source": "Mintlify",
+    "url": "https://www.mintlify.com/library/best-technical-documentation-software-in-2026",
     "tag": "AI Docs",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
   },
   {
-    "id": "61c39ff5",
-    "title": "API documentation best practices guide Feb 2026 - Fern: Docs",
-    "summary": "Fern added support for multiple API specifications—including OpenAPI, AsyncAPI, OpenRPC, and gRPC/Protobuf—and automatically generates token‑efficient llms.txt documentation files. This enables docs teams to deliver machine‑readable, AI‑friendly docs that reduce support tickets and accelerate SDK generation.",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
-    "tag": "API Standards",
-    "date": "2026-07-26"
+    "id": "e197e89e",
+    "title": "Best AI Tools for Technical Writing in 2026",
+    "summary": "A new guide ranks eight AI tools for technical writing, revealing that most speed up drafting while only a few—such as HappySupport, Swimm, and Mintlify—focus on maintenance and drift detection. This matters for docs teams because prioritizing upkeep‑focused AI reduces manual sync effort, improves content accuracy, and maximizes long‑term productivity.",
+    "source": "Happysupport",
+    "url": "https://happysupport.ai/blog/ai-tools-for-technical-writing",
+    "tag": "AI Docs",
+    "date": "2026-07-27"
   },
   {
-    "id": "cdff1e7c",
-    "title": "API Documentation Standards: OpenAPI, AsyncAPI & Structured Specifications | SchemaForAI.dev",
-    "summary": "The guide released in April 2026 outlines the three leading API documentation standards—OpenAPI, AsyncAPI, and JSON Schema—offering examples and showing how they enable discoverability in search and AI. Docs teams can adopt these structured specs to create consistent, machine‑readable docs that streamline maintenance, improve developer onboarding, and boost visibility across tooling ecosystems.",
-    "source": "Schemaforai",
-    "url": "https://schemaforai.dev/guides/api-documentation-standards.html",
+    "id": "5f3a2827",
+    "title": "OpenAPI Initiative – The OpenAPI Initiative provides an open ...",
+    "summary": "The OpenAPI Initiative released its widely adopted specification that formalizes HTTP API descriptions, enabling developers to understand, test, and generate client code for APIs. For documentation teams, this common, vendor‑agnostic standard simplifies authoring, automates doc generation, and leverages shared developer knowledge, reducing overhead and improving consistency across API documentation.",
+    "source": "Openapis",
+    "url": "https://www.openapis.org",
     "tag": "API Standards",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
+  },
+  {
+    "id": "97052efb",
+    "title": "OpenAPI Specification - Wikipedia",
+    "summary": "The OpenAPI Specification, formerly Swagger, was donated to the Linux Foundation’s OpenAPI Initiative, renamed, and has progressed to version 3.2.0 in 2025. This standardized, machine‑readable API contract lets documentation teams generate, maintain, and sync accurate API docs automatically.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/OpenAPI_Specification",
+    "tag": "API Standards",
+    "date": "2026-07-27"
   },
   {
     "id": "0dee9e6c",
     "title": "What is DITA XML? Technical Writing & Content Management Guide",
-    "summary": "The article introduces DITA XML, an open‑source, XML‑based standard that structures content into reusable, topic‑oriented modules for authoring, translation, and multi‑format publishing. For documentation teams, DITA’s single‑source approach streamlines content reuse, reduces maintenance overhead, and enables consistent output across products, languages, and channels.",
+    "summary": "A Danish manufacturer adopted a SaaS DITA‑based documentation platform, but the system proved ill‑performing, inflexible, and missing key features. This highlights for documentation teams that while DITA’s modular, reusable XML can streamline multi‑format publishing, selecting the right tool and",
     "source": "Instinctools",
     "url": "https://www.instinctools.com/blog/dita-xml",
     "tag": "DITA & Structured Content",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
   },
   {
-    "id": "4af93ce2",
-    "title": "Cloud-Native DITA CCMS | Structured Content Management by Adobe",
-    "summary": "Adobe launched a cloud‑native, AI‑enhanced DITA Component Content Management System called Adobe Experience Manager Guides, designed to centralize and streamline structured content creation. This gives documentation teams a single source of truth, automated consistency checks, versioning, and reuse capabilities, reducing manual effort and improving quality across multiple outputs.",
-    "source": "Adobe",
-    "url": "https://www.adobe.com/products/technical-content-solutions/dita-ccms-for-structured-content-management.html",
+    "id": "ca13d12d",
+    "title": "Structured Authoring and DITA: From Hands-On Experience to Implementation",
+    "summary": "The article explains that DITA, the Darwin Information Typing Architecture, is an XML‑based structured content standard created by IBM and now overseen by OASIS. It matters because it lets technical writers produce modular, reusable content that can be managed and published across multiple platforms, streamlining documentation workflows.",
+    "source": "Madcapsoftware",
+    "url": "https://www.madcapsoftware.com/blog/structured-authoring-dita",
     "tag": "DITA & Structured Content",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
   },
   {
-    "id": "a0dc245f",
-    "title": "Medium",
-    "summary": "The author demonstrated how to generate a static documentation site from markdown using MkDocs, Docker, and Travis CI, then tag and push the Docker image to Docker Hub for deployment via Kubernetes or OpenShift. This shows docs teams can treat documentation as code, automating builds, testing, and releases within the CI/CD pipeline to ensure consistency and faster delivery.",
-    "source": "Medium",
-    "url": "https://medium.com/@erwinalberto/automate-your-documentation-with-your-ci-cd-pipeline-documentation-as-code-f921acbc5184",
+    "id": "a2993ea3",
+    "title": "A Beginner-Friendly Guide to Docs as Code & CI/CD Pipelines - DEV Community",
+    "summary": "The article introduces Docs as Code, showing how to write Markdown docs in Git, run CI checks, and automatically build and deploy them with GitHub Actions. This matters because it lets documentation be version‑controlled, reviewed, and released with the same automated workflow as code, reducing manual effort and keeping docs in sync with product changes.",
+    "source": "Dev.to",
+    "url": "https://dev.to/uzukwu_michael_91a95b823b/a-beginner-friendly-guide-to-docs-as-code-cicd-pipelines-470l",
     "tag": "DevOps & CI/CD",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
+  },
+  {
+    "id": "84601b9b",
+    "title": "What is Docs as Code? Guide to Modern Technical Documentation | Kong Inc.",
+    "summary": "Kong explains that Docs as Code applies software development practices—Git versioning, Markdown, and CI/CD pipelines—to create, test, and publish documentation automatically. This matters because it lets documentation teams keep content in sync with code, reduce manual effort, and maintain quality through peer review and automation, accelerating release cycles.",
+    "source": "Konghq",
+    "url": "https://konghq.com/blog/learning-center/what-is-docs-as-code",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-07-27"
   },
   {
     "id": "235ecd35",
     "title": "AI-Powered Documentation Generation and Code-to-Docs Automation 2026 | Zylos Research",
-    "summary": "In 2026 AI‑driven documentation tools have become production‑ready, automatically analyzing codebases, generating comprehensive docs, and keeping them synchronized with code changes through Model Context Protocol (MCP) servers. This enables docs teams to embed generation in CI pipelines, dramatically reducing the 30% of developer time spent on documentation maintenance and ensuring consistently up‑to‑date manuals.",
+    "summary": "In 2026 AI‑powered documentation tools have moved from experimental to production‑ready, automatically scanning codebases, generating and synchronizing docs with code changes, with 75% of developers using MCP servers. This cuts documentation debt, frees developer time, and lets documentation teams concentrate on quality, consistency, and strategic content instead of manual updates.",
     "source": "Zylos",
     "url": "https://zylos.ai/research/2026-01-28-ai-documentation-generation",
     "tag": "Dev Tools",
-    "date": "2026-07-26"
-  },
-  {
-    "id": "385493c2",
-    "title": "The Top 7 Documentation Generator Tools to Know About in 2026",
-    "summary": "The article outlines the seven leading documentation generator tools for 2026, describing features such as Doxygen’s code‑comment extraction and GitBook’s collaborative markdown platform. This helps docs teams select automation and collaboration solutions that keep documentation in sync with code and streamline teamwork.",
-    "source": "Kodesage",
-    "url": "https://kodesage.ai/blog/7-documentation-generators",
-    "tag": "Dev Tools",
-    "date": "2026-07-26"
+    "date": "2026-07-27"
   }
 ]
