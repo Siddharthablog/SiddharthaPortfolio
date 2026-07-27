@@ -1,5 +1,24 @@
 [
   {
+    "id": "a3baac1f",
+    "job_title": "Technical Writer",
+    "company": "Schneider Electric",
+    "location": "Bangalore",
+    "experience": "7-12 Yrs",
+    "skills": [
+      "Illustrator",
+      "DITA XML",
+      "Arbortext Editor",
+      "Offer DAM"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-schneider-electric-4443844868",
+    "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-07-27",
+    "verified_at": "2026-07-27T13:40:28Z"
+  },
+  {
     "id": "e367133b",
     "job_title": "Technical Writer",
     "company": "Deloitte",
@@ -10,8 +29,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-deloitte-4417919810",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-07-26",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "date": "2026-07-27",
+    "verified_at": "2026-07-27T13:40:28Z"
+  },
+  {
+    "id": "4583ebc9",
+    "job_title": "Customer Documentation Developer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "10-12 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/customer-documentation-developer-at-nokia-4440168035",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-27",
+    "verified_at": "2026-07-27T13:40:28Z"
   },
   {
     "id": "125fa472",
@@ -25,21 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-26",
-    "verified_at": "2026-07-26T12:02:30Z"
-  },
-  {
-    "id": "ec17d839",
-    "job_title": "Technical Writer (Healthcare Products)",
-    "company": "Gainwell Technologies",
-    "location": "Bangalore",
-    "experience": null,
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-healthcare-products-at-gainwell-technologies-4425791897",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-26",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "verified_at": "2026-07-27T13:40:28Z"
   },
   {
     "id": "ca570860",
@@ -53,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-26",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "verified_at": "2026-07-27T13:40:28Z"
   },
   {
     "id": "b278a3bf",
@@ -67,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-25",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "verified_at": "2026-07-27T13:40:28Z"
   },
   {
     "id": "e9f8a14d",
@@ -81,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-25",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "verified_at": "2026-07-27T13:40:28Z"
   },
   {
     "id": "530429bf",
@@ -95,20 +114,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-22",
-    "verified_at": "2026-07-26T12:02:30Z"
-  },
-  {
-    "id": "c52d533b",
-    "job_title": "System Integration Documentation Engineer",
-    "company": "Larsen & Toubro",
-    "location": "Bangalore",
-    "experience": "5 Yrs",
-    "skills": [],
-    "summary": "Larsen & Toubro seeks a System Integration Documentation Engineer with expertise in technical writing.",
-    "apply_url": "https://in.linkedin.com/jobs/view/system-integration-documentation-engineer-at-larsen-toubro-4419808151",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-01",
-    "verified_at": "2026-07-26T12:02:30Z"
+    "verified_at": "2026-07-27T13:40:28Z"
   }
 ]
