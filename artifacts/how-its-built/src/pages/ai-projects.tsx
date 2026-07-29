@@ -110,9 +110,10 @@ function FullPagePathAnimation() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const PAGE_SECTIONS = [
-  { label: "Tech Pulse",    id: "tech-pulse" },
-  { label: "MSTP Finetune", id: "mstp-finetune" },
   { label: "Job Radar",     id: "job-radar" },
+  { label: "API DocOps",    id: "docops-suite" },
+  { label: "MSTP Finetune", id: "mstp-finetune" },
+  { label: "Tech Pulse",    id: "tech-pulse" },
 ];
 
 function StickyNav() {
@@ -937,7 +938,7 @@ function TechPulseProject() {
 
   return (
     <div id="tech-pulse" ref={ref} style={{ scrollMarginTop: 80, marginTop: "4rem" }}>
-      <SectionLabel label="Project 03 · Tech Pulse" />
+      <SectionLabel label="Project 04 · Tech Pulse" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
 
       {/* Project intro card */}
@@ -1237,7 +1238,7 @@ function MstpFinetune() {
 
   return (
     <div id="mstp-finetune" ref={ref} style={{ scrollMarginTop: 80 }}>
-      <SectionLabel label="Project 02 · MSTP Finetune" />
+      <SectionLabel label="Project 03 · MSTP Finetune" />
       <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
 
       {/* Project intro card */}
@@ -1628,6 +1629,91 @@ function TypewriterHeading() {
 }
 
 
+function DocOpsSuiteSection() {
+  const { ref, visible } = useReveal(0.1);
+  const isMobile = useIsMobile();
+
+  const agents = [
+    { icon: "⚙️", color: "hsl(100,40%,44%)", name: "Pipeline Agent", desc: "5-gate sequential workflow — Validate → Structure → Generate → Review → Score" },
+    { icon: "🤖", color: "hsl(210,88%,52%)", name: "MCP Agent", desc: "Transforms API specs into Model Context Protocol docs for AI clients like Claude" },
+    { icon: "🔧", color: "hsl(16,80%,52%)", name: "Normalizer", desc: "Audits existing API reference content and produces a clean, normalised version" },
+    { icon: "📖", color: "hsl(260,60%,55%)", name: "Glossary Builder", desc: "Extracts terms, flags inconsistencies, and proposes canonical definitions" },
+  ];
+
+  return (
+    <div id="docops-suite" ref={ref} style={{ scrollMarginTop: 80 }}>
+      <SectionLabel label="Project 02 · API DocOps" />
+      <div style={{ height: 1, background: "var(--border)", marginTop: "0.5rem" }} />
+
+      {/* Project intro card */}
+      <div style={{
+        background: "white", border: "1px solid var(--border)", borderRadius: "1.2rem",
+        padding: isMobile ? "1.25rem" : "2rem", marginTop: "1.5rem",
+        boxShadow: "0 2px 20px rgba(0,0,0,0.05)",
+        opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(18px)",
+        transition: "opacity 0.6s ease, transform 0.6s ease",
+      }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
+          <div style={{
+            width: 42, height: 42, borderRadius: 10, flexShrink: 0,
+            background: "hsl(100,40%,44%,0.12)", border: "1.5px solid hsl(100,40%,44%,0.25)",
+            display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20,
+          }}>🗂️</div>
+          <div>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--text)", lineHeight: 1.25, marginBottom: 6 }}>
+              API DocOps
+            </h2>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 10px", borderRadius: 9999, background: "hsl(100,40%,44%,0.1)", border: "1.5px solid hsl(100,40%,44%,0.22)", color: "hsl(100,40%,38%)" }}>Live Demo</span>
+              <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 10px", borderRadius: 9999, background: "hsl(210,88%,52%,0.1)", border: "1.5px solid hsl(210,88%,52%,0.22)", color: "hsl(210,88%,45%)" }}>OpenRouter</span>
+            </div>
+          </div>
+        </div>
+        <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 16 }}>
+          <strong style={{ color: "var(--text)" }}>4 AI agents</strong> that convert raw API specifications into complete developer
+          documentation. Each agent uses a multi-gate pipeline with a{" "}
+          <strong style={{ color: "var(--text)" }}>human approval step at each gate</strong>. Documentation is validated, structured,
+          generated, and scored using <strong style={{ color: "var(--text)" }}>NVIDIA Nemotron 3</strong> via OpenRouter, with
+          real-time output streamed over <strong style={{ color: "var(--text)" }}>SSE</strong>.
+        </p>
+
+        {/* Agent grid */}
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "0.75rem", marginBottom: 16 }}>
+          {agents.map((a, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, background: "hsl(45,22%,97%)", borderRadius: "0.75rem", padding: "0.75rem", border: "1px solid var(--border)" }}>
+              <div style={{ width: 32, height: 32, borderRadius: 8, flexShrink: 0, background: `${a.color}14`, border: `1px solid ${a.color}28`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 15 }}>{a.icon}</div>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text)", marginBottom: 2 }}>{a.name}</div>
+                <div style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.5 }}>{a.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 16 }}>
+          {["React 19", "Express.js", "SSE Streaming", "OpenRouter", "NVIDIA Nemotron 3", "Vite", "TailwindCSS v4", "TypeScript"].map(t => (
+            <span key={t} style={{ background: "hsl(100,40%,44%,0.1)", border: "1.5px solid hsl(100,40%,44%,0.2)", color: "hsl(100,40%,38%)", fontSize: 10, fontWeight: 700, padding: "2px 10px", borderRadius: 9999 }}>{t}</span>
+          ))}
+        </div>
+
+        <Link href="/docops">
+          <a style={{
+            display: "inline-flex", alignItems: "center", gap: 8,
+            padding: "10px 24px", borderRadius: 9999, fontSize: 13, fontWeight: 700,
+            background: "hsl(100,40%,44%)", color: "white", textDecoration: "none",
+            boxShadow: "0 2px 12px hsl(100,40%,44%,0.35)", transition: "opacity 0.2s",
+          }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+          >
+            🚀 Launch API DocOps →
+          </a>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function AIProjectsPage() {
   const isMobile = useIsMobile();
 
@@ -1647,7 +1733,7 @@ export default function AIProjectsPage() {
             fontSize: 10, fontWeight: 800, padding: "2px 10px", borderRadius: 9999,
             background: "hsl(260,60%,55%,0.12)", border: "1.5px solid hsl(260,60%,55%,0.3)",
             color: "hsl(260,60%,50%)",
-          }}>3 Projects</span>
+          }}>4 Projects</span>
         </div>
         <h1 style={{ fontSize: isMobile ? "1.5rem" : "clamp(1.6rem,3.5vw,2.2rem)", fontWeight: 900, color: "var(--text)", lineHeight: 1.2, minHeight: "1.3em" }}>
           <TypewriterHeading />
@@ -1664,6 +1750,7 @@ export default function AIProjectsPage() {
       {/* ── Content ── */}
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "0 1.5rem 6rem" }}>
         <JobRadarProject />
+        <DocOpsSuiteSection />
         <MstpFinetune />
         <TechPulseProject />
       </div>

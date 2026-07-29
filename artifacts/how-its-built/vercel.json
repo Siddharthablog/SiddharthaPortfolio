@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/:path*" },
-    { "source": "/(.*)",       "destination": "/index.html"  }
+    { "source": "/api/docs-agent/pipeline",  "destination": "/api/docs-agent-pipeline"  },
+    { "source": "/api/docs-agent/mcp",       "destination": "/api/docs-agent-mcp"       },
+    { "source": "/api/docs-agent/normalize", "destination": "/api/docs-agent-normalize" },
+    { "source": "/api/docs-agent/glossary",  "destination": "/api/docs-agent-glossary"  },
+    { "source": "/api/:path*",               "destination": "/api/:path*"               },
+    { "source": "/(.*)",                     "destination": "/index.html"               }
   ]
 }
