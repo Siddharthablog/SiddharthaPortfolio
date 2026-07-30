@@ -16,7 +16,21 @@
     "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
     "source": "LinkedIn + Naukri",
     "date": "2026-07-27",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
+  },
+  {
+    "id": "bd13491a",
+    "job_title": "Documentation Engineer",
+    "company": "Infineon Technologies",
+    "location": "Bengaluru East, Karnataka",
+    "experience": "5+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-07-30",
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "26a6a002",
@@ -29,8 +43,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-07-29",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "date": "2026-07-30",
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "3ee9c748",
@@ -44,35 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-29",
-    "verified_at": "2026-07-29T13:01:36Z"
-  },
-  {
-    "id": "b278a3bf",
-    "job_title": "Technical Writer",
-    "company": "DevRev",
-    "location": "Bangalore Urban, Karnataka",
-    "experience": "3-6 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-devrev-4440636231",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-28",
-    "verified_at": "2026-07-29T13:01:36Z"
-  },
-  {
-    "id": "bd13491a",
-    "job_title": "Documentation Engineer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "5+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-28",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "e9f8a14d",
@@ -86,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-28",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "e367133b",
@@ -100,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-27",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "4583ebc9",
@@ -114,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-27",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "ca570860",
@@ -128,7 +114,45 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-26",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
+  },
+  {
+    "id": "ebd1e9ed",
+    "job_title": "UX Writer (Technical)",
+    "company": "Geekyhr",
+    "location": "Bangalore",
+    "experience": "3-4 years",
+    "skills": [
+      "UX Writing",
+      "Technical Writing",
+      "Microcopy",
+      "Documentation"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
+    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
+    "source": "Naukri",
+    "date": "2026-07-30",
+    "verified_at": "2026-07-30T12:30:50Z"
+  },
+  {
+    "id": "7d3db518",
+    "job_title": "Lead UX Writer",
+    "company": "Sprinklr Solutions Pvt Ltd",
+    "location": "Gurugram",
+    "experience": "10-15 Yrs",
+    "skills": [
+      "Product management",
+      "Automation",
+      "Social media",
+      "Workflow"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-lead-ux-writer-sprinklr-solutions-pvt-ltd-gurugram-10-to-15-years-230726502693",
+    "naukri_url": "https://www.naukri.com/job-listings-lead-ux-writer-sprinklr-solutions-pvt-ltd-gurugram-10-to-15-years-230726502693",
+    "source": "Naukri",
+    "date": "2026-07-30",
+    "verified_at": "2026-07-30T12:30:50Z"
   },
   {
     "id": "7f5ccc7f",
@@ -147,25 +171,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-lead-technical-writer-senior-itconnectus-inc-bengaluru-5-to-10-years-240726503519",
     "source": "Naukri",
     "date": "2026-07-29",
-    "verified_at": "2026-07-29T13:01:36Z"
-  },
-  {
-    "id": "ebd1e9ed",
-    "job_title": "UX Writer (Technical)",
-    "company": "Geekyhr",
-    "location": "Bangalore",
-    "experience": "3-4 years",
-    "skills": [
-      "UX Writing",
-      "Technical Writing",
-      "Microcopy",
-      "Documentation"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
-    "source": "Naukri",
-    "date": "2026-07-29",
-    "verified_at": "2026-07-29T13:01:36Z"
+    "verified_at": "2026-07-30T12:30:50Z"
   }
 ]
