@@ -61,12 +61,96 @@ Key Responsibilities:
 - Produced Kreatio Enterprise Resource Planning ERP video tutorials for clients
 
 ## TECHNICAL SKILLS
-Markup and Programming Languages: DITA, XML, Markdown, YAML, JSON, HTML, JavaScript, reStructuredText, Python
+Ten years of experience designing and maintaining documentation tooling across markup languages, authoring environments, CI/CD pipelines, and AI automation.
+
+Markup and Programming Languages: DITA, XML, Markdown, YAML, JSON, HTML, JavaScript, TypeScript, reStructuredText, Python
 Authoring Tools: Arbortext Editor, Oxygen XML, Acrolinx, VS Code
 AI and Automation Frameworks: LangChain, LangGraph, Streamlit, Docling, RAG, MCP, Ollama, n8n, Langflow
 CCMS and Content Management: Astoria, Contenta, DITAVAL, Single Sourcing, Information Mapping
-CI and CD and Collaboration Tools: Jenkins, GitHub, JIRA, Confluence, Swagger
+CI and CD and Collaboration Tools: Jenkins, GitHub, JIRA, Confluence, Swagger, GitHub Actions
 Graphics and Media Tools: draw.io, Clipchamp, TechSmith Camtasia
+Modern Web Stack: React 19, Vite, Tailwind CSS, TypeScript, Framer Motion, Radix UI
+
+## PORTFOLIO PROJECTS
+
+### Project 1: Interactive Portfolio Website
+Repository: Video-Replicate (artifacts/how-its-built)
+Tech Stack: React 19, Vite 7, Tailwind CSS 4, TypeScript, Framer Motion, Radix UI, Wouter
+Duration: 2025
+Overview: A modern, fully animated portfolio website showcasing technical writing expertise and project achievements. Built with a focus on performance, responsive design, and smooth user interactions.
+
+Key Features:
+- Smooth scroll animations powered by Framer Motion
+- Fully responsive design optimized for mobile, tablet, and desktop
+- Interactive capability cards highlighting core competencies
+- Animated skill tags with hover effects
+- Dynamic experience timeline with visual hierarchy
+- Professional UI components built with Radix UI primitives
+- Type-safe development with TypeScript
+- Lightning-fast build and dev experience with Vite
+
+Project Highlights:
+- Deployed to Vercel with zero-downtime updates via vercel.json configuration
+- Customizable theme system with CSS variables
+- Accessibility-first component design
+- SEO optimized with meta tags and OpenGraph support
+- Production-ready build pipeline with source map support
+
+GitHub: https://github.com/Siddharthablog
+
+### Project 2: Tech Pulse - AI-Powered Documentation Curation Engine
+Repository: Video-Replicate (.github/scripts)
+Tech Stack: Python 3.10+, Tavily API, Groq API, GitHub Actions, JSON
+Duration: 2025
+Overview: An automated content curation system that discovers, summarizes, and categorizes the latest technology news related to documentation, AI, DevOps, and development tools. Runs on a schedule via GitHub Actions and updates insights.json for portfolio consumption.
+
+Key Features:
+- Tavily API integration for real-time tech documentation news search
+- Groq API integration for AI-powered article summarization using Llama 3.1 70B
+- Automated deduplication to eliminate repeated articles
+- Intelligent categorization with tags: AI Docs, API Standards, DITA & Structured Content, DevOps & CI/CD, Dev Tools
+- GitHub Actions workflow for scheduled curation (updates automatically)
+- Environment variable management for secure API key handling
+- JSON output format for easy integration with web applications
+- Detailed error handling and logging
+
+Automation Features:
+- Scheduled daily runs via GitHub Actions workflow
+- Supports local testing with helper scripts
+- Python dependencies managed via requirements.txt
+- Virtual environment support for isolated testing
+- CLI arguments for custom output paths
+
+GitHub: https://github.com/Siddharthablog
+
+### Project 3: Express API Server with TypeScript
+Repository: Video-Replicate (artifacts/api-server)
+Tech Stack: Express 5, TypeScript, Pino Logger, CORS, Drizzle ORM, Node.js
+Duration: 2025
+Overview: A production-ready Express API server built with TypeScript for reliable backend services. Features structured logging, CORS support, and database integration capabilities via Drizzle ORM.
+
+Key Features:
+- Express 5 for modern async/await support
+- TypeScript for type-safe API development
+- Pino logger for structured, high-performance logging
+- CORS middleware for secure cross-origin requests
+- Drizzle ORM integration for type-safe database operations
+- Cookie parser for session management
+- Source map support for debugging production builds
+- Monorepo workspace integration
+
+API Routes:
+- Health check endpoint for monitoring
+- Chat endpoint for conversational features
+- Modular route structure for scalability
+
+Development:
+- Hot-reload development server
+- esbuild for fast compilation
+- TypeScript type checking
+- Production-ready source maps
+
+GitHub: https://github.com/Siddharthablog
 
 ## KEY ACHIEVEMENTS
 Achievement 1: Reduced 3-day doc archival process to under 4 hours using Python and Ollama to automate identification and removal of version-specific DITA content
@@ -74,6 +158,8 @@ Achievement 2: Cut peer-review time by 40% by deploying a Streamlit, Python, Oll
 Achievement 3: Reduced content duplication by 65% by managing documentation across 6 IBM Power Server models using DITAVAL profiling from a single DITA source
 Achievement 4: Documented 7+ IBM Cloud products including IBM Cloud Power Virtual Server and IBM Power10 and Power11 server families
 Achievement 5: Participated in WatsonX Agentic AI Hackathon and Hacktoberfest as an active open-source contributor
+Achievement 6: Built a complete portfolio website from scratch using modern web technologies, demonstrating full-stack capabilities in React, TypeScript, and deployment automation
+Achievement 7: Created an automated Tech Pulse curation engine that aggregates AI and documentation industry insights using external APIs and GitHub Actions
 
 ## EDUCATION AND CERTIFICATIONS
 BE Computer Science, Dayananda Sagar College, Bangalore, 2014

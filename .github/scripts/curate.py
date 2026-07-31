@@ -35,28 +35,37 @@ GROQ_MODEL = "openai/gpt-oss-120b"
 # Search queries — each maps to a tag category
 SEARCH_QUERIES = [
     {
-        "query": "AI documentation tools LLM technical writing 2026",
+        "query": "AI LLM tools for technical writers documentation authoring 2026",
         "tag": "AI Docs",
     },
     {
-        "query": "OpenAPI AsyncAPI API documentation standards 2026",
+        "query": "OpenAPI AsyncAPI REST API reference documentation best practices 2026",
         "tag": "API Standards",
     },
     {
-        "query": "DITA XML structured content management technical writing",
+        "query": "DITA XML structured authoring content reuse technical documentation",
         "tag": "DITA & Structured Content",
     },
     {
-        "query": "DevOps CI/CD documentation automation pipeline docs-as-code",
+        "query": "docs-as-code documentation CI/CD pipeline technical writing automation 2026",
         "tag": "DevOps & CI/CD",
     },
     {
-        "query": "developer tools documentation generation code-to-docs 2026",
+        "query": "documentation generators static site tools technical writers 2026",
         "tag": "Dev Tools",
     },
 ]
 
-GROQ_SYSTEM_PROMPT = "Summarise the article in 2 sentences for technical writers. Sentence 1: what happened. Sentence 2: why it matters for docs teams. No markdown. Under 60 words."
+GROQ_SYSTEM_PROMPT = (
+    "You are a curator for technical writers and documentation professionals. "
+    "First, decide if the article is directly relevant to technical writing, "
+    "documentation tooling, content strategy, API docs, structured authoring, "
+    "or docs automation. If it is NOT relevant, respond with exactly: SKIP\n"
+    "If it IS relevant, summarise it in 2 sentences. "
+    "Sentence 1: what happened or what was released. "
+    "Sentence 2: why it matters specifically for documentation teams or technical writers. "
+    "No markdown. Under 60 words total."
+)
 
 
 # ---------------------------------------------------------------------------
@@ -208,10 +217,13 @@ def run_pipeline(output_path: Path) -> None:
                 print(f"   ⏭  Skipping (duplicate in run): {title[:60]}...")
                 continue
 
-            # Summarise with Groq
+            # Summarise with Groq — skip if model flags as off-topic
             print(f"   🤖  Summarising: {title[:60]}...")
             summary = summarise_with_groq(title, content, groq_key)
             if not summary:
+                continue
+            if summary.strip().upper().startswith("SKIP"):
+                print(f"   🚫  Skipping (off-topic per LLM): {title[:60]}...")
                 continue
 
             total_summarised += 1

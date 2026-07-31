@@ -914,6 +914,7 @@ function TechPulseProject() {
   const [loading, setLoading] = useState(true);
   const [activeTag, setActiveTag] = useState("All");
   const [error, setError] = useState(false);
+  const [newsOpen, setNewsOpen] = useState(false);
 
   useEffect(() => {
     fetch("/insights.json")
@@ -987,10 +988,23 @@ function TechPulseProject() {
             </div>
           </div>
         </div>
+        <p style={{ fontSize: "0.85rem", color: "var(--text)", lineHeight: 1.8, marginBottom: 8, fontWeight: 600 }}>
+          Stay current with the documentation industry, without the manual search.
+        </p>
         <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          A fully automated pipeline that scours tech news daily using <strong style={{ color: "var(--text)" }}>Tavily Search</strong>, 
-          synthesises insights with <strong style={{ color: "var(--text)" }}>GPT-OSS 20B</strong>,
-          commits structured JSON back to GitHub, and auto-deploys via <strong style={{ color: "var(--text)" }}>Vercel</strong> demonstrating autonomous DocOps at scale.
+          Documentation teams get a daily feed of curated articles across AI tooling, API standards,
+          structured authoring, and DevOps practices. Every article is filtered and summarised for
+          relevance to docs work, so the team stays informed without leaving their workflow.
+        </p>
+        <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
+          A <strong style={{ color: "var(--text)" }}>GitHub Actions CRON</strong> job runs daily,
+          querying <strong style={{ color: "var(--text)" }}>Tavily Search</strong> across five
+          documentation categories. Each result is filtered and summarised by{" "}
+          <strong style={{ color: "var(--text)" }}>GPT-OSS 120B via Groq</strong>, with off-topic
+          articles automatically dropped. The top 9 insights are written to{" "}
+          <strong style={{ color: "var(--text)" }}>insights.json</strong> and committed back to the
+          repository, triggering a <strong style={{ color: "var(--text)" }}>Vercel</strong> redeploy
+          with no manual steps.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 5 }}>
           {["GitHub Actions", "Tavily API", "Groq LLM", "Python", "JSON Schema", "Vercel CI/CD"].map(t => (
@@ -1002,8 +1016,96 @@ function TechPulseProject() {
             }}>{t}</span>
           ))}
         </div>
+
+        {/* HOW THIS WORKS pipeline strip */}
+        <div style={{
+          marginTop: "1.25rem",
+          background: "hsl(210,88%,52%,0.04)",
+          border: "1px solid hsl(210,88%,52%,0.12)",
+          borderRadius: "0.75rem",
+          padding: "0.85rem 1.1rem",
+        }}>
+          <div style={{
+            fontSize: 9, fontWeight: 800, textTransform: "uppercase",
+            letterSpacing: "0.14em", color: "var(--muted)", marginBottom: 10,
+          }}>HOW THIS WORKS</div>
+          <style>{`
+            @keyframes arrowPulse {
+              0%,100% { opacity: 0.35; transform: translateX(0); }
+              50%      { opacity: 1;    transform: translateX(3px); }
+            }
+          `}</style>
+          <div style={{
+            display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6,
+          }}>
+            {[
+              { emoji: "⏰", label: "GitHub Actions CRON", color: "hsl(40,10%,30%)"    },
+              { emoji: "🔍", label: "Tavily Search",        color: "hsl(210,88%,52%)"  },
+              { emoji: "🤖", label: "Groq LLM Synthesis",   color: "hsl(260,60%,55%)"  },
+              { emoji: "📄", label: "JSON Commit",          color: "hsl(100,40%,44%)"  },
+              { emoji: "▲",  label: "Vercel Deploy",        color: "hsl(0,0%,20%)"     },
+            ].map((step, i, arr) => (
+              <span key={step.label} style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                <span style={{
+                  display: "inline-flex", alignItems: "center", gap: 4,
+                  fontSize: 10, fontWeight: 700,
+                  background: step.color + "12",
+                  border: `1px solid ${step.color}28`,
+                  color: step.color,
+                  padding: "4px 10px", borderRadius: 9999,
+                }}>
+                  <span>{step.emoji}</span>{step.label}
+                </span>
+                {i < arr.length - 1 && (
+                  <span style={{
+                    fontSize: 12, fontWeight: 800,
+                    color: "hsl(210,88%,52%)",
+                    display: "inline-block",
+                    animation: `arrowPulse 1.4s ease-in-out ${i * 0.22}s infinite`,
+                  }}>→</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Launch / Close button — same slot */}
+        <div style={{ marginTop: "1.25rem" }}>
+          {!newsOpen ? (
+            <button
+              onClick={() => setNewsOpen(true)}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "10px 24px", borderRadius: 9999, fontSize: 13, fontWeight: 700,
+                background: "hsl(210,88%,52%)", color: "white",
+                border: "none", cursor: "pointer",
+                boxShadow: "0 2px 12px hsl(210,88%,52%,0.35)", transition: "opacity 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              🚀 Launch Autonomous News →
+            </button>
+          ) : (
+            <button
+              onClick={() => setNewsOpen(false)}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                padding: "7px 18px", borderRadius: 9999, fontSize: 11, fontWeight: 700,
+                background: "hsl(210,88%,52%)", color: "white",
+                border: "none", cursor: "pointer",
+                boxShadow: "0 2px 12px hsl(210,88%,52%,0.35)", transition: "opacity 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              ✕ Close
+            </button>
+          )}
+        </div>
       </div>
 
+      {newsOpen && <>
       {/* Tag filter pills */}
       <div style={{
         display: "flex", flexWrap: "wrap", gap: 6,
@@ -1119,53 +1221,7 @@ function TechPulseProject() {
         </div>
       )}
 
-      {/* Pipeline architecture explainer */}
-      <div style={{
-        marginTop: "2rem",
-        background: "white",
-        border: "1px solid var(--border)",
-        borderRadius: "1rem",
-        padding: isMobile ? "1rem" : "1.25rem 1.5rem",
-        display: "flex",
-        alignItems: isMobile ? "flex-start" : "center",
-        flexDirection: isMobile ? "column" : "row",
-        gap: isMobile ? 12 : 20,
-        boxShadow: "0 2px 12px rgba(0,0,0,0.03)",
-      }}>
-        <div style={{
-          fontSize: 10, fontWeight: 800, textTransform: "uppercase",
-          letterSpacing: "0.12em", color: "var(--muted)",
-          whiteSpace: "nowrap", flexShrink: 0,
-        }}>HOW THIS WORKS</div>
-        <div style={{
-          display: "flex", flexWrap: "wrap", gap: 6,
-          alignItems: "center",
-        }}>
-          {[
-            { emoji: "⏰", label: "GitHub Actions CRON", color: "hsl(40,10%,30%)" },
-            { emoji: "🔍", label: "Tavily Search", color: "hsl(210,88%,52%)" },
-            { emoji: "🤖", label: "Groq LLM Synthesis", color: "hsl(260,60%,55%)" },
-            { emoji: "📄", label: "JSON Commit", color: "hsl(100,40%,44%)" },
-            { emoji: "▲", label: "Vercel Deploy", color: "hsl(0,0%,20%)" },
-          ].map((step, i, arr) => (
-            <span key={step.label} style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700,
-                background: step.color + "12",
-                border: `1px solid ${step.color}25`,
-                color: step.color,
-                padding: "3px 9px", borderRadius: 9999,
-                display: "inline-flex", alignItems: "center", gap: 4,
-              }}>
-                <span>{step.emoji}</span> {step.label}
-              </span>
-              {i < arr.length - 1 && (
-                <span style={{ color: "var(--border)", fontSize: 11, fontWeight: 700, margin: "0 2px" }}>→</span>
-              )}
-            </span>
-          ))}
-        </div>
-      </div>
+      </>}
     </div>
   );
 }
@@ -1182,6 +1238,7 @@ function MstpFinetune() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [botOpen, setBotOpen] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -1266,11 +1323,13 @@ function MstpFinetune() {
           </div>
         </div>
         <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8, marginBottom: 14 }}>
-          A <strong style={{ color: "var(--text)" }}>Llama 3.2 3B</strong> model fine-tuned on{" "}
+          <strong style={{ color: "var(--text)" }}>Llama 3.2 3B Instruct</strong> fine-tuned on{" "}
           <strong style={{ color: "var(--text)" }}>Microsoft Technical Publications (MSTP)</strong> style
-          guide data using <strong style={{ color: "var(--text)" }}>Unsloth QLoRA</strong> — trained on a single free Colab GPU
-          and deployed as an interactive chatbot on <strong style={{ color: "var(--text)" }}>Hugging Face Spaces</strong>
-          {" "}— demonstrating that a Technical Writer can train, deploy, and integrate custom LLMs.
+          guide data using <strong style={{ color: "var(--text)" }}>Unsloth QLoRA</strong> with 4-bit quantisation
+          on a single free Colab T4 GPU. The model was trained with LoRA rank 16, merged into full weights,
+          quantised to <strong style={{ color: "var(--text)" }}>GGUF format</strong> for local inference via{" "}
+          <strong style={{ color: "var(--text)" }}>Ollama</strong>, and deployed as a chatbot on{" "}
+          <strong style={{ color: "var(--text)" }}>Hugging Face Spaces</strong> backed by the HF Inference API.
         </p>
         <div style={{ fontSize: "0.8rem", color: "var(--muted)", lineHeight: 2, marginBottom: 14, display: "flex", flexDirection: "column", gap: 2 }}>
           <span>
@@ -1312,10 +1371,30 @@ function MstpFinetune() {
             }}>{t}</span>
           ))}
         </div>
+
+        {/* Launch button */}
+        {!botOpen && (
+          <div style={{ marginTop: "1.25rem" }}>
+            <button
+              onClick={() => setBotOpen(true)}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                padding: "10px 24px", borderRadius: 9999, fontSize: 13, fontWeight: 700,
+                background: "hsl(260,60%,55%)", color: "white",
+                border: "none", cursor: "pointer", textDecoration: "none",
+                boxShadow: "0 2px 12px hsl(260,60%,55%,0.35)", transition: "opacity 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            >
+              🚀 Launch Fine-Tuned LLM →
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Chat demo */}
-      <div style={{
+      {botOpen && <div style={{
         marginTop: "1.5rem",
         background: "white",
         border: "1px solid var(--border)",
@@ -1341,13 +1420,37 @@ function MstpFinetune() {
           <span style={{
             fontSize: 11, color: "var(--muted)", fontFamily: "monospace", fontWeight: 600,
           }}>mstp-finetune-bot.py</span>
-          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
             <span style={{
               width: 7, height: 7, borderRadius: "50%",
               background: "hsl(100,60%,45%)",
               animation: "pulseGlow 2s infinite ease-in-out",
             }} />
             <span style={{ fontSize: 10, fontWeight: 700, color: "hsl(100,40%,38%)" }}>DEMO</span>
+            <button
+              onClick={() => setBotOpen(false)}
+              title="Close"
+              style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                width: 22, height: 22, borderRadius: "50%",
+                border: "1.5px solid var(--border)",
+                background: "transparent",
+                color: "var(--muted)",
+                fontSize: 12, fontWeight: 700,
+                cursor: "pointer", lineHeight: 1,
+                transition: "background 0.15s, color 0.15s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLButtonElement).style.background = "hsl(0,70%,55%)";
+                (e.currentTarget as HTMLButtonElement).style.color = "white";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "hsl(0,70%,55%)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+                (e.currentTarget as HTMLButtonElement).style.color = "var(--muted)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border)";
+              }}
+            >✕</button>
           </div>
         </div>
 
@@ -1455,7 +1558,7 @@ function MstpFinetune() {
             Send
           </button>
         </div>
-      </div>
+      </div>}
 
       {/* Fine-tuning pipeline flow diagram */}
       <div style={{

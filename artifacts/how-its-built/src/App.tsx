@@ -1233,7 +1233,7 @@ export default function App() {
   const SKILLS: RowDef[] = [
     {
       title: "Skills & Tools",
-      desc: "Across markup languages, authoring environments, CI/CD pipelines, and AI automation — a decade of hands-on technical writing tooling for enterprise-scale documentation.",
+      desc: "Ten years of experience designing and maintaining documentation tooling across markup languages, authoring environments, CI/CD pipelines, and AI automation.",
       Viz: SkillsViz,
     },
   ];
