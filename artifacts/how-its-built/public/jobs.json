@@ -16,7 +16,35 @@
     "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
     "source": "LinkedIn + Naukri",
     "date": "2026-07-27",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
+  },
+  {
+    "id": "3ee9c748",
+    "job_title": "Technical Writer",
+    "company": "HealthEdge",
+    "location": "Bangalore",
+    "experience": "1-4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-healthedge-4443913630",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-02",
+    "verified_at": "2026-08-02T12:02:55Z"
+  },
+  {
+    "id": "1c6ed579",
+    "job_title": "Documentation Specialist & Technical Illustrator - Installation Instructions",
+    "company": "Signify",
+    "location": "Bangalore",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-illustrator-installation-instructions-at-signify-4447290663",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-02",
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "26a6a002",
@@ -30,7 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-01",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "672176cb",
@@ -44,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "e1452b90",
@@ -58,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "bd13491a",
@@ -72,35 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-30",
-    "verified_at": "2026-08-01T12:03:48Z"
-  },
-  {
-    "id": "3ee9c748",
-    "job_title": "Technical Writer",
-    "company": "HealthEdge",
-    "location": "Bangalore",
-    "experience": "1-4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-healthedge-4443913630",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-29",
-    "verified_at": "2026-08-01T12:03:48Z"
-  },
-  {
-    "id": "e9f8a14d",
-    "job_title": "Technical Writer",
-    "company": "The Blue Venture Fund",
-    "location": "Bangalore",
-    "experience": "1-4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-the-blue-venture-fund-4443434797",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-28",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "4583ebc9",
@@ -114,7 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-27",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "verified_at": "2026-08-02T12:02:55Z"
   },
   {
     "id": "ebd1e9ed",
@@ -132,7 +132,26 @@
     "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
     "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
     "source": "Naukri",
-    "date": "2026-07-31",
-    "verified_at": "2026-08-01T12:03:48Z"
+    "date": "2026-08-02",
+    "verified_at": "2026-08-02T12:02:55Z"
+  },
+  {
+    "id": "5cc580bd",
+    "job_title": "A&CD - UX Writer",
+    "company": "Alstom",
+    "location": "Bangalore",
+    "experience": "4-8 years",
+    "skills": [
+      "Content Design",
+      "Microcopy",
+      "UX Writing",
+      "User Experience"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-a-cd-ux-writer-alstom-transport-india-ltd-bengaluru-bengaluru-4-to-8-years-280726923980",
+    "naukri_url": "https://www.naukri.com/job-listings-a-cd-ux-writer-alstom-transport-india-ltd-bengaluru-bengaluru-4-to-8-years-280726923980",
+    "source": "Naukri",
+    "date": "2026-08-02",
+    "verified_at": "2026-08-02T12:02:55Z"
   }
 ]
