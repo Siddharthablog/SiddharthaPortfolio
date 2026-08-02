@@ -1,83 +1,83 @@
 [
   {
-    "id": "e197e89e",
-    "title": "Best AI Tools for Technical Writing in 2026",
-    "summary": "A 2026 roundup identified the top AI tools for technical writing, including Claude AI, Document360 with Eddy AI, Mintlify, Grammarly, Acrolinx, Paligo, and DocuWriter.ai. These tools help writers draft, restructure, and govern content, offering reasoning partners and AI‑enhanced structured authoring to improve productivity and maintenance.",
-    "source": "Happysupport",
-    "url": "https://happysupport.ai/blog/ai-tools-for-technical-writing",
-    "tag": "AI Docs",
-    "date": "2026-08-01"
-  },
-  {
     "id": "6d6a856e",
     "title": "AI in technical writing: complete guide for 2026",
-    "summary": "A comprehensive 2026 guide was published outlining AI‑powered documentation tools, their categories (drafting, code/API support, etc.) and evaluation criteria. It helps technical writers select and integrate AI assistants to streamline drafting, ensure consistency, and automate API doc generation while maintaining human oversight.",
+    "summary": "The guide surveys current AI documentation tools—from general LLM assistants to specialized code‑and‑API generators—detailing their functions, evaluation criteria, and FAQs. It shows how these tools can speed drafting, improve consistency, and adapt content for multiple audiences, giving technical writers a powerful productivity boost.",
     "source": "Instrktiv",
     "url": "https://instrktiv.com/en/ai-in-technical-writing",
     "tag": "AI Docs",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
   },
   {
     "id": "61c39ff5",
     "title": "API documentation best practices guide Feb 2026 | Fern",
-    "summary": "Fern released a February 2026 guide on API documentation best practices, showcasing automated generation of token‑efficient llms.txt files from OpenAPI, AsyncAPI, and gRPC specs. This helps documentation teams keep docs in sync with code, lower support tickets, and make content readily consumable by AI assistants.",
+    "summary": "Fern published a February 2026 guide on API documentation best practices, showcasing token‑efficient llms.txt formats and urging teams to treat OpenAPI/AsyncAPI specs as the single source of truth with automated CI/CD generation. This helps documentation teams cut support tickets, enable accurate AI‑assisted code generation, and keep docs in sync with code.",
     "source": "Buildwithfern",
     "url": "https://buildwithfern.com/post/api-documentation-best-practices-guide",
     "tag": "API Standards",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
   },
   {
-    "id": "f4544be7",
-    "title": "RESTful API Design Best Practices Guide 2026 | daily.dev",
-    "summary": "A new RESTful API Design Best Practices Guide for 2026 was published, covering resource naming, HTTP methods, security, versioning, caching, and OpenAPI documentation. It helps technical writers create clear, consistent, machine‑readable API docs, improving usability and maintenance.",
-    "source": "Daily",
-    "url": "https://daily.dev/blog/restful-api-design-best-practices-guide-2024",
+    "id": "70bbd563",
+    "title": "API design best practices guide (March 2026) - Fern: Docs",
+    "summary": "Fern released a guide outlining its spec‑first workflow, using a single fern/ directory with API definitions and a generators.yml file to automatically generate SDKs and documentation via CI. This lets documentation teams treat the API spec as the source of truth, automating docs and SDK updates and eliminating drift between code and docs.",
+    "source": "Buildwithfern",
+    "url": "https://buildwithfern.com/post/api-design-best-practices-guide",
     "tag": "API Standards",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
   },
   {
     "id": "a05c481f",
     "title": "Content Mistakes to Avoid When Using DITA | Acrolinx",
-    "summary": "Acrolinx published an article outlining common content mistakes to avoid when using DITA. It helps documentation teams improve content quality, reuse, and publishing efficiency by highlighting pitfalls in structured authoring.",
+    "summary": "Acrolinx published a guide outlining common content mistakes to avoid when using DITA. It helps technical writers improve content quality, reuse, and consistency across modular documentation.",
     "source": "Acrolinx",
     "url": "https://www.acrolinx.com/blog/dita-technical-writing-common-mistakes",
     "tag": "DITA & Structured Content",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
   },
   {
     "id": "3dcb3cad",
     "title": "What is Structured Content Authoring? - Componize",
-    "summary": "The article outlines how DITA XML enables structured content authoring, providing a standardized framework for creating, managing, and publishing technical documentation. This matters to documentation teams because it boosts workflow efficiency, collaboration, content reuse, and single‑sourcing across multiple output formats.",
+    "summary": "The article explains structured content authoring, highlighting DITA XML as a framework for managing and publishing complex technical documentation. It shows how standardized, reusable, single‑sourced content improves workflow, collaboration, and automated publishing for technical writers.",
     "source": "Componize",
     "url": "https://componize.com/blog/what-is-structured-content-authoring",
     "tag": "DITA & Structured Content",
-    "date": "2026-08-01"
-  },
-  {
-    "id": "7d79b3fc",
-    "title": "Docs-as-Code Solutions for APIs | January 2026 | Fern",
-    "summary": "Fern launched a full‑stack docs‑as‑code platform for APIs that stores Markdown/MDX in Git, provides a CLI, CI/CD automation, interactive references, and SDK generation, out‑performing ReadMe and Mintlify. This lets documentation teams apply software development",
-    "source": "Buildwithfern",
-    "url": "https://buildwithfern.com/post/docs-as-code-solutions-api-teams",
-    "tag": "DevOps & CI/CD",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
   },
   {
     "id": "be5085a3",
     "title": "Docs-as-Code: Definition, Examples & Best Practices (2026)",
-    "summary": "The article outlines the Docs-as-Code approach, showing how to convert video recordings of technical discussions into searchable text and integrate them with CI/CD pipelines, linters, and automated testing. This lets documentation teams treat all knowledge assets like code, ensuring version control, consistency, and automated quality checks across the docs ecosystem.",
+    "summary": "The article outlines the Docs-as-Code approach, showing how to convert video recordings of technical discussions into searchable text and integrate them with CI/CD pipelines, linters, and automated builds. This lets documentation teams treat all content like code, ensuring version control, consistency, and automated quality checks across the docs ecosystem.",
     "source": "Docsie",
     "url": "https://www.docsie.io/blog/glossary/docs-as-code",
     "tag": "DevOps & CI/CD",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
+  },
+  {
+    "id": "7b964209",
+    "title": "The State of Software Documentation: What Changing in 2026 | FastDoc",
+    "summary": "In 2026, teams are using AI to",
+    "source": "Fastdoc",
+    "url": "https://www.fastdoc.io/blog/state-of-software-documentation-2026",
+    "tag": "DevOps & CI/CD",
+    "date": "2026-08-02"
   },
   {
     "id": "54cbf383",
     "title": "8 best technical documentation software tools in 2026 | GitBook Blog",
-    "summary": "The GitBook blog published a roundup of the eight leading technical documentation tools for 2026, spotlighting static site generators like Docusaurus and MkDocs and their features. It gives documentation teams a concise comparison to select tools that match their workflow, control, and collaboration needs.",
+    "summary": "The GitBook blog released a roundup of the eight top technical documentation tools for 2026, highlighting static site generators like Docusaurus and MkDocs and their features. It helps documentation teams compare open‑source options versus managed platforms, guiding choices for control, collaboration, and AI capabilities.",
     "source": "Gitbook",
     "url": "https://www.gitbook.com/blog/best-technical-documentation-tools",
     "tag": "Dev Tools",
-    "date": "2026-08-01"
+    "date": "2026-08-02"
+  },
+  {
+    "id": "d6afcf3e",
+    "title": "15 Best Technical Writing Software and Tools for 2026",
+    "summary": "A new roundup of the 15 best technical writing software and tools for 2026 was published, highlighting solutions like Paligo, ClickHelp, and others. It helps documentation teams evaluate modern, cloud‑based, structured authoring and CCMS options to improve collaboration, reuse, and multi‑channel publishing.",
+    "source": "Clickhelp",
+    "url": "https://clickhelp.com/clickhelp-technical-writing-blog/15-best-technical-writing-software-and-tools",
+    "tag": "Dev Tools",
+    "date": "2026-08-02"
   }
 ]
