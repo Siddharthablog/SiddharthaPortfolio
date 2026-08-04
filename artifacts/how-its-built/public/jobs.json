@@ -16,7 +16,7 @@
     "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-5",
     "source": "LinkedIn + Naukri",
     "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "a3baac1f",
@@ -35,21 +35,35 @@
     "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
     "source": "LinkedIn + Naukri",
     "date": "2026-07-27",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
-    "id": "b9fc69ed",
-    "job_title": "Content Writer",
-    "company": "Elula Tech Pvt. Ltd.",
-    "location": "Remote",
-    "experience": "3 Yrs",
+    "id": "1c6ed579",
+    "job_title": "Documentation Specialist & Technical Illustrator - Installation Instructions",
+    "company": "Signify",
+    "location": "Bangalore",
+    "experience": "Mid-Senior Level",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/content-writer-at-elula-tech-private-limited-4447699240",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-illustrator-installation-instructions-at-signify-4447290663",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "date": "2026-08-04",
+    "verified_at": "2026-08-04T13:00:17Z"
+  },
+  {
+    "id": "26a6a002",
+    "job_title": "UX Writer (Technical)",
+    "company": "Docdort",
+    "location": "Bangalore",
+    "experience": "4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-04",
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "86211a2c",
@@ -63,35 +77,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
-  },
-  {
-    "id": "1c6ed579",
-    "job_title": "Documentation Specialist & Technical Illustrator - Installation Instructions",
-    "company": "Signify",
-    "location": "Bangalore",
-    "experience": "Mid-Senior Level",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-illustrator-installation-instructions-at-signify-4447290663",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
-  },
-  {
-    "id": "4583ebc9",
-    "job_title": "Customer Documentation Developer",
-    "company": "Nokia",
-    "location": "Bangalore",
-    "experience": "10-12 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/customer-documentation-developer-at-nokia-4440168035",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "ece52f60",
@@ -105,21 +91,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
-  },
-  {
-    "id": "26a6a002",
-    "job_title": "UX Writer (Technical)",
-    "company": "Docdort",
-    "location": "Bangalore",
-    "experience": "4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "3ee9c748",
@@ -133,7 +105,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-02",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "672176cb",
@@ -147,7 +119,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "bd13491a",
@@ -161,7 +133,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-30",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "verified_at": "2026-08-04T13:00:17Z"
+  },
+  {
+    "id": "58973d84",
+    "job_title": "Senior Technical Writer (Information Experience team)",
+    "company": "Guidewire Software",
+    "location": "Bangalore",
+    "experience": "5-10 Yrs",
+    "skills": [
+      "Technical Writing",
+      "Content Development",
+      "Information Architecture",
+      "Cloud Platforms"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
+    "source": "Naukri",
+    "date": "2026-08-04",
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "ebd1e9ed",
@@ -172,33 +163,33 @@
     "skills": [
       "UX Writing",
       "Technical Writing",
-      "Microcopy",
-      "Documentation"
+      "Content Strategy",
+      "Microcopy"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
     "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
     "source": "Naukri",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "date": "2026-08-04",
+    "verified_at": "2026-08-04T13:00:17Z"
   },
   {
     "id": "5cc580bd",
-    "job_title": "A&CD - UX Writer - Bengaluru - Alstom - 4 to 8 years of experience",
+    "job_title": "A&CD - UX Writer",
     "company": "Alstom",
     "location": "Bangalore",
     "experience": "4-8 years",
     "skills": [
+      "UX Writing",
       "Content Design",
       "Microcopy",
-      "Terminology",
-      "UX Writing"
+      "User Interface"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-a-cd-ux-writer-alstom-transport-india-ltd-bengaluru-bengaluru-4-to-8-years-280726923980",
     "naukri_url": "https://www.naukri.com/job-listings-a-cd-ux-writer-alstom-transport-india-ltd-bengaluru-bengaluru-4-to-8-years-280726923980",
     "source": "Naukri",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-03T13:41:23Z"
+    "date": "2026-08-04",
+    "verified_at": "2026-08-04T13:00:17Z"
   }
 ]
