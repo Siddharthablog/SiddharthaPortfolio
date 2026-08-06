@@ -2,6 +2,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { traceLangfuse } from "./_langfuse";
+import type { TokenUsage } from "./_langfuse";
 
 // ── RAG Utilities ─────────────────────────────────────────────────────────────
 
@@ -150,12 +151,27 @@ export default async function handler(req: any, res: any) {
 
     const answer = data.choices?.[0]?.message?.content ?? "No response.";
 
+    // Extract token usage from Groq response — enables cost tracking in Langfuse dashboard
+    const usage: TokenUsage = {
+      input:  data.usage?.prompt_tokens,
+      output: data.usage?.completion_tokens,
+      total:  data.usage?.total_tokens,
+    };
+
+    // Use a session_id so multi-turn conversations are grouped in the Sessions view.
+    // We derive it from the first message's content hash — stable across turns in the same chat.
+    const session_id = history.length > 0
+      ? `chat-${Buffer.from(history[0]?.content ?? "").toString("base64").slice(0, 12)}`
+      : undefined;
+
     traceLangfuse({
       name: "chat/rag",
       model: "openai/gpt-oss-20b",
       input: latestMessage,
       output: answer,
       latency_ms: Date.now() - startTime,
+      usage,
+      session_id,
       metadata: {
         context_chars: context.length,
         history_turns: history.length,

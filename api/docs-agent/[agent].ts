@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { traceLangfuse } from "../_langfuse";
+import type { TokenUsage } from "../_langfuse";
 
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
@@ -205,6 +206,7 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
 
   const startTime = Date.now();
   let bufferedOutput = "";
+  let streamedUsage: TokenUsage = {};
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -256,6 +258,7 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
             input: prompt,
             output: bufferedOutput,
             latency_ms: Date.now() - startTime,
+            usage: streamedUsage,
             metadata: traceMeta,
           });
           res.end();
@@ -267,6 +270,14 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
           if (content) {
             bufferedOutput += content;
             res.write(`data: ${JSON.stringify({ content })}\n\n`);
+          }
+          // OpenRouter sends usage in the final chunk (finish_reason === "stop")
+          if (chunk.usage) {
+            streamedUsage = {
+              input:  chunk.usage.prompt_tokens,
+              output: chunk.usage.completion_tokens,
+              total:  chunk.usage.total_tokens,
+            };
           }
         } catch { /* skip malformed chunks */ }
       }
@@ -280,6 +291,7 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
       input: prompt,
       output: bufferedOutput,
       latency_ms: Date.now() - startTime,
+      usage: streamedUsage,
       metadata: traceMeta,
     });
     res.end();
