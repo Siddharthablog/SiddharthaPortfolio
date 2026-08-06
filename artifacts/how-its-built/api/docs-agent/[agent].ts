@@ -195,9 +195,23 @@ ${content}`;
 // ── SSE streaming proxy ────────────────────────────────────────────────────────
 
 async function streamToSSE(res, prompt) {
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  let apiKey = (process.env.OPENROUTER_API_KEY || "").trim();
+  // Strip surrounding quotes in case the env var was set with them
+  if ((apiKey.startsWith('"') && apiKey.endsWith('"')) || (apiKey.startsWith("'") && apiKey.endsWith("'"))) {
+    apiKey = apiKey.slice(1, -1).trim();
+  }
+
   if (!apiKey) {
-    res.status(500).json({ error: "OPENROUTER_API_KEY not configured in Vercel environment variables" });
+    res.status(500).json({
+      error: "OPENROUTER_API_KEY not configured. Add it in Vercel → Settings → Environment Variables.",
+    });
+    return;
+  }
+
+  if (!apiKey.startsWith("sk-or-")) {
+    res.status(500).json({
+      error: `OPENROUTER_API_KEY has wrong format (starts with "${apiKey.slice(0, 6)}…"). It must start with "sk-or-". Get one at https://openrouter.ai/keys`,
+    });
     return;
   }
 
