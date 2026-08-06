@@ -27,11 +27,12 @@ function getLangfuse(): InstanceType<typeof Langfuse> | null {
   const publicKey = process.env.LANGFUSE_PUBLIC_KEY;
   const secretKey = process.env.LANGFUSE_SECRET_KEY;
   if (!publicKey || !secretKey) return null;
+  const baseUrl = process.env.LANGFUSE_BASE_URL || process.env.LANGFUSE_HOST || "https://jp.cloud.langfuse.com";
   try {
     _langfuse = new Langfuse({
       publicKey,
       secretKey,
-      baseUrl: process.env.LANGFUSE_BASE_URL || "https://cloud.langfuse.com",
+      baseUrl,
       flushAt: 1,  // flush after every event (important for serverless)
     });
     return _langfuse;
