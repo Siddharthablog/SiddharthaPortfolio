@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { traceLangfuse } from "./_langfuse";
 
 // ── RAG Utilities ─────────────────────────────────────────────────────────────
 
@@ -111,6 +112,8 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
+    const startTime = Date.now();
+
     // Combine the last 3 messages into a single query to give RAG better context (e.g. resolving "there" to "Kreatio")
     const queryForRag = history.slice(-3).map(m => m.content).join(" ");
     const context = retrieveChunks(queryForRag, getChunks());
@@ -145,7 +148,21 @@ export default async function handler(req: any, res: any) {
       return;
     }
 
-    res.status(200).json({ answer: data.choices?.[0]?.message?.content ?? "No response." });
+    const answer = data.choices?.[0]?.message?.content ?? "No response.";
+
+    traceLangfuse({
+      name: "chat/rag",
+      model: "openai/gpt-oss-20b",
+      input: latestMessage,
+      output: answer,
+      latency_ms: Date.now() - startTime,
+      metadata: {
+        context_chars: context.length,
+        history_turns: history.length,
+      },
+    });
+
+    res.status(200).json({ answer });
   } catch (err: any) {
     console.error("Chat handler error:", err);
     res.status(500).json({ error: "Internal server error: " + (err.message || String(err)) });

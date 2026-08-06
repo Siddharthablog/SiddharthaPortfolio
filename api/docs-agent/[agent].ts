@@ -1,4 +1,6 @@
 // @ts-nocheck
+import { traceLangfuse } from "../_langfuse";
+
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
  *
@@ -194,12 +196,15 @@ ${content}`;
 
 // ── SSE streaming proxy ────────────────────────────────────────────────────────
 
-async function streamToSSE(res, prompt) {
+async function streamToSSE(res, prompt, traceMeta = {}) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     res.status(500).json({ error: "OPENROUTER_API_KEY not configured in Vercel environment variables" });
     return;
   }
+
+  const startTime = Date.now();
+  let bufferedOutput = "";
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -245,18 +250,38 @@ async function streamToSSE(res, prompt) {
         const raw = line.slice(6).trim();
         if (raw === "[DONE]") {
           res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+          traceLangfuse({
+            name: `docs-agent/${traceMeta.agent ?? "unknown"}/${traceMeta.label ?? "unknown"}`,
+            model: DOCOPS_MODEL,
+            input: prompt,
+            output: bufferedOutput,
+            latency_ms: Date.now() - startTime,
+            metadata: traceMeta,
+          });
           res.end();
           return;
         }
         try {
           const chunk = JSON.parse(raw);
           const content = chunk.choices?.[0]?.delta?.content;
-          if (content) res.write(`data: ${JSON.stringify({ content })}\n\n`);
+          if (content) {
+            bufferedOutput += content;
+            res.write(`data: ${JSON.stringify({ content })}\n\n`);
+          }
         } catch { /* skip malformed chunks */ }
       }
     }
 
+    // Stream ended without [DONE] — still send done event and trace
     res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+    traceLangfuse({
+      name: `docs-agent/${traceMeta.agent ?? "unknown"}/${traceMeta.label ?? "unknown"}`,
+      model: DOCOPS_MODEL,
+      input: prompt,
+      output: bufferedOutput,
+      latency_ms: Date.now() - startTime,
+      metadata: traceMeta,
+    });
     res.end();
   } catch (err) {
     try {
@@ -297,7 +322,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "pipeline", label: `gate-${gate}`, gate });
     return;
   }
 
@@ -311,7 +336,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "mcp", label: `gate-${gate}`, gate });
     return;
   }
 
@@ -323,7 +348,7 @@ export default async function handler(req, res) {
     if      (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
     else if (mode === "fix")   { if (!auditReport) { res.status(400).json({ error: "auditReport required for fix mode" }); return; } prompt = normalizeFixPrompt(content, auditReport, feedback); }
     else                       { res.status(400).json({ error: "mode must be 'audit' or 'fix'" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "normalize", label: mode });
     return;
   }
 
@@ -335,7 +360,7 @@ export default async function handler(req, res) {
     if      (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
     else if (mode === "define")  { if (!extractReport) { res.status(400).json({ error: "extractReport required for define mode" }); return; } prompt = glossaryDefinePrompt(content, extractReport, feedback); }
     else                         { res.status(400).json({ error: "mode must be 'extract' or 'define'" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "glossary", label: mode });
     return;
   }
 
