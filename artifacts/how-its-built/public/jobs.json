@@ -16,40 +16,91 @@
     "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-5",
     "source": "LinkedIn + Naukri",
     "date": "2026-08-03",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
-    "id": "a3baac1f",
-    "job_title": "Technical Writer",
-    "company": "Schneider Electric",
-    "location": "Bangalore",
-    "experience": "7-12 Yrs",
-    "skills": [
-      "Illustrator",
-      "DITA XML",
-      "Arbortext Editor",
-      "Offer DAM"
-    ],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-schneider-electric-4443844868",
-    "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
-    "source": "LinkedIn + Naukri",
-    "date": "2026-07-27",
-    "verified_at": "2026-08-05T12:53:40Z"
-  },
-  {
-    "id": "90c6f584",
-    "job_title": "Senior Technical Writer",
-    "company": "CGS Federal (Contact Government Services)",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
+    "id": "bd13491a",
+    "job_title": "Documentation Engineer",
+    "company": "Infineon Technologies",
+    "location": "Bengaluru East, Karnataka",
+    "experience": "5+ Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-xylem-inc-2760810186",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
+  },
+  {
+    "id": "268e747b",
+    "job_title": "Technical Writer",
+    "company": "UL Solutions",
+    "location": "Bangalore",
+    "experience": "3+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ul-solutions-4428241732",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
+  },
+  {
+    "id": "6dba797d",
+    "job_title": "Technical Documentation Specialist",
+    "company": "Innova ESI",
+    "location": "Bangalore",
+    "experience": "5-6+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-innova-esi-4450249003",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
+  },
+  {
+    "id": "9d684dfd",
+    "job_title": "Technical Documentation Specialist",
+    "company": "Crossing Hurdles",
+    "location": "Remote",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-%2450-hr-remote-at-crossing-hurdles-4444588575",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
+  },
+  {
+    "id": "26a6a002",
+    "job_title": "UX Writer (Technical)",
+    "company": "Docdort",
+    "location": "Bangalore",
+    "experience": "4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
+  },
+  {
+    "id": "1c6ed579",
+    "job_title": "Documentation Specialist & Technical Illustrator - Installation Instructions",
+    "company": "Signify",
+    "location": "Bangalore",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-illustrator-installation-instructions-at-signify-4447290663",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "d58d4c94",
@@ -62,8 +113,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "445fc9f7",
@@ -77,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "a71ea231",
@@ -91,35 +142,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
-  },
-  {
-    "id": "1c6ed579",
-    "job_title": "Documentation Specialist & Technical Illustrator - Installation Instructions",
-    "company": "Signify",
-    "location": "Bangalore",
-    "experience": "Mid-Senior Level",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-specialist-technical-illustrator-installation-instructions-at-signify-4447290663",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-04",
-    "verified_at": "2026-08-05T12:53:40Z"
-  },
-  {
-    "id": "26a6a002",
-    "job_title": "UX Writer (Technical)",
-    "company": "Docdort",
-    "location": "Bangalore",
-    "experience": "4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-04",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "86211a2c",
@@ -133,7 +156,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "ece52f60",
@@ -147,21 +170,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-05T12:53:40Z"
-  },
-  {
-    "id": "3ee9c748",
-    "job_title": "Technical Writer",
-    "company": "HealthEdge",
-    "location": "Bangalore",
-    "experience": "1-4 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-healthedge-4443913630",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-02",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "672176cb",
@@ -175,21 +184,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-05T12:53:40Z"
-  },
-  {
-    "id": "bd13491a",
-    "job_title": "Documentation Engineer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "5+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-07-30",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "58973d84",
@@ -200,15 +195,15 @@
     "skills": [
       "Technical Writing",
       "Content Development",
-      "AWS",
-      "Azure"
+      "Information Architecture",
+      "Cloud Platforms"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
     "source": "Naukri",
-    "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
   },
   {
     "id": "7f5ccc7f",
@@ -217,16 +212,16 @@
     "location": "Bangalore",
     "experience": "5-10 Yrs",
     "skills": [
-      "Technical Writing",
       "Medical Devices",
       "IVD",
-      "Authoring Tools"
+      "authoring tools",
+      "documentation reviews"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-lead-technical-writer-senior-itconnectus-inc-bengaluru-5-to-10-years-240726503519",
     "naukri_url": "https://www.naukri.com/job-listings-lead-technical-writer-senior-itconnectus-inc-bengaluru-5-to-10-years-240726503519",
     "source": "Naukri",
-    "date": "2026-08-05",
-    "verified_at": "2026-08-05T12:53:40Z"
+    "date": "2026-08-06",
+    "verified_at": "2026-08-06T12:57:57Z"
   }
 ]
