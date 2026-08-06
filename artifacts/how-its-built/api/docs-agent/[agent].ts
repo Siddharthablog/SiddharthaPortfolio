@@ -2,18 +2,44 @@
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
  *
- * Handles all 4 DocOps routes via Vercel's dynamic catch-all:
- *   POST /api/docs-agent/pipeline  → agent === "pipeline"
- *   POST /api/docs-agent/mcp       → agent === "mcp"
- *   POST /api/docs-agent/normalize → agent === "normalize"
- *   POST /api/docs-agent/glossary  → agent === "glossary"
+ * Single flat handler that serves all 4 DocOps agents.
+ * The agent name is passed as a query parameter via vercel.json rewrites:
+ *   POST /api/docs-agent/pipeline  → /api/docs-agent?agent=pipeline
+ *   POST /api/docs-agent/mcp       → /api/docs-agent?agent=mcp
+ *   POST /api/docs-agent/normalize → /api/docs-agent?agent=normalize
+ *   POST /api/docs-agent/glossary  → /api/docs-agent?agent=glossary
  *
- * No vercel.json rewrites needed — Vercel maps the [agent] segment
- * automatically from the filesystem path api/docs-agent/[agent].ts
+ * Langfuse tracing: every LLM call is traced for observation & evaluation.
+ * Tracing is optional — if LANGFUSE keys aren't set, agents work normally.
  */
+
+import Langfuse from "langfuse";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DOCOPS_MODEL   = "nvidia/nemotron-3-ultra-550b-a55b:free";
+
+// ── Langfuse client (lazy singleton) ───────────────────────────────────────────
+
+let _langfuse: InstanceType<typeof Langfuse> | null = null;
+
+function getLangfuse(): InstanceType<typeof Langfuse> | null {
+  if (_langfuse) return _langfuse;
+  const publicKey = process.env.LANGFUSE_PUBLIC_KEY;
+  const secretKey = process.env.LANGFUSE_SECRET_KEY;
+  if (!publicKey || !secretKey) return null;
+  try {
+    _langfuse = new Langfuse({
+      publicKey,
+      secretKey,
+      baseUrl: process.env.LANGFUSE_BASE_URL || "https://cloud.langfuse.com",
+      flushAt: 1,  // flush after every event (important for serverless)
+    });
+    return _langfuse;
+  } catch (e) {
+    console.error("[Langfuse] Failed to initialize:", e);
+    return null;
+  }
+}
 
 // ── Pipeline prompts ───────────────────────────────────────────────────────────
 
@@ -192,9 +218,9 @@ ORIGINAL CONTENT:
 ${content}`;
 }
 
-// ── SSE streaming proxy ────────────────────────────────────────────────────────
+// ── SSE streaming proxy with Langfuse tracing ──────────────────────────────────
 
-async function streamToSSE(res, prompt) {
+async function streamToSSE(res, prompt, traceMeta?: { agent: string; gate?: number; mode?: string; hasFeedback?: boolean }) {
   let apiKey = (process.env.OPENROUTER_API_KEY || "").trim();
   // Strip surrounding quotes in case the env var was set with them
   if ((apiKey.startsWith('"') && apiKey.endsWith('"')) || (apiKey.startsWith("'") && apiKey.endsWith("'"))) {
@@ -215,9 +241,43 @@ async function streamToSSE(res, prompt) {
     return;
   }
 
+  // ── Langfuse: create trace + generation (non-blocking, safe) ────────────────
+  const langfuse = getLangfuse();
+  let trace = null;
+  let generation = null;
+  const startTime = Date.now();
+
+  if (langfuse && traceMeta) {
+    try {
+      const gateName = traceMeta.gate != null ? `gate-${traceMeta.gate}` : traceMeta.mode || "run";
+      trace = langfuse.trace({
+        name: `docops-${traceMeta.agent}`,
+        metadata: {
+          agent: traceMeta.agent,
+          gate: traceMeta.gate,
+          mode: traceMeta.mode,
+          hasFeedback: traceMeta.hasFeedback || false,
+        },
+        tags: [traceMeta.agent, gateName],
+      });
+      generation = trace.generation({
+        name: gateName,
+        model: DOCOPS_MODEL,
+        modelParameters: { temperature: 0.25, max_tokens: 4096, stream: true },
+        input: [{ role: "user", content: prompt }],
+      });
+    } catch (e) {
+      console.error("[Langfuse] Trace creation failed (non-fatal):", e);
+      trace = null;
+      generation = null;
+    }
+  }
+
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
+
+  let fullOutput = "";
 
   try {
     const orRes = await fetch(OPENROUTER_URL, {
@@ -239,14 +299,21 @@ async function streamToSSE(res, prompt) {
 
     if (!orRes.ok) {
       const errText = await orRes.text();
-      res.write(`data: ${JSON.stringify({ error: `OpenRouter error ${orRes.status}: ${errText.slice(0, 300)}` })}\n\n`);
+      const errMsg = `OpenRouter error ${orRes.status}: ${errText.slice(0, 300)}`;
+      // Langfuse: record error
+      if (generation) {
+        try { generation.end({ output: errMsg, level: "ERROR", statusMessage: errMsg }); } catch {}
+      }
+      res.write(`data: ${JSON.stringify({ error: errMsg })}\n\n`);
       res.end();
+      if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
       return;
     }
 
     const reader = orRes.body.getReader();
     const decoder = new TextDecoder();
     let buf = "";
+    let usageData = null;
 
     while (true) {
       const { done, value } = await reader.read();
@@ -258,21 +325,57 @@ async function streamToSSE(res, prompt) {
         if (!line.startsWith("data: ")) continue;
         const raw = line.slice(6).trim();
         if (raw === "[DONE]") {
+          // Langfuse: end generation with full output
+          if (generation) {
+            try {
+              generation.end({
+                output: fullOutput,
+                ...(usageData ? { usage: usageData } : {}),
+              });
+            } catch {}
+          }
           res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
           res.end();
+          if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
           return;
         }
         try {
           const chunk = JSON.parse(raw);
           const content = chunk.choices?.[0]?.delta?.content;
-          if (content) res.write(`data: ${JSON.stringify({ content })}\n\n`);
+          if (content) {
+            fullOutput += content;
+            res.write(`data: ${JSON.stringify({ content })}\n\n`);
+          }
+          // Capture usage data from the final chunk (OpenRouter includes it)
+          if (chunk.usage) {
+            usageData = {
+              input: chunk.usage.prompt_tokens,
+              output: chunk.usage.completion_tokens,
+              total: chunk.usage.total_tokens,
+            };
+          }
         } catch { /* skip malformed chunks */ }
       }
     }
 
+    // Langfuse: end generation (stream ended without [DONE])
+    if (generation) {
+      try {
+        generation.end({
+          output: fullOutput,
+          ...(usageData ? { usage: usageData } : {}),
+        });
+      } catch {}
+    }
     res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
     res.end();
+    if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
   } catch (err) {
+    // Langfuse: record error
+    if (generation) {
+      try { generation.end({ output: err.message || "Internal error", level: "ERROR", statusMessage: err.message }); } catch {}
+    }
+    if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
     try {
       res.write(`data: ${JSON.stringify({ error: err.message || "Internal error" })}\n\n`);
       res.end();
@@ -297,7 +400,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Vercel sets req.query.agent from the [agent] segment
+  // Agent name comes from query parameter (set by vercel.json rewrite)
   const agent = req.query?.agent;
   const body  = req.body ?? {};
 
@@ -311,7 +414,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "pipeline", gate, hasFeedback: !!feedback });
     return;
   }
 
@@ -325,7 +428,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "mcp", gate, hasFeedback: !!feedback });
     return;
   }
 
@@ -337,7 +440,7 @@ export default async function handler(req, res) {
     if      (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
     else if (mode === "fix")   { if (!auditReport) { res.status(400).json({ error: "auditReport required for fix mode" }); return; } prompt = normalizeFixPrompt(content, auditReport, feedback); }
     else                       { res.status(400).json({ error: "mode must be 'audit' or 'fix'" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "normalize", mode, hasFeedback: !!feedback });
     return;
   }
 
@@ -349,7 +452,7 @@ export default async function handler(req, res) {
     if      (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
     else if (mode === "define")  { if (!extractReport) { res.status(400).json({ error: "extractReport required for define mode" }); return; } prompt = glossaryDefinePrompt(content, extractReport, feedback); }
     else                         { res.status(400).json({ error: "mode must be 'extract' or 'define'" }); return; }
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "glossary", mode, hasFeedback: !!feedback });
     return;
   }
 
