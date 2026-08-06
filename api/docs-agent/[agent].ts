@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
  *
@@ -15,43 +14,6 @@
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DOCOPS_MODEL   = "nvidia/nemotron-3-ultra-550b-a55b:free";
-
-// ── Langfuse tracing (inlined — Vercel bundles each api/ function independently) ──
-
-function traceLangfuse(opts) {
-  const pub = process.env.LANGFUSE_PUBLIC_KEY;
-  const sec = process.env.LANGFUSE_SECRET_KEY;
-  if (!pub || !sec) return;
-
-  const auth    = Buffer.from(`${pub}:${sec}`).toString("base64");
-  const traceId = crypto.randomUUID();
-  const now     = new Date().toISOString();
-
-  const usageBody = opts.usage && (opts.usage.input || opts.usage.output)
-    ? { input: opts.usage.input ?? 0, output: opts.usage.output ?? 0,
-        total: opts.usage.total ?? ((opts.usage.input ?? 0) + (opts.usage.output ?? 0)), unit: "TOKENS" }
-    : undefined;
-
-  fetch("https://cloud.langfuse.com/api/public/ingestion", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Authorization": `Basic ${auth}` },
-    body: JSON.stringify({
-      batch: [
-        {
-          id: crypto.randomUUID(), type: "trace-create", timestamp: now,
-          body: { id: traceId, name: opts.name, input: opts.input, output: opts.output,
-                  sessionId: opts.session_id, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
-        },
-        {
-          id: crypto.randomUUID(), type: "generation-create", timestamp: now,
-          body: { id: crypto.randomUUID(), traceId, name: opts.name, model: opts.model,
-                  input: [{ role: "user", content: opts.input }], output: opts.output,
-                  usage: usageBody, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
-        },
-      ],
-    }),
-  }).catch(() => {});
-}
 
 // ── Pipeline prompts ───────────────────────────────────────────────────────────
 
@@ -232,16 +194,12 @@ ${content}`;
 
 // ── SSE streaming proxy ────────────────────────────────────────────────────────
 
-async function streamToSSE(res, prompt, traceMeta = {}) {
+async function streamToSSE(res, prompt) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     res.status(500).json({ error: "OPENROUTER_API_KEY not configured in Vercel environment variables" });
     return;
   }
-
-  const startTime = Date.now();
-  let bufferedOutput = "";
-  let streamedUsage = {};
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -287,48 +245,18 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
         const raw = line.slice(6).trim();
         if (raw === "[DONE]") {
           res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-          traceLangfuse({
-            name: `docs-agent/${traceMeta.agent ?? "unknown"}/${traceMeta.label ?? "unknown"}`,
-            model: DOCOPS_MODEL,
-            input: prompt,
-            output: bufferedOutput,
-            latency_ms: Date.now() - startTime,
-            usage: streamedUsage,
-            metadata: traceMeta,
-          });
           res.end();
           return;
         }
         try {
           const chunk = JSON.parse(raw);
           const content = chunk.choices?.[0]?.delta?.content;
-          if (content) {
-            bufferedOutput += content;
-            res.write(`data: ${JSON.stringify({ content })}\n\n`);
-          }
-          // OpenRouter sends usage in the final chunk (finish_reason === "stop")
-          if (chunk.usage) {
-            streamedUsage = {
-              input:  chunk.usage.prompt_tokens,
-              output: chunk.usage.completion_tokens,
-              total:  chunk.usage.total_tokens,
-            };
-          }
+          if (content) res.write(`data: ${JSON.stringify({ content })}\n\n`);
         } catch { /* skip malformed chunks */ }
       }
     }
 
-    // Stream ended without [DONE] — still send done event and trace
     res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-    traceLangfuse({
-      name: `docs-agent/${traceMeta.agent ?? "unknown"}/${traceMeta.label ?? "unknown"}`,
-      model: DOCOPS_MODEL,
-      input: prompt,
-      output: bufferedOutput,
-      latency_ms: Date.now() - startTime,
-      usage: streamedUsage,
-      metadata: traceMeta,
-    });
     res.end();
   } catch (err) {
     try {
@@ -369,7 +297,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt, { agent: "pipeline", label: `gate-${gate}`, gate });
+    await streamToSSE(res, prompt);
     return;
   }
 
@@ -383,7 +311,7 @@ export default async function handler(req, res) {
     else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate5Prompt(gate3Output, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
-    await streamToSSE(res, prompt, { agent: "mcp", label: `gate-${gate}`, gate });
+    await streamToSSE(res, prompt);
     return;
   }
 
@@ -395,7 +323,7 @@ export default async function handler(req, res) {
     if      (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
     else if (mode === "fix")   { if (!auditReport) { res.status(400).json({ error: "auditReport required for fix mode" }); return; } prompt = normalizeFixPrompt(content, auditReport, feedback); }
     else                       { res.status(400).json({ error: "mode must be 'audit' or 'fix'" }); return; }
-    await streamToSSE(res, prompt, { agent: "normalize", label: mode });
+    await streamToSSE(res, prompt);
     return;
   }
 
@@ -407,7 +335,7 @@ export default async function handler(req, res) {
     if      (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
     else if (mode === "define")  { if (!extractReport) { res.status(400).json({ error: "extractReport required for define mode" }); return; } prompt = glossaryDefinePrompt(content, extractReport, feedback); }
     else                         { res.status(400).json({ error: "mode must be 'extract' or 'define'" }); return; }
-    await streamToSSE(res, prompt, { agent: "glossary", label: mode });
+    await streamToSSE(res, prompt);
     return;
   }
 
