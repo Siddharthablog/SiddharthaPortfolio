@@ -1,8 +1,43 @@
 // @ts-nocheck
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { traceLangfuse } from "./_langfuse";
-import type { TokenUsage } from "./_langfuse";
+
+// ── Langfuse tracing (inlined — Vercel bundles each api/ function independently) ──
+
+function traceLangfuse(opts) {
+  const pub = process.env.LANGFUSE_PUBLIC_KEY;
+  const sec = process.env.LANGFUSE_SECRET_KEY;
+  if (!pub || !sec) return;
+
+  const auth    = Buffer.from(`${pub}:${sec}`).toString("base64");
+  const traceId = crypto.randomUUID();
+  const now     = new Date().toISOString();
+
+  const usageBody = opts.usage && (opts.usage.input || opts.usage.output)
+    ? { input: opts.usage.input ?? 0, output: opts.usage.output ?? 0,
+        total: opts.usage.total ?? ((opts.usage.input ?? 0) + (opts.usage.output ?? 0)), unit: "TOKENS" }
+    : undefined;
+
+  fetch("https://cloud.langfuse.com/api/public/ingestion", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": `Basic ${auth}` },
+    body: JSON.stringify({
+      batch: [
+        {
+          id: crypto.randomUUID(), type: "trace-create", timestamp: now,
+          body: { id: traceId, name: opts.name, input: opts.input, output: opts.output,
+                  sessionId: opts.session_id, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
+        },
+        {
+          id: crypto.randomUUID(), type: "generation-create", timestamp: now,
+          body: { id: crypto.randomUUID(), traceId, name: opts.name, model: opts.model,
+                  input: [{ role: "user", content: opts.input }], output: opts.output,
+                  usage: usageBody, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
+        },
+      ],
+    }),
+  }).catch(() => {});
+}
 
 // ── RAG Utilities ─────────────────────────────────────────────────────────────
 
@@ -152,7 +187,7 @@ export default async function handler(req: any, res: any) {
     const answer = data.choices?.[0]?.message?.content ?? "No response.";
 
     // Extract token usage from Groq response — enables cost tracking in Langfuse dashboard
-    const usage: TokenUsage = {
+    const usage = {
       input:  data.usage?.prompt_tokens,
       output: data.usage?.completion_tokens,
       total:  data.usage?.total_tokens,

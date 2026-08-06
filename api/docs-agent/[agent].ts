@@ -1,6 +1,4 @@
 // @ts-nocheck
-import { traceLangfuse } from "../_langfuse";
-import type { TokenUsage } from "../_langfuse";
 
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
@@ -17,6 +15,43 @@ import type { TokenUsage } from "../_langfuse";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DOCOPS_MODEL   = "nvidia/nemotron-3-ultra-550b-a55b:free";
+
+// ── Langfuse tracing (inlined — Vercel bundles each api/ function independently) ──
+
+function traceLangfuse(opts) {
+  const pub = process.env.LANGFUSE_PUBLIC_KEY;
+  const sec = process.env.LANGFUSE_SECRET_KEY;
+  if (!pub || !sec) return;
+
+  const auth    = Buffer.from(`${pub}:${sec}`).toString("base64");
+  const traceId = crypto.randomUUID();
+  const now     = new Date().toISOString();
+
+  const usageBody = opts.usage && (opts.usage.input || opts.usage.output)
+    ? { input: opts.usage.input ?? 0, output: opts.usage.output ?? 0,
+        total: opts.usage.total ?? ((opts.usage.input ?? 0) + (opts.usage.output ?? 0)), unit: "TOKENS" }
+    : undefined;
+
+  fetch("https://cloud.langfuse.com/api/public/ingestion", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Authorization": `Basic ${auth}` },
+    body: JSON.stringify({
+      batch: [
+        {
+          id: crypto.randomUUID(), type: "trace-create", timestamp: now,
+          body: { id: traceId, name: opts.name, input: opts.input, output: opts.output,
+                  sessionId: opts.session_id, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
+        },
+        {
+          id: crypto.randomUUID(), type: "generation-create", timestamp: now,
+          body: { id: crypto.randomUUID(), traceId, name: opts.name, model: opts.model,
+                  input: [{ role: "user", content: opts.input }], output: opts.output,
+                  usage: usageBody, metadata: { latency_ms: opts.latency_ms, ...(opts.metadata ?? {}) } },
+        },
+      ],
+    }),
+  }).catch(() => {});
+}
 
 // ── Pipeline prompts ───────────────────────────────────────────────────────────
 
@@ -206,7 +241,7 @@ async function streamToSSE(res, prompt, traceMeta = {}) {
 
   const startTime = Date.now();
   let bufferedOutput = "";
-  let streamedUsage: TokenUsage = {};
+  let streamedUsage = {};
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
