@@ -15,6 +15,7 @@
     }
   },
   "rewrites": [
+    { "source": "/api/docs-agent/:agent", "destination": "/api/docs-agent?agent=:agent" },
     { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/(.*)",       "destination": "/index.html"  }
   ]

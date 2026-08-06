@@ -2,14 +2,12 @@
 /**
  * Vercel serverless function — DocOps Agent Suite (SSE)
  *
- * Handles all 4 DocOps routes via Vercel's dynamic catch-all:
- *   POST /api/docs-agent/pipeline  → agent === "pipeline"
- *   POST /api/docs-agent/mcp       → agent === "mcp"
- *   POST /api/docs-agent/normalize → agent === "normalize"
- *   POST /api/docs-agent/glossary  → agent === "glossary"
- *
- * No vercel.json rewrites needed — Vercel maps the [agent] segment
- * automatically from the filesystem path api/docs-agent/[agent].ts
+ * Single flat handler that serves all 4 DocOps agents.
+ * The agent name is passed as a query parameter via vercel.json rewrites:
+ *   POST /api/docs-agent/pipeline  → /api/docs-agent?agent=pipeline
+ *   POST /api/docs-agent/mcp       → /api/docs-agent?agent=mcp
+ *   POST /api/docs-agent/normalize → /api/docs-agent?agent=normalize
+ *   POST /api/docs-agent/glossary  → /api/docs-agent?agent=glossary
  */
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -283,7 +281,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Vercel sets req.query.agent from the [agent] segment
+  // Agent name comes from query parameter (set by vercel.json rewrite)
   const agent = req.query?.agent;
   const body  = req.body ?? {};
 
