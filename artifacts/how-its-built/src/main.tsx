@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { createRoot } from "react-dom/client";
 import { Route, Router } from "wouter";
 import App from "./App";
@@ -6,11 +7,14 @@ import DocOpsPage from "./pages/docops";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
-  <Router>
-    <Route path="/" component={App} />
-    <Route path="/ai-projects" component={AIProjectsPage} />
-    <Route path="/docops" component={DocOpsPage} />
-  </Router>
+  <>
+    <Router>
+      <Route path="/" component={App} />
+      <Route path="/ai-projects" component={AIProjectsPage} />
+      <Route path="/docops" component={DocOpsPage} />
+    </Router>
+    <Analytics />
+  </>
 );
 
 // Made with Bob
