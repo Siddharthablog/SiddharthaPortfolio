@@ -88,7 +88,7 @@ async function streamAgent(
           onChunk(full);
         }
       } catch (e: any) {
-        if (e.message && !e.message.startsWith("JSON")) throw e;
+        if (!(e instanceof SyntaxError)) throw e;
       }
     }
   }
