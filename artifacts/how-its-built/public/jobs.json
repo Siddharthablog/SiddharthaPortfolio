@@ -16,7 +16,7 @@
     "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-5",
     "source": "LinkedIn + Naukri",
     "date": "2026-08-03",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "bd13491a",
@@ -29,8 +29,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "date": "2026-08-07",
+    "verified_at": "2026-08-07T11:45:41Z"
+  },
+  {
+    "id": "d58d4c94",
+    "job_title": "Staff Technical Writer",
+    "company": "Okta",
+    "location": "Bangalore",
+    "experience": "7+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-07",
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "268e747b",
@@ -43,22 +57,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ul-solutions-4428241732",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
-  },
-  {
-    "id": "6dba797d",
-    "job_title": "Technical Documentation Specialist",
-    "company": "Innova ESI",
-    "location": "Bangalore",
-    "experience": "5-6+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-innova-esi-4450249003",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "date": "2026-08-07",
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "9d684dfd",
@@ -72,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "26a6a002",
@@ -86,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "1c6ed579",
@@ -100,21 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
-  },
-  {
-    "id": "d58d4c94",
-    "job_title": "Staff Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "7+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "445fc9f7",
@@ -128,7 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "a71ea231",
@@ -142,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "86211a2c",
@@ -156,7 +142,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "ece52f60",
@@ -170,7 +156,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "672176cb",
@@ -184,7 +170,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
+  },
+  {
+    "id": "ebd1e9ed",
+    "job_title": "UX Writer (Technical)",
+    "company": "Geekyhr",
+    "location": "Bangalore",
+    "experience": "3-4 years",
+    "skills": [
+      "UX Writing",
+      "Technical Writing",
+      "Content Strategy",
+      "Microcopy"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
+    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-3-4-of-experience-bangalore-geekyhr-bengaluru-3-to-4-years-220726021549",
+    "source": "Naukri",
+    "date": "2026-08-07",
+    "verified_at": "2026-08-07T11:45:41Z"
   },
   {
     "id": "58973d84",
@@ -203,25 +208,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
     "source": "Naukri",
     "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
-  },
-  {
-    "id": "7f5ccc7f",
-    "job_title": "Lead Technical Writer(Senior)",
-    "company": "ITConnectUS",
-    "location": "Bangalore",
-    "experience": "5-10 Yrs",
-    "skills": [
-      "Medical Devices",
-      "IVD",
-      "authoring tools",
-      "documentation reviews"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-lead-technical-writer-senior-itconnectus-inc-bengaluru-5-to-10-years-240726503519",
-    "naukri_url": "https://www.naukri.com/job-listings-lead-technical-writer-senior-itconnectus-inc-bengaluru-5-to-10-years-240726503519",
-    "source": "Naukri",
-    "date": "2026-08-06",
-    "verified_at": "2026-08-06T12:57:57Z"
+    "verified_at": "2026-08-07T11:45:41Z"
   }
 ]
