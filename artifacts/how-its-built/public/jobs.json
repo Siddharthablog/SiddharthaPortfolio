@@ -1,22 +1,22 @@
 [
   {
-    "id": "dfa47883",
-    "job_title": "Specialist Technical Writer",
-    "company": "Infineon",
+    "id": "91b891fb",
+    "job_title": "Senior Technical Writer",
+    "company": "Innovatia Technical Services Inc",
     "location": "Bangalore",
-    "experience": "4-8 Yrs",
+    "experience": "3-7 Yrs",
     "skills": [
-      "technical writing",
-      "snagit",
-      "documentation",
-      "robohelp"
+      "DITA XML",
+      "Technical Writing",
+      "Risk Analysis",
+      "Content Strategy"
     ],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
-    "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-5",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-innovatia-4450352367",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-innovatia-technical-services-inc-bengaluru-3-to-7-years-081225505862",
     "source": "LinkedIn + Naukri",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "date": "2026-08-10",
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "26a6a002",
@@ -29,22 +29,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-technical-at-docdort-4446077137",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-08",
-    "verified_at": "2026-08-08T11:27:47Z"
-  },
-  {
-    "id": "bd13491a",
-    "job_title": "Documentation Engineer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "5+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-infineon-technologies-4387836496",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-07",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "date": "2026-08-10",
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "d58d4c94",
@@ -58,7 +44,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-07",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "268e747b",
@@ -72,7 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-07",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "9d684dfd",
@@ -86,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-06",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "1c6ed579",
@@ -100,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-06",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "445fc9f7",
@@ -114,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "a71ea231",
@@ -128,21 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-05",
-    "verified_at": "2026-08-08T11:27:47Z"
-  },
-  {
-    "id": "86211a2c",
-    "job_title": "Associate Technical Writer",
-    "company": "Aspen Technology",
-    "location": "Bangalore",
-    "experience": "2 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-aspen-technology-4384497219",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "ece52f60",
@@ -156,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-03",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
   },
   {
     "id": "672176cb",
@@ -170,6 +142,25 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-07-31",
-    "verified_at": "2026-08-08T11:27:47Z"
+    "verified_at": "2026-08-10T11:47:27Z"
+  },
+  {
+    "id": "58973d84",
+    "job_title": "Senior Technical Writer (Information Experience team)",
+    "company": "Guidewire Software",
+    "location": "Bangalore",
+    "experience": "5-10 Yrs",
+    "skills": [
+      "Technical Writing",
+      "Content Development",
+      "Information Architecture",
+      "Cloud Platforms"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-information-experience-team-guidewire-software-inc-bengaluru-5-to-10-years-030826505472",
+    "source": "Naukri",
+    "date": "2026-08-10",
+    "verified_at": "2026-08-10T11:47:27Z"
   }
 ]
