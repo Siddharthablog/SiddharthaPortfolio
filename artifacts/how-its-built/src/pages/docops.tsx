@@ -127,11 +127,11 @@ function FullPagePathAnimation() {
 
 // Nav items map to agent IDs (null = overview)
 const NAV_ITEMS: { label: string; agent: ActiveAgent }[] = [
-  { label: "Overview",  agent: null },
-  { label: "Pipeline",  agent: "pipeline" },
+  { label: "Overview", agent: null },
+  { label: "Pipeline", agent: "pipeline" },
   { label: "MCP Agent", agent: "mcp" },
-  { label: "Normalizer",agent: "normalize" },
-  { label: "Glossary",  agent: "glossary" },
+  { label: "Normalizer", agent: "normalize" },
+  { label: "Glossary", agent: "glossary" },
 ];
 
 function StickyNav({ activeAgent, onNavigate }: { activeAgent: ActiveAgent; onNavigate: (a: ActiveAgent) => void }) {
@@ -334,13 +334,13 @@ function Stepper({ steps, current }: { steps: string[]; current: number }) {
 function GateCard({
   gateNum, gateLabel, status, stream, output, showFeedback, feedback,
   onFeedbackChange, onApprove, onRequestChanges, onCancelFeedback, onRerun,
-  isLastGate, feedbackHint,
+  isLastGate, feedbackHint, isCurrentGate,
 }: {
   gateNum: number; gateLabel: string; status: AgentStatus; stream: string; output: string;
   showFeedback: boolean; feedback: string;
   onFeedbackChange: (v: string) => void; onApprove: () => void;
   onRequestChanges: () => void; onCancelFeedback: () => void;
-  onRerun: () => void; isLastGate: boolean; feedbackHint: string;
+  onRerun: () => void; isLastGate: boolean; feedbackHint: string; isCurrentGate: boolean;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -372,8 +372,8 @@ function GateCard({
         )}
       </div>
 
-      {/* Approval actions */}
-      {status === "completed" && !showFeedback && (
+      {/* Approval actions — only on the active gate */}
+      {status === "completed" && isCurrentGate && !showFeedback && (
         <div style={{ padding: "0.75rem 1.25rem", borderTop: "1px solid var(--border)", display: "flex", gap: 8, flexWrap: "wrap" }}>
           <button onClick={onApprove} style={{
             padding: "8px 20px", borderRadius: 9999, border: "none", fontWeight: 700, fontSize: 12,
@@ -564,6 +564,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
             onRerun={() => runGate(g, feedback)}
             isLastGate={g === cfg.steps.length}
             feedbackHint={cfg.feedbackHints[g - 1] || ""}
+            isCurrentGate={isCurrentGate}
           />
         );
       })}
@@ -795,16 +796,16 @@ function Overview({ onLaunch }: { onLaunch: (id: ActiveAgent) => void }) {
 
 const AGENT_CFG_MAP: Record<NonNullable<ActiveAgent>, AgentConfig> = {
   pipeline: PIPELINE_CFG,
-  mcp:      MCP_CFG,
+  mcp: MCP_CFG,
   normalize: NORMALIZE_CFG,
   glossary: GLOSSARY_CFG,
 };
 
 const AGENT_LABELS: Record<NonNullable<ActiveAgent>, { icon: string; color: string }> = {
-  pipeline:  { icon: "⚙️", color: "hsl(100,40%,44%)" },
-  mcp:       { icon: "🤖", color: "hsl(210,88%,52%)" },
+  pipeline: { icon: "⚙️", color: "hsl(100,40%,44%)" },
+  mcp: { icon: "🤖", color: "hsl(210,88%,52%)" },
   normalize: { icon: "🔧", color: "hsl(16,80%,52%)" },
-  glossary:  { icon: "📖", color: "hsl(260,60%,55%)" },
+  glossary: { icon: "📖", color: "hsl(260,60%,55%)" },
 };
 
 function ActiveAgentView({ id, onBack }: { id: NonNullable<ActiveAgent>; onBack: () => void }) {

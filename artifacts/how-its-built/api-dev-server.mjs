@@ -8,8 +8,10 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 // ── Load .env manually (no extra dependencies) ─────────────────────────────
 function loadEnv() {
@@ -28,7 +30,11 @@ function loadEnv() {
         const eqIdx = trimmed.indexOf("=");
         if (eqIdx === -1) continue;
         const key = trimmed.slice(0, eqIdx).trim();
-        const val = trimmed.slice(eqIdx + 1).trim();
+        let val = trimmed.slice(eqIdx + 1).trim();
+        // Strip surrounding quotes (single or double) — standard .env behaviour
+        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.slice(1, -1);
+        }
         if (!process.env[key]) process.env[key] = val;
       }
       console.log(`  ✓ Loaded env from ${envPath}`);
@@ -37,6 +43,87 @@ function loadEnv() {
 }
 
 loadEnv();
+
+// ── Langfuse v5 OTEL tracing (optional — only runs if LANGFUSE keys are set) ─
+
+let _spanProcessor = null;
+let _langfuseReady = false;
+
+function initLangfuse() {
+  if (_langfuseReady) return true;
+  const publicKey = process.env.LANGFUSE_PUBLIC_KEY;
+  const secretKey = process.env.LANGFUSE_SECRET_KEY;
+  if (!publicKey || !secretKey) return false;
+  const baseUrl = process.env.LANGFUSE_BASE_URL || "https://jp.cloud.langfuse.com";
+  try {
+    const { BasicTracerProvider } = require("@opentelemetry/sdk-trace-base");
+    const { LangfuseSpanProcessor } = require("@langfuse/otel");
+    const { setLangfuseTracerProvider } = require("@langfuse/tracing");
+
+    _spanProcessor = new LangfuseSpanProcessor({
+      publicKey, secretKey, baseUrl,
+      exportMode: "immediate",
+    });
+    const provider = new BasicTracerProvider({ spanProcessors: [_spanProcessor] });
+    setLangfuseTracerProvider(provider);
+    _langfuseReady = true;
+    console.log("  ✓ Langfuse OTEL tracing initialised");
+    return true;
+  } catch (e) {
+    console.warn("  ⚠ Langfuse init failed (non-fatal):", e.message);
+    return false;
+  }
+}
+
+async function withLangfuseTrace(traceMeta, prompt, fn, getOutput) {
+  if (!initLangfuse()) return fn(null); // no-op if keys not set
+  try {
+    const { propagateAttributes, startActiveObservation } = require("@langfuse/tracing");
+    const gateName = traceMeta.gate != null
+      ? `gate-${traceMeta.gate}`
+      : traceMeta.mode || "run";
+    const traceName = `docops-${traceMeta.agent}`;
+    await propagateAttributes(
+      {
+        traceName,
+        // Set trace-level input so {{input}} is populated for LLM-as-a-Judge evaluators
+        input: [{ role: "user", content: prompt }],
+        metadata: {
+          agent: traceMeta.agent,
+          gate: String(traceMeta.gate ?? ""),
+          mode: traceMeta.mode ?? "",
+          hasFeedback: traceMeta.hasFeedback ? "true" : "false",
+        },
+        tags: [traceMeta.agent, gateName],
+      },
+      async () => {
+        await startActiveObservation(gateName, async (span) => {
+          if (span && typeof span.update === "function") {
+            try {
+              span.update({
+                model: DOCOPS_MODEL,
+                modelParameters: { max_tokens: 4096, temperature: 0.25 },
+                input: [{ role: "user", content: prompt }],
+              });
+            } catch { }
+          }
+          await fn(span);
+          // Set trace-level output via setTraceIO so {{output}} is populated for evaluators
+          if (span && typeof span.setTraceIO === "function") {
+            try { span.setTraceIO({ output: getOutput() }); } catch { }
+          }
+        });
+      },
+    );
+  } catch (e) {
+    console.error("[Langfuse] Trace failed (non-fatal):", e.message);
+    await fn(null);
+  } finally {
+    if (_spanProcessor) {
+      try { await _spanProcessor.forceFlush(); } catch { }
+    }
+  }
+}
 
 // ── Import the serverless handler dynamically ───────────────────────────────
 // We dynamically import the .ts files using a simple approach:
@@ -219,7 +306,7 @@ async function chatHandler(body) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
-const DOCOPS_MODEL   = "nvidia/nemotron-3-ultra-550b-a55b:free";
+const DOCOPS_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free";
 
 // ── All gate prompts ─────────────────────────────────────────────────────────
 
@@ -399,7 +486,7 @@ ${content}`;
 
 // ── SSE proxy to OpenRouter ──────────────────────────────────────────────────
 
-async function streamToSSE(res, prompt) {
+async function streamToSSE(res, prompt, traceMeta) {
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
     res.writeHead(500, { "Content-Type": "application/json" });
@@ -414,66 +501,101 @@ async function streamToSSE(res, prompt) {
     "Access-Control-Allow-Origin": "*",
   });
 
-  try {
-    const orRes = await fetch(OPENROUTER_URL, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:5173",
-        "X-Title": "API DocOps",
-      },
-      body: JSON.stringify({
-        model: DOCOPS_MODEL,
-        messages: [{ role: "user", content: prompt }],
-        stream: true,
-        max_tokens: 4096,
-        temperature: 0.25,
-      }),
-    });
+  // Hoist fullOutput so withLangfuseTrace can read it after streaming completes
+  let fullOutput = "";
 
-    if (!orRes.ok) {
-      const errText = await orRes.text();
-      res.write(`data: ${JSON.stringify({ error: `OpenRouter error ${orRes.status}: ${errText.slice(0, 200)}` })}\n\n`);
-      res.end();
-      return;
-    }
+  const runLLM = async (span) => {
+    try {
+      const orRes = await fetch(OPENROUTER_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": "http://localhost:5173",
+          "X-Title": "API DocOps",
+        },
+        body: JSON.stringify({
+          model: DOCOPS_MODEL,
+          messages: [{ role: "user", content: prompt }],
+          stream: true,
+          max_tokens: 4096,
+          temperature: 0.25,
+        }),
+      });
 
-    const reader = orRes.body.getReader();
-    const decoder = new TextDecoder();
-    let buf = "";
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buf += decoder.decode(value, { stream: true });
-      const lines = buf.split("\n");
-      buf = lines.pop() ?? "";
-
-      for (const line of lines) {
-        if (!line.startsWith("data: ")) continue;
-        const raw = line.slice(6).trim();
-        if (raw === "[DONE]") {
-          res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-          res.end();
-          return;
-        }
-        try {
-          const chunk = JSON.parse(raw);
-          const content = chunk.choices?.[0]?.delta?.content;
-          if (content) {
-            res.write(`data: ${JSON.stringify({ content })}\n\n`);
-          }
-        } catch { /* skip malformed chunks */ }
+      if (!orRes.ok) {
+        const errText = await orRes.text();
+        const errMsg = `OpenRouter error ${orRes.status}: ${errText.slice(0, 200)}`;
+        if (span) { try { span.end({ level: "ERROR", statusMessage: errMsg }); } catch { } }
+        res.write(`data: ${JSON.stringify({ error: errMsg })}\n\n`);
+        res.end();
+        return;
       }
-    }
 
-    res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-    res.end();
-  } catch (err) {
-    console.error("[DocOps SSE] Error:", err.message);
-    res.write(`data: ${JSON.stringify({ error: err.message || "Internal error" })}\n\n`);
-    res.end();
+      const reader = orRes.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      let usageData = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop() ?? "";
+
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const raw = line.slice(6).trim();
+          if (raw === "[DONE]") {
+            if (span) {
+              try {
+                span.update({ output: fullOutput });
+                if (typeof span.setTraceIO === "function") {
+                  span.setTraceIO({ input: [{ role: "user", content: prompt }], output: fullOutput });
+                }
+                span.end({ output: fullOutput, ...(usageData ? { usage: usageData } : {}) });
+              } catch { }
+            }
+            res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+            res.end();
+            return;
+          }
+          try {
+            const chunk = JSON.parse(raw);
+            const content = chunk.choices?.[0]?.delta?.content;
+            if (content) {
+              fullOutput += content;
+              res.write(`data: ${JSON.stringify({ content })}\n\n`);
+            }
+            if (chunk.usage) {
+              usageData = {
+                input: chunk.usage.prompt_tokens,
+                output: chunk.usage.completion_tokens,
+                total: chunk.usage.total_tokens,
+              };
+            }
+          } catch { /* skip malformed chunks */ }
+        }
+      }
+
+      if (span) {
+        try { span.end({ output: fullOutput, ...(usageData ? { usage: usageData } : {}) }); } catch { }
+      }
+      res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+      res.end();
+    } catch (err) {
+      console.error("[DocOps SSE] Error:", err.message);
+      if (span) { try { span.end({ level: "ERROR", statusMessage: err.message }); } catch { } }
+      res.write(`data: ${JSON.stringify({ error: err.message || "Internal error" })}\n\n`);
+      res.end();
+    }
+  };
+
+  if (traceMeta) {
+    await withLangfuseTrace(traceMeta, prompt, runLLM, () => fullOutput);
+  } else {
+    await runLLM(null);
   }
 }
 
@@ -485,45 +607,45 @@ async function docsAgentHandler(url, body, res) {
   if (route === "pipeline") {
     const { gate, input, gate1Output, gate2Output, gate3Output, feedback } = body;
     let prompt;
-    if      (gate === 1) { if (!input) return { status: 400, body: { error: "input required" } }; prompt = pipelineGate1Prompt(input, feedback); }
+    if (gate === 1) { if (!input) return { status: 400, body: { error: "input required" } }; prompt = pipelineGate1Prompt(input, feedback); }
     else if (gate === 2) { if (!input || !gate1Output) return { status: 400, body: { error: "input and gate1Output required" } }; prompt = pipelineGate2Prompt(input, gate1Output, feedback); }
     else if (gate === 3) { if (!input || !gate2Output) return { status: 400, body: { error: "input and gate2Output required" } }; prompt = pipelineGate3Prompt(input, gate2Output, feedback); }
     else if (gate === 4) { if (!gate3Output) return { status: 400, body: { error: "gate3Output required" } }; prompt = pipelineGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output) return { status: 400, body: { error: "gate3Output required" } }; prompt = pipelineGate5Prompt(gate3Output, feedback); }
     else return { status: 400, body: { error: "Invalid gate number" } };
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "pipeline", gate, hasFeedback: !!feedback });
     return null; // already handled
 
   } else if (route === "mcp") {
     const { gate, input, gate1Output, gate2Output, gate3Output, feedback } = body;
     let prompt;
-    if      (gate === 1) { if (!input) return { status: 400, body: { error: "input required" } }; prompt = mcpGate1Prompt(input, feedback); }
+    if (gate === 1) { if (!input) return { status: 400, body: { error: "input required" } }; prompt = mcpGate1Prompt(input, feedback); }
     else if (gate === 2) { if (!input || !gate1Output) return { status: 400, body: { error: "input and gate1Output required" } }; prompt = mcpGate2Prompt(input, gate1Output, feedback); }
     else if (gate === 3) { if (!input || !gate2Output) return { status: 400, body: { error: "input and gate2Output required" } }; prompt = mcpGate3Prompt(input, gate2Output, feedback); }
     else if (gate === 4) { if (!gate3Output) return { status: 400, body: { error: "gate3Output required" } }; prompt = mcpGate4Prompt(gate3Output, feedback); }
     else if (gate === 5) { if (!gate3Output) return { status: 400, body: { error: "gate3Output required" } }; prompt = mcpGate5Prompt(gate3Output, feedback); }
     else return { status: 400, body: { error: "Invalid gate number" } };
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "mcp", gate, hasFeedback: !!feedback });
     return null;
 
   } else if (route === "normalize") {
     const { mode, content, auditReport, feedback } = body;
     if (!content) return { status: 400, body: { error: "content required" } };
     let prompt;
-    if      (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
-    else if (mode === "fix")   { if (!auditReport) return { status: 400, body: { error: "auditReport required for fix mode" } }; prompt = normalizeFixPrompt(content, auditReport, feedback); }
+    if (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
+    else if (mode === "fix") { if (!auditReport) return { status: 400, body: { error: "auditReport required for fix mode" } }; prompt = normalizeFixPrompt(content, auditReport, feedback); }
     else return { status: 400, body: { error: "mode must be 'audit' or 'fix'" } };
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "normalize", mode, hasFeedback: !!feedback });
     return null;
 
   } else if (route === "glossary") {
     const { mode, content, extractReport, feedback } = body;
     if (!content) return { status: 400, body: { error: "content required" } };
     let prompt;
-    if      (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
-    else if (mode === "define")  { if (!extractReport) return { status: 400, body: { error: "extractReport required for define mode" } }; prompt = glossaryDefinePrompt(content, extractReport, feedback); }
+    if (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
+    else if (mode === "define") { if (!extractReport) return { status: 400, body: { error: "extractReport required for define mode" } }; prompt = glossaryDefinePrompt(content, extractReport, feedback); }
     else return { status: 400, body: { error: "mode must be 'extract' or 'define'" } };
-    await streamToSSE(res, prompt);
+    await streamToSSE(res, prompt, { agent: "glossary", mode, hasFeedback: !!feedback });
     return null;
 
   } else {
@@ -621,6 +743,7 @@ server.listen(PORT, () => {
   console.log("  │    HF_TOKEN:          " + (process.env.HF_TOKEN ? "✓ set" : "✗ MISSING") + "                          │");
   console.log("  │    GROQ_API_KEY:      " + (process.env.GROQ_API_KEY ? "✓ set" : "✗ MISSING") + "                          │");
   console.log("  │    OPENROUTER_API_KEY:" + (process.env.OPENROUTER_API_KEY ? "✓ set" : "✗ MISSING") + "                          │");
+  console.log("  │    LANGFUSE_PUBLIC_KEY:" + (process.env.LANGFUSE_PUBLIC_KEY ? "✓ set (tracing on)" : "✗ not set (tracing off)") + "       │");
   console.log("  └──────────────────────────────────────────────────────────┘");
   console.log("");
 });

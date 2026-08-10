@@ -13,29 +13,47 @@
  * Tracing is optional — if LANGFUSE keys aren't set, agents work normally.
  */
 
-import Langfuse from "langfuse";
+import { LangfuseClient } from "@langfuse/client";
+import { LangfuseSpanProcessor } from "@langfuse/otel";
+import {
+  startObservation,
+  setActiveTraceIO,
+  propagateAttributes,
+  setLangfuseTracerProvider,
+} from "@langfuse/tracing";
+import { BasicTracerProvider } from "@opentelemetry/sdk-trace-base";
 
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DOCOPS_MODEL   = "nvidia/nemotron-3-ultra-550b-a55b:free";
 
-// ── Langfuse client (lazy singleton) ───────────────────────────────────────────
+// ── Langfuse OTEL setup (serverless-safe: BasicTracerProvider + immediate export) ──
 
-let _langfuse: InstanceType<typeof Langfuse> | null = null;
+let _spanProcessor: InstanceType<typeof LangfuseSpanProcessor> | null = null;
+let _langfuse: InstanceType<typeof LangfuseClient> | null = null;
 
-function getLangfuse(): InstanceType<typeof Langfuse> | null {
-  if (_langfuse) return _langfuse;
+function getLangfuse(): { client: InstanceType<typeof LangfuseClient>; spanProcessor: InstanceType<typeof LangfuseSpanProcessor> } | null {
+  if (_langfuse && _spanProcessor) return { client: _langfuse, spanProcessor: _spanProcessor };
   const publicKey = process.env.LANGFUSE_PUBLIC_KEY;
   const secretKey = process.env.LANGFUSE_SECRET_KEY;
   if (!publicKey || !secretKey) return null;
   const baseUrl = process.env.LANGFUSE_BASE_URL || process.env.LANGFUSE_HOST || "https://jp.cloud.langfuse.com";
   try {
-    _langfuse = new Langfuse({
-      publicKey,
-      secretKey,
-      baseUrl,
-      flushAt: 1,  // flush after every event (important for serverless)
-    });
-    return _langfuse;
+    // Use BasicTracerProvider (lightweight, no NodeSDK overhead) with immediate export
+    // so spans are not held in a batch — critical for Vercel serverless cold starts.
+    if (!_spanProcessor) {
+      _spanProcessor = new LangfuseSpanProcessor({
+        publicKey,
+        secretKey,
+        baseUrl,
+        exportMode: "immediate",
+      });
+      // Pass processor via constructor (BasicTracerProvider v2 API)
+      // Register ONLY in Langfuse's isolated slot — no global register() needed
+      const provider = new BasicTracerProvider({ spanProcessors: [_spanProcessor] });
+      setLangfuseTracerProvider(provider);
+    }
+    _langfuse = new LangfuseClient({ publicKey, secretKey, baseUrl });
+    return { client: _langfuse, spanProcessor: _spanProcessor };
   } catch (e) {
     console.error("[Langfuse] Failed to initialize:", e);
     return null;
@@ -242,37 +260,11 @@ async function streamToSSE(res, prompt, traceMeta?: { agent: string; gate?: numb
     return;
   }
 
-  // ── Langfuse: create trace + generation (non-blocking, safe) ────────────────
-  const langfuse = getLangfuse();
-  let trace = null;
-  let generation = null;
-  const startTime = Date.now();
-
-  if (langfuse && traceMeta) {
-    try {
-      const gateName = traceMeta.gate != null ? `gate-${traceMeta.gate}` : traceMeta.mode || "run";
-      trace = langfuse.trace({
-        name: `docops-${traceMeta.agent}`,
-        metadata: {
-          agent: traceMeta.agent,
-          gate: traceMeta.gate,
-          mode: traceMeta.mode,
-          hasFeedback: traceMeta.hasFeedback || false,
-        },
-        tags: [traceMeta.agent, gateName],
-      });
-      generation = trace.generation({
-        name: gateName,
-        model: DOCOPS_MODEL,
-        modelParameters: { temperature: 0.25, max_tokens: 4096, stream: true },
-        input: [{ role: "user", content: prompt }],
-      });
-    } catch (e) {
-      console.error("[Langfuse] Trace creation failed (non-fatal):", e);
-      trace = null;
-      generation = null;
-    }
-  }
+  // ── Langfuse: trace via OTEL (non-blocking, safe) ────────────────────────────
+  const langfuseCtx = getLangfuse();
+  const gateName = traceMeta
+    ? (traceMeta.gate != null ? `gate-${traceMeta.gate}` : traceMeta.mode || "run")
+    : "run";
 
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
@@ -280,107 +272,144 @@ async function streamToSSE(res, prompt, traceMeta?: { agent: string; gate?: numb
 
   let fullOutput = "";
 
-  try {
-    const orRes = await fetch(OPENROUTER_URL, {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://siddhartha.dev",
-        "X-Title": "API DocOps",
-      },
-      body: JSON.stringify({
-        model: DOCOPS_MODEL,
-        messages: [{ role: "user", content: prompt }],
-        stream: true,
-        max_tokens: 4096,
-        temperature: 0.25,
-      }),
-    });
-
-    if (!orRes.ok) {
-      const errText = await orRes.text();
-      const errMsg = `OpenRouter error ${orRes.status}: ${errText.slice(0, 300)}`;
-      // Langfuse: record error
-      if (generation) {
-        try { generation.end({ output: errMsg, level: "ERROR", statusMessage: errMsg }); } catch {}
-      }
-      res.write(`data: ${JSON.stringify({ error: errMsg })}\n\n`);
-      res.end();
-      if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
-      return;
-    }
-
-    const reader = orRes.body.getReader();
-    const decoder = new TextDecoder();
-    let buf = "";
-    let usageData = null;
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      buf += decoder.decode(value, { stream: true });
-      const lines = buf.split("\n");
-      buf = lines.pop() ?? "";
-      for (const line of lines) {
-        if (!line.startsWith("data: ")) continue;
-        const raw = line.slice(6).trim();
-        if (raw === "[DONE]") {
-          // Langfuse: end generation with full output
-          if (generation) {
-            try {
-              generation.end({
-                output: fullOutput,
-                ...(usageData ? { usage: usageData } : {}),
-              });
-            } catch {}
-          }
-          res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-          res.end();
-          if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
-          return;
-        }
-        try {
-          const chunk = JSON.parse(raw);
-          const content = chunk.choices?.[0]?.delta?.content;
-          if (content) {
-            fullOutput += content;
-            res.write(`data: ${JSON.stringify({ content })}\n\n`);
-          }
-          // Capture usage data from the final chunk (OpenRouter includes it)
-          if (chunk.usage) {
-            usageData = {
-              input: chunk.usage.prompt_tokens,
-              output: chunk.usage.completion_tokens,
-              total: chunk.usage.total_tokens,
-            };
-          }
-        } catch { /* skip malformed chunks */ }
-      }
-    }
-
-    // Langfuse: end generation (stream ended without [DONE])
-    if (generation) {
-      try {
-        generation.end({
-          output: fullOutput,
-          ...(usageData ? { usage: usageData } : {}),
-        });
-      } catch {}
-    }
-    res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
-    res.end();
-    if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
-  } catch (err) {
-    // Langfuse: record error
-    if (generation) {
-      try { generation.end({ output: err.message || "Internal error", level: "ERROR", statusMessage: err.message }); } catch {}
-    }
-    if (langfuse) { try { await langfuse.flushAsync(); } catch {} }
+  // Wrap the entire LLM call in a Langfuse observation (if keys are set)
+  const runLLM = async (span?: any) => {
     try {
-      res.write(`data: ${JSON.stringify({ error: err.message || "Internal error" })}\n\n`);
+      const orRes = await fetch(OPENROUTER_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": "https://siddhartha.dev",
+          "X-Title": "API DocOps",
+        },
+        body: JSON.stringify({
+          model: DOCOPS_MODEL,
+          messages: [{ role: "user", content: prompt }],
+          stream: true,
+          max_tokens: 4096,
+          temperature: 0.25,
+        }),
+      });
+
+      if (!orRes.ok) {
+        const errText = await orRes.text();
+        const errMsg = `OpenRouter error ${orRes.status}: ${errText.slice(0, 300)}`;
+        if (span) { try { span.update({ level: "ERROR", statusMessage: errMsg }); span.end(); } catch {} }
+        res.write(`data: ${JSON.stringify({ error: errMsg })}\n\n`);
+        res.end();
+        return;
+      }
+
+      const reader = orRes.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = "";
+      let usageData = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split("\n");
+        buf = lines.pop() ?? "";
+        for (const line of lines) {
+          if (!line.startsWith("data: ")) continue;
+          const raw = line.slice(6).trim();
+          if (raw === "[DONE]") {
+            if (span) {
+              try {
+                span.update({ output: fullOutput });
+                setActiveTraceIO({
+                  input: [{ role: "user", content: prompt }],
+                  output: { role: "assistant", content: fullOutput },
+                });
+                span.end();
+              } catch {}
+            }
+            res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+            res.end();
+            return;
+          }
+          try {
+            const chunk = JSON.parse(raw);
+            const content = chunk.choices?.[0]?.delta?.content;
+            if (content) {
+              fullOutput += content;
+              res.write(`data: ${JSON.stringify({ content })}\n\n`);
+            }
+            // Capture usage data from the final chunk (OpenRouter includes it)
+            if (chunk.usage) {
+              usageData = {
+                input: chunk.usage.prompt_tokens,
+                output: chunk.usage.completion_tokens,
+                total: chunk.usage.total_tokens,
+              };
+            }
+          } catch { /* skip malformed chunks */ }
+        }
+      }
+
+      // Stream ended without [DONE]
+      if (span) {
+        try {
+          // span.end() only accepts an optional TimeInput — set output first via update()
+          span.update({
+            output: fullOutput,
+            ...(usageData ? { metadata: { usage: usageData } } : {}),
+          });
+          span.end();
+        } catch {}
+      }
+      res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
       res.end();
-    } catch { /* headers already sent */ }
+    } catch (err) {
+      if (span) { try { span.update({ level: "ERROR", statusMessage: err.message }); span.end(); } catch {} }
+      try {
+        res.write(`data: ${JSON.stringify({ error: err.message || "Internal error" })}\n\n`);
+        res.end();
+      } catch { /* headers already sent */ }
+    }
+  };
+
+  if (langfuseCtx && traceMeta) {
+    try {
+      const traceName = `docops-${traceMeta.agent}`;
+      await propagateAttributes(
+        {
+          traceName,
+          metadata: {
+            agent: traceMeta.agent,
+            gate: String(traceMeta.gate ?? ""),
+            mode: traceMeta.mode ?? "",
+            hasFeedback: traceMeta.hasFeedback ? "true" : "false",
+          },
+          tags: [traceMeta.agent, gateName],
+        },
+        async () => {
+          // Use startObservation (not startActiveObservation) so we control the span lifecycle
+          // and can set output on both the span and trace BEFORE ending the span.
+          const span = startObservation(gateName);
+          try {
+            span.update({
+              model: DOCOPS_MODEL,
+              modelParameters: { max_tokens: 4096, temperature: 0.25 },
+              input: [{ role: "user", content: prompt }],
+            });
+            await runLLM(span);
+          } finally {
+            try { span.end(); } catch {}
+          }
+        },
+      );
+    } catch (e) {
+      console.error("[Langfuse] Observation failed (non-fatal):", e);
+      await runLLM();
+    } finally {
+      // Flush spans before Vercel freezes the function instance
+      try { await langfuseCtx.spanProcessor.forceFlush(); } catch {}
+    }
+  } else {
+    await runLLM();
   }
 }
 
@@ -408,12 +437,17 @@ export default async function handler(req, res) {
   // ── Pipeline ────────────────────────────────────────────────────────────────
   if (agent === "pipeline") {
     const { gate, input, gate1Output, gate2Output, gate3Output, feedback } = body;
+    const srcInput = input || gate3Output || gate2Output || gate1Output || "";
+    const g1 = gate1Output || srcInput;
+    const g2 = gate2Output || g1;
+    const g3 = gate3Output || g2;
+
     let prompt;
-    if      (gate === 1) { if (!input)                     { res.status(400).json({ error: "input required" }); return; }                         prompt = pipelineGate1Prompt(input, feedback); }
-    else if (gate === 2) { if (!input || !gate1Output)     { res.status(400).json({ error: "input and gate1Output required" }); return; }          prompt = pipelineGate2Prompt(input, gate1Output, feedback); }
-    else if (gate === 3) { if (!input || !gate2Output)     { res.status(400).json({ error: "input and gate2Output required" }); return; }          prompt = pipelineGate3Prompt(input, gate2Output, feedback); }
-    else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate4Prompt(gate3Output, feedback); }
-    else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = pipelineGate5Prompt(gate3Output, feedback); }
+    if      (gate === 1) { if (!srcInput) { res.status(400).json({ error: "input required" }); return; } prompt = pipelineGate1Prompt(srcInput, feedback); }
+    else if (gate === 2) { prompt = pipelineGate2Prompt(srcInput, g1, feedback); }
+    else if (gate === 3) { prompt = pipelineGate3Prompt(srcInput, g2, feedback); }
+    else if (gate === 4) { prompt = pipelineGate4Prompt(g3, feedback); }
+    else if (gate === 5) { prompt = pipelineGate5Prompt(g3, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
     await streamToSSE(res, prompt, { agent: "pipeline", gate, hasFeedback: !!feedback });
     return;
@@ -422,12 +456,17 @@ export default async function handler(req, res) {
   // ── MCP ─────────────────────────────────────────────────────────────────────
   if (agent === "mcp") {
     const { gate, input, gate1Output, gate2Output, gate3Output, feedback } = body;
+    const srcInput = input || gate3Output || gate2Output || gate1Output || "";
+    const g1 = gate1Output || srcInput;
+    const g2 = gate2Output || g1;
+    const g3 = gate3Output || g2;
+
     let prompt;
-    if      (gate === 1) { if (!input)                     { res.status(400).json({ error: "input required" }); return; }                         prompt = mcpGate1Prompt(input, feedback); }
-    else if (gate === 2) { if (!input || !gate1Output)     { res.status(400).json({ error: "input and gate1Output required" }); return; }          prompt = mcpGate2Prompt(input, gate1Output, feedback); }
-    else if (gate === 3) { if (!input || !gate2Output)     { res.status(400).json({ error: "input and gate2Output required" }); return; }          prompt = mcpGate3Prompt(input, gate2Output, feedback); }
-    else if (gate === 4) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate4Prompt(gate3Output, feedback); }
-    else if (gate === 5) { if (!gate3Output)               { res.status(400).json({ error: "gate3Output required" }); return; }                   prompt = mcpGate5Prompt(gate3Output, feedback); }
+    if      (gate === 1) { if (!srcInput) { res.status(400).json({ error: "input required" }); return; } prompt = mcpGate1Prompt(srcInput, feedback); }
+    else if (gate === 2) { prompt = mcpGate2Prompt(srcInput, g1, feedback); }
+    else if (gate === 3) { prompt = mcpGate3Prompt(srcInput, g2, feedback); }
+    else if (gate === 4) { prompt = mcpGate4Prompt(g3, feedback); }
+    else if (gate === 5) { prompt = mcpGate5Prompt(g3, feedback); }
     else                 { res.status(400).json({ error: "gate must be 1–5" }); return; }
     await streamToSSE(res, prompt, { agent: "mcp", gate, hasFeedback: !!feedback });
     return;
@@ -436,10 +475,11 @@ export default async function handler(req, res) {
   // ── Normalize ────────────────────────────────────────────────────────────────
   if (agent === "normalize") {
     const { mode, content, auditReport, feedback } = body;
-    if (!content) { res.status(400).json({ error: "content required" }); return; }
+    const srcContent = content || auditReport || "";
+    if (!srcContent) { res.status(400).json({ error: "content required" }); return; }
     let prompt;
-    if      (mode === "audit") prompt = normalizeAuditPrompt(content, feedback);
-    else if (mode === "fix")   { if (!auditReport) { res.status(400).json({ error: "auditReport required for fix mode" }); return; } prompt = normalizeFixPrompt(content, auditReport, feedback); }
+    if      (mode === "audit") prompt = normalizeAuditPrompt(srcContent, feedback);
+    else if (mode === "fix")   prompt = normalizeFixPrompt(srcContent, auditReport || srcContent, feedback);
     else                       { res.status(400).json({ error: "mode must be 'audit' or 'fix'" }); return; }
     await streamToSSE(res, prompt, { agent: "normalize", mode, hasFeedback: !!feedback });
     return;
@@ -448,10 +488,11 @@ export default async function handler(req, res) {
   // ── Glossary ─────────────────────────────────────────────────────────────────
   if (agent === "glossary") {
     const { mode, content, extractReport, feedback } = body;
-    if (!content) { res.status(400).json({ error: "content required" }); return; }
+    const srcContent = content || extractReport || "";
+    if (!srcContent) { res.status(400).json({ error: "content required" }); return; }
     let prompt;
-    if      (mode === "extract") prompt = glossaryExtractPrompt(content, feedback);
-    else if (mode === "define")  { if (!extractReport) { res.status(400).json({ error: "extractReport required for define mode" }); return; } prompt = glossaryDefinePrompt(content, extractReport, feedback); }
+    if      (mode === "extract") prompt = glossaryExtractPrompt(srcContent, feedback);
+    else if (mode === "define")  prompt = glossaryDefinePrompt(srcContent, extractReport || srcContent, feedback);
     else                         { res.status(400).json({ error: "mode must be 'extract' or 'define'" }); return; }
     await streamToSSE(res, prompt, { agent: "glossary", mode, hasFeedback: !!feedback });
     return;
