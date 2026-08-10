@@ -449,6 +449,11 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
   const [feedback, setFeedback] = useState("");
   const abortRef = useRef<AbortController | null>(null);
 
+  // Use a ref for outputs so runGate always reads the latest value
+  // without needing outputs in its dependency array (avoids stale closure).
+  const outputsRef = useRef(outputs);
+  outputsRef.current = outputs;
+
   const runGate = useCallback(async (g: number, fb?: string) => {
     setStatus("running");
     setStream("");
@@ -457,7 +462,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
     abortRef.current = new AbortController();
 
     try {
-      const body = cfg.buildBody(g, input, outputs, fb);
+      const body = cfg.buildBody(g, input, outputsRef.current, fb);
       const full = await streamAgent(
         `${API_BASE}/${cfg.endpoint}`,
         body,
@@ -469,9 +474,9 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
     } catch (e: any) {
       if (e.name === "AbortError") return;
       alert(`Error: ${e.message}`);
-      setStatus("idle");
+      setStatus("completed"); // stay on current gate — don't wipe the progress view
     }
-  }, [cfg, input, outputs]);
+  }, [cfg, input]);
 
   const handleApprove = useCallback(() => {
     if (gate >= cfg.steps.length) {
@@ -546,7 +551,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
       {Array.from({ length: gate }, (_, i) => i + 1).map(g => {
         const isCurrentGate = g === gate;
         const gateStatus: AgentStatus = status === "done" ? "completed" : (isCurrentGate ? status : "completed");
-        if (gateStatus === "idle" || (!outputs[g] && gateStatus !== "running")) return null;
+        if (gateStatus === "idle" || (!outputs[g] && gateStatus !== "running" && !isCurrentGate)) return null;
         return (
           <GateCard
             key={g}
