@@ -16,7 +16,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-innovatia-technical-services-inc-bengaluru-3-to-7-years-081225505862",
     "source": "LinkedIn + Naukri",
     "date": "2026-08-10",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "7e39cd1e",
@@ -29,8 +29,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-xylem-4334875822",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-15",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "date": "2026-08-16",
+    "verified_at": "2026-08-16T11:19:08Z"
+  },
+  {
+    "id": "f3c0ac93",
+    "job_title": "Technical Writer - SaaS Product Documentation & Videos",
+    "company": "BotSpace",
+    "location": "India",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-saas-product-documentation-videos-at-botspace-4449560455",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-16",
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "830f9e17",
@@ -43,8 +57,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/lead-technical-writer-at-trantor-4452367345",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-08-15",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "date": "2026-08-16",
+    "verified_at": "2026-08-16T11:19:08Z"
+  },
+  {
+    "id": "5b4ad4da",
+    "job_title": "Technical Writer",
+    "company": "Birlasoft",
+    "location": "Greater Bengaluru Area",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-birlasoft-4439845512",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-08-16",
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "e367133b",
@@ -58,21 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-14",
-    "verified_at": "2026-08-15T11:19:13Z"
-  },
-  {
-    "id": "268e747b",
-    "job_title": "Technical Writer",
-    "company": "UL Solutions",
-    "location": "Bangalore",
-    "experience": "3+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ul-solutions-4428241732",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-14",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "a71ea231",
@@ -86,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-12",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "f4b1b0a4",
@@ -100,7 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-12",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "f2196c54",
@@ -114,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-12",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   },
   {
     "id": "d58d4c94",
@@ -128,39 +142,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-07",
-    "verified_at": "2026-08-15T11:19:13Z"
-  },
-  {
-    "id": "ece52f60",
-    "job_title": "UX Writer",
-    "company": "Hiver",
-    "location": "Bangalore",
-    "experience": "3+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-at-hiver-4447823355",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-03",
-    "verified_at": "2026-08-15T11:19:13Z"
-  },
-  {
-    "id": "e8efdbfc",
-    "job_title": "UX Writer (Technical)",
-    "company": "Devdort",
-    "location": "Bangalore",
-    "experience": "3-4 Yrs",
-    "skills": [
-      "UX Writing",
-      "Content Design",
-      "Information Architecture",
-      "Technical Documentation"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-ux-writer-technical-devdort-bengaluru-3-to-4-years-310726501029",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-technical-devdort-bengaluru-3-to-4-years-310726501029",
-    "source": "Naukri",
-    "date": "2026-08-15",
-    "verified_at": "2026-08-15T11:19:13Z"
+    "verified_at": "2026-08-16T11:19:08Z"
   }
 ]
