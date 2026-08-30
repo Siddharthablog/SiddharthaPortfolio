@@ -11,7 +11,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-21",
-    "verified_at": "2026-08-29T15:24:26Z"
+    "verified_at": "2026-08-30T15:08:10Z"
   },
   {
     "id": "f80eefc9",
@@ -25,21 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-19",
-    "verified_at": "2026-08-29T15:24:26Z"
-  },
-  {
-    "id": "f164eb90",
-    "job_title": "Technical Writer",
-    "company": "DEVable",
-    "location": "India",
-    "experience": null,
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-devable-4451762578",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-08-18",
-    "verified_at": "2026-08-29T15:24:26Z"
+    "verified_at": "2026-08-30T15:08:10Z"
   },
   {
     "id": "2139c073",
@@ -53,6 +39,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-08-17",
-    "verified_at": "2026-08-29T15:24:26Z"
+    "verified_at": "2026-08-30T15:08:10Z"
   }
 ]
