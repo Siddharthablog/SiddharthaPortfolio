@@ -499,6 +499,10 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
   const outputsRef = useRef(outputs);
   outputsRef.current = outputs;
 
+  // Ref for gate so handleApprove never captures a stale gate value.
+  const gateRef = useRef(gate);
+  gateRef.current = gate;
+
   const runGate = useCallback(async (g: number, fb?: string) => {
     setStatus("running");
     setStream("");
@@ -525,14 +529,15 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
   }, [cfg, input]);
 
   const handleApprove = useCallback(() => {
-    if (gate >= cfg.steps.length) {
+    const currentGate = gateRef.current;
+    if (currentGate >= cfg.steps.length) {
       setStatus("done");
     } else {
-      const nextGate = gate + 1;
+      const nextGate = currentGate + 1;
       setGate(nextGate);
       runGate(nextGate);
     }
-  }, [gate, cfg.steps.length, runGate]);
+  }, [cfg.steps.length, runGate]);
 
   const handleReset = () => {
     abortRef.current?.abort();
