@@ -58,6 +58,7 @@ async function streamAgent(
   onChunk: (full: string) => void,
   signal?: AbortSignal
 ): Promise<StreamResult> {
+  const clientStart = Date.now(); // client-side fallback timer
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -74,6 +75,8 @@ async function streamAgent(
   const decoder = new TextDecoder();
   let full = "";
   let buf = "";
+  let serverLatencyMs: number | null = null;
+  let tokens: number | null = null;
 
   while (true) {
     const { done, value } = await reader.read();
@@ -87,7 +90,11 @@ async function streamAgent(
       if (!raw) continue;
       try {
         const evt = JSON.parse(raw);
-        if (evt.done) return { full, latencyMs: evt.latencyMs ?? null, tokens: evt.tokens ?? null };
+        if (evt.done) {
+          // prefer server-measured latency; fall back to client clock
+          const latencyMs = evt.latencyMs ?? (Date.now() - clientStart);
+          return { full, latencyMs, tokens: evt.tokens ?? null };
+        }
         if (evt.error) throw new Error(evt.error);
         if (evt.content) {
           full += evt.content;
@@ -98,7 +105,8 @@ async function streamAgent(
       }
     }
   }
-  return { full, latencyMs: null, tokens: null };
+  // Stream closed without a done event — use client clock
+  return { full, latencyMs: Date.now() - clientStart, tokens };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
