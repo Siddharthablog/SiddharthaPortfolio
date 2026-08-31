@@ -46,12 +46,18 @@ function useReveal(threshold = 0.1) {
 // SSE STREAMING CLIENT
 // ─────────────────────────────────────────────────────────────────────────────
 
+interface StreamResult {
+  full: string;
+  latencyMs: number | null;
+  tokens: number | null;
+}
+
 async function streamAgent(
   url: string,
   body: Record<string, unknown>,
   onChunk: (full: string) => void,
   signal?: AbortSignal
-): Promise<string> {
+): Promise<StreamResult> {
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -81,7 +87,7 @@ async function streamAgent(
       if (!raw) continue;
       try {
         const evt = JSON.parse(raw);
-        if (evt.done) return full;
+        if (evt.done) return { full, latencyMs: evt.latencyMs ?? null, tokens: evt.tokens ?? null };
         if (evt.error) throw new Error(evt.error);
         if (evt.content) {
           full += evt.content;
@@ -92,7 +98,7 @@ async function streamAgent(
       }
     }
   }
-  return full;
+  return { full, latencyMs: null, tokens: null };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -334,13 +340,14 @@ function Stepper({ steps, current }: { steps: string[]; current: number }) {
 function GateCard({
   gateNum, gateLabel, status, stream, output, showFeedback, feedback,
   onFeedbackChange, onApprove, onRequestChanges, onCancelFeedback, onRerun,
-  isLastGate, feedbackHint, isCurrentGate,
+  isLastGate, feedbackHint, isCurrentGate, metrics,
 }: {
   gateNum: number; gateLabel: string; status: AgentStatus; stream: string; output: string;
   showFeedback: boolean; feedback: string;
   onFeedbackChange: (v: string) => void; onApprove: () => void;
   onRequestChanges: () => void; onCancelFeedback: () => void;
   onRerun: () => void; isLastGate: boolean; feedbackHint: string; isCurrentGate: boolean;
+  metrics: { latencyMs: number | null; tokens: number | null } | null;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -362,14 +369,43 @@ function GateCard({
         )}
         <span style={{ fontSize: 12, fontWeight: 700, color: "var(--text)" }}>Gate {gateNum} — {gateLabel}</span>
         {status === "running" && <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: "auto" }}>Agent is processing…</span>}
-        {status === "completed" && <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: "auto" }}>Review output below, then approve or request changes.</span>}
+        {status === "completed" && !metrics && <span style={{ fontSize: 11, color: "var(--muted)", marginLeft: "auto" }}>Review output below, then approve or request changes.</span>}
+        {status === "completed" && metrics && (
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{
+              display: "inline-flex", alignItems: "center", gap: 5,
+              background: "hsl(258,60%,96%)", border: "1px solid hsl(258,40%,82%)",
+              borderRadius: 9999, padding: "2px 10px",
+              fontSize: 11, fontWeight: 600, color: "hsl(258,50%,45%)",
+            }}>
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style={{ flexShrink: 0 }}>
+                <circle cx="4.5" cy="4.5" r="4" stroke="hsl(258,50%,55%)" strokeWidth="1.2" fill="hsl(258,60%,92%)" />
+                <circle cx="4.5" cy="4.5" r="1.5" fill="hsl(258,50%,55%)" />
+              </svg>
+              Traced
+            </span>
+            {metrics.latencyMs != null && (
+              <span style={{ fontSize: 11, color: "var(--muted)", fontVariantNumeric: "tabular-nums" }}>
+                ⏱ {(metrics.latencyMs / 1000).toFixed(1)}s
+              </span>
+            )}
+            {metrics.tokens != null && (
+              <span style={{ fontSize: 11, color: "var(--muted)", fontVariantNumeric: "tabular-nums" }}>
+                · {metrics.tokens.toLocaleString()} tokens
+              </span>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Output */}
       <div ref={scrollRef} style={{ padding: "1.25rem", maxHeight: 420, overflowY: "auto" }}>
-        {content ? <Markdown text={content} /> : (
-          <div style={{ color: "var(--muted)", fontSize: "0.8rem", fontStyle: "italic" }}>Waiting for output…</div>
-        )}
+        {content
+          ? <Markdown text={content} />
+          : status === "completed"
+            ? <div style={{ color: "hsl(0,60%,55%)", fontSize: "0.8rem", fontStyle: "italic" }}>No output received — the model returned an empty response. Try re-running this gate.</div>
+            : <div style={{ color: "var(--muted)", fontSize: "0.8rem", fontStyle: "italic" }}>Waiting for output…</div>
+        }
       </div>
 
       {/* Approval actions — only on the active gate */}
@@ -444,6 +480,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
   const [status, setStatus] = useState<AgentStatus>("idle");
   const [input, setInput] = useState("");
   const [outputs, setOutputs] = useState<Record<number, string>>({});
+  const [metrics, setMetrics] = useState<Record<number, { latencyMs: number | null; tokens: number | null }>>({});
   const [stream, setStream] = useState("");
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedback, setFeedback] = useState("");
@@ -463,13 +500,14 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
 
     try {
       const body = cfg.buildBody(g, input, outputsRef.current, fb);
-      const full = await streamAgent(
+      const { full, latencyMs, tokens } = await streamAgent(
         `${API_BASE}/${cfg.endpoint}`,
         body,
         (chunk) => setStream(chunk),
         abortRef.current.signal,
       );
       setOutputs(prev => ({ ...prev, [g]: full }));
+      setMetrics(prev => ({ ...prev, [g]: { latencyMs, tokens } }));
       setStatus("completed");
     } catch (e: any) {
       if (e.name === "AbortError") return;
@@ -490,7 +528,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
 
   const handleReset = () => {
     abortRef.current?.abort();
-    setGate(1); setStatus("idle"); setInput(""); setOutputs({});
+    setGate(1); setStatus("idle"); setInput(""); setOutputs({}); setMetrics({});
     setStream(""); setShowFeedback(false); setFeedback("");
   };
 
@@ -551,7 +589,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
       {Array.from({ length: gate }, (_, i) => i + 1).map(g => {
         const isCurrentGate = g === gate;
         const gateStatus: AgentStatus = status === "done" ? "completed" : (isCurrentGate ? status : "completed");
-        if (gateStatus === "idle" || (!outputs[g] && gateStatus !== "running" && !isCurrentGate)) return null;
+        if (gateStatus === "idle" || (!(g in outputs) && gateStatus !== "running" && !isCurrentGate)) return null;
         return (
           <GateCard
             key={g}
@@ -570,6 +608,7 @@ function AgentWorkflow({ cfg }: { cfg: AgentConfig }) {
             isLastGate={g === cfg.steps.length}
             feedbackHint={cfg.feedbackHints[g - 1] || ""}
             isCurrentGate={isCurrentGate}
+            metrics={metrics[g] ?? null}
           />
         );
       })}

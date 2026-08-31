@@ -308,7 +308,18 @@ async function chatHandler(body) {
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DOCOPS_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free";
 
-// ── All gate prompts ─────────────────────────────────────────────────────────
+// ── Context-window guard ──────────────────────────────────────────────────────
+// Nemotron-3 free tier: ~8k token context. 1 token ≈ 4 chars.
+const INPUT_LIMIT  = 8_000;
+const OUTPUT_LIMIT = 8_000;
+const SHARED_LIMIT = 6_000;
+
+function trunc(text, limit) {
+  if (!text || text.length <= limit) return text;
+  return text.slice(0, limit) + `\n\n[...truncated — ${text.length - limit} chars omitted to fit context window...]`;
+}
+
+// ── All gate prompts ──────────────────────────────────────────────────────────
 
 // PIPELINE agent prompts
 function pipelineGate1Prompt(input, feedback) {
@@ -318,7 +329,7 @@ Analyse for: Endpoints/API paths, Request parameters (types, required/optional),
 ${feedback ? `WRITER CORRECTION: ${feedback} — Re-run validation taking this correction into account.` : ""}
 OUTPUT FORMAT: ## ✅ Validation Report — Gate 1 with verdict PASS/PASS WITH GAPS/FAIL, Components Found table with ✅/⚠️/❌ status, Summary, Info Gaps Detected.
 SOURCE MATERIAL:
-${input}`;
+${trunc(input, INPUT_LIMIT)}`;
 }
 
 function pipelineGate2Prompt(input, gate1Output, feedback) {
@@ -329,10 +340,10 @@ ${feedback ? `WRITER CORRECTION: ${feedback}` : ""}
 OUTPUT: ## 📐 Page Structure Plan — Gate 2 with Page Inventory, then detailed sections for each page.
 
 GATE 1 VALIDATION OUTPUT:
-${gate1Output}
+${trunc(gate1Output, SHARED_LIMIT)}
 
 ORIGINAL SOURCE MATERIAL:
-${input}`;
+${trunc(input, SHARED_LIMIT)}`;
 }
 
 function pipelineGate3Prompt(input, gate2Output, feedback) {
@@ -342,10 +353,10 @@ RULES: Use ⚠️ Info Gap markers for anything not in source. Overview pages: N
 ${feedback ? `WRITER CORRECTION: ${feedback}` : ""}
 
 PAGE STRUCTURE PLAN (Gate 2):
-${gate2Output}
+${trunc(gate2Output, SHARED_LIMIT)}
 
 ORIGINAL SOURCE MATERIAL:
-${input}`;
+${trunc(input, SHARED_LIMIT)}`;
 }
 
 function pipelineGate4Prompt(gate3Output, feedback) {
@@ -354,7 +365,7 @@ OUTPUT: ## 📊 Generation Summary — Gate 4 with Stats table (pages, endpoints
 ${feedback ? `ADDITIONAL NOTE: ${feedback}` : ""}
 
 GATE 3 GENERATED DOCS:
-${gate3Output}`;
+${trunc(gate3Output, OUTPUT_LIMIT)}`;
 }
 
 function pipelineGate5Prompt(gate3Output, feedback) {
@@ -365,7 +376,7 @@ OUTPUT: ## 🎯 Quality Scorecard — Gate 5 with per-page scoring table.
 ${feedback ? `SCORING NOTE: ${feedback}` : ""}
 
 GATE 3 GENERATED DOCS:
-${gate3Output}`;
+${trunc(gate3Output, OUTPUT_LIMIT)}`;
 }
 
 // MCP agent prompts
@@ -378,7 +389,7 @@ MCP standardises how LLMs call external APIs. Map each endpoint to:
 ${feedback ? `CORRECTION: ${feedback}` : ""}
 OUTPUT: ## 🔍 MCP Primitive Audit — Gate 1 with API Name, endpoint count, Primitive Mapping table, Tools/Resources/Prompts lists, Naming Conflict Risk, Info Gaps.
 INPUT API SPEC:
-${input}`;
+${trunc(input, INPUT_LIMIT)}`;
 }
 
 function mcpGate2Prompt(input, gate1Output, feedback) {
@@ -388,14 +399,13 @@ ${feedback ? `CORRECTION: ${feedback}` : ""}
 OUTPUT: ## 📐 MCP Tool Schema Design — Gate 2 with per-tool blocks showing snake_case name, method+path, LLM description, inputSchema JSON, naming conflicts, info gaps. Plus Resource blocks with URI template + MIME type.
 
 GATE 1 AUDIT:
-${gate1Output}
+${trunc(gate1Output, SHARED_LIMIT)}
 
 API SPEC:
-${input}`;
+${trunc(input, SHARED_LIMIT)}`;
 }
 
 function mcpGate3Prompt(input, gate2Output, feedback) {
-  // Note: this prompt is large — use a model with 32K+ context (gemini-2.5-flash handles this fine)
   return `You are Gate 3 of an MCP Documentation Agent. Generate complete publish-ready MCP documentation.
 RULES: Tool names must be snake_case verb_noun. Every description starts with present-tense verb. inputSchema must be self-contained (no $ref). Use ⚠️ Info Gap markers. cURL uses YOUR_API_KEY etc. Claude Desktop config must be valid JSON.
 ${feedback ? `CORRECTION: ${feedback}` : ""}
@@ -405,10 +415,10 @@ OUTPUT: 3 PAGES:
   PAGE 3 — Resources Reference (per resource: URI, MIME type, description, fields)
 
 GATE 2 SCHEMA DESIGN:
-${gate2Output}
+${trunc(gate2Output, SHARED_LIMIT)}
 
 API SPEC:
-${input}`;
+${trunc(input, SHARED_LIMIT)}`;
 }
 
 function mcpGate4Prompt(gate3Output, feedback) {
@@ -418,7 +428,7 @@ Plus: Ambiguity Report listing tools with overlapping descriptions.
 ${feedback ? `CORRECTION: ${feedback}` : ""}
 
 GATE 3 GENERATED DOCS:
-${gate3Output}`;
+${trunc(gate3Output, OUTPUT_LIMIT)}`;
 }
 
 function mcpGate5Prompt(gate3Output, feedback) {
@@ -429,7 +439,7 @@ Plus: MCP Client Compatibility table (Claude Desktop, ChatGPT, Generic MCP Clien
 ${feedback ? `SCORING NOTE: ${feedback}` : ""}
 
 GATE 3 GENERATED DOCS:
-${gate3Output}`;
+${trunc(gate3Output, OUTPUT_LIMIT)}`;
 }
 
 // NORMALIZER prompts
@@ -442,7 +452,7 @@ ${feedback ? `CORRECTION NOTE: ${feedback}` : ""}
 OUTPUT: ## 🔍 Audit Report with Compliance Summary table (severity 🔴/🟡/🟢), Issues Found count, Sections Analysis, Recommended Fix Order.
 
 CONTENT TO AUDIT:
-${content}`;
+${trunc(content, INPUT_LIMIT)}`;
 }
 
 function normalizeFixPrompt(content, auditReport, feedback) {
@@ -452,10 +462,10 @@ ${feedback ? `ADDITIONAL CORRECTION: ${feedback}` : ""}
 OUTPUT: Clean normalized page ready to copy. No commentary.
 
 AUDIT REPORT:
-${auditReport}
+${trunc(auditReport, SHARED_LIMIT)}
 
 ORIGINAL CONTENT:
-${content}`;
+${trunc(content, SHARED_LIMIT)}`;
 }
 
 // GLOSSARY prompts
@@ -468,7 +478,7 @@ ${feedback ? `CORRECTION: ${feedback}` : ""}
 OUTPUT: ## 📚 Term Extraction Report with Summary, Inconsistency Flags table, Tier 1/2/3 term tables (Term|Used In|Context Snippet|Defined?).
 
 CONTENT:
-${content}`;
+${trunc(content, INPUT_LIMIT)}`;
 }
 
 function glossaryDefinePrompt(content, extractReport, feedback) {
@@ -478,10 +488,10 @@ ${feedback ? `CORRECTION: ${feedback}` : ""}
 OUTPUT: ## 📖 Proposed Glossary with Canonical Term Decisions, then Tier 1/2/3 definitions with Type and Context tags.
 
 TERM EXTRACTION REPORT:
-${extractReport}
+${trunc(extractReport, SHARED_LIMIT)}
 
 ORIGINAL CONTENT:
-${content}`;
+${trunc(content, SHARED_LIMIT)}`;
 }
 
 // ── SSE proxy to OpenRouter ──────────────────────────────────────────────────
@@ -503,6 +513,7 @@ async function streamToSSE(res, prompt, traceMeta) {
 
   // Hoist fullOutput so withLangfuseTrace can read it after streaming completes
   let fullOutput = "";
+  const llmStartMs = Date.now();
 
   const runLLM = async (span) => {
     try {
@@ -548,6 +559,7 @@ async function streamToSSE(res, prompt, traceMeta) {
           if (!line.startsWith("data: ")) continue;
           const raw = line.slice(6).trim();
           if (raw === "[DONE]") {
+            const latencyMs = Date.now() - llmStartMs;
             if (span) {
               try {
                 span.update({ output: fullOutput });
@@ -557,7 +569,7 @@ async function streamToSSE(res, prompt, traceMeta) {
                 span.end({ output: fullOutput, ...(usageData ? { usage: usageData } : {}) });
               } catch { }
             }
-            res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+            res.write(`data: ${JSON.stringify({ done: true, latencyMs, tokens: usageData?.total ?? null })}\n\n`);
             res.end();
             return;
           }
@@ -579,10 +591,11 @@ async function streamToSSE(res, prompt, traceMeta) {
         }
       }
 
+      const latencyMs = Date.now() - llmStartMs;
       if (span) {
         try { span.end({ output: fullOutput, ...(usageData ? { usage: usageData } : {}) }); } catch { }
       }
-      res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+      res.write(`data: ${JSON.stringify({ done: true, latencyMs, tokens: usageData?.total ?? null })}\n\n`);
       res.end();
     } catch (err) {
       console.error("[DocOps SSE] Error:", err.message);
