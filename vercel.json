@@ -15,7 +15,7 @@
     }
   },
   "functions": {
-    "artifacts/how-its-built/api/docs-agent/[agent].ts": {
+    "artifacts/how-its-built/api/docs-agent/*.ts": {
       "maxDuration": 300
     },
     "artifacts/how-its-built/api/chat.ts": {
