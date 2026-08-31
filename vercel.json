@@ -14,6 +14,17 @@
       "BASE_PATH": "/"
     }
   },
+  "functions": {
+    "artifacts/how-its-built/api/docs-agent/[agent].ts": {
+      "maxDuration": 300
+    },
+    "artifacts/how-its-built/api/chat.ts": {
+      "maxDuration": 60
+    },
+    "artifacts/how-its-built/api/mstp-chat.ts": {
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
     { "source": "/api/docs-agent/:agent", "destination": "/api/docs-agent?agent=:agent" },
     { "source": "/api/:path*", "destination": "/api/:path*" },

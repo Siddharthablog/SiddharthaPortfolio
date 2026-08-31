@@ -390,7 +390,7 @@ function GateCard({
                 <circle cx="4.5" cy="4.5" r="4" stroke="hsl(258,50%,55%)" strokeWidth="1.2" fill="hsl(258,60%,92%)" />
                 <circle cx="4.5" cy="4.5" r="1.5" fill="hsl(258,50%,55%)" />
               </svg>
-              Traced
+              Langfuse Traced
             </span>
             {metrics.latencyMs != null && (
               <span style={{ fontSize: 11, color: "var(--muted)", fontVariantNumeric: "tabular-nums" }}>
