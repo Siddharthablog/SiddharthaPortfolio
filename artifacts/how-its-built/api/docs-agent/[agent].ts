@@ -330,25 +330,15 @@ async function streamToSSE(res, prompt, traceMeta?: { agent: string; gate?: numb
         buf += decoder.decode(value, { stream: true });
         const lines = buf.split("\n");
         buf = lines.pop() ?? "";
+
+        // Two-pass: parse all content/usage chunks first, then handle [DONE].
+        // OpenRouter sends the usage chunk and [DONE] in the same read() batch —
+        // processing [DONE] first caused an early return before usageData was set.
+        let sawDone = false;
         for (const line of lines) {
           if (!line.startsWith("data: ")) continue;
           const raw = line.slice(6).trim();
-          if (raw === "[DONE]") {
-            const latencyMs = Date.now() - llmStartMs;
-            if (span) {
-              try {
-                span.update({ output: fullOutput });
-                setActiveTraceIO({
-                  input: [{ role: "user", content: prompt }],
-                  output: { role: "assistant", content: fullOutput },
-                });
-                span.end();
-              } catch {}
-            }
-            res.write(`data: ${JSON.stringify({ done: true, latencyMs, tokens: usageData?.total ?? null })}\n\n`);
-            res.end();
-            return;
-          }
+          if (raw === "[DONE]") { sawDone = true; continue; }
           try {
             const chunk = JSON.parse(raw);
             const content = chunk.choices?.[0]?.delta?.content;
@@ -365,6 +355,23 @@ async function streamToSSE(res, prompt, traceMeta?: { agent: string; gate?: numb
               };
             }
           } catch { /* skip malformed chunks */ }
+        }
+
+        if (sawDone) {
+          const latencyMs = Date.now() - llmStartMs;
+          if (span) {
+            try {
+              span.update({ output: fullOutput });
+              setActiveTraceIO({
+                input: [{ role: "user", content: prompt }],
+                output: { role: "assistant", content: fullOutput },
+              });
+              span.end();
+            } catch {}
+          }
+          res.write(`data: ${JSON.stringify({ done: true, latencyMs, tokens: usageData?.total ?? null })}\n\n`);
+          res.end();
+          return;
         }
       }
 
