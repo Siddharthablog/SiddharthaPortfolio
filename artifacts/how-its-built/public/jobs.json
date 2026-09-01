@@ -1,5 +1,19 @@
 [
   {
+    "id": "dde0c22b",
+    "job_title": "Technical Writer",
+    "company": "Liminal Custody",
+    "location": "Bangalore",
+    "experience": "4+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-01",
+    "verified_at": "2026-09-01T15:26:28Z"
+  },
+  {
     "id": "2408942c",
     "job_title": "Technical Writer - 4",
     "company": "Nutanix",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-01T07:12:11Z"
+    "verified_at": "2026-09-01T15:26:28Z"
   },
   {
     "id": "c59eb723",
@@ -25,6 +39,25 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-01T07:12:11Z"
+    "verified_at": "2026-09-01T15:26:28Z"
+  },
+  {
+    "id": "69841ca6",
+    "job_title": "Senior UX Writer",
+    "company": "Om Human Resource Agency",
+    "location": "Bangalore",
+    "experience": "4-8 Yrs",
+    "skills": [
+      "Content Strategy",
+      "UX Writing",
+      "Data Analysis",
+      "Cross-functional Collaboration"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
+    "source": "Naukri",
+    "date": "2026-09-01",
+    "verified_at": "2026-09-01T15:26:28Z"
   }
 ]
