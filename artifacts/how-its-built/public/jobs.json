@@ -10,8 +10,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-01",
-    "verified_at": "2026-09-01T15:26:28Z"
+    "date": "2026-09-02",
+    "verified_at": "2026-09-02T14:57:55Z"
+  },
+  {
+    "id": "5b4ad4da",
+    "job_title": "Technical Writer",
+    "company": "Birlasoft",
+    "location": "Greater Bengaluru Area",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-birlasoft-4439845512",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-02",
+    "verified_at": "2026-09-02T14:57:55Z"
   },
   {
     "id": "2408942c",
@@ -25,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-01T15:26:28Z"
+    "verified_at": "2026-09-02T14:57:55Z"
   },
   {
     "id": "c59eb723",
@@ -39,7 +53,45 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-01T15:26:28Z"
+    "verified_at": "2026-09-02T14:57:55Z"
+  },
+  {
+    "id": "611bcfa2",
+    "job_title": "Technical Writer- API Documentation & Cloud Infrastructure",
+    "company": "Xoriant",
+    "location": "Pune, Bengaluru, Gurgaon",
+    "experience": "8-13 Yrs",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "Git",
+      "Markdown"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-technical-writer-api-documentation-cloud-infrastructure-xoriant-pune-gurugram-bengaluru-8-to-13-years-191125021634",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-api-documentation-cloud-infrastructure-xoriant-pune-gurugram-bengaluru-8-to-13-years-191125021634",
+    "source": "Naukri",
+    "date": "2026-09-02",
+    "verified_at": "2026-09-02T14:57:55Z"
+  },
+  {
+    "id": "2222812a",
+    "job_title": "Technical Writer - Narayan Solutions - 3 to 5 years of experience",
+    "company": "Narayan Solutions",
+    "location": "Bangalore",
+    "experience": "3-5 years",
+    "skills": [
+      "Technical Writing & Documentation",
+      "Strong Technical English & Editing",
+      "XML / DITA & Structured Authoring",
+      "Topic-based Authoring & Content Reuse"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
+    "source": "Naukri",
+    "date": "2026-09-02",
+    "verified_at": "2026-09-02T14:57:55Z"
   },
   {
     "id": "69841ca6",
@@ -47,17 +99,12 @@
     "company": "Om Human Resource Agency",
     "location": "Bangalore",
     "experience": "4-8 Yrs",
-    "skills": [
-      "Content Strategy",
-      "UX Writing",
-      "Data Analysis",
-      "Cross-functional Collaboration"
-    ],
+    "skills": [],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
     "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
     "source": "Naukri",
-    "date": "2026-09-01",
-    "verified_at": "2026-09-01T15:26:28Z"
+    "date": "2026-09-02",
+    "verified_at": "2026-09-02T14:57:55Z"
   }
 ]
