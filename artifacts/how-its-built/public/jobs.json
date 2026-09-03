@@ -1,5 +1,19 @@
 [
   {
+    "id": "2e243dd0",
+    "job_title": "API Technical Writer",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "4–7 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/api-technical-writer-at-ust-4460251823?refId=Vu1Ha3LNPEst%2B26IbC%2Fqkg%3D%3D&trackingId=u14LGUjc8f9B8S0615dBTw%3D%3D",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-03",
+    "verified_at": "2026-09-03T14:54:14Z"
+  },
+  {
     "id": "dde0c22b",
     "job_title": "Technical Writer",
     "company": "Liminal Custody",
@@ -10,8 +24,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-02",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "date": "2026-09-03",
+    "verified_at": "2026-09-03T14:54:14Z"
+  },
+  {
+    "id": "ba402b1c",
+    "job_title": "Customer Documentation Developer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "7-12 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/customer-documentation-developer-at-nokia-4443769598",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-03",
+    "verified_at": "2026-09-03T14:54:14Z"
   },
   {
     "id": "5b4ad4da",
@@ -25,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-02",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "verified_at": "2026-09-03T14:54:14Z"
   },
   {
     "id": "2408942c",
@@ -39,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "verified_at": "2026-09-03T14:54:14Z"
   },
   {
     "id": "c59eb723",
@@ -53,7 +81,45 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "verified_at": "2026-09-03T14:54:14Z"
+  },
+  {
+    "id": "2222812a",
+    "job_title": "Technical Writer - Bengaluru - Narayan Solutions - 3 to 5 years of experience",
+    "company": "Narayan Solutions",
+    "location": "Bangalore",
+    "experience": "3-5 Yrs",
+    "skills": [
+      "Technical Writing & Documentation",
+      "XML / DITA & Structured Authoring",
+      "SharePoint & Azure DevOps",
+      "Microsoft Office"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
+    "source": "Naukri",
+    "date": "2026-09-03",
+    "verified_at": "2026-09-03T14:54:14Z"
+  },
+  {
+    "id": "e14d60db",
+    "job_title": "Senior UX Writer",
+    "company": "Adobe",
+    "location": "Bangalore",
+    "experience": "4-8 Yrs",
+    "skills": [
+      "Content Strategy",
+      "UX Writing",
+      "User Research",
+      "Copywriting"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
+    "source": "Naukri",
+    "date": "2026-09-03",
+    "verified_at": "2026-09-03T14:54:14Z"
   },
   {
     "id": "611bcfa2",
@@ -72,26 +138,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-api-documentation-cloud-infrastructure-xoriant-pune-gurugram-bengaluru-8-to-13-years-191125021634",
     "source": "Naukri",
     "date": "2026-09-02",
-    "verified_at": "2026-09-02T14:57:55Z"
-  },
-  {
-    "id": "2222812a",
-    "job_title": "Technical Writer - Narayan Solutions - 3 to 5 years of experience",
-    "company": "Narayan Solutions",
-    "location": "Bangalore",
-    "experience": "3-5 years",
-    "skills": [
-      "Technical Writing & Documentation",
-      "Strong Technical English & Editing",
-      "XML / DITA & Structured Authoring",
-      "Topic-based Authoring & Content Reuse"
-    ],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
-    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-narayan-solutions-bengaluru-3-to-5-years-270826029171",
-    "source": "Naukri",
-    "date": "2026-09-02",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "verified_at": "2026-09-03T14:54:14Z"
   },
   {
     "id": "69841ca6",
@@ -105,6 +152,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
     "source": "Naukri",
     "date": "2026-09-02",
-    "verified_at": "2026-09-02T14:57:55Z"
+    "verified_at": "2026-09-03T14:54:14Z"
   }
 ]
