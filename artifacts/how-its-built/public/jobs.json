@@ -1,5 +1,19 @@
 [
   {
+    "id": "80127abd",
+    "job_title": "Technical Writer",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "2-5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-06",
+    "verified_at": "2026-09-06T13:57:38Z"
+  },
+  {
     "id": "dde0c22b",
     "job_title": "Technical Writer",
     "company": "Liminal Custody",
@@ -11,35 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-05",
-    "verified_at": "2026-09-05T13:42:36Z"
-  },
-  {
-    "id": "029b0588",
-    "job_title": "Technical Documentation Specialist",
-    "company": "Crossing Hurdles",
-    "location": "Remote",
-    "experience": "Mid-Senior Level",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-%2450-hr-remote-at-crossing-hurdles-4456807206",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-05",
-    "verified_at": "2026-09-05T13:42:36Z"
-  },
-  {
-    "id": "80127abd",
-    "job_title": "Technical Writer",
-    "company": "UST",
-    "location": "Bangalore",
-    "experience": "2-5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-05",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "d58d4c94",
@@ -53,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-05",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "2e243dd0",
@@ -67,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "ba402b1c",
@@ -81,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "5b4ad4da",
@@ -95,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-02",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "2408942c",
@@ -109,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "c59eb723",
@@ -123,7 +109,21 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
+  },
+  {
+    "id": "486bbfc8",
+    "job_title": "Ux Writer, Document Cloud Growth",
+    "company": "Achnet",
+    "location": "Bangalore",
+    "experience": "3-8 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
+    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
+    "source": "Naukri",
+    "date": "2026-09-06",
+    "verified_at": "2026-09-06T13:57:38Z"
   },
   {
     "id": "611bcfa2",
@@ -142,6 +142,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-api-documentation-cloud-infrastructure-xoriant-pune-gurugram-bengaluru-8-to-13-years-191125021634",
     "source": "Naukri",
     "date": "2026-09-02",
-    "verified_at": "2026-09-05T13:42:36Z"
+    "verified_at": "2026-09-06T13:57:38Z"
   }
 ]
