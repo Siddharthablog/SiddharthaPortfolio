@@ -1,5 +1,19 @@
 [
   {
+    "id": "5b4ad4da",
+    "job_title": "Technical Writer",
+    "company": "Birlasoft",
+    "location": "Greater Bengaluru Area",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-birlasoft-4439845512",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-09",
+    "verified_at": "2026-09-09T15:02:55Z"
+  },
+  {
     "id": "8326675a",
     "job_title": "Technical Documentation & Tech Support Engineer",
     "company": "Optik Precision Instruments",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-08",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "dde0c22b",
@@ -25,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-08",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "2e243dd0",
@@ -39,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-07",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "80127abd",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-06",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "d58d4c94",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-05",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "ba402b1c",
@@ -81,21 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-08T14:54:58Z"
-  },
-  {
-    "id": "5b4ad4da",
-    "job_title": "Technical Writer",
-    "company": "Birlasoft",
-    "location": "Greater Bengaluru Area",
-    "experience": null,
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-birlasoft-4439845512",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-02",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "2408942c",
@@ -109,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   },
   {
     "id": "c59eb723",
@@ -123,48 +123,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-08T14:54:58Z"
-  },
-  {
-    "id": "486bbfc8",
-    "job_title": "Ux Writer, Document Cloud Growth",
-    "company": "Achnet",
-    "location": "Bangalore",
-    "experience": "3-8 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "source": "Naukri",
-    "date": "2026-09-08",
-    "verified_at": "2026-09-08T14:54:58Z"
-  },
-  {
-    "id": "754ba539",
-    "job_title": "UX Writer/ Content Designer (In-App Product Experience)",
-    "company": "Quest Global",
-    "location": "Chennai",
-    "experience": "3+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "source": "Naukri",
-    "date": "2026-09-08",
-    "verified_at": "2026-09-08T14:54:58Z"
-  },
-  {
-    "id": "171b923d",
-    "job_title": "Senior Content Strategist",
-    "company": "Epam Systems",
-    "location": "Bangalore",
-    "experience": "3+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
-    "source": "Naukri",
-    "date": "2026-09-08",
-    "verified_at": "2026-09-08T14:54:58Z"
+    "verified_at": "2026-09-09T15:02:55Z"
   }
 ]
