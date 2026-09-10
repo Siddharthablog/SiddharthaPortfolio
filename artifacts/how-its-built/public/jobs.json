@@ -1,5 +1,61 @@
 [
   {
+    "id": "36e77998",
+    "job_title": "Technical content writer",
+    "company": "Hireologist",
+    "location": "Bangalore",
+    "experience": "3–4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-hireologist-4464460666",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-10",
+    "verified_at": "2026-09-10T14:47:52Z"
+  },
+  {
+    "id": "64f3624e",
+    "job_title": "API Technical Writer",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "4–7 Years",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/api-technical-writer-at-ust-4460251823",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-10",
+    "verified_at": "2026-09-10T14:47:52Z"
+  },
+  {
+    "id": "dde0c22b",
+    "job_title": "Technical Writer",
+    "company": "Liminal Custody",
+    "location": "Bangalore",
+    "experience": "4+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-10",
+    "verified_at": "2026-09-10T14:47:52Z"
+  },
+  {
+    "id": "c565c22a",
+    "job_title": "Technical Writer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "5-6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-nokia-4461893412",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-10",
+    "verified_at": "2026-09-10T14:47:52Z"
+  },
+  {
     "id": "5b4ad4da",
     "job_title": "Technical Writer",
     "company": "Birlasoft",
@@ -11,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-09",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "8326675a",
@@ -25,21 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-08",
-    "verified_at": "2026-09-09T15:02:55Z"
-  },
-  {
-    "id": "dde0c22b",
-    "job_title": "Technical Writer",
-    "company": "Liminal Custody",
-    "location": "Bangalore",
-    "experience": "4+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-08",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "2e243dd0",
@@ -53,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-07",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "80127abd",
@@ -67,21 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-06",
-    "verified_at": "2026-09-09T15:02:55Z"
-  },
-  {
-    "id": "d58d4c94",
-    "job_title": "Staff Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "7+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-05",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "ba402b1c",
@@ -95,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "2408942c",
@@ -109,7 +137,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   },
   {
     "id": "c59eb723",
@@ -123,6 +151,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-09T15:02:55Z"
+    "verified_at": "2026-09-10T14:47:52Z"
   }
 ]
