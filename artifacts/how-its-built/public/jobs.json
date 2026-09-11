@@ -1,17 +1,59 @@
 [
   {
-    "id": "36e77998",
-    "job_title": "Technical content writer",
-    "company": "Hireologist",
+    "id": "86211a2c",
+    "job_title": "Associate Technical Writer",
+    "company": "Aspen Technology",
     "location": "Bangalore",
-    "experience": "3–4 Yrs",
+    "experience": "2 Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-hireologist-4464460666",
+    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-aspen-technology-4384497219",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-10",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "date": "2026-09-11",
+    "verified_at": "2026-09-11T14:52:10Z"
+  },
+  {
+    "id": "9fc80fb8",
+    "job_title": "UX Writer",
+    "company": "Adobe",
+    "location": "Bangalore",
+    "experience": "3+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-at-adobe-bangalore-4464156952",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-11",
+    "verified_at": "2026-09-11T14:52:10Z"
+  },
+  {
+    "id": "c565c22a",
+    "job_title": "Technical Writer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "5-6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-nokia-4461893412",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-11",
+    "verified_at": "2026-09-11T14:52:10Z"
+  },
+  {
+    "id": "7e39cd1e",
+    "job_title": "Senior Technical Writer",
+    "company": "Xylem",
+    "location": "Bangalore",
+    "experience": "4-6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-xylem-4334875822",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-11",
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "64f3624e",
@@ -25,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-10",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "dde0c22b",
@@ -39,21 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-10",
-    "verified_at": "2026-09-10T14:47:52Z"
-  },
-  {
-    "id": "c565c22a",
-    "job_title": "Technical Writer",
-    "company": "Nokia",
-    "location": "Bangalore",
-    "experience": "5-6 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-nokia-4461893412",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-10",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "5b4ad4da",
@@ -67,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-09",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "8326675a",
@@ -81,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-08",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "2e243dd0",
@@ -95,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-07",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "80127abd",
@@ -109,7 +137,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-06",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "ba402b1c",
@@ -123,7 +151,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "2408942c",
@@ -137,7 +165,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   },
   {
     "id": "c59eb723",
@@ -151,6 +179,6 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-10T14:47:52Z"
+    "verified_at": "2026-09-11T14:52:10Z"
   }
 ]
