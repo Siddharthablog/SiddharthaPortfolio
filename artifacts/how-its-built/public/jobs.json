@@ -1,21 +1,7 @@
 [
   {
-    "id": "9fc80fb8",
-    "job_title": "Senior UX Writer",
-    "company": "Adobe",
-    "location": "Bangalore",
-    "experience": "4-8 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-at-adobe-bangalore-4464156952",
-    "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
-    "source": "LinkedIn + Naukri",
-    "date": "2026-09-12",
-    "verified_at": "2026-09-12T13:53:51Z"
-  },
-  {
     "id": "8326675a",
-    "job_title": "Technical Documentation & Tech Support Engineer",
+    "job_title": "Technical Documentation Specialist",
     "company": "Optik Precision Instruments",
     "location": "Bengaluru, Delhi NCR",
     "experience": "1-4 Yrs",
@@ -24,8 +10,64 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-optikprecision-4462911867",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-12",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "date": "2026-09-13",
+    "verified_at": "2026-09-13T14:50:24Z"
+  },
+  {
+    "id": "dde0c22b",
+    "job_title": "Technical Writer",
+    "company": "Liminal Custody",
+    "location": "Bangalore",
+    "experience": "4+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-13",
+    "verified_at": "2026-09-13T14:50:24Z"
+  },
+  {
+    "id": "e3b7e5cd",
+    "job_title": "Knowledge Management PM",
+    "company": "Celonis",
+    "location": "Greater Bengaluru Area",
+    "experience": "8+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/knowledge-management-pm-at-celonis-4423128385",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-13",
+    "verified_at": "2026-09-13T14:50:24Z"
+  },
+  {
+    "id": "9fc80fb8",
+    "job_title": "UX Writer",
+    "company": "Adobe",
+    "location": "Bangalore",
+    "experience": "3+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-at-adobe-bangalore-4464156952",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-13",
+    "verified_at": "2026-09-13T14:50:24Z"
+  },
+  {
+    "id": "80127abd",
+    "job_title": "Technical Writer",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "2-5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-13",
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "c565c22a",
@@ -39,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-12",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "86211a2c",
@@ -53,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "7e39cd1e",
@@ -67,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "64f3624e",
@@ -81,21 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-10",
-    "verified_at": "2026-09-12T13:53:51Z"
-  },
-  {
-    "id": "dde0c22b",
-    "job_title": "Technical Writer",
-    "company": "Liminal Custody",
-    "location": "Bangalore",
-    "experience": "4+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-liminal-custody-4459274889",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-10",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "5b4ad4da",
@@ -109,7 +137,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-09",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "2e243dd0",
@@ -123,21 +151,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-07",
-    "verified_at": "2026-09-12T13:53:51Z"
-  },
-  {
-    "id": "80127abd",
-    "job_title": "Technical Writer",
-    "company": "UST",
-    "location": "Bangalore",
-    "experience": "2-5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-06",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "ba402b1c",
@@ -151,7 +165,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-03",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "c59eb723",
@@ -165,7 +179,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-01",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   },
   {
     "id": "486bbfc8",
@@ -179,6 +193,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
     "source": "Naukri",
     "date": "2026-09-12",
-    "verified_at": "2026-09-12T13:53:51Z"
+    "verified_at": "2026-09-13T14:50:24Z"
   }
 ]
