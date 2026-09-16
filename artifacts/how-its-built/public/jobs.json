@@ -10,8 +10,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/ux-writer-at-adobe-bangalore-4464156952",
     "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
     "source": "LinkedIn + Naukri",
-    "date": "2026-09-15",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "date": "2026-09-16",
+    "verified_at": "2026-09-16T15:21:01Z"
+  },
+  {
+    "id": "23fea6b8",
+    "job_title": "Technical Content Writer",
+    "company": "Hireologist",
+    "location": "Bangalore",
+    "experience": "4 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-hireologist-4466030904",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-16",
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "8326675a",
@@ -25,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-15",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "c565c22a",
@@ -39,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-14",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "e3b7e5cd",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-13",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "80127abd",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-13",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "86211a2c",
@@ -81,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "7e39cd1e",
@@ -95,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "5b4ad4da",
@@ -109,21 +123,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-09",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
-    "id": "ba402b1c",
-    "job_title": "Customer Documentation Developer",
-    "company": "Nokia",
+    "id": "486bbfc8",
+    "job_title": "Ux Writer, Document Cloud Growth - Bengaluru - Achnet - 3 to 8 years of experience",
+    "company": "Achnet",
     "location": "Bangalore",
-    "experience": "7-12 Yrs",
-    "skills": [],
+    "experience": "3-8 years",
+    "skills": [
+      "UX Writing",
+      "Content Strategy",
+      "Adobe",
+      "Design"
+    ],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/customer-documentation-developer-at-nokia-4443769598",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-03",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "apply_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
+    "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
+    "source": "Naukri",
+    "date": "2026-09-16",
+    "verified_at": "2026-09-16T15:21:01Z"
   },
   {
     "id": "41ef1e1f",
@@ -139,6 +158,6 @@
     "naukri_url": "https://www.naukri.com/avanti-fellows-jobs-11",
     "source": "Naukri",
     "date": "2026-09-15",
-    "verified_at": "2026-09-15T15:28:20Z"
+    "verified_at": "2026-09-16T15:21:01Z"
   }
 ]
