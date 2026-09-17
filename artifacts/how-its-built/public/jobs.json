@@ -11,7 +11,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-ux-writer-om-human-resource-agency-bengaluru-4-to-8-years-130426014421",
     "source": "LinkedIn + Naukri",
     "date": "2026-09-16",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "23fea6b8",
@@ -24,8 +24,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-hireologist-4466030904",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-16",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "date": "2026-09-17",
+    "verified_at": "2026-09-17T15:28:31Z"
+  },
+  {
+    "id": "0e12a7f3",
+    "job_title": "Technical Documentation Specialist",
+    "company": "Applicantz",
+    "location": "Bangalore Urban, Karnataka",
+    "experience": "5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-applicantz-4468350717",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-09-17",
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "8326675a",
@@ -38,8 +52,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-optikprecision-4462911867",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-09-15",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "date": "2026-09-17",
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "c565c22a",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-14",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "e3b7e5cd",
@@ -67,21 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-13",
-    "verified_at": "2026-09-16T15:21:01Z"
-  },
-  {
-    "id": "80127abd",
-    "job_title": "Technical Writer",
-    "company": "UST",
-    "location": "Bangalore",
-    "experience": "2-5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-09-13",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "86211a2c",
@@ -95,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "7e39cd1e",
@@ -109,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-11",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "5b4ad4da",
@@ -123,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-09-09",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "486bbfc8",
@@ -142,7 +142,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-ux-writer-document-cloud-growth-achnet-inc-bengaluru-3-to-8-years-030926505196",
     "source": "Naukri",
     "date": "2026-09-16",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   },
   {
     "id": "41ef1e1f",
@@ -158,6 +158,6 @@
     "naukri_url": "https://www.naukri.com/avanti-fellows-jobs-11",
     "source": "Naukri",
     "date": "2026-09-15",
-    "verified_at": "2026-09-16T15:21:01Z"
+    "verified_at": "2026-09-17T15:28:31Z"
   }
 ]
