@@ -10,8 +10,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-inoptra-digital-4470061217",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-01",
-    "verified_at": "2026-10-01T17:18:08Z"
+    "date": "2026-10-02",
+    "verified_at": "2026-10-02T16:31:14Z"
   },
   {
     "id": "d8a79b1c",
@@ -25,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-01",
-    "verified_at": "2026-10-01T17:18:08Z"
+    "verified_at": "2026-10-02T16:31:14Z"
   },
   {
     "id": "1a513289",
@@ -39,39 +39,25 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-01",
-    "verified_at": "2026-10-01T17:18:08Z"
+    "verified_at": "2026-10-02T16:31:14Z"
   },
   {
-    "id": "ddfa7155",
-    "job_title": "Technical Content Writer- Intern",
-    "company": "Treflo",
+    "id": "7ae35962",
+    "job_title": "UX Writer (Technical)",
+    "company": "Devdort",
     "location": "Bangalore",
-    "experience": "0-1 Yrs",
+    "experience": "3-4 Yrs",
     "skills": [
-      "Technical Writing",
-      "Technical Article Writer",
-      "Technical Blog writer",
-      "Content Writer"
+      "French",
+      "Content optimization",
+      "Technical writing",
+      "Enterprise applications"
     ],
     "summary": "",
-    "apply_url": "https://www.naukri.com/content-writing-jobs-in-bangalore",
-    "naukri_url": "https://www.naukri.com/content-writing-jobs-in-bangalore",
+    "apply_url": "https://www.naukri.com/technical-writer-jobs-in-bangalore-2",
+    "naukri_url": "https://www.naukri.com/technical-writer-jobs-in-bangalore-2",
     "source": "Naukri",
-    "date": "2026-10-01",
-    "verified_at": "2026-10-01T17:18:08Z"
-  },
-  {
-    "id": "82b042cc",
-    "job_title": "Content Writer",
-    "company": "ZET",
-    "location": "Bangalore",
-    "experience": "1-2 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/content-writing-jobs-in-bangalore",
-    "naukri_url": "https://www.naukri.com/content-writing-jobs-in-bangalore",
-    "source": "Naukri",
-    "date": "2026-10-01",
-    "verified_at": "2026-10-01T17:18:08Z"
+    "date": "2026-10-02",
+    "verified_at": "2026-10-02T16:31:14Z"
   }
 ]
