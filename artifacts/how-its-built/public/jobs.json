@@ -1,17 +1,17 @@
 [
   {
-    "id": "b3114b1a",
-    "job_title": "Technical Documentation Engineer",
-    "company": "InOpTra Digital",
+    "id": "92d48e04",
+    "job_title": "Senior Technical Writer",
+    "company": "PTC",
     "location": "Bangalore",
-    "experience": "5-8 Yrs",
+    "experience": "Senior Level (5+ Yrs)",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-inoptra-digital-4470061217",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-ptc-4472151831",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-02",
-    "verified_at": "2026-10-02T16:31:14Z"
+    "date": "2026-10-03",
+    "verified_at": "2026-10-03T15:05:30Z"
   },
   {
     "id": "d8a79b1c",
@@ -24,8 +24,36 @@
     "apply_url": "https://in.linkedin.com/jobs/view/engineer-documentation-validation-at-kk-group-4473220331",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-01",
-    "verified_at": "2026-10-02T16:31:14Z"
+    "date": "2026-10-03",
+    "verified_at": "2026-10-03T15:05:30Z"
+  },
+  {
+    "id": "86211a2c",
+    "job_title": "Associate Technical Writer",
+    "company": "Aspen Technology",
+    "location": "Bangalore",
+    "experience": "2 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-aspen-technology-4384497219",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-03",
+    "verified_at": "2026-10-03T15:05:30Z"
+  },
+  {
+    "id": "b3114b1a",
+    "job_title": "Technical Documentation Engineer",
+    "company": "InOpTra Digital",
+    "location": "Bangalore",
+    "experience": "5-8 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-engineer-at-inoptra-digital-4470061217",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-02",
+    "verified_at": "2026-10-03T15:05:30Z"
   },
   {
     "id": "1a513289",
@@ -39,7 +67,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-01",
-    "verified_at": "2026-10-02T16:31:14Z"
+    "verified_at": "2026-10-03T15:05:30Z"
+  },
+  {
+    "id": "79e8ae28",
+    "job_title": "Engineer",
+    "company": "Saankhya Labs",
+    "location": "Bangalore",
+    "experience": "1-3 Yrs",
+    "skills": [
+      "C++",
+      "Software design",
+      "Networking",
+      "Coding"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
+    "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
+    "source": "Naukri",
+    "date": "2026-10-03",
+    "verified_at": "2026-10-03T15:05:30Z"
   },
   {
     "id": "7ae35962",
@@ -58,6 +105,6 @@
     "naukri_url": "https://www.naukri.com/technical-writer-jobs-in-bangalore-2",
     "source": "Naukri",
     "date": "2026-10-02",
-    "verified_at": "2026-10-02T16:31:14Z"
+    "verified_at": "2026-10-03T15:05:30Z"
   }
 ]
