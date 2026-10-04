@@ -1,5 +1,19 @@
 [
   {
+    "id": "5a7f9b36",
+    "job_title": "Technical Documentation Specialist",
+    "company": "Applicantz",
+    "location": "Bangalore Urban, Karnataka",
+    "experience": "5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-applicantz-4474144879",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-04",
+    "verified_at": "2026-10-04T15:40:02Z"
+  },
+  {
     "id": "92d48e04",
     "job_title": "Senior Technical Writer",
     "company": "PTC",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "d8a79b1c",
@@ -25,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "86211a2c",
@@ -39,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "b3114b1a",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-02",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "1a513289",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-01",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "79e8ae28",
@@ -86,7 +100,7 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-03",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   },
   {
     "id": "7ae35962",
@@ -105,6 +119,6 @@
     "naukri_url": "https://www.naukri.com/technical-writer-jobs-in-bangalore-2",
     "source": "Naukri",
     "date": "2026-10-02",
-    "verified_at": "2026-10-03T15:05:30Z"
+    "verified_at": "2026-10-04T15:40:02Z"
   }
 ]
