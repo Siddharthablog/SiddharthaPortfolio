@@ -1,17 +1,45 @@
 [
   {
-    "id": "5a7f9b36",
-    "job_title": "Technical Documentation Specialist",
-    "company": "Applicantz",
-    "location": "Bangalore Urban, Karnataka",
-    "experience": "5 Yrs",
+    "id": "4061a790",
+    "job_title": "Technical Content Writer",
+    "company": "GalaxEye",
+    "location": "Bangalore",
+    "experience": "3-5 Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-at-applicantz-4474144879",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-galaxeye-4472548711",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-04",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "date": "2026-10-05",
+    "verified_at": "2026-10-05T19:32:16Z"
+  },
+  {
+    "id": "d8a79b1c",
+    "job_title": "Engineer - Documentation & Validation",
+    "company": "KK Group",
+    "location": "Bangalore",
+    "experience": "1-3 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/engineer-documentation-validation-at-kk-group-4473220331",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-05",
+    "verified_at": "2026-10-05T19:32:16Z"
+  },
+  {
+    "id": "412f35a5",
+    "job_title": "Technical Documentation Specialist - Health Care",
+    "company": "RAOS INFOSOFT JOIN PRIVATE LIMITED",
+    "location": "Bangalore",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-documentation-specialist-health-care-at-raos-infosoft-join-private-limited-4473468799",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-05",
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "92d48e04",
@@ -25,21 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-04T15:40:02Z"
-  },
-  {
-    "id": "d8a79b1c",
-    "job_title": "Engineer - Documentation & Validation",
-    "company": "KK Group",
-    "location": "Bangalore",
-    "experience": "1-3 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/engineer-documentation-validation-at-kk-group-4473220331",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-03",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "86211a2c",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "b3114b1a",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-02",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "1a513289",
@@ -81,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-01",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "79e8ae28",
@@ -99,8 +113,8 @@
     "apply_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
-    "date": "2026-10-03",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "date": "2026-10-05",
+    "verified_at": "2026-10-05T19:32:16Z"
   },
   {
     "id": "7ae35962",
@@ -119,6 +133,6 @@
     "naukri_url": "https://www.naukri.com/technical-writer-jobs-in-bangalore-2",
     "source": "Naukri",
     "date": "2026-10-02",
-    "verified_at": "2026-10-04T15:40:02Z"
+    "verified_at": "2026-10-05T19:32:16Z"
   }
 ]
