@@ -1,17 +1,31 @@
 [
   {
-    "id": "80127abd",
-    "job_title": "Technical Writer",
-    "company": "UST",
+    "id": "86211a2c",
+    "job_title": "Associate Technical Writer",
+    "company": "Aspen Technology",
     "location": "Bangalore",
-    "experience": "2-5 Yrs",
+    "experience": "2 Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
+    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-aspen-technology-4384497219",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-07",
-    "verified_at": "2026-10-07T17:42:03Z"
+    "date": "2026-10-08",
+    "verified_at": "2026-10-08T17:45:15Z"
+  },
+  {
+    "id": "01297f76",
+    "job_title": "Principal Technical Writer",
+    "company": "Couchbase",
+    "location": "Bangalore",
+    "experience": "8+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/principal-technical-writer-at-couchbase-4475114348",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-08",
+    "verified_at": "2026-10-08T17:45:15Z"
   },
   {
     "id": "1a513289",
@@ -24,8 +38,36 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-global-offshore-consulting-services-4470876200",
     "naukri_url": null,
     "source": "LinkedIn",
+    "date": "2026-10-08",
+    "verified_at": "2026-10-08T17:45:15Z"
+  },
+  {
+    "id": "af5efcf5",
+    "job_title": "Analyst Technical Writer",
+    "company": "Merck Group",
+    "location": "Bangalore",
+    "experience": "1 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/analyst-technical-writer-at-merck-group-4475839811",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-08",
+    "verified_at": "2026-10-08T17:45:15Z"
+  },
+  {
+    "id": "80127abd",
+    "job_title": "Technical Writer",
+    "company": "UST",
+    "location": "Bangalore",
+    "experience": "2-5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ust-4450164017",
+    "naukri_url": null,
+    "source": "LinkedIn",
     "date": "2026-10-07",
-    "verified_at": "2026-10-07T17:42:03Z"
+    "verified_at": "2026-10-08T17:45:15Z"
   },
   {
     "id": "4061a790",
@@ -39,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-05",
-    "verified_at": "2026-10-07T17:42:03Z"
+    "verified_at": "2026-10-08T17:45:15Z"
   },
   {
     "id": "92d48e04",
@@ -53,21 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-07T17:42:03Z"
-  },
-  {
-    "id": "86211a2c",
-    "job_title": "Associate Technical Writer",
-    "company": "Aspen Technology",
-    "location": "Bangalore",
-    "experience": "2 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/associate-technical-writer-at-aspen-technology-4384497219",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-03",
-    "verified_at": "2026-10-07T17:42:03Z"
+    "verified_at": "2026-10-08T17:45:15Z"
   },
   {
     "id": "79e8ae28",
@@ -86,6 +114,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-07T17:42:03Z"
+    "verified_at": "2026-10-08T17:45:15Z"
   }
 ]
