@@ -1,5 +1,19 @@
 [
   {
+    "id": "e6615b22",
+    "job_title": "Senior Technical Writer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-nokia-4461896385",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-10",
+    "verified_at": "2026-10-10T16:08:53Z"
+  },
+  {
     "id": "af5efcf5",
     "job_title": "Analyst Technical Writer",
     "company": "Merck Group",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-09",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "86211a2c",
@@ -25,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-08",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "01297f76",
@@ -39,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-08",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "1a513289",
@@ -53,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-08",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "4061a790",
@@ -67,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-05",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "92d48e04",
@@ -81,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-03",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "7dd224c9",
@@ -95,7 +109,7 @@
     "naukri_url": "https://www.naukri.com/clinical-documentation-specialist-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-10-09",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   },
   {
     "id": "79e8ae28",
@@ -114,6 +128,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-09T17:20:30Z"
+    "verified_at": "2026-10-10T16:08:53Z"
   }
 ]
