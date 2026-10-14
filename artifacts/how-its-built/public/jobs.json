@@ -1,22 +1,17 @@
 [
   {
     "id": "d58d4c94",
-    "job_title": "Senior Technical Writer",
+    "job_title": "Staff Technical Writer",
     "company": "Okta",
     "location": "Bangalore",
-    "experience": "4-9 Yrs",
-    "skills": [
-      "Agile",
-      "Github",
-      "Artificial Intelligence",
-      "Ai"
-    ],
+    "experience": "7+ Yrs",
+    "skills": [],
     "summary": "",
     "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
-    "naukri_url": "https://www.naukri.com/technical-writing-jobs-in-bengaluru-bangalore",
-    "source": "LinkedIn + Naukri",
-    "date": "2026-10-12",
-    "verified_at": "2026-10-13T17:58:25Z"
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-14",
+    "verified_at": "2026-10-14T15:44:34Z"
   },
   {
     "id": "af5efcf5",
@@ -30,35 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-11",
-    "verified_at": "2026-10-13T17:58:25Z"
-  },
-  {
-    "id": "4061a790",
-    "job_title": "Technical Content Writer",
-    "company": "GalaxEye",
-    "location": "Bangalore",
-    "experience": "3-5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-content-writer-at-galaxeye-4472548711",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-05",
-    "verified_at": "2026-10-13T17:58:25Z"
-  },
-  {
-    "id": "92d48e04",
-    "job_title": "Senior Technical Writer",
-    "company": "PTC",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-ptc-4472151831",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-03",
-    "verified_at": "2026-10-13T17:58:25Z"
+    "verified_at": "2026-10-14T15:44:34Z"
   },
   {
     "id": "541f5c55",
@@ -72,7 +39,7 @@
     "naukri_url": "https://www.naukri.com/information-developer-jobs-in-bengaluru-bangalore",
     "source": "Naukri",
     "date": "2026-10-12",
-    "verified_at": "2026-10-13T17:58:25Z"
+    "verified_at": "2026-10-14T15:44:34Z"
   },
   {
     "id": "7dd224c9",
@@ -86,7 +53,7 @@
     "naukri_url": "https://www.naukri.com/clinical-documentation-specialist-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-10-09",
-    "verified_at": "2026-10-13T17:58:25Z"
+    "verified_at": "2026-10-14T15:44:34Z"
   },
   {
     "id": "79e8ae28",
@@ -105,6 +72,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-13T17:58:25Z"
+    "verified_at": "2026-10-14T15:44:34Z"
   }
 ]
