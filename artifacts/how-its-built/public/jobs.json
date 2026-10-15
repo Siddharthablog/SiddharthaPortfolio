@@ -1,5 +1,19 @@
 [
   {
+    "id": "eb40488a",
+    "job_title": "Senior Content Writer",
+    "company": "Kotnani Global Solutions",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-content-writer-at-kotnani-global-solutions-4477980574",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-15",
+    "verified_at": "2026-10-15T15:32:09Z"
+  },
+  {
     "id": "d58d4c94",
     "job_title": "Staff Technical Writer",
     "company": "Okta",
@@ -11,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-14",
-    "verified_at": "2026-10-14T15:44:34Z"
+    "verified_at": "2026-10-15T15:32:09Z"
   },
   {
     "id": "af5efcf5",
@@ -25,21 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-11",
-    "verified_at": "2026-10-14T15:44:34Z"
-  },
-  {
-    "id": "541f5c55",
-    "job_title": "Information Developer I",
-    "company": "Precisely",
-    "location": "Bangalore",
-    "experience": "2-7 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://www.naukri.com/information-developer-jobs-in-bengaluru-bangalore",
-    "naukri_url": "https://www.naukri.com/information-developer-jobs-in-bengaluru-bangalore",
-    "source": "Naukri",
-    "date": "2026-10-12",
-    "verified_at": "2026-10-14T15:44:34Z"
+    "verified_at": "2026-10-15T15:32:09Z"
   },
   {
     "id": "7dd224c9",
@@ -53,7 +53,7 @@
     "naukri_url": "https://www.naukri.com/clinical-documentation-specialist-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-10-09",
-    "verified_at": "2026-10-14T15:44:34Z"
+    "verified_at": "2026-10-15T15:32:09Z"
   },
   {
     "id": "79e8ae28",
@@ -72,6 +72,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-14T15:44:34Z"
+    "verified_at": "2026-10-15T15:32:09Z"
   }
 ]
