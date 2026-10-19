@@ -1,5 +1,33 @@
 [
   {
+    "id": "c06344e6",
+    "job_title": "Senior Technical Writer",
+    "company": "Larsen & Toubro",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-larsen-toubro-4360681834",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-19",
+    "verified_at": "2026-10-19T17:22:54Z"
+  },
+  {
+    "id": "01297f76",
+    "job_title": "Principal Technical Writer",
+    "company": "Couchbase",
+    "location": "Bangalore",
+    "experience": "Principal (10+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/principal-technical-writer-at-couchbase-4475114348",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-10-19",
+    "verified_at": "2026-10-19T17:22:54Z"
+  },
+  {
     "id": "713be7c1",
     "job_title": "Technical Documentation Specialist",
     "company": "Eurofins",
@@ -11,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-18",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "41c30a15",
@@ -25,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-18",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "b2b2cd46",
@@ -39,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-17",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "28f50482",
@@ -53,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-17",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "eb40488a",
@@ -67,21 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-15",
-    "verified_at": "2026-10-18T14:18:03Z"
-  },
-  {
-    "id": "d58d4c94",
-    "job_title": "Staff Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "7+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/staff-technical-writer-at-okta-4447375807",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-14",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "af5efcf5",
@@ -95,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-11",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "dddfd61d",
@@ -114,7 +128,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-151026913147",
     "source": "Naukri",
     "date": "2026-10-18",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "7dd224c9",
@@ -128,7 +142,7 @@
     "naukri_url": "https://www.naukri.com/clinical-documentation-specialist-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-10-09",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   },
   {
     "id": "79e8ae28",
@@ -147,6 +161,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-18T14:18:03Z"
+    "verified_at": "2026-10-19T17:22:54Z"
   }
 ]
