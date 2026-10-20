@@ -1,17 +1,17 @@
 [
   {
-    "id": "c06344e6",
-    "job_title": "Senior Technical Writer",
-    "company": "Larsen & Toubro",
+    "id": "c565c22a",
+    "job_title": "Technical Writer",
+    "company": "Nokia",
     "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
+    "experience": null,
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-larsen-toubro-4360681834",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-nokia-4461893412",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-10-19",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "date": "2026-10-20",
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "01297f76",
@@ -25,7 +25,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-19",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "713be7c1",
@@ -39,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-18",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "41c30a15",
@@ -53,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-18",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "b2b2cd46",
@@ -67,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-17",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "28f50482",
@@ -81,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-17",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "eb40488a",
@@ -95,21 +95,25 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-10-15",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
-    "id": "af5efcf5",
-    "job_title": "Analyst Technical Writer",
-    "company": "Merck Group",
+    "id": "72f2e504",
+    "job_title": "Senior Technical Writer-WMS/Supply chain based",
+    "company": "Inspiration Manpower Consultancy",
     "location": "Bangalore",
-    "experience": "1 Yrs",
-    "skills": [],
+    "experience": "5-10 Yrs",
+    "skills": [
+      "Technical Writing",
+      "WMS",
+      "Supply Chain"
+    ],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/analyst-technical-writer-at-merck-group-4475839811",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-10-11",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "apply_url": "https://www.naukri.com/cms-info-systems-jobs-in-bengaluru-1839",
+    "naukri_url": "https://www.naukri.com/cms-info-systems-jobs-in-bengaluru-1839",
+    "source": "Naukri",
+    "date": "2026-10-20",
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "dddfd61d",
@@ -128,7 +132,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-151026913147",
     "source": "Naukri",
     "date": "2026-10-18",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "7dd224c9",
@@ -142,7 +146,7 @@
     "naukri_url": "https://www.naukri.com/clinical-documentation-specialist-jobs-in-bengaluru",
     "source": "Naukri",
     "date": "2026-10-09",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   },
   {
     "id": "79e8ae28",
@@ -161,6 +165,6 @@
     "naukri_url": "https://www.naukri.com/technical-documentation-engineer-jobs-in-bangalore",
     "source": "Naukri",
     "date": "2026-10-05",
-    "verified_at": "2026-10-19T17:22:54Z"
+    "verified_at": "2026-10-20T15:35:54Z"
   }
 ]
