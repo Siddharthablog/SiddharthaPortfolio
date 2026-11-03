@@ -1,5 +1,94 @@
 [
   {
+    "id": "fceaeb78",
+    "job_title": "UX Content Writer",
+    "company": "Nutanix",
+    "location": "Bangalore",
+    "experience": "3-7 years",
+    "skills": [
+      "UX Writing",
+      "Content Design",
+      "Research",
+      "Multicloud"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/ux-content-writer-at-nutanix-4483201154",
+    "naukri_url": "https://www.naukri.com/job-listings-ux-content-writer-nutanix-india-technologies-private-limited-bengaluru-3-to-7-years-271026501351",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
+    "id": "7312eb8e",
+    "job_title": "Documentation Engineer",
+    "company": "Quest Global",
+    "location": "Bangalore",
+    "experience": "6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/documentation-engineer-at-quest-global-4481302176",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
+    "id": "26722419",
+    "job_title": "Content Systems Engineer, Technical Documentation",
+    "company": "Glean",
+    "location": "Bangalore",
+    "experience": "8-10 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/content-systems-engineer-technical-documentation-at-glean-4473860354",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
+    "id": "459a9901",
+    "job_title": "Specialist Technical writer",
+    "company": "Infineon Technologies",
+    "location": "Bengaluru East, Karnataka",
+    "experience": "Mid-Senior Level",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/specialist-technical-writer-at-infineon-technologies-4468207948",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
+    "id": "701d4bce",
+    "job_title": "Technical Writer/ Editor - Remote",
+    "company": "YO AI Labs",
+    "location": "Bangalore",
+    "experience": null,
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-editor-remote-at-yo-ai-labs-4482666710",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
+    "id": "c363e549",
+    "job_title": "Technical Writer - India",
+    "company": "JumpCloud",
+    "location": "Bengaluru East, Karnataka",
+    "experience": "7+ Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-india-at-jumpcloud-4481469390",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-03",
+    "verified_at": "2026-11-03T18:16:59Z"
+  },
+  {
     "id": "155ef245",
     "job_title": "Compliance Documentation Specialist",
     "company": "NTT DATA North America",
@@ -11,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
+    "verified_at": "2026-11-03T18:16:59Z"
   },
   {
     "id": "c4b717eb",
@@ -25,35 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
-  },
-  {
-    "id": "26722419",
-    "job_title": "Content Systems Engineer, Technical Documentation",
-    "company": "Glean",
-    "location": "Bangalore",
-    "experience": "8-10 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/content-systems-engineer-technical-documentation-at-glean-4473860354",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
-  },
-  {
-    "id": "459a9901",
-    "job_title": "Specialist Technical writer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "Mid-Senior Level",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/specialist-technical-writer-at-infineon-technologies-4468207948",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
+    "verified_at": "2026-11-03T18:16:59Z"
   },
   {
     "id": "db89662d",
@@ -67,21 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
-  },
-  {
-    "id": "c363e549",
-    "job_title": "Technical Writer - India",
-    "company": "JumpCloud",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "7+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-india-at-jumpcloud-4481469390",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
+    "verified_at": "2026-11-03T18:16:59Z"
   },
   {
     "id": "e49c2da0",
@@ -100,6 +147,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-ux-content-writer-nutanix-india-technologies-private-limited-bengaluru-3-to-7-years-271026501351",
     "source": "Naukri",
     "date": "2026-11-02",
-    "verified_at": "2026-11-02T20:41:06Z"
+    "verified_at": "2026-11-03T18:16:59Z"
   }
 ]
