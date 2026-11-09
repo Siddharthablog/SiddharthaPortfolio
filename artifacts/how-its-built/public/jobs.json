@@ -1,36 +1,31 @@
 [
   {
-    "id": "fceaeb78",
-    "job_title": "UX Content Writer",
-    "company": "Nutanix",
+    "id": "60f0d367",
+    "job_title": "Technical Writer",
+    "company": "Schneider Electric",
     "location": "Bangalore",
-    "experience": "3-7 years",
-    "skills": [
-      "UX Writing",
-      "Content Design",
-      "Research",
-      "Multicloud"
-    ],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/ux-content-writer-at-nutanix-4483201154",
-    "naukri_url": "https://www.naukri.com/job-listings-ux-content-writer-nutanix-india-technologies-private-limited-bengaluru-3-to-7-years-271026501351",
-    "source": "LinkedIn + Naukri",
-    "date": "2026-11-03",
-    "verified_at": "2026-11-08T16:57:10Z"
-  },
-  {
-    "id": "c363e549",
-    "job_title": "Technical Writer - India",
-    "company": "JumpCloud",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "7+ Yrs",
+    "experience": "6 Yrs",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-india-at-jumpcloud-4481469390",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-schneider-electric-4486075703",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-08",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "date": "2026-11-09",
+    "verified_at": "2026-11-09T21:18:48Z"
+  },
+  {
+    "id": "e31c05dc",
+    "job_title": "Technical Writer",
+    "company": "GE Vernova",
+    "location": "Bangalore",
+    "experience": "5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ge-vernova-4479822312",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-09",
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "d82bbc3b",
@@ -44,7 +39,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "dbc75395",
@@ -58,7 +53,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "adacc1a9",
@@ -72,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "155ef245",
@@ -86,7 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-05",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "af5efcf5",
@@ -100,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-04",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "459a9901",
@@ -114,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-03",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "db89662d",
@@ -128,7 +123,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
+  },
+  {
+    "id": "f28a2844",
+    "job_title": "Senior Technical Writer",
+    "company": "Armis",
+    "location": "Bangalore",
+    "experience": "5-12 Yrs",
+    "skills": [
+      "Content",
+      "Workflow",
+      "Servicenow",
+      "Technical documentation"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/technical-writers-in-japanese-language-jobs",
+    "naukri_url": "https://www.naukri.com/technical-writers-in-japanese-language-jobs",
+    "source": "Naukri",
+    "date": "2026-11-09",
+    "verified_at": "2026-11-09T21:18:48Z"
   },
   {
     "id": "28e22997",
@@ -142,6 +156,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
     "source": "Naukri",
     "date": "2026-11-04",
-    "verified_at": "2026-11-08T16:57:10Z"
+    "verified_at": "2026-11-09T21:18:48Z"
   }
 ]
