@@ -1,31 +1,17 @@
 [
   {
-    "id": "60f0d367",
-    "job_title": "Technical Writer",
-    "company": "Schneider Electric",
+    "id": "adacc1a9",
+    "job_title": "Senior Technical Writer",
+    "company": "Neo",
     "location": "Bangalore",
-    "experience": "6 Yrs",
+    "experience": "Senior Level (5+ Yrs)",
     "skills": [],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-schneider-electric-4486075703",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-neo-4485455206",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-09",
-    "verified_at": "2026-11-09T21:18:48Z"
-  },
-  {
-    "id": "e31c05dc",
-    "job_title": "Technical Writer",
-    "company": "GE Vernova",
-    "location": "Bangalore",
-    "experience": "5 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ge-vernova-4479822312",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-09",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "date": "2026-11-10",
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "d82bbc3b",
@@ -38,8 +24,36 @@
     "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-dexcare-4477343819",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-07",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "date": "2026-11-10",
+    "verified_at": "2026-11-10T18:29:09Z"
+  },
+  {
+    "id": "60f0d367",
+    "job_title": "Technical writer",
+    "company": "Schneider Electric",
+    "location": "Bangalore",
+    "experience": "6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-schneider-electric-4486075703",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-10",
+    "verified_at": "2026-11-10T18:29:09Z"
+  },
+  {
+    "id": "e31c05dc",
+    "job_title": "Technical Writer",
+    "company": "GE Vernova",
+    "location": "Bangalore",
+    "experience": "5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-ge-vernova-4479822312",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-10",
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "dbc75395",
@@ -53,21 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-09T21:18:48Z"
-  },
-  {
-    "id": "adacc1a9",
-    "job_title": "Senior Technical Writer",
-    "company": "Neo",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-neo-4485455206",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-07",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "155ef245",
@@ -81,21 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-05",
-    "verified_at": "2026-11-09T21:18:48Z"
-  },
-  {
-    "id": "af5efcf5",
-    "job_title": "Analyst Technical Writer",
-    "company": "Merck Group",
-    "location": "Bangalore",
-    "experience": "1 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/analyst-technical-writer-at-merck-group-4475839811",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-04",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "459a9901",
@@ -109,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-03",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "db89662d",
@@ -123,7 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "f28a2844",
@@ -142,7 +128,7 @@
     "naukri_url": "https://www.naukri.com/technical-writers-in-japanese-language-jobs",
     "source": "Naukri",
     "date": "2026-11-09",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   },
   {
     "id": "28e22997",
@@ -156,6 +142,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
     "source": "Naukri",
     "date": "2026-11-04",
-    "verified_at": "2026-11-09T21:18:48Z"
+    "verified_at": "2026-11-10T18:29:09Z"
   }
 ]
