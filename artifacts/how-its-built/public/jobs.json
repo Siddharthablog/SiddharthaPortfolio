@@ -1,5 +1,61 @@
 [
   {
+    "id": "28715a7c",
+    "job_title": "Technical Writer (Bangalore)",
+    "company": "Liebherr Group",
+    "location": "Bangalore",
+    "experience": "3-5 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-bangalore-at-liebherr-group-4467871935",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-11",
+    "verified_at": "2026-11-11T18:21:25Z"
+  },
+  {
+    "id": "60f0d367",
+    "job_title": "Technical writer",
+    "company": "Schneider Electric",
+    "location": "Bangalore",
+    "experience": "6 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-schneider-electric-4486075703",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-11",
+    "verified_at": "2026-11-11T18:21:25Z"
+  },
+  {
+    "id": "ad207091",
+    "job_title": "Technical Writer",
+    "company": "PRI INDIA IT SERVICES PRIVATE LIMITED",
+    "location": "Bangalore",
+    "experience": "5-8 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-pri-india-it-services-private-limited-4486824403",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-11",
+    "verified_at": "2026-11-11T18:21:25Z"
+  },
+  {
+    "id": "f75dbdd8",
+    "job_title": "Senior Technical Writer",
+    "company": "Okta",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4470836387",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-11",
+    "verified_at": "2026-11-11T18:21:25Z"
+  },
+  {
     "id": "adacc1a9",
     "job_title": "Senior Technical Writer",
     "company": "Neo",
@@ -11,7 +67,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "d82bbc3b",
@@ -25,21 +81,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-10T18:29:09Z"
-  },
-  {
-    "id": "60f0d367",
-    "job_title": "Technical writer",
-    "company": "Schneider Electric",
-    "location": "Bangalore",
-    "experience": "6 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-schneider-electric-4486075703",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-10",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "e31c05dc",
@@ -53,7 +95,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "dbc75395",
@@ -67,21 +109,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-10T18:29:09Z"
-  },
-  {
-    "id": "155ef245",
-    "job_title": "Compliance Documentation Specialist",
-    "company": "NTT DATA North America",
-    "location": "Bangalore Urban, Karnataka",
-    "experience": "5+ Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/compliance-documentation-specialist-at-ntt-data-north-america-4484097215",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-05",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "459a9901",
@@ -95,7 +123,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-03",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "db89662d",
@@ -109,7 +137,26 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-02",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
+  },
+  {
+    "id": "84d86b0c",
+    "job_title": "Documentation Engineer / Document Controller",
+    "company": "Infosys",
+    "location": "Bangalore",
+    "experience": "2-6 Yrs",
+    "skills": [
+      "Technical Documentation",
+      "Contract Management",
+      "O&M Manual Preparation",
+      "Document Control"
+    ],
+    "summary": "",
+    "apply_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
+    "naukri_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
+    "source": "Naukri",
+    "date": "2026-11-11",
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "f28a2844",
@@ -128,7 +175,7 @@
     "naukri_url": "https://www.naukri.com/technical-writers-in-japanese-language-jobs",
     "source": "Naukri",
     "date": "2026-11-09",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   },
   {
     "id": "28e22997",
@@ -142,6 +189,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
     "source": "Naukri",
     "date": "2026-11-04",
-    "verified_at": "2026-11-10T18:29:09Z"
+    "verified_at": "2026-11-11T18:21:25Z"
   }
 ]
