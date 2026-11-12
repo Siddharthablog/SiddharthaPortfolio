@@ -1,5 +1,52 @@
 [
   {
+    "id": "e8e5e062",
+    "job_title": "Technical Writer",
+    "company": "Pri India It Services",
+    "location": "Bangalore",
+    "experience": "5 to 9 years",
+    "skills": [
+      "MadCap Flare",
+      "XML-based authoring tools",
+      "API Documentation",
+      "JIRA"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-pri-india-it-services-private-limited-4486824403",
+    "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-11-12",
+    "verified_at": "2026-11-12T18:44:43Z"
+  },
+  {
+    "id": "5b83232d",
+    "job_title": "Senior Technical Writer",
+    "company": "PTC",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-ptc-4485368313",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-12",
+    "verified_at": "2026-11-12T18:44:43Z"
+  },
+  {
+    "id": "e6615b22",
+    "job_title": "Senior Technical Writer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-nokia-4461896385",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-12",
+    "verified_at": "2026-11-12T18:44:43Z"
+  },
+  {
     "id": "28715a7c",
     "job_title": "Technical Writer (Bangalore)",
     "company": "Liebherr Group",
@@ -11,7 +58,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "60f0d367",
@@ -25,7 +72,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "ad207091",
@@ -39,7 +86,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "f75dbdd8",
@@ -53,7 +100,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "adacc1a9",
@@ -67,7 +114,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "d82bbc3b",
@@ -81,7 +128,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "e31c05dc",
@@ -95,7 +142,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "dbc75395",
@@ -109,54 +156,45 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-07",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
-    "id": "459a9901",
-    "job_title": "Specialist Technical writer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "Mid-Senior Level",
-    "skills": [],
+    "id": "95bf39ad",
+    "job_title": "Senior Technical Writer",
+    "company": "Guidewire Software",
+    "location": "Bangalore",
+    "experience": "6 to 8 years",
+    "skills": [
+      "technical writing",
+      "AWS",
+      "Azure",
+      "AI concepts"
+    ],
     "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/specialist-technical-writer-at-infineon-technologies-4468207948",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-03",
-    "verified_at": "2026-11-11T18:21:25Z"
-  },
-  {
-    "id": "db89662d",
-    "job_title": "Senior Specialist Technical Writer",
-    "company": "Infineon Technologies",
-    "location": "Bengaluru East, Karnataka",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-specialist-technical-writer-at-infineon-technologies-4474310053",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-02",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
+    "source": "Naukri",
+    "date": "2026-11-12",
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "84d86b0c",
     "job_title": "Documentation Engineer / Document Controller",
     "company": "Infosys",
-    "location": "Bangalore",
-    "experience": "2-6 Yrs",
+    "location": "Bengaluru, Noida",
+    "experience": "2 to 6 years",
     "skills": [
-      "Technical Documentation",
-      "Contract Management",
-      "O&M Manual Preparation",
-      "Document Control"
+      "technical documentation",
+      "contractual requirements",
+      "O&M manuals",
+      "document control"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
     "naukri_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
     "source": "Naukri",
-    "date": "2026-11-11",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "date": "2026-11-12",
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "f28a2844",
@@ -175,7 +213,7 @@
     "naukri_url": "https://www.naukri.com/technical-writers-in-japanese-language-jobs",
     "source": "Naukri",
     "date": "2026-11-09",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   },
   {
     "id": "28e22997",
@@ -189,6 +227,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
     "source": "Naukri",
     "date": "2026-11-04",
-    "verified_at": "2026-11-11T18:21:25Z"
+    "verified_at": "2026-11-12T18:44:43Z"
   }
 ]
