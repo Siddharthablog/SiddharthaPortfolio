@@ -1,5 +1,43 @@
 [
   {
+    "id": "f75dbdd8",
+    "job_title": "Senior Technical Writer",
+    "company": "Okta",
+    "location": "Bangalore",
+    "experience": "4-9 Yrs",
+    "skills": [
+      "Writing",
+      "Intelligence",
+      "Tools",
+      "Machine learning"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4470836387",
+    "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-in-bangalore",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-11-14",
+    "verified_at": "2026-11-14T16:53:39Z"
+  },
+  {
+    "id": "c565c22a",
+    "job_title": "Technical Writer",
+    "company": "Nokia",
+    "location": "Bangalore",
+    "experience": "5-6 Yrs",
+    "skills": [
+      "Writing",
+      "Development Life Cycle",
+      "Tools",
+      "Agile methodology"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-nokia-4461893412",
+    "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore-bengaluru",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-11-14",
+    "verified_at": "2026-11-14T16:53:39Z"
+  },
+  {
     "id": "e8e5e062",
     "job_title": "Technical Writer",
     "company": "Pri India It Services",
@@ -16,7 +54,21 @@
     "naukri_url": "https://www.naukri.com/technical-writing-jobs-in-bengaluru-bangalore",
     "source": "LinkedIn + Naukri",
     "date": "2026-11-13",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
+  },
+  {
+    "id": "ad207091",
+    "job_title": "Technical Writer",
+    "company": "PRI INDIA IT SERVICES PRIVATE LIMITED",
+    "location": "Bangalore",
+    "experience": "5-8 Yrs",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-pri-india-it-services-private-limited-4486824403",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-14",
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "b96b23dc",
@@ -30,7 +82,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-13",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "0dfbf95b",
@@ -44,7 +96,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-13",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "e6615b22",
@@ -58,7 +110,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-12",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "28715a7c",
@@ -72,7 +124,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "60f0d367",
@@ -86,35 +138,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-11",
-    "verified_at": "2026-11-13T18:24:49Z"
-  },
-  {
-    "id": "ad207091",
-    "job_title": "Technical Writer",
-    "company": "PRI INDIA IT SERVICES PRIVATE LIMITED",
-    "location": "Bangalore",
-    "experience": "5-8 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-pri-india-it-services-private-limited-4486824403",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-11",
-    "verified_at": "2026-11-13T18:24:49Z"
-  },
-  {
-    "id": "f75dbdd8",
-    "job_title": "Senior Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "Senior Level (5+ Yrs)",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4470836387",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-11",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "adacc1a9",
@@ -128,21 +152,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-10",
-    "verified_at": "2026-11-13T18:24:49Z"
-  },
-  {
-    "id": "dbc75395",
-    "job_title": "Compliance Documentation Specialist",
-    "company": "Highbrow Technology Inc",
-    "location": "Bangalore / Hyderabad",
-    "experience": "5+ Years",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/compliance-documentation-specialist-at-highbrow-technology-inc-4486366915",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-07",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "95bf39ad",
@@ -160,27 +170,27 @@
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
     "source": "Naukri",
-    "date": "2026-11-13",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "date": "2026-11-14",
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "84d86b0c",
     "job_title": "Documentation Engineer / Document Controller",
     "company": "Infosys",
     "location": "Bengaluru, Noida",
-    "experience": "2 to 6 years",
+    "experience": "2-6 Yrs",
     "skills": [
-      "technical documentation",
-      "contractual requirements",
-      "O&M manuals",
-      "document control"
+      "Technical Documentation",
+      "Document Control",
+      "O&M Manual",
+      "Quality Management"
     ],
     "summary": "",
     "apply_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
     "naukri_url": "https://www.naukri.com/job-listings-documentation-engineer-document-controller-infosys-noida-bengaluru-2-to-6-years-030625019372",
     "source": "Naukri",
-    "date": "2026-11-12",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "date": "2026-11-14",
+    "verified_at": "2026-11-14T16:53:39Z"
   },
   {
     "id": "28e22997",
@@ -194,6 +204,6 @@
     "naukri_url": "https://www.naukri.com/job-listings-technical-writer-pri-india-it-services-bengaluru-5-to-9-years-021126013183",
     "source": "Naukri",
     "date": "2026-11-04",
-    "verified_at": "2026-11-13T18:24:49Z"
+    "verified_at": "2026-11-14T16:53:39Z"
   }
 ]
