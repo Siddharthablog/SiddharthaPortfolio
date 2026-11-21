@@ -1,5 +1,24 @@
 [
   {
+    "id": "8d140f3d",
+    "job_title": "Senior Technical Writer",
+    "company": "Guidewire Software",
+    "location": "Bangalore",
+    "experience": "6-8 Yrs",
+    "skills": [
+      "content development",
+      "information architecture",
+      "AWS",
+      "AI concepts"
+    ],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-guidewire-software-4482027854",
+    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
+    "source": "LinkedIn + Naukri",
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
+  },
+  {
     "id": "55e70618",
     "job_title": "Technical Writer",
     "company": "GE VERNOVA",
@@ -16,7 +35,7 @@
     "naukri_url": "https://www.naukri.com/technical-writer-jobs-in-india",
     "source": "LinkedIn + Naukri",
     "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "753ab577",
@@ -35,7 +54,7 @@
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-svb-associates-bengaluru-5-to-10-years-121126503044",
     "source": "LinkedIn + Naukri",
     "date": "2026-11-18",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "e6615b22",
@@ -54,26 +73,7 @@
     "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore",
     "source": "LinkedIn + Naukri",
     "date": "2026-11-17",
-    "verified_at": "2026-11-20T19:01:38Z"
-  },
-  {
-    "id": "f75dbdd8",
-    "job_title": "Senior Technical Writer",
-    "company": "Okta",
-    "location": "Bangalore",
-    "experience": "4-9 Yrs",
-    "skills": [
-      "Writing",
-      "Intelligence",
-      "Tools",
-      "Machine learning"
-    ],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4470836387",
-    "naukri_url": "https://www.naukri.com/senior-technical-writer-jobs-in-bangalore",
-    "source": "LinkedIn + Naukri",
-    "date": "2026-11-14",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "c565c22a",
@@ -92,7 +92,7 @@
     "naukri_url": "https://www.naukri.com/lead-technical-writer-jobs-in-bangalore-bengaluru",
     "source": "LinkedIn + Naukri",
     "date": "2026-11-14",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "6c1e28b0",
@@ -105,8 +105,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-i-at-rubrik-4490907843",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "26722419",
@@ -119,8 +119,22 @@
     "apply_url": "https://in.linkedin.com/jobs/view/content-systems-engineer-technical-documentation-at-glean-4473860354",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
+  },
+  {
+    "id": "f75dbdd8",
+    "job_title": "Senior Technical Writer",
+    "company": "Okta",
+    "location": "Bangalore",
+    "experience": "Senior Level (5+ Yrs)",
+    "skills": [],
+    "summary": "",
+    "apply_url": "https://in.linkedin.com/jobs/view/senior-technical-writer-at-okta-4470836387",
+    "naukri_url": null,
+    "source": "LinkedIn",
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "9d54187a",
@@ -133,22 +147,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-alteryx-4469416712",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
-  },
-  {
-    "id": "9fb0e91b",
-    "job_title": "Technical Writer-AEM Guides & DITA",
-    "company": "SWITS DIGITAL Private Limited",
-    "location": "Bangalore Urban, Karnataka",
-    "experience": "7 Yrs",
-    "skills": [],
-    "summary": "",
-    "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-aem-guides-dita-at-swits-digital-private-limited-4490715432?position=30&pageNum=0&refId=82XpxYhlB2msNZLMKdTRLw%3D%3D&trackingId=%2BBDUMol8e435OEHXPUXngQ%3D%3D",
-    "naukri_url": null,
-    "source": "LinkedIn",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "35db28f8",
@@ -161,8 +161,8 @@
     "apply_url": "https://in.linkedin.com/jobs/view/technical-writer-at-cisco-4492425372",
     "naukri_url": null,
     "source": "LinkedIn",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "4a2c0ff6",
@@ -176,7 +176,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-17",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "0dfbf95b",
@@ -190,7 +190,7 @@
     "naukri_url": null,
     "source": "LinkedIn",
     "date": "2026-11-13",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
     "id": "2d0e58bd",
@@ -208,43 +208,35 @@
     "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-svb-associates-bengaluru-5-to-10-years-121126503044",
     "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-svb-associates-bengaluru-5-to-10-years-121126503044",
     "source": "Naukri",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
-    "id": "95bf39ad",
-    "job_title": "Senior Technical Writer",
-    "company": "Guidewire Software",
+    "id": "0258954d",
+    "job_title": "Technical Writer - 2026",
+    "company": "Cyware",
     "location": "Bangalore",
-    "experience": "6-8 years",
-    "skills": [
-      "Technical Writing",
-      "AWS",
-      "Azure",
-      "AI concepts"
-    ],
+    "experience": "6-11 Yrs",
+    "skills": [],
     "summary": "",
-    "apply_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
-    "naukri_url": "https://www.naukri.com/job-listings-senior-technical-writer-guidewire-software-bengaluru-6-to-8-years-161026017369?src=companyPageJobsMob&xp=4&px=1",
+    "apply_url": "https://www.naukri.com/technical-content-writer-jobs-in-bengaluru-bangalore-9",
+    "naukri_url": "https://www.naukri.com/technical-content-writer-jobs-in-bengaluru-bangalore-9",
     "source": "Naukri",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   },
   {
-    "id": "7d0c365e",
-    "job_title": "Senior Technical Writer",
-    "company": "Guidewire",
+    "id": "0a7ec8ab",
+    "job_title": "Staff Technical Writer",
+    "company": "Fivetran",
     "location": "Bangalore",
-    "experience": "6-8 Yrs",
-    "skills": [
-      "DITA",
-      "API Documentation"
-    ],
+    "experience": "8-13 Yrs",
+    "skills": [],
     "summary": "",
-    "apply_url": "https://www.naukri.com/technical-documentation-jobs",
-    "naukri_url": "https://www.naukri.com/technical-documentation-jobs",
+    "apply_url": "https://www.naukri.com/technical-content-writer-jobs-in-bengaluru-bangalore-9",
+    "naukri_url": "https://www.naukri.com/technical-content-writer-jobs-in-bengaluru-bangalore-9",
     "source": "Naukri",
-    "date": "2026-11-20",
-    "verified_at": "2026-11-20T19:01:38Z"
+    "date": "2026-11-21",
+    "verified_at": "2026-11-21T17:55:01Z"
   }
 ]
